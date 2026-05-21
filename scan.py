@@ -8,7 +8,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-BINANCE_BASE = "https://api.binance.com"
+BINANCE_BASE = "https://data-api.binance.vision"
 STATE_FILE = Path(__file__).parent / "state.json"
 RSI_PERIOD = 14
 KLINE_LIMIT = 100
