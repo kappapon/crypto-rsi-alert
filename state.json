@@ -1,9 +1,13 @@
 {
-  "CHIPUSDT": 70,
-  "EDENUSDT": 80,
-  "FIDAUSDT": 70,
-  "KITEUSDT": 70,
-  "TRXUSDT": 80,
-  "USDSUSDT": 70,
-  "ZECUSDT": 70
+  "date": "2026-05-22",
+  "levels": {
+    "CHIPUSDT": 70,
+    "EDENUSDT": 80,
+    "FIDAUSDT": 70,
+    "HOMEUSDT": 70,
+    "KITEUSDT": 70,
+    "NEARUSDT": 80,
+    "TRXUSDT": 80,
+    "ZECUSDT": 70
+  }
 }
