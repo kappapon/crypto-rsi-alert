@@ -2,7 +2,7 @@ name: RSI Alert
 
 on:
   schedule:
-    - cron: '10 0 * * *'
+    - cron: '10 */4 * * *'
   workflow_dispatch:
 
 concurrency:

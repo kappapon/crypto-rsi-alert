@@ -1,16 +1,16 @@
 # Crypto RSI Alert
 
-แจ้งเตือนผ่าน Telegram เมื่อคู่เหรียญ USDT บน Binance มี **Daily RSI(14) > 70** (overbought) หรือ **> 80** (extreme) — ตรวจวันละครั้ง รันบน GitHub Actions ฟรี
+แจ้งเตือนผ่าน Telegram เมื่อคู่เหรียญ USDT บน Binance มี **Daily RSI(14) > 70** (overbought) หรือ **> 80** (extreme) — ตรวจทุก 4 ชั่วโมงจาก live candle รันบน GitHub Actions ฟรี
 
 ## How it works
 
-- รัน cron `00:10 UTC` ทุกวัน (= 07:10 น. ไทย) — หลัง daily candle ของ Binance ปิด
+- รัน cron ทุก 4 ชั่วโมง ที่นาทีที่ 10 UTC (00:10, 04:10, 08:10, 12:10, 16:10, 20:10 UTC)
 - ดึง symbol USDT spot ที่ status TRADING ทั้งหมด (~400)
-- คำนวณ RSI(14) แบบ Wilder (ตรงกับ TradingView) จาก candle ที่ปิดแล้วเท่านั้น
+- คำนวณ RSI(14) แบบ Wilder (ตรงกับ TradingView) จาก daily candle ที่กำลังวิ่งอยู่ (live) — ค่า RSI จะอัปเดตระหว่างวัน
 - Alert logic 2 ระดับ:
-  - ⚠️ ข้าม 70 ขึ้น → แจ้งครั้งเดียว
-  - 🚨 ข้าม 80 ขึ้น → แจ้งครั้งเดียว (เพิ่มเติมจาก 70)
-  - RSI < 70 → reset (พร้อมแจ้งใหม่ได้)
+  - ⚠️ ข้าม 70 ขึ้น → แจ้งครั้งเดียวต่อวัน
+  - 🚨 ข้าม 80 ขึ้น → แจ้งครั้งเดียวต่อวัน (เพิ่มเติมจาก 70)
+  - State reset ทุก 00:00 UTC (07:00 ไทย) — รอบใหม่พร้อมแจ้งใหม่ได้
 - เก็บ state ใน `state.json` — workflow commit กลับเข้า repo เอง
 
 ## Setup (ทำครั้งเดียว)
@@ -62,4 +62,5 @@ DRY_RUN=1 python scan.py
 | `RSI_PERIOD` | 14 | period RSI |
 | `LEVEL_OVERBOUGHT` | 70 | threshold ระดับ 1 |
 | `LEVEL_EXTREME` | 80 | threshold ระดับ 2 |
-| `RESET_BELOW` | 70 | RSI ต่ำกว่านี้ → reset state |
+
+State reset อัตโนมัติเมื่อ UTC date เปลี่ยน (ดู `load_state()` ใน `scan.py`)

@@ -1,4 +1,5 @@
-"""Scan Binance USDT spot pairs for daily RSI > 70 / > 80 and alert via Telegram."""
+"""Scan Binance USDT spot pairs for daily RSI > 70 / > 80 (live candle) and alert via Telegram."""
+import datetime as dt
 import json
 import os
 import sys
@@ -14,7 +15,6 @@ RSI_PERIOD = 14
 KLINE_LIMIT = 100
 LEVEL_OVERBOUGHT = 70
 LEVEL_EXTREME = 80
-RESET_BELOW = 70
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 CHAT_ID = os.environ.get("CHAT_ID", "")
@@ -34,8 +34,8 @@ def fetch_usdt_symbols() -> list[str]:
     )
 
 
-def fetch_closed_daily_closes(symbol: str) -> list[float] | None:
-    """Return closing prices of CLOSED daily candles only (drops in-progress candle)."""
+def fetch_daily_closes(symbol: str) -> list[float] | None:
+    """Return daily closes including the in-progress (live) candle's current close."""
     r = requests.get(
         f"{BINANCE_BASE}/api/v3/klines",
         params={"symbol": symbol, "interval": "1d", "limit": KLINE_LIMIT},
@@ -43,8 +43,7 @@ def fetch_closed_daily_closes(symbol: str) -> list[float] | None:
     )
     r.raise_for_status()
     klines = r.json()
-    now_ms = int(time.time() * 1000)
-    closes = [float(k[4]) for k in klines if k[6] < now_ms]
+    closes = [float(k[4]) for k in klines]
     if len(closes) < RSI_PERIOD + 1:
         return None
     return closes
@@ -63,16 +62,21 @@ def calc_rsi(closes: list[float], period: int = RSI_PERIOD) -> float:
     return float(rsi.iloc[-1])
 
 
-def load_state() -> dict[str, int]:
+def load_state(today_utc: str) -> dict:
+    """Load state, resetting levels when the UTC date rolls over."""
+    fresh = {"date": today_utc, "levels": {}}
     if not STATE_FILE.exists():
-        return {}
+        return fresh
     try:
-        return json.loads(STATE_FILE.read_text())
+        data = json.loads(STATE_FILE.read_text())
     except json.JSONDecodeError:
-        return {}
+        return fresh
+    if not isinstance(data, dict) or "levels" not in data or data.get("date") != today_utc:
+        return fresh
+    return data
 
 
-def save_state(state: dict[str, int]) -> None:
+def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n")
 
 
@@ -102,33 +106,30 @@ def determine_level(rsi: float) -> int:
 
 def main() -> None:
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}] scan start")
+    today_utc = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     symbols = fetch_usdt_symbols()
     print(f"Fetched {len(symbols)} USDT spot symbols")
 
-    state = load_state()
+    state = load_state(today_utc)
+    levels: dict[str, int] = state["levels"]
     new_alerts: list[tuple[str, float, int]] = []
     errors = 0
 
     for i, sym in enumerate(symbols, 1):
         try:
-            closes = fetch_closed_daily_closes(sym)
+            closes = fetch_daily_closes(sym)
             if not closes:
                 continue
             rsi = calc_rsi(closes)
             if pd.isna(rsi):
                 continue
 
-            prev_level = state.get(sym, 0)
+            prev_level = levels.get(sym, 0)
             curr_level = determine_level(rsi)
-
-            if rsi < RESET_BELOW:
-                if sym in state:
-                    del state[sym]
-                continue
 
             if curr_level > prev_level:
                 new_alerts.append((sym, rsi, curr_level))
-                state[sym] = curr_level
+                levels[sym] = curr_level
         except Exception as e:
             errors += 1
             print(f"  {sym}: error {e}", file=sys.stderr)
