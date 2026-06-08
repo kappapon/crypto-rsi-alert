@@ -276,7 +276,10 @@ def cmd_suggest(args: argparse.Namespace) -> None:
     print()
 
     config = load_config()
-    if symbol in config["tickers"]:
+    exists = symbol in config["tickers"]
+    if args.yes:
+        ans = "y"
+    elif exists:
         print(f"⚠️  {symbol} มีอยู่ใน watchlist แล้ว")
         ans = input("Overwrite? (y/N): ").strip().lower()
     else:
@@ -350,6 +353,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_sug = sub.add_parser("suggest", help="auto-calc key levels จาก market data")
     p_sug.add_argument("symbol")
     p_sug.add_argument("--exchange", "-e", choices=EXCHANGES, help="ถ้าไม่ระบุจะ auto-detect")
+    p_sug.add_argument("--yes", "-y", action="store_true", help="ข้าม prompt — auto-add ทันที (สำหรับ headless)")
     p_sug.set_defaults(func=cmd_suggest)
 
     return p

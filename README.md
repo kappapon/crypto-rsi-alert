@@ -49,6 +49,27 @@ position calculator, sound alert, add ticker → suggest levels in browser
   - State reset ทุก 00:00 UTC (07:00 ไทย) — รอบใหม่พร้อมแจ้งใหม่ได้
 - เก็บ state ใน `state.json` — workflow commit กลับเข้า repo เอง
 
+## 🔘 Interactive Add (Telegram button → watchlist)
+
+ทุก RSI alert ใน Telegram จะมีปุ่ม **➕ SYMBOL** แนบมาด้วย — กดปุ่มเดียวเพิ่มเข้า watchlist (auto-calc levels) โดยไม่ต้องเปิดเครื่อง
+
+**ขั้นตอน:**
+1. Telegram ได้รับ alert พร้อมปุ่ม ➕ ต่อ ticker
+2. แตะปุ่ม ➕ SYMBOL ที่อยากเทรด
+3. รอ **5-15 นาที** (workflow `Telegram Handler` รัน */5 นาที พร้อม cron drift)
+4. ข้อความเดิมจะถูก edit แสดง `✅ SYMBOL added to watchlist` + ติ๊กที่ Telegram toast
+5. ticker ถูก commit เข้า `watchlist.json` → workflow Watchlist Alert รอบถัดไปจะแจ้ง breakout/rejection ให้
+
+**Architecture:** polling (ไม่ใช่ webhook)
+- `telegram_handler.py` รัน `getUpdates` ทุก 5 นาที → handle `callback_query` ขึ้นต้น `add:`
+- เรียก `manage_watchlist.py suggest <SYMBOL> --yes` (skip prompt, auto-detect exchange + suggest levels)
+- บันทึก `last_update_id` ใน `telegram_state.json` → workflow commit กลับ repo
+
+**ข้อจำกัด:**
+- Latency 5-15 นาที (cron drift) — ถ้าต้องการ realtime ต้องเปลี่ยนเป็น Cloudflare Worker webhook
+- ปุ่มยังกดได้หลายครั้ง — ครั้งที่ 2+ จะ overwrite ค่าด้วย suggested ใหม่ (idempotent)
+- ถ้า symbol ไม่อยู่บน Binance Futures/Spot/Gate.io → จะตอบ ❌ ผ่าน callback alert
+
 ## Setup (ทำครั้งเดียว)
 
 ### 1. สร้าง Telegram bot

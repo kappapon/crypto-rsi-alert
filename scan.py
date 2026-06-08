@@ -80,17 +80,23 @@ def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n")
 
 
-def send_telegram(text: str) -> None:
+def send_telegram(text: str, reply_markup: dict | None = None) -> None:
+    payload: dict = {"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML", "disable_web_page_preview": True}
+    if reply_markup:
+        payload["reply_markup"] = reply_markup
     if DRY_RUN:
         print("--- DRY RUN — would send: ---")
         print(text)
+        if reply_markup:
+            print("--- reply_markup: ---")
+            print(json.dumps(reply_markup, indent=2, ensure_ascii=False))
         return
     if not BOT_TOKEN or not CHAT_ID:
         print("ERROR: BOT_TOKEN / CHAT_ID not set", file=sys.stderr)
         sys.exit(1)
     r = requests.post(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
-        json={"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML", "disable_web_page_preview": True},
+        json=payload,
         timeout=30,
     )
     r.raise_for_status()
@@ -153,9 +159,23 @@ def main() -> None:
             lines.append("⚠️ <b>Overbought (RSI &gt; 70)</b>")
             for sym, rsi, _ in over:
                 lines.append(f"  <code>{sym}</code>  {rsi:.1f}")
-        send_telegram("\n".join(lines))
+        lines.append("")
+        lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist (5-15 นาที workflow ถัดไปจะ commit)")
+        reply_markup = _build_keyboard([sym for sym, _, _ in new_alerts])
+        send_telegram("\n".join(lines), reply_markup=reply_markup)
 
     save_state(state)
+
+
+def _build_keyboard(symbols: list[str], per_row: int = 2, max_buttons: int = 40) -> dict:
+    """Build Telegram inline_keyboard ➕ SYMBOL buttons. Limit to max_buttons (Telegram caps ~100)."""
+    syms = symbols[:max_buttons]
+    rows = []
+    for i in range(0, len(syms), per_row):
+        rows.append([
+            {"text": f"➕ {s}", "callback_data": f"add:{s}"} for s in syms[i:i + per_row]
+        ])
+    return {"inline_keyboard": rows}
 
 
 if __name__ == "__main__":
