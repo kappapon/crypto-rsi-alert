@@ -1,0 +1,29 @@
+name: Test Alert
+
+on:
+  workflow_dispatch:
+    inputs:
+      symbols:
+        description: 'Comma-separated symbols (default: BTCUSDT,ETHUSDT,SOLUSDT)'
+        required: false
+        default: 'BTCUSDT,ETHUSDT,SOLUSDT'
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Send test alert
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          SYMBOLS: ${{ inputs.symbols }}
+        run: python test_alert.py
