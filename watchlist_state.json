@@ -1,3 +1,12 @@
 {
-  "tickers": {}
+  "tickers": {
+    "BEAT_USDT": {
+      "last_funding": 0.1964,
+      "last_price": 4.2427,
+      "last_updated": "2026-06-08T08:17:09.563742+00:00",
+      "triggers": {
+        "funding": "2026-06-08T08:17:09.563721+00:00"
+      }
+    }
+  }
 }
