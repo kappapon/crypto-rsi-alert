@@ -2,6 +2,42 @@
 
 แจ้งเตือนผ่าน Telegram เมื่อคู่เหรียญ USDT บน Binance มี **Daily RSI(14) > 70** (overbought) หรือ **> 80** (extreme) — ตรวจทุก 4 ชั่วโมงจาก live candle รันบน GitHub Actions ฟรี
 
+> 📖 **เพิ่งเริ่มใช้?** ดู [USAGE.md](USAGE.md) — คู่มือผู้ใช้ทีละขั้นตอน (Setup → Add → Activate → Alert)
+
+## 🚀 Quick Start
+
+```bash
+# 1. Setup (ครั้งเดียว) — ดูรายละเอียดด้านล่าง
+git clone <repo> && cd crypto_rsi_alert
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+# → ใส่ BOT_TOKEN + CHAT_ID ใน GitHub Secrets
+# → เปิด Actions tab → enable workflows
+
+# 2. เพิ่ม ticker เข้า watchlist (auto-suggest key levels)
+python manage_watchlist.py suggest BTCUSDT
+
+# 3. ดู / แก้ / ปิด
+python manage_watchlist.py list
+python manage_watchlist.py set BTCUSDT -j 64000
+python manage_watchlist.py disable BTCUSDT
+
+# 4. Activate (workflow รันทุก 10 นาที)
+git add watchlist.json && git commit -m "watchlist: BTCUSDT" && git push
+```
+
+ครบแล้ว — รอ Telegram alert ได้เลย ✅
+
+### 📊 Dashboard (เห็นทุก ticker real-time ใน browser)
+
+```bash
+python3 dashboard_server.py
+# → เปิด http://localhost:8765/dashboard/
+```
+
+Features: live price, sparkline 24h, scenario badge, distance to levels (color-coded),
+position calculator, sound alert, add ticker → suggest levels in browser
+
 ## How it works
 
 - รัน cron ทุก 4 ชั่วโมง ที่นาทีที่ 10 UTC (00:10, 04:10, 08:10, 12:10, 16:10, 20:10 UTC)

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Watchlist Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>📊 Crypto Watchlist</h1>
+    <div class="controls">
+      <span id="status" class="status">⏳ loading...</span>
+      <label class="switch">
+        <input type="checkbox" id="sound-toggle" checked>
+        <span>🔊 Sound</span>
+      </label>
+      <button id="refresh-btn">🔄 Refresh</button>
+      <button id="add-btn" class="primary">+ Add Ticker</button>
+    </div>
+  </header>
+
+  <main id="grid">
+    <div class="loading">กำลังโหลดข้อมูล...</div>
+  </main>
+
+  <footer>
+    <span>Last update: <span id="last-update">-</span></span>
+    <span>Auto-refresh: <span id="refresh-countdown">30</span>s</span>
+  </footer>
+
+  <!-- Add Ticker Modal -->
+  <div id="modal-add" class="modal hidden">
+    <div class="modal-content">
+      <header>
+        <h2>+ Add Ticker</h2>
+        <button class="close" data-close="modal-add">×</button>
+      </header>
+      <div class="modal-body">
+        <div class="form-row">
+          <label>Symbol</label>
+          <input type="text" id="add-symbol" placeholder="e.g. BTCUSDT or BEAT_USDT" autocomplete="off">
+        </div>
+        <div class="form-row">
+          <label>Exchange</label>
+          <select id="add-exchange">
+            <option value="auto">Auto-detect</option>
+            <option value="binance_futures">Binance Futures</option>
+            <option value="binance_spot">Binance Spot</option>
+            <option value="gateio_futures">Gate.io Futures</option>
+          </select>
+        </div>
+        <button id="suggest-btn" class="primary">🔍 Suggest Levels</button>
+
+        <div id="suggest-result" class="hidden">
+          <h3>💡 Suggested Levels</h3>
+          <div id="suggest-info"></div>
+          <div class="cli-cmd">
+            <label>คัดลอก command ไปรันใน terminal:</label>
+            <pre id="suggest-cmd"></pre>
+            <button id="copy-cmd-btn">📋 Copy command</button>
+          </div>
+          <p class="hint">
+            หลังรันแล้วต้อง <code>git add watchlist.json &amp;&amp; git commit -m "add ticker" &amp;&amp; git push</code>
+            เพื่อให้ workflow + dashboard ใช้ค่าใหม่
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Position Calculator Modal -->
+  <div id="modal-calc" class="modal hidden">
+    <div class="modal-content">
+      <header>
+        <h2>💰 Position Calculator</h2>
+        <button class="close" data-close="modal-calc">×</button>
+      </header>
+      <div class="modal-body" id="calc-body"></div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
