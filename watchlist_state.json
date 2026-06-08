@@ -1,9 +1,9 @@
 {
   "tickers": {
     "BEAT_USDT": {
-      "last_funding": 0.046099999999999995,
-      "last_price": 4.3339,
-      "last_updated": "2026-06-08T21:17:37.421315+00:00",
+      "last_funding": 0.0599,
+      "last_price": 4.2383,
+      "last_updated": "2026-06-08T22:52:25.514057+00:00",
       "triggers": {
         "breakout": "2026-06-08T12:43:10.206827+00:00",
         "funding": "2026-06-08T16:40:25.150754+00:00"
@@ -11,8 +11,8 @@
     },
     "ETHUSDT": {
       "last_funding": 0.0,
-      "last_price": 1710.8,
-      "last_updated": "2026-06-08T21:17:38.226964+00:00"
+      "last_price": 1700.2,
+      "last_updated": "2026-06-08T22:52:26.466247+00:00"
     }
   }
 }
