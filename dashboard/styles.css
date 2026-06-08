@@ -192,6 +192,40 @@ footer {
   bottom: 0;
 }
 
+/* Analysis section */
+.analysis {
+  background: var(--surface-2);
+  border-left: 3px solid var(--purple);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.analysis-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.analysis-time {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: monospace;
+}
+.analysis-text {
+  background: transparent;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 0;
+  margin: 0;
+  line-height: 1.45;
+}
+
 /* Modal */
 .modal {
   position: fixed;

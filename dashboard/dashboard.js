@@ -219,6 +219,8 @@ function renderCard(symbol, cfg, data, klines) {
 
     ${alertsHtml}
 
+    ${renderAnalysis(symbol)}
+
     <div class="card-actions">
       <button data-action="calc" data-symbol="${symbol}">💰 Position Calc</button>
       <button data-action="remove" data-symbol="${symbol}">🗑️ Remove</button>
@@ -356,7 +358,7 @@ async function suggestLevels(symbol, exchange) {
 }
 
 // ============ Main loop ============
-let cache = { watchlist: null, lastFetch: 0 };
+let cache = { watchlist: null, analysis: {}, lastFetch: 0 };
 
 async function loadWatchlist() {
   try {
@@ -368,12 +370,48 @@ async function loadWatchlist() {
   }
 }
 
+async function loadAnalysis() {
+  try {
+    const r = await fetch("../analysis_log.json?_=" + Date.now());
+    if (!r.ok) return {};
+    return await r.json();
+  } catch (e) {
+    return {};
+  }
+}
+
+function fmtTimeAgo(iso) {
+  if (!iso) return "-";
+  const t = new Date(iso).getTime();
+  const sec = Math.max(0, Math.floor((Date.now() - t) / 1000));
+  if (sec < 60) return `${sec}s ago`;
+  if (sec < 3600) return `${Math.floor(sec / 60)}m ago`;
+  if (sec < 86400) return `${Math.floor(sec / 3600)}h ago`;
+  return `${Math.floor(sec / 86400)}d ago`;
+}
+
+function renderAnalysis(symbol) {
+  const a = cache.analysis[symbol];
+  if (!a) return "";
+  const time = new Date(a.timestamp).toLocaleTimeString();
+  const scenCls = `scen-${a.scenario}`;
+  const escaped = a.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  return `<div class="analysis">
+    <div class="analysis-head">
+      <span class="card-scenario ${scenCls}">${a.scenario} · ${a.scenario_label || ""}</span>
+      <span class="analysis-time">${time} · ${fmtTimeAgo(a.timestamp)}</span>
+    </div>
+    <pre class="analysis-text">${escaped}</pre>
+  </div>`;
+}
+
 async function refresh() {
   document.getElementById("status").textContent = "🔄 refreshing...";
   document.getElementById("status").className = "status";
 
-  const watchlist = await loadWatchlist();
+  const [watchlist, analysis] = await Promise.all([loadWatchlist(), loadAnalysis()]);
   cache.watchlist = watchlist;
+  cache.analysis = analysis;
   const tickers = Object.entries(watchlist.tickers || {}).filter(([, cfg]) => cfg.enabled !== false);
 
   if (!tickers.length) {
