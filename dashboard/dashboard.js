@@ -392,7 +392,15 @@ function fmtTimeAgo(iso) {
 
 function renderAnalysis(symbol) {
   const a = cache.analysis[symbol];
-  if (!a) return "";
+  if (!a) {
+    return `<div class="analysis analysis-empty">
+      <div class="analysis-head">
+        <span class="analysis-time">📝 ยังไม่มีการวิเคราะห์</span>
+      </div>
+      <div class="analysis-hint">รอ /loop รอบถัดไป — หรือบันทึกเอง:
+<code>python3 log_analysis.py ${symbol} C "label" "ข้อความ"</code></div>
+    </div>`;
+  }
   const time = new Date(a.timestamp).toLocaleTimeString();
   const scenCls = `scen-${a.scenario}`;
   const escaped = a.text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
