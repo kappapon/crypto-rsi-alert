@@ -4,8 +4,106 @@ import json
 import sys
 from pathlib import Path
 
+import pandas as pd
+import requests
+
 CONFIG_FILE = Path(__file__).parent / "watchlist.json"
 EXCHANGES = ["binance_futures", "binance_spot", "gateio_futures"]
+
+BINANCE_FUTURES_BASE = "https://fapi.binance.com"
+BINANCE_SPOT_BASE = "https://data-api.binance.vision"
+GATEIO_BASE = "https://api.gateio.ws/api/v4"
+
+
+def fetch_klines(symbol: str, exchange: str, limit: int = 500) -> pd.DataFrame | None:
+    """Fetch 1H OHLC candles. Returns DataFrame[open, high, low, close] or None."""
+    try:
+        if exchange == "binance_futures":
+            r = requests.get(
+                f"{BINANCE_FUTURES_BASE}/fapi/v1/klines",
+                params={"symbol": symbol, "interval": "1h", "limit": limit},
+                timeout=15,
+            )
+            r.raise_for_status()
+            rows = r.json()
+            df = pd.DataFrame(rows, columns=[
+                "open_time", "open", "high", "low", "close", "volume",
+                "close_time", "qv", "n", "tb", "tq", "ig",
+            ])
+        elif exchange == "binance_spot":
+            r = requests.get(
+                f"{BINANCE_SPOT_BASE}/api/v3/klines",
+                params={"symbol": symbol, "interval": "1h", "limit": limit},
+                timeout=15,
+            )
+            r.raise_for_status()
+            rows = r.json()
+            df = pd.DataFrame(rows, columns=[
+                "open_time", "open", "high", "low", "close", "volume",
+                "close_time", "qv", "n", "tb", "tq", "ig",
+            ])
+        elif exchange == "gateio_futures":
+            r = requests.get(
+                f"{GATEIO_BASE}/futures/usdt/candlesticks",
+                params={"contract": symbol, "interval": "1h", "limit": limit},
+                timeout=15,
+            )
+            r.raise_for_status()
+            rows = r.json()
+            if not rows:
+                return None
+            df = pd.DataFrame(rows)
+            df = df.rename(columns={"o": "open", "h": "high", "l": "low", "c": "close", "v": "volume"})
+        else:
+            return None
+        cols = ["open", "high", "low", "close"]
+        return df[cols].astype(float).reset_index(drop=True)
+    except Exception as e:
+        print(f"  fetch error {symbol}@{exchange}: {e}", file=sys.stderr)
+        return None
+
+
+def detect_exchange(symbol: str) -> str | None:
+    """Try exchanges in order until one returns data."""
+    for ex in EXCHANGES:
+        df = fetch_klines(symbol, ex, limit=10)
+        if df is not None and len(df) > 0:
+            return ex
+    return None
+
+
+def find_swing_lows(df: pd.DataFrame, window: int = 5) -> list[float]:
+    """Return sorted list of swing low prices (local minima over +/-window candles)."""
+    lows = df["low"].values
+    swings = []
+    for i in range(window, len(lows) - window):
+        if lows[i] == min(lows[i - window:i + window + 1]):
+            swings.append(float(lows[i]))
+    return swings
+
+
+def suggest_levels(symbol: str, exchange: str, df: pd.DataFrame) -> dict:
+    """Compute suggested key levels from 1H OHLC data."""
+    current = float(df["close"].iloc[-1])
+    ath = float(df["high"].max())
+    ema20 = float(df["close"].ewm(span=20, adjust=False).mean().iloc[-1])
+    ema50 = float(df["close"].ewm(span=50, adjust=False).mean().iloc[-1])
+
+    swings = find_swing_lows(df, window=5)
+    candidates = [s for s in swings if ema20 < s < current]
+    rejection = max(candidates) if candidates else round(current * 0.95, 4)
+
+    return {
+        "exchange": exchange,
+        "current": current,
+        "ath": ath,
+        "breakout_above": round(ath * 1.015, 4),
+        "resistance": round(ath, 4),
+        "rejection_below": round(rejection, 4),
+        "support_strong": round(ema20, 4),
+        "support_extreme": round(ema50, 4),
+        "funding_high": 0.10,
+    }
 
 
 def load_config() -> dict:
@@ -152,6 +250,55 @@ def cmd_set(args: argparse.Namespace) -> None:
     print(f"✏️  Updated {args.symbol}: {', '.join(changed)}")
 
 
+def cmd_suggest(args: argparse.Namespace) -> None:
+    symbol = args.symbol
+    exchange = args.exchange or detect_exchange(symbol)
+    if not exchange:
+        sys.exit(f"❌ ไม่พบ {symbol} ใน exchange ใดเลย — ลองระบุ --exchange เอง")
+
+    print(f"🔍 Analyzing {symbol} on {exchange}...")
+    df = fetch_klines(symbol, exchange, limit=500)
+    if df is None or len(df) < 50:
+        sys.exit(f"❌ ดึงข้อมูล {symbol}@{exchange} ไม่พอ (ต้องมี ≥50 candles)")
+
+    s = suggest_levels(symbol, exchange, df)
+    print(f"   Current:     {s['current']:.6g}")
+    print(f"   ATH (1H):    {s['ath']:.6g}  (last {len(df)} candles ≈ {len(df) // 24}d)")
+    print()
+    print("💡 Suggested levels:")
+    print(f"   -e {s['exchange']}")
+    print(f"   -b {s['breakout_above']:.6g}   (breakout = ATH +1.5%)")
+    print(f"   -r {s['resistance']:.6g}   (resistance = ATH)")
+    print(f"   -j {s['rejection_below']:.6g}   (rejection = recent swing low)")
+    print(f"   -s {s['support_strong']:.6g}   (support_strong = EMA20 1H)")
+    print(f"   -x {s['support_extreme']:.6g}   (support_extreme = EMA50 1H)")
+    print(f"   -f {s['funding_high']}   (funding_high = standard 0.1%)")
+    print()
+
+    config = load_config()
+    if symbol in config["tickers"]:
+        print(f"⚠️  {symbol} มีอยู่ใน watchlist แล้ว")
+        ans = input("Overwrite? (y/N): ").strip().lower()
+    else:
+        ans = input("Add to watchlist? (y/N): ").strip().lower()
+    if ans != "y":
+        print("Cancelled.")
+        return
+
+    add_args = argparse.Namespace(
+        symbol=symbol,
+        exchange=s["exchange"],
+        breakout=s["breakout_above"],
+        resistance=s["resistance"],
+        rejection=s["rejection_below"],
+        support=s["support_strong"],
+        extreme=s["support_extreme"],
+        funding=s["funding_high"],
+        force=True,
+    )
+    cmd_add(add_args)
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Manage watchlist.json")
     sub = p.add_subparsers(dest="command", required=True)
@@ -199,6 +346,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_set.add_argument("--extreme", "-x", type=float)
     p_set.add_argument("--funding", "-f", type=float)
     p_set.set_defaults(func=cmd_set)
+
+    p_sug = sub.add_parser("suggest", help="auto-calc key levels จาก market data")
+    p_sug.add_argument("symbol")
+    p_sug.add_argument("--exchange", "-e", choices=EXCHANGES, help="ถ้าไม่ระบุจะ auto-detect")
+    p_sug.set_defaults(func=cmd_suggest)
 
     return p
 
