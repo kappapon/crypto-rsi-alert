@@ -1,0 +1,57 @@
+{
+  "settings": {
+    "cooldown_minutes": 30,
+    "enabled": true
+  },
+  "tickers": {
+    "BEAT_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 4.3,
+        "resistance": 4.24,
+        "rejection_below": 4.0,
+        "support_strong": 3.41,
+        "support_extreme": 2.81
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
+    },
+    "EPICUSDT": {
+      "exchange": "binance_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.78,
+        "resistance": 0.7,
+        "rejection_below": 0.5,
+        "support_strong": 0.43
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
+    },
+    "ALLOUSDT": {
+      "exchange": "binance_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.47,
+        "resistance": 0.4,
+        "rejection_below": 0.3,
+        "support_strong": 0.25
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
+    }
+  }
+}

@@ -64,3 +64,120 @@ DRY_RUN=1 python scan.py
 | `LEVEL_EXTREME` | 80 | threshold ระดับ 2 |
 
 State reset อัตโนมัติเมื่อ UTC date เปลี่ยน (ดู `load_state()` ใน `scan.py`)
+
+---
+
+# Watchlist Alert (Phase 1)
+
+แจ้งเตือน price/funding triggers ของ ticker ที่เลือกไว้ — รันทุก **10 นาที** บน GitHub Actions รองรับหลาย exchange
+
+## รองรับ Exchanges
+- `binance_futures` — Binance USDT-M perpetual
+- `binance_spot` — Binance spot
+- `gateio_futures` — Gate.io USDT perpetual (เช่น BEAT_USDT)
+
+## Trigger ที่รองรับ
+
+| Trigger | เกิดเมื่อ |
+|---------|----------|
+| `price_breakout` | ราคา cross ขึ้นเหนือ `breakout_above` |
+| `price_rejection` | ราคา cross ลงต่ำกว่า `rejection_below` |
+| `support_break` | ราคา cross ลงต่ำกว่า `support_strong` |
+| `resistance_test` | ราคา cross ขึ้นแตะ `resistance` (auto-on ถ้ามีค่า) |
+| `funding_high` | abs(funding rate) ≥ threshold (เช่น 0.10%) |
+
+แต่ละ trigger มี **cooldown 30 นาที** (กัน spam)
+
+## CLI Helper — `manage_watchlist.py`
+
+```bash
+# ดู watchlist ทั้งหมด
+python manage_watchlist.py list
+
+# ดูรายละเอียด ticker
+python manage_watchlist.py show BEAT_USDT
+
+# เพิ่ม ticker
+python manage_watchlist.py add DOGEUSDT \
+  --exchange binance_futures \
+  --breakout 0.25 \
+  --rejection 0.18 \
+  --support 0.15 \
+  --funding 0.10
+
+# แก้ไข level (เฉพาะ field ที่ระบุ)
+python manage_watchlist.py set BEAT_USDT --rejection 4.05
+
+# ปิด/เปิด ticker (เก็บ config ไว้)
+python manage_watchlist.py disable EPICUSDT
+python manage_watchlist.py enable EPICUSDT
+
+# ลบ ticker
+python manage_watchlist.py remove DOGEUSDT  # หรือ rm
+
+# หยุดทั้งระบบ / กลับมาทำงาน
+python manage_watchlist.py pause
+python manage_watchlist.py resume
+```
+
+### Short flags
+| Long | Short |
+|------|-------|
+| `--exchange` | `-e` |
+| `--breakout` | `-b` |
+| `--resistance` | `-r` |
+| `--rejection` | `-j` |
+| `--support` | `-s` |
+| `--extreme` | `-x` |
+| `--funding` | `-f` |
+
+หลัง add/set/remove **ต้อง `git commit + push`** เพื่อให้ workflow ใช้ค่าใหม่
+
+## แก้ Watchlist (manual)
+
+หรือแก้ `watchlist.json` ตรงๆ แล้ว commit:
+
+```json
+{
+  "settings": {
+    "cooldown_minutes": 30,
+    "enabled": true
+  },
+  "tickers": {
+    "BEAT_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 4.30,
+        "resistance": 4.24,
+        "rejection_below": 4.00,
+        "support_strong": 3.41
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.10
+      }
+    }
+  }
+}
+```
+
+### ปิดการทำงาน
+- ทั้งระบบ: `"settings.enabled": false`
+- เฉพาะ ticker: `"enabled": false` ใน ticker นั้น
+- ลบ ticker: ลบ key ออกจาก `tickers` ทั้งหมด
+
+## Local dry-run
+
+```bash
+source .venv/bin/activate
+DRY_RUN=1 python watchlist_scan.py
+```
+
+## Cron Note
+
+Cron ทำงานทุก 10 นาที (`*/10 * * * *`) = ~4,320 runs/เดือน
+- **Public repo**: ฟรี ไม่จำกัด
+- **Private repo**: ใกล้เคียง 2,000 มิน free tier — อาจต้องปรับเป็น `*/15` หรือ `*/30` ถ้าเกิน
