@@ -105,6 +105,7 @@ def main() -> None:
     print(f"[handler] fetched {len(updates)} updates (offset={offset})")
 
     added: list[str] = []
+    processed: set[str] = set()
     for upd in updates:
         state["last_update_id"] = upd["update_id"]
         cb = upd.get("callback_query")
@@ -123,6 +124,11 @@ def main() -> None:
         if not symbol:
             answer_callback(callback_id, "❌ Invalid symbol")
             continue
+        if symbol in processed:
+            print(f"  duplicate click on {symbol} — skip suggest")
+            answer_callback(callback_id, f"⏭️ {symbol} กำลังเพิ่มแล้ว")
+            continue
+        processed.add(symbol)
 
         ok, out = run_suggest(symbol)
         last_line = out.splitlines()[-1] if out else ""
