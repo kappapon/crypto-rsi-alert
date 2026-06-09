@@ -1,0 +1,138 @@
+/**
+ * Cloudflare Worker — Telegram webhook for crypto-rsi-alert.
+ *
+ * Flow:
+ *   Telegram callback_query → verify secret → dedupe (KV TTL) →
+ *   answerCallbackQuery (toast <1s) → GitHub repository_dispatch.
+ *
+ * Replaces the polling cron handler. Watchlist edits still happen
+ * inside the `add-ticker` workflow, preserving Python suggest logic.
+ */
+
+export interface Env {
+  DEDUPE: KVNamespace;
+  BOT_TOKEN: string;
+  WEBHOOK_SECRET: string;
+  GITHUB_TOKEN: string;
+  GITHUB_REPO: string;
+  DEDUPE_TTL_SECONDS: string;
+}
+
+interface TelegramUpdate {
+  update_id: number;
+  callback_query?: {
+    id: string;
+    data?: string;
+    message?: {
+      chat?: { id: number };
+      message_id?: number;
+      text?: string;
+    };
+  };
+}
+
+const SYMBOL_RE = /^[A-Z0-9_]{2,20}$/;
+
+export default {
+  async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    if (req.method !== "POST") return new Response("ok", { status: 200 });
+
+    const secret = req.headers.get("X-Telegram-Bot-Api-Secret-Token");
+    if (secret !== env.WEBHOOK_SECRET) {
+      return new Response("forbidden", { status: 403 });
+    }
+
+    let update: TelegramUpdate;
+    try {
+      update = await req.json();
+    } catch {
+      return new Response("bad json", { status: 400 });
+    }
+
+    const cb = update.callback_query;
+    if (!cb || !cb.data?.startsWith("add:")) {
+      return new Response("ignored", { status: 200 });
+    }
+
+    const symbol = cb.data.slice(4).trim().toUpperCase();
+    if (!SYMBOL_RE.test(symbol)) {
+      ctx.waitUntil(answerCallback(env, cb.id, "❌ Invalid symbol"));
+      return new Response("bad symbol", { status: 200 });
+    }
+
+    const ttl = Math.max(10, parseInt(env.DEDUPE_TTL_SECONDS, 10) || 30);
+    const key = `recent:${symbol}`;
+    const seen = await env.DEDUPE.get(key);
+
+    if (seen) {
+      ctx.waitUntil(
+        answerCallback(env, cb.id, `⏭️ ${symbol} กำลังเพิ่มแล้ว`),
+      );
+      return new Response("dedupe", { status: 200 });
+    }
+
+    await env.DEDUPE.put(key, "1", { expirationTtl: ttl });
+
+    ctx.waitUntil(
+      Promise.all([
+        answerCallback(env, cb.id, `✅ ${symbol} dispatched`),
+        appendToMessage(env, cb, symbol),
+        dispatchAddTicker(env, symbol),
+      ]),
+    );
+
+    return new Response("ok", { status: 200 });
+  },
+};
+
+async function answerCallback(
+  env: Env,
+  callbackId: string,
+  text: string,
+): Promise<void> {
+  await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/answerCallbackQuery`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ callback_query_id: callbackId, text }),
+  });
+}
+
+async function appendToMessage(
+  env: Env,
+  cb: NonNullable<TelegramUpdate["callback_query"]>,
+  symbol: string,
+): Promise<void> {
+  const chatId = cb.message?.chat?.id;
+  const messageId = cb.message?.message_id;
+  const original = cb.message?.text;
+  if (!chatId || !messageId || original === undefined) return;
+
+  const appended = `${original}\n\n✅ <code>${symbol}</code> dispatched to GitHub`;
+  await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/editMessageText`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      chat_id: chatId,
+      message_id: messageId,
+      text: appended,
+      parse_mode: "HTML",
+      disable_web_page_preview: true,
+    }),
+  });
+}
+
+async function dispatchAddTicker(env: Env, symbol: string): Promise<void> {
+  await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/dispatches`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      accept: "application/vnd.github+json",
+      "content-type": "application/json",
+      "user-agent": "crypto-rsi-webhook",
+    },
+    body: JSON.stringify({
+      event_type: "add_ticker",
+      client_payload: { symbol },
+    }),
+  });
+}

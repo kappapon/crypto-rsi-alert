@@ -1,0 +1,59 @@
+name: Add Ticker (webhook)
+
+on:
+  repository_dispatch:
+    types: [add_ticker]
+
+concurrency:
+  group: add-ticker
+  cancel-in-progress: false
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Validate payload
+        id: payload
+        env:
+          SYMBOL: ${{ github.event.client_payload.symbol }}
+        run: |
+          if [[ -z "$SYMBOL" ]]; then
+            echo "::error::Missing symbol in client_payload"
+            exit 1
+          fi
+          if [[ ! "$SYMBOL" =~ ^[A-Z0-9_]{2,20}$ ]]; then
+            echo "::error::Invalid symbol format: $SYMBOL"
+            exit 1
+          fi
+          echo "symbol=$SYMBOL" >> "$GITHUB_OUTPUT"
+
+      - name: Suggest and add ticker
+        env:
+          SYMBOL: ${{ steps.payload.outputs.symbol }}
+        run: python manage_watchlist.py suggest "$SYMBOL" --yes
+
+      - name: Commit watchlist
+        env:
+          SYMBOL: ${{ steps.payload.outputs.symbol }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add watchlist.json
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "watchlist: add $SYMBOL via webhook $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git pull --rebase
+            git push
+          fi

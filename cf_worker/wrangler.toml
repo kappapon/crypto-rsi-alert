@@ -1,0 +1,20 @@
+name = "crypto-rsi-webhook"
+main = "src/index.ts"
+compatibility_date = "2026-06-01"
+
+# ---- KV namespace for per-symbol dedupe (TTL 30s) ----
+# Create with: wrangler kv namespace create DEDUPE
+# Then paste the returned id below.
+[[kv_namespaces]]
+binding = "DEDUPE"
+id = "REPLACE_WITH_KV_ID_AFTER_CREATE"
+
+# ---- Non-secret vars ----
+[vars]
+GITHUB_REPO = "kappapon/crypto-rsi-alert"
+DEDUPE_TTL_SECONDS = "30"
+
+# ---- Secrets (set via: wrangler secret put NAME) ----
+# - BOT_TOKEN          Telegram bot token
+# - WEBHOOK_SECRET     Random string; Telegram sends it in X-Telegram-Bot-Api-Secret-Token
+# - GITHUB_TOKEN       GitHub PAT with `repo` scope (repository_dispatch)
