@@ -1,9 +1,9 @@
 {
   "tickers": {
     "BEAT_USDT": {
-      "last_funding": 0.1746,
-      "last_price": 4.1865,
-      "last_updated": "2026-06-09T04:55:37.105794+00:00",
+      "last_funding": 0.1766,
+      "last_price": 4.1843,
+      "last_updated": "2026-06-09T04:57:46.103514+00:00",
       "triggers": {
         "breakout": "2026-06-08T12:43:10.206827+00:00",
         "funding": "2026-06-09T04:55:37.105782+00:00",
@@ -12,8 +12,8 @@
     },
     "DEXEUSDT": {
       "last_funding": 0.0,
-      "last_price": 22.225,
-      "last_updated": "2026-06-09T04:55:37.956186+00:00"
+      "last_price": 22.205,
+      "last_updated": "2026-06-09T04:57:47.477132+00:00"
     },
     "ETHUSDT": {
       "last_funding": 0.0,
@@ -22,8 +22,8 @@
     },
     "VELVET_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.32766,
-      "last_updated": "2026-06-09T04:55:38.660134+00:00"
+      "last_price": 0.32593,
+      "last_updated": "2026-06-09T04:57:48.110291+00:00"
     }
   }
 }
