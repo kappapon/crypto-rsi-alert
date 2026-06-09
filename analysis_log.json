@@ -5,13 +5,13 @@
     "scenario_label": "bounce กลับทดสอบ 4.24 จาก below",
     "text": "💵 4.2424 (+72.21% 24h) — bounce แรง!\n📊 Funding: +0.14% (longs กลับ?) | Vol 24h: .9M\n📍 4.30 = -1.79% | 4.24 = +0.01% (อยู่ที่นี่!) | 4.00 = +6.06%\n\n📊 Reversal — กลับมา retest 4.24 จาก below\n   • 17:14 → 17:24: 4.1289 → 4.2424 (+2.75%) bounce แรงใน 10 นาที\n   • ทะลุ baseline 4.18 ขึ้นกลับมา + ติด 4.24 อีกครั้ง\n   • Funding 0.13% → 0.14% — longs กลับเข้า\n   • Critical moment:\n     - ทะลุ 4.24 + ยืน = retake → push 4.30 breakout (Scenario B)\n     - Rejected ที่ 4.24 = confirmed resistance → ลงรอบใหม่\n   • ❌ ยังไม่ entry — รอ confirm 4.24 break+hold หรือ reject"
   },
-  "EPICUSDT": {
+  "EPIC_USDT": {
     "timestamp": "2026-06-08T16:51:13+07:00",
     "scenario": "A",
     "scenario_label": "หลังพุ่ง — ใกล้ rejection 0.50",
     "text": "💵 0.5445 (-13.72% 24h) — ลงต่อ\n📊 Funding: +0.005% (neutral) | Vol 24h: $62.6M\n📍 Rejection 0.50 = -8.9% | Support 0.43 = -21%\n\n📊 Parabolic top + crash pattern\n   • 24h high 0.8262 → ตอนนี้ 0.5445 (-34%!)\n   • หลุด resistance 0.70 แล้วร่วงตรง\n   • Funding +0.005% = ตลาด neutralize แล้ว\n   • ถ้าหลุด 0.50 → SHORT continuation (Scenario A)\n   • Sister token ของ BEAT — pattern คล้ายกัน"
   },
-  "ALLOUSDT": {
+  "ALLO_USDT": {
     "timestamp": "2026-06-08T16:51:19+07:00",
     "scenario": "B",
     "scenario_label": "Breakout confirmed ทะลุ 0.47",
