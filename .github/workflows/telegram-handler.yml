@@ -1,8 +1,10 @@
 name: Telegram Handler
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  # schedule disabled 2026-06-09 — webhook (cf_worker) handles callbacks now.
+  # Keep workflow_dispatch for manual fallback if webhook breaks.
+  # schedule:
+  #   - cron: '*/5 * * * *'
   workflow_dispatch:
 
 concurrency:
