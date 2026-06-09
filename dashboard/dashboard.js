@@ -222,6 +222,7 @@ function renderCard(symbol, cfg, data, klines) {
     ${renderAnalysis(symbol)}
 
     <div class="card-actions">
+      <button data-action="analyze" data-symbol="${symbol}">📝 Analyze</button>
       <button data-action="calc" data-symbol="${symbol}">💰 Position Calc</button>
       <button data-action="remove" data-symbol="${symbol}">🗑️ Remove</button>
     </div>
@@ -546,12 +547,51 @@ document.getElementById("grid").addEventListener("click", (e) => {
     fetchTicker(sym, cfg.exchange).then(data => {
       if (data) renderCalcModal(sym, cfg, data);
     });
+  } else if (btn.dataset.action === "analyze") {
+    openAnalysisModal(sym);
   } else if (btn.dataset.action === "remove") {
     const cmd = `python manage_watchlist.py remove ${sym} && git add watchlist.json && git commit -m "watchlist: remove ${sym}" && git push`;
     if (confirm(`Remove ${sym}?\n\nรัน command นี้ใน terminal:\n\n${cmd}`)) {
       navigator.clipboard.writeText(cmd);
       alert("Command copied. รันใน terminal แล้ว refresh dashboard");
     }
+  }
+});
+
+function openAnalysisModal(symbol) {
+  const existing = cache.analysis[symbol];
+  document.getElementById("analysis-symbol").textContent = symbol;
+  document.getElementById("analysis-scenario").value = existing?.scenario || "C";
+  document.getElementById("analysis-label").value = existing?.scenario_label || "";
+  document.getElementById("analysis-text").value = existing?.text || "";
+  document.getElementById("modal-analysis").classList.remove("hidden");
+  document.getElementById("analysis-text").focus();
+}
+
+document.getElementById("analysis-save-btn").addEventListener("click", async () => {
+  const symbol = document.getElementById("analysis-symbol").textContent;
+  const scenario = document.getElementById("analysis-scenario").value;
+  const label = document.getElementById("analysis-label").value.trim();
+  const text = document.getElementById("analysis-text").value.trim();
+  if (!text) return alert("ใส่ details ก่อน");
+
+  const btn = document.getElementById("analysis-save-btn");
+  btn.disabled = true;
+  btn.textContent = "⏳ saving...";
+  try {
+    const r = await fetch("/api/analysis", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ symbol, scenario, scenario_label: label, text }),
+    });
+    if (!r.ok) throw new Error(`HTTP ${r.status}: ${await r.text()}`);
+    document.getElementById("modal-analysis").classList.add("hidden");
+    await refresh();
+  } catch (e) {
+    alert(`Save failed: ${e.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "💾 Save";
   }
 });
 

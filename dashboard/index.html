@@ -69,6 +69,35 @@
     </div>
   </div>
 
+  <!-- Analysis Modal -->
+  <div id="modal-analysis" class="modal hidden">
+    <div class="modal-content">
+      <header>
+        <h2>📝 Analysis: <span id="analysis-symbol"></span></h2>
+        <button class="close" data-close="modal-analysis">×</button>
+      </header>
+      <div class="modal-body">
+        <div class="form-row">
+          <label>Scenario</label>
+          <select id="analysis-scenario">
+            <option value="A">A — SHORT signal (rejection)</option>
+            <option value="B">B — LONG breakout</option>
+            <option value="C" selected>C — Wait / Sideways</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Label</label>
+          <input type="text" id="analysis-label" placeholder="e.g. ใกล้ขอบบน รอ confirm">
+        </div>
+        <div class="form-row">
+          <label>Details</label>
+          <textarea id="analysis-text" rows="10" placeholder="💵 price ...&#10;📊 funding ...&#10;📍 levels ..."></textarea>
+        </div>
+        <button id="analysis-save-btn" class="primary">💾 Save</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Position Calculator Modal -->
   <div id="modal-calc" class="modal hidden">
     <div class="modal-content">
