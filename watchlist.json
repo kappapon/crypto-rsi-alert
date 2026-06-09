@@ -52,23 +52,6 @@
         "support_break": true,
         "funding_high": 0.1
       }
-    },
-    "ETHUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 2189.8625,
-        "resistance": 2157.5,
-        "rejection_below": 1588.5045,
-        "support_strong": 1679.3846,
-        "support_extreme": 1661.4864
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
     }
   }
 }
