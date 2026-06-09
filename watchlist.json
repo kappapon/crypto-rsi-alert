@@ -21,8 +21,8 @@
         "funding_high": 0.1
       }
     },
-    "EPICUSDT": {
-      "exchange": "binance_futures",
+    "EPIC_USDT": {
+      "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
         "breakout_above": 0.78,
@@ -37,8 +37,8 @@
         "funding_high": 0.1
       }
     },
-    "ALLOUSDT": {
-      "exchange": "binance_futures",
+    "ALLO_USDT": {
+      "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
         "breakout_above": 0.47,
