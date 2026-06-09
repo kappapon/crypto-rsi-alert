@@ -60,7 +60,8 @@ export default {
       return new Response("bad symbol", { status: 200 });
     }
 
-    const ttl = Math.max(10, parseInt(env.DEDUPE_TTL_SECONDS, 10) || 30);
+    // Cloudflare KV requires expirationTtl >= 60s — clamp to satisfy that floor.
+    const ttl = Math.max(60, parseInt(env.DEDUPE_TTL_SECONDS, 10) || 60);
     const key = `recent:${symbol}`;
     const seen = await env.DEDUPE.get(key);
 

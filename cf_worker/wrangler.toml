@@ -12,7 +12,7 @@ id = "57bba1d425dd4faf93e858fe1e4c9200"
 # ---- Non-secret vars ----
 [vars]
 GITHUB_REPO = "kappapon/crypto-rsi-alert"
-DEDUPE_TTL_SECONDS = "30"
+DEDUPE_TTL_SECONDS = "60"
 
 # ---- Secrets (set via: wrangler secret put NAME) ----
 # - BOT_TOKEN          Telegram bot token
