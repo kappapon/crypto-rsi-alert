@@ -18,6 +18,11 @@ export interface Env {
   DEDUPE_TTL_SECONDS: string;
 }
 
+interface InlineButton {
+  text: string;
+  callback_data?: string;
+}
+
 interface TelegramUpdate {
   update_id: number;
   callback_query?: {
@@ -27,6 +32,7 @@ interface TelegramUpdate {
       chat?: { id: number };
       message_id?: number;
       text?: string;
+      reply_markup?: { inline_keyboard?: InlineButton[][] };
     };
   };
 }
@@ -51,6 +57,8 @@ export default {
 
     const cb = update.callback_query;
     if (!cb || !cb.data?.startsWith("add:")) {
+      // ปุ่ม ✅ (noop) หรือ callback อื่น — ตอบเปล่าเพื่อหยุด loading spinner ฝั่ง Telegram
+      if (cb) ctx.waitUntil(answerCallback(env, cb.id, ""));
       return new Response("ignored", { status: 200 });
     }
 
@@ -108,6 +116,16 @@ async function appendToMessage(
   const original = cb.message?.text;
   if (!chatId || !messageId || original === undefined) return;
 
+  // editMessageText ที่ไม่ส่ง reply_markup จะลบปุ่มทั้งแผง — ต้องส่ง keyboard เดิมกลับไป
+  // โดยเปลี่ยนปุ่มที่เพิ่งกดเป็น ✅ (noop) ส่วนปุ่มอื่นคงไว้ให้กดต่อได้
+  const keyboard = (cb.message?.reply_markup?.inline_keyboard ?? []).map((row) =>
+    row.map((btn) =>
+      btn.callback_data === `add:${symbol}`
+        ? { text: `✅ ${symbol}`, callback_data: "noop" }
+        : btn,
+    ),
+  );
+
   const appended = `${original}\n\n✅ <code>${symbol}</code> dispatched to GitHub`;
   await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/editMessageText`, {
     method: "POST",
@@ -118,6 +136,7 @@ async function appendToMessage(
       text: appended,
       parse_mode: "HTML",
       disable_web_page_preview: true,
+      reply_markup: { inline_keyboard: keyboard },
     }),
   });
 }
