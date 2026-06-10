@@ -32,11 +32,18 @@ def _py(*args: str) -> list[str]:
 def ml_steps(action: str, symbol: str) -> list[list[str]] | None:
     """Each action = ordered list of commands (full argv), run sequentially."""
     features, train, backtest = _py("build_features.py"), _py("train_model.py"), _py("backtest.py")
+    # push model ขึ้น repo ให้ reversal-alert บน Actions ใช้ — รันหลัง backtest ผ่านเท่านั้น
+    push_model = [
+        ["git", "add", "models/model.pkl", "models/meta.json"],
+        ["git", "commit", "-m", "chore: retrain model via dashboard"],
+        ["git", "pull", "--rebase"],
+        ["git", "push"],
+    ]
     return {
-        # ปุ่ม 🧠 ML Pipeline: ดึง universe → features → train → backtest จบในกดเดียว
-        "pipeline": [_py("fetch_data.py", "--universe", "150"), features, train, backtest],
-        # ปุ่ม 📥 บนการ์ด: ดึงเหรียญนั้น แล้ว retrain ทั้งชุดให้เลย
-        "fetch_retrain": [_py("fetch_data.py", symbol), features, train, backtest],
+        # ปุ่ม 🧠 ML Pipeline: ดึง universe → features → train → backtest → push จบในกดเดียว
+        "pipeline": [_py("fetch_data.py", "--universe", "150"), features, train, backtest, *push_model],
+        # ปุ่ม 📥 บนการ์ด: ดึงเหรียญนั้น แล้ว retrain + push ทั้งชุดให้เลย
+        "fetch_retrain": [_py("fetch_data.py", symbol), features, train, backtest, *push_model],
         # ปุ่ม 🗑️ บนการ์ด: ลบจริง + push ให้ workflow ฝั่ง Actions เลิก monitor ด้วย
         "remove_ticker": [
             _py("manage_watchlist.py", "remove", symbol),
