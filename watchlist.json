@@ -20,23 +20,6 @@
         "support_break": true,
         "funding_high": 0.1
       }
-    },
-    "BTCUSDT": {
-      "exchange": "binance_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 79352.7,
-        "resistance": 78180.0,
-        "rejection_below": 58551.635,
-        "support_strong": 61785.218,
-        "support_extreme": 62184.3924
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
     }
   }
 }
