@@ -23,7 +23,7 @@ import pandas as pd
 import requests
 
 from build_features import EXIT_WINDOW, RSI_ENTRY, WARMUP, build_symbol_features, wilder_rsi
-from fetch_data import BINANCE_BASE, fetch_binance_klines, fetch_gate_futures_candles
+from fetch_data import BINANCE_BASE, GATE_BASE, fetch_binance_klines, fetch_gate_futures_candles
 from scan import DRY_RUN, _build_keyboard, fetch_usdt_symbols, send_telegram
 from train_model import SL_ATR, TP_ATR, tsa1_proba
 
@@ -67,6 +67,21 @@ def fetch_full(symbol: str, exchange: str) -> tuple[pd.DataFrame, pd.DataFrame]:
                 fetch_gate_futures_candles(symbol, "4h", start_4h))
     return (fetch_binance_klines(symbol, "1d", start_1d),
             fetch_binance_klines(symbol, "4h", start_4h))
+
+
+def fetch_live_price(symbol: str, exchange: str) -> float | None:
+    """ราคาสด ณ เวลาส่ง alert — ใช้เป็นจุดอ้างอิง SL/TP (ตรงกับ backtest ที่เข้า open แท่งใหม่)."""
+    try:
+        if exchange == "gateio_futures":
+            arr = requests.get(f"{GATE_BASE}/futures/usdt/tickers",
+                               params={"contract": symbol}, timeout=15).json()
+            return float(arr[0]["last"]) if arr else None
+        r = requests.get(f"{BINANCE_BASE}/api/v3/ticker/price",
+                         params={"symbol": symbol}, timeout=15)
+        r.raise_for_status()
+        return float(r.json()["price"])
+    except Exception:
+        return None
 
 
 def load_state(today: str) -> dict:
@@ -133,7 +148,7 @@ def main() -> None:
             row = feat.iloc[-1]
             print(f"  {sym}: prob={prob:.3f} rsi={row['rsi']:.1f}")
             if prob >= tau and sym not in state["alerted"]:
-                hits.append({"symbol": sym, "prob": prob, "rsi": row["rsi"],
+                hits.append({"symbol": sym, "exchange": ex, "prob": prob, "rsi": row["rsi"],
                              "close": row["close"], "atr": row["atr"]})
         except Exception as e:
             errors += 1
@@ -145,10 +160,14 @@ def main() -> None:
         lines = ["<b>🎯 Reversal watch — fade the top</b>",
                  f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)", ""]
         for h in hits:
-            sl = h["close"] + SL_ATR * h["atr"]
-            tp = h["close"] - TP_ATR * h["atr"]
+            # SL/TP ยึดราคาสด (= "เข้า open แท่งถัดไป" ตาม backtest); ATR จากแท่งปิดเหมือนตอน train
+            live = fetch_live_price(h["symbol"], h["exchange"])
+            entry = live if live is not None else h["close"]
+            sl = entry + SL_ATR * h["atr"]
+            tp = entry - TP_ATR * h["atr"]
             lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}")
-            lines.append(f"   ราคา {h['close']:g} · SL {sl:g} · TP {tp:g}")
+            price_part = f"ราคาล่าสุด {entry:g}" if live is not None else f"ราคาปิดแท่ง {entry:g} (ดึงราคาสดไม่ได้)"
+            lines.append(f"   {price_part} · SL {sl:g} · TP {tp:g}")
         lines.append("")
         lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist")
         send_telegram("\n".join(lines), reply_markup=_build_keyboard([h["symbol"] for h in hits]))
