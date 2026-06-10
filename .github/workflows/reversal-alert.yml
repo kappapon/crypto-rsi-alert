@@ -1,0 +1,44 @@
+name: Reversal Alert (ML)
+on:
+  schedule:
+    - cron: '20 0 * * *'    # 00:20 UTC — after daily candle close
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no Telegram, no state commit)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: reversal-alert
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements-ml.txt
+      - env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
+        run: python reversal_scan.py
+      - name: Commit updated state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reversal_state.json
+          if git diff --staged --quiet; then
+            echo "No state changes."
+          else
+            git commit -m "chore: reversal state $(date -u +%Y-%m-%d)"
+            git pull --rebase
+            git push
+          fi

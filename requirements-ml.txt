@@ -1,6 +1,7 @@
-# Local ML pipeline deps (Mac venv only — GitHub Actions uses requirements.txt)
+# ML pipeline deps — ใช้ทั้ง Mac venv และ reversal-alert.yml บน Actions
 # Python 3.14: ใช้ pandas >= 3 (2.2.x มีปัญหา refcount warning บน 3.14)
+# scikit-learn ต้องตรง minor กับตอน train ไม่งั้น unpickle models/model.pkl อาจพัง
 requests>=2.32
 pandas>=3.0
 pyarrow>=21
-scikit-learn>=1.9
+scikit-learn==1.9.*

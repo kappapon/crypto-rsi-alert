@@ -1,0 +1,64 @@
+{
+  "trained_at": "2026-06-10T06:43:20+00:00",
+  "direction": "short",
+  "tp_atr": 2.0,
+  "sl_atr": 1.0,
+  "horizon": 10,
+  "events": 9907,
+  "tau": 0.325,
+  "dropped_learner": "lr",
+  "val_average_precision": {
+    "lr": 0.314,
+    "rf": 0.321,
+    "gb": 0.3259,
+    "hgb": 0.3381,
+    "knn": 0.3641
+  },
+  "walk_forward": [
+    {
+      "window": "2024-09->2025-01",
+      "n_test": 2089,
+      "base": "30.8%",
+      "tau": 0.325,
+      "picked": 113,
+      "precision": "53.1%",
+      "dropped": "hgb"
+    },
+    {
+      "window": "2025-01->2025-05",
+      "n_test": 701,
+      "base": "25.4%",
+      "tau": 0.375,
+      "picked": 71,
+      "precision": "45.1%",
+      "dropped": "knn"
+    },
+    {
+      "window": "2025-05->2025-09",
+      "n_test": 1411,
+      "base": "31.3%",
+      "tau": 0.35,
+      "picked": 132,
+      "precision": "39.4%",
+      "dropped": "knn"
+    },
+    {
+      "window": "2025-09->2026-01",
+      "n_test": 653,
+      "base": "28.9%",
+      "tau": 0.4,
+      "picked": 37,
+      "precision": "24.3%",
+      "dropped": "hgb"
+    },
+    {
+      "window": "2026-01->2026-06",
+      "n_test": 1517,
+      "base": "27.5%",
+      "tau": 0.425,
+      "picked": 243,
+      "precision": "33.7%",
+      "dropped": "knn"
+    }
+  ]
+}

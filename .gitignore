@@ -6,9 +6,8 @@ __pycache__/
 
 # venv used for local dry-run
 
-# ML pipeline local data (not committed)
+# ML pipeline local data (not committed; models/ IS committed — reversal-alert.yml ใช้บน Actions)
 data/
-models/
 
 # Claude Code local-only config
 .claude/settings.local.json

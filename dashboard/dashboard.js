@@ -600,6 +600,16 @@ document.getElementById("analysis-save-btn").addEventListener("click", async () 
 
 // ============ ML Pipeline ============
 let mlPollTimer = null;
+let mlPrevState = null;
+
+function showToast(msg, ok = true) {
+  const t = document.createElement("div");
+  t.className = `toast ${ok ? "toast-ok" : "toast-err"}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.classList.add("show"), 30);
+  setTimeout(() => { t.classList.remove("show"); setTimeout(() => t.remove(), 400); }, 8000);
+}
 
 function openMlModal() {
   document.getElementById("modal-ml").classList.remove("hidden");
@@ -639,6 +649,17 @@ async function mlPoll() {
   const head = `[${s.state.toUpperCase()}] ${s.action}${s.symbol ? " " + s.symbol : ""}${s.step ? "  step " + s.step : ""}  (start ${s.started}${s.finished ? " → จบ " + s.finished : ""})`;
   el.textContent = `${head}\n${"─".repeat(46)}\n${s.tail || "(no output yet)"}`;
   el.scrollTop = el.scrollHeight;
+  if (mlPrevState === "running" && s.state !== "running") {
+    const what = `${s.action}${s.symbol ? " " + s.symbol : ""}`;
+    if (s.state === "done") {
+      showToast(`✅ DONE — ${what} เสร็จแล้ว (${new Date().toLocaleTimeString()})`);
+      beep(false);
+    } else {
+      showToast(`❌ ERROR — ${what} พังที่ step ${s.step} (ดู log ใน 🧠 ML Pipeline)`, false);
+      beep(true);
+    }
+  }
+  mlPrevState = s.state;
   if (s.state === "running") {
     mlPollTimer = setTimeout(mlPoll, 3000);
   } else {
@@ -651,6 +672,8 @@ async function loadMlSummary() {
   try {
     const m = await fetch("/models/meta.json?_=" + Date.now()).then(r => r.ok ? r.json() : null);
     if (m) {
+      document.getElementById("last-train").textContent =
+        `🤖 train: ${new Date(m.trained_at).toLocaleString("th-TH", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}`;
       const wf = (m.walk_forward || []).map(f => `${f.window}: ${f.precision} (${f.picked} picked)`).join(" · ");
       parts.push(`<div class="ml-card"><b>🤖 Model</b> — trained ${m.trained_at}<br>
         τ=${m.tau} · ${m.events} events · dropped: ${m.dropped_learner}<br>
@@ -678,3 +701,5 @@ document.querySelectorAll("[data-ml]").forEach(b => {
 // ============ Boot ============
 refresh();
 startCountdown();
+loadMlSummary();
+mlPoll();
