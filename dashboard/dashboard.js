@@ -224,7 +224,7 @@ function renderCard(symbol, cfg, data, klines) {
     <div class="card-actions">
       <button data-action="analyze" data-symbol="${symbol}">📝 Analyze</button>
       <button data-action="calc" data-symbol="${symbol}">💰 Position Calc</button>
-      <button data-action="ohlcv" data-symbol="${symbol}">📥 OHLCV</button>
+      <button data-action="ohlcv" data-symbol="${symbol}">📥 OHLCV + Retrain</button>
       <button data-action="remove" data-symbol="${symbol}">🗑️ Remove</button>
     </div>
   </div>`;
@@ -549,7 +549,7 @@ document.getElementById("grid").addEventListener("click", (e) => {
       if (data) renderCalcModal(sym, cfg, data);
     });
   } else if (btn.dataset.action === "ohlcv") {
-    mlStart("fetch", sym);
+    if (confirm(`ดึงข้อมูล ${sym} แล้ว retrain model ทั้งชุด (~10 นาที)?`)) mlStart("fetch_retrain", sym);
   } else if (btn.dataset.action === "analyze") {
     openAnalysisModal(sym);
   } else if (btn.dataset.action === "remove") {
@@ -636,7 +636,7 @@ async function mlPoll() {
     el.textContent = "idle — ยังไม่เคยรันใน session นี้";
     return;
   }
-  const head = `[${s.state.toUpperCase()}] ${s.action}${s.symbol ? " " + s.symbol : ""}  (start ${s.started}${s.finished ? " → done " + s.finished : ""})`;
+  const head = `[${s.state.toUpperCase()}] ${s.action}${s.symbol ? " " + s.symbol : ""}${s.step ? "  step " + s.step : ""}  (start ${s.started}${s.finished ? " → จบ " + s.finished : ""})`;
   el.textContent = `${head}\n${"─".repeat(46)}\n${s.tail || "(no output yet)"}`;
   el.scrollTop = el.scrollHeight;
   if (s.state === "running") {
