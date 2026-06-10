@@ -31,6 +31,7 @@ ROOT = Path(__file__).parent
 MODEL_FILE = ROOT / "models" / "model.pkl"
 STATE_FILE = ROOT / "reversal_state.json"
 WATCHLIST_FILE = ROOT / "watchlist.json"
+PAPER_FILE = ROOT / "paper_trades.json"  # Phase G — สมุดไม้จำลอง (track โดย track_trades.py)
 
 SCREEN_BARS = 100          # cheap 1-request screening window
 HISTORY_YEARS = 3.0        # must match fetch_data default used for training
@@ -82,6 +83,25 @@ def fetch_live_price(symbol: str, exchange: str) -> float | None:
         return float(r.json()["price"])
     except Exception:
         return None
+
+
+def record_paper_trades(hits: list[dict]) -> None:
+    """Phase G: บันทึกทุก hit เป็นไม้จำลอง — ใช้วัดว่า edge มีจริงไหมก่อนใช้เงิน."""
+    book = {"trades": []}
+    if PAPER_FILE.exists():
+        try:
+            book = json.loads(PAPER_FILE.read_text())
+        except json.JSONDecodeError:
+            pass
+    now_iso = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    for h in hits:
+        book["trades"].append({
+            "symbol": h["symbol"], "exchange": h["exchange"], "status": "open",
+            "opened_at": now_iso, "entry": h["entry"], "sl": h["sl"], "tp": h["tp"],
+            "atr": h["atr"], "prob": round(h["prob"], 3), "entry_is_live": h["live"],
+        })
+    PAPER_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
+    print(f"paper journal: recorded {len(hits)} trade(s)")
 
 
 def load_state(today: str) -> dict:
@@ -157,21 +177,26 @@ def main() -> None:
     print(f"hits: {len(hits)} (already alerted today: {len(state['alerted'])})")
     if hits:
         hits.sort(key=lambda h: -h["prob"])
-        lines = ["<b>🎯 Reversal watch — fade the top</b>",
-                 f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)", ""]
         for h in hits:
             # SL/TP ยึดราคาสด (= "เข้า open แท่งถัดไป" ตาม backtest); ATR จากแท่งปิดเหมือนตอน train
             live = fetch_live_price(h["symbol"], h["exchange"])
-            entry = live if live is not None else h["close"]
-            sl = entry + SL_ATR * h["atr"]
-            tp = entry - TP_ATR * h["atr"]
+            h["entry"] = live if live is not None else h["close"]
+            h["live"] = live is not None
+            h["sl"] = h["entry"] + SL_ATR * h["atr"]
+            h["tp"] = h["entry"] - TP_ATR * h["atr"]
+
+        lines = ["<b>🎯 Reversal watch — fade the top</b>",
+                 f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)", ""]
+        for h in hits:
             lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}")
-            price_part = f"ราคาล่าสุด {entry:g}" if live is not None else f"ราคาปิดแท่ง {entry:g} (ดึงราคาสดไม่ได้)"
-            lines.append(f"   {price_part} · SL {sl:g} · TP {tp:g}")
+            price_part = f"ราคาล่าสุด {h['entry']:g}" if h["live"] else f"ราคาปิดแท่ง {h['entry']:g} (ดึงราคาสดไม่ได้)"
+            lines.append(f"   {price_part} · SL {h['sl']:g} · TP {h['tp']:g}")
         lines.append("")
         lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist")
         send_telegram("\n".join(lines), reply_markup=_build_keyboard([h["symbol"] for h in hits]))
         state["alerted"].extend(h["symbol"] for h in hits)
+        if not DRY_RUN:
+            record_paper_trades(hits)
 
     if not DRY_RUN:
         STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n")

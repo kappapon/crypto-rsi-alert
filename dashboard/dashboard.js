@@ -686,6 +686,20 @@ async function loadMlSummary() {
         <span class="hint">baseline เข้าทุก event: avg ${base.avg_r >= 0 ? "+" : ""}${base.avg_r.toFixed(3)}R</span></div>`);
     }
   } catch {}
+  try {
+    const p = await fetch("/paper_trades.json?_=" + Date.now()).then(r => r.ok ? r.json() : null);
+    if (p && Array.isArray(p.trades) && p.trades.length) {
+      const closed = p.trades.filter(t => t.status !== "open");
+      const open = p.trades.length - closed.length;
+      const sumR = closed.reduce((a, t) => a + (t.r || 0), 0);
+      const hit = closed.length ? closed.filter(t => (t.r || 0) > 0).length : 0;
+      const closedPart = closed.length
+        ? ` · ปิดแล้ว ${closed.length} · hit ${hit}/${closed.length} · รวม ${sumR >= 0 ? "+" : ""}${sumR.toFixed(2)}R`
+        : " · ยังไม่มีไม้ปิด";
+      parts.push(`<div class="ml-card"><b>📒 Paper trades</b> — เปิดอยู่ ${open}${closedPart}<br>
+        <span class="hint">สมุดไม้จำลองจาก reversal alert — ตัววัดว่า edge จริงก่อนใช้เงิน</span></div>`);
+    }
+  } catch {}
   document.getElementById("ml-summary").innerHTML = parts.join("") ||
     `<div class="ml-card hint">ยังไม่มี model/backtest — รันขั้น 1→4 ตามลำดับ</div>`;
 }
