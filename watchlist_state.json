@@ -2,13 +2,13 @@
   "tickers": {
     "ALLO_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.41109,
-      "last_updated": "2026-06-10T00:01:00.849114+00:00"
+      "last_price": 0.38603,
+      "last_updated": "2026-06-10T04:42:14.246756+00:00"
     },
     "BEAT_USDT": {
-      "last_funding": 0.032,
-      "last_price": 4.8063,
-      "last_updated": "2026-06-10T00:00:59.955440+00:00",
+      "last_funding": 0.01,
+      "last_price": 4.6194,
+      "last_updated": "2026-06-10T04:42:12.979545+00:00",
       "triggers": {
         "breakout": "2026-06-09T11:29:47.630842+00:00",
         "funding": "2026-06-09T14:01:32.366181+00:00",
@@ -18,8 +18,8 @@
     },
     "DEXEUSDT": {
       "last_funding": 0.0,
-      "last_price": 19.305,
-      "last_updated": "2026-06-10T00:01:01.646601+00:00",
+      "last_price": 18.98,
+      "last_updated": "2026-06-10T04:42:15.195969+00:00",
       "triggers": {
         "rejection": "2026-06-09T16:41:41.163734+00:00",
         "support_break": "2026-06-09T16:41:41.163752+00:00"
@@ -27,8 +27,8 @@
     },
     "EPIC_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.4992,
-      "last_updated": "2026-06-10T00:01:00.398773+00:00",
+      "last_price": 0.5215,
+      "last_updated": "2026-06-10T04:42:13.682015+00:00",
       "triggers": {
         "rejection": "2026-06-10T00:01:00.398753+00:00"
       }
@@ -39,9 +39,9 @@
       "last_updated": "2026-06-09T00:01:41.933746+00:00"
     },
     "VELVET_USDT": {
-      "last_funding": 0.005,
-      "last_price": 0.40543,
-      "last_updated": "2026-06-10T00:01:02.098506+00:00",
+      "last_funding": -0.0056,
+      "last_price": 0.38103,
+      "last_updated": "2026-06-10T04:42:15.749748+00:00",
       "triggers": {
         "breakout": "2026-06-09T21:05:52.732140+00:00",
         "rejection": "2026-06-09T08:06:59.177904+00:00",
