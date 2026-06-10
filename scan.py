@@ -1,4 +1,4 @@
-"""Scan Binance USDT spot pairs for daily RSI > 70 / > 80 (live candle) and alert via Telegram."""
+"""Scan Binance USDT spot + Gate.io futures-exclusive pairs for daily RSI > 70 / > 80 and alert via Telegram."""
 import datetime as dt
 import json
 import os
@@ -10,6 +10,7 @@ import pandas as pd
 import requests
 
 BINANCE_BASE = "https://data-api.binance.vision"
+GATEIO_BASE = "https://api.gateio.ws/api/v4"
 STATE_FILE = Path(__file__).parent / "state.json"
 RSI_PERIOD = 14
 KLINE_LIMIT = 100
@@ -44,6 +45,38 @@ def fetch_daily_closes(symbol: str) -> list[float] | None:
     r.raise_for_status()
     klines = r.json()
     closes = [float(k[4]) for k in klines]
+    if len(closes) < RSI_PERIOD + 1:
+        return None
+    return closes
+
+
+def fetch_gateio_futures_only_contracts(spot_symbols: set[str]) -> list[str]:
+    """Gate.io USDT perpetual contracts whose Binance-style name is NOT on spot."""
+    r = requests.get(f"{GATEIO_BASE}/futures/usdt/contracts", timeout=30)
+    r.raise_for_status()
+    out: list[str] = []
+    for c in r.json():
+        if c.get("in_delisting"):
+            continue
+        if c.get("type") and c["type"] != "direct":
+            continue
+        name = c.get("name", "")
+        if not name.endswith("_USDT"):
+            continue
+        if name.replace("_", "") in spot_symbols:
+            continue
+        out.append(name)
+    return sorted(out)
+
+
+def fetch_daily_closes_gateio(contract: str) -> list[float] | None:
+    r = requests.get(
+        f"{GATEIO_BASE}/futures/usdt/candlesticks",
+        params={"contract": contract, "interval": "1d", "limit": KLINE_LIMIT},
+        timeout=30,
+    )
+    r.raise_for_status()
+    closes = [float(k["c"]) for k in r.json()]
     if len(closes) < RSI_PERIOD + 1:
         return None
     return closes
@@ -110,38 +143,51 @@ def determine_level(rsi: float) -> int:
     return 0
 
 
+def _state_key(sym: str, source: str) -> str:
+    return sym if source == "spot" else f"{sym}.GATEIO"
+
+
 def main() -> None:
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}] scan start")
     today_utc = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
-    symbols = fetch_usdt_symbols()
-    print(f"Fetched {len(symbols)} USDT spot symbols")
+    spot_symbols = fetch_usdt_symbols()
+    print(f"Fetched {len(spot_symbols)} USDT spot symbols")
+    gateio_only = fetch_gateio_futures_only_contracts(set(spot_symbols))
+    print(f"Fetched {len(gateio_only)} Gate.io futures-only contracts")
 
     state = load_state(today_utc)
     levels: dict[str, int] = state["levels"]
-    new_alerts: list[tuple[str, float, int]] = []
+    new_alerts: list[tuple[str, float, int, str]] = []
     errors = 0
 
-    for i, sym in enumerate(symbols, 1):
-        try:
-            closes = fetch_daily_closes(sym)
-            if not closes:
-                continue
-            rsi = calc_rsi(closes)
-            if pd.isna(rsi):
-                continue
+    sources: list[tuple[str, list[str], callable]] = [
+        ("spot", spot_symbols, fetch_daily_closes),
+        ("fut", gateio_only, fetch_daily_closes_gateio),
+    ]
 
-            prev_level = levels.get(sym, 0)
-            curr_level = determine_level(rsi)
+    for source, symbols, fetch in sources:
+        for i, sym in enumerate(symbols, 1):
+            try:
+                closes = fetch(sym)
+                if not closes:
+                    continue
+                rsi = calc_rsi(closes)
+                if pd.isna(rsi):
+                    continue
 
-            if curr_level > prev_level:
-                new_alerts.append((sym, rsi, curr_level))
-                levels[sym] = curr_level
-        except Exception as e:
-            errors += 1
-            print(f"  {sym}: error {e}", file=sys.stderr)
+                key = _state_key(sym, source)
+                prev_level = levels.get(key, 0)
+                curr_level = determine_level(rsi)
 
-        if i % 50 == 0:
-            print(f"  scanned {i}/{len(symbols)}")
+                if curr_level > prev_level:
+                    new_alerts.append((sym, rsi, curr_level, source))
+                    levels[key] = curr_level
+            except Exception as e:
+                errors += 1
+                print(f"  {source}:{sym}: error {e}", file=sys.stderr)
+
+            if i % 50 == 0:
+                print(f"  scanned {source} {i}/{len(symbols)}")
 
     print(f"Done. Alerts: {len(new_alerts)}, errors: {errors}")
 
@@ -150,18 +196,24 @@ def main() -> None:
         lines = ["<b>Daily RSI Alert</b>", ""]
         extreme = [a for a in new_alerts if a[2] == LEVEL_EXTREME]
         over = [a for a in new_alerts if a[2] == LEVEL_OVERBOUGHT]
+
+        def _fmt(sym: str, rsi: float, source: str) -> str:
+            tag = "" if source == "spot" else " <i>[Fut]</i>"
+            return f"  <code>{sym}</code>{tag}  {rsi:.1f}"
+
         if extreme:
             lines.append("🚨 <b>Extreme (RSI &gt; 80)</b>")
-            for sym, rsi, _ in extreme:
-                lines.append(f"  <code>{sym}</code>  {rsi:.1f}")
+            for sym, rsi, _, source in extreme:
+                lines.append(_fmt(sym, rsi, source))
             lines.append("")
         if over:
             lines.append("⚠️ <b>Overbought (RSI &gt; 70)</b>")
-            for sym, rsi, _ in over:
-                lines.append(f"  <code>{sym}</code>  {rsi:.1f}")
+            for sym, rsi, _, source in over:
+                lines.append(_fmt(sym, rsi, source))
         lines.append("")
         lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist (5-15 นาที workflow ถัดไปจะ commit)")
-        reply_markup = _build_keyboard([sym for sym, _, _ in new_alerts])
+        spot_buttons = [sym for sym, _, _, source in new_alerts if source == "spot"]
+        reply_markup = _build_keyboard(spot_buttons) if spot_buttons else None
         send_telegram("\n".join(lines), reply_markup=reply_markup)
 
     save_state(state)
