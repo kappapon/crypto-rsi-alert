@@ -1,0 +1,6 @@
+# Local ML pipeline deps (Mac venv only — GitHub Actions uses requirements.txt)
+# Python 3.14: ใช้ pandas >= 3 (2.2.x มีปัญหา refcount warning บน 3.14)
+requests>=2.32
+pandas>=3.0
+pyarrow>=21
+scikit-learn>=1.9

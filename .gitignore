@@ -5,3 +5,10 @@ __pycache__/
 .DS_Store
 
 # venv used for local dry-run
+
+# ML pipeline local data (not committed)
+data/
+models/
+
+# Claude Code local-only config
+.claude/settings.local.json

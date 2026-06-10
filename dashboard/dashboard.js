@@ -224,6 +224,7 @@ function renderCard(symbol, cfg, data, klines) {
     <div class="card-actions">
       <button data-action="analyze" data-symbol="${symbol}">📝 Analyze</button>
       <button data-action="calc" data-symbol="${symbol}">💰 Position Calc</button>
+      <button data-action="ohlcv" data-symbol="${symbol}">📥 OHLCV</button>
       <button data-action="remove" data-symbol="${symbol}">🗑️ Remove</button>
     </div>
   </div>`;
@@ -547,6 +548,8 @@ document.getElementById("grid").addEventListener("click", (e) => {
     fetchTicker(sym, cfg.exchange).then(data => {
       if (data) renderCalcModal(sym, cfg, data);
     });
+  } else if (btn.dataset.action === "ohlcv") {
+    mlStart("fetch", sym);
   } else if (btn.dataset.action === "analyze") {
     openAnalysisModal(sym);
   } else if (btn.dataset.action === "remove") {
@@ -593,6 +596,83 @@ document.getElementById("analysis-save-btn").addEventListener("click", async () 
     btn.disabled = false;
     btn.textContent = "💾 Save";
   }
+});
+
+// ============ ML Pipeline ============
+let mlPollTimer = null;
+
+function openMlModal() {
+  document.getElementById("modal-ml").classList.remove("hidden");
+  loadMlSummary();
+  mlPoll();
+}
+
+async function mlStart(action, symbol) {
+  try {
+    const r = await fetch("/api/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action, symbol }),
+    });
+    const res = await r.json();
+    if (!r.ok) {
+      alert(res.error || `HTTP ${r.status}`);
+      if (r.status !== 409) return;
+    }
+  } catch (e) {
+    return alert(`เรียก /api/run ไม่ได้ — ต้องเปิด dashboard ผ่าน dashboard_server.py (${e.message})`);
+  }
+  openMlModal();
+}
+
+async function mlPoll() {
+  if (mlPollTimer) clearTimeout(mlPollTimer);
+  let s;
+  try {
+    s = await fetch("/api/run/status").then(r => r.json());
+  } catch { return; }
+  const el = document.getElementById("ml-status");
+  if (s.state === "idle") {
+    el.textContent = "idle — ยังไม่เคยรันใน session นี้";
+    return;
+  }
+  const head = `[${s.state.toUpperCase()}] ${s.action}${s.symbol ? " " + s.symbol : ""}  (start ${s.started}${s.finished ? " → done " + s.finished : ""})`;
+  el.textContent = `${head}\n${"─".repeat(46)}\n${s.tail || "(no output yet)"}`;
+  el.scrollTop = el.scrollHeight;
+  if (s.state === "running") {
+    mlPollTimer = setTimeout(mlPoll, 3000);
+  } else {
+    loadMlSummary();
+  }
+}
+
+async function loadMlSummary() {
+  const parts = [];
+  try {
+    const m = await fetch("/models/meta.json?_=" + Date.now()).then(r => r.ok ? r.json() : null);
+    if (m) {
+      const wf = (m.walk_forward || []).map(f => `${f.window}: ${f.precision} (${f.picked} picked)`).join(" · ");
+      parts.push(`<div class="ml-card"><b>🤖 Model</b> — trained ${m.trained_at}<br>
+        τ=${m.tau} · ${m.events} events · dropped: ${m.dropped_learner}<br>
+        <span class="hint">walk-forward: ${wf}</span></div>`);
+    }
+  } catch {}
+  try {
+    const b = await fetch("/data/backtest_report.json?_=" + Date.now()).then(r => r.ok ? r.json() : null);
+    if (b && b.model_default) {
+      const d = b.model_default, base = b.baseline;
+      parts.push(`<div class="ml-card"><b>📈 Backtest (OOS)</b> — fee ${(b.fee_pct_roundtrip * 100).toFixed(2)}%/รอบ<br>
+        model: ${d.trades} trades · hit ${(d.hit * 100).toFixed(1)}% · avg ${d.avg_r >= 0 ? "+" : ""}${d.avg_r.toFixed(3)}R · total ${d.sum_r >= 0 ? "+" : ""}${d.sum_r.toFixed(1)}R · maxDD ${d.max_dd_r.toFixed(1)}R<br>
+        <span class="hint">baseline เข้าทุก event: avg ${base.avg_r >= 0 ? "+" : ""}${base.avg_r.toFixed(3)}R</span></div>`);
+    }
+  } catch {}
+  document.getElementById("ml-summary").innerHTML = parts.join("") ||
+    `<div class="ml-card hint">ยังไม่มี model/backtest — รันขั้น 1→4 ตามลำดับ</div>`;
+}
+
+document.getElementById("ml-btn").addEventListener("click", openMlModal);
+document.querySelectorAll("[data-ml]").forEach(b => {
+  b.addEventListener("click", () => mlStart(b.dataset.ml));
 });
 
 // ============ Boot ============

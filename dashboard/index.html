@@ -16,6 +16,7 @@
         <span>🔊 Sound</span>
       </label>
       <button id="refresh-btn">🔄 Refresh</button>
+      <button id="ml-btn">🧠 ML Pipeline</button>
       <button id="add-btn" class="primary">+ Add Ticker</button>
     </div>
   </header>
@@ -106,6 +107,27 @@
         <button class="close" data-close="modal-calc">×</button>
       </header>
       <div class="modal-body" id="calc-body"></div>
+    </div>
+  </div>
+
+  <!-- ML Pipeline Modal -->
+  <div id="modal-ml" class="modal hidden">
+    <div class="modal-content">
+      <header>
+        <h2>🧠 ML Pipeline — fade the top</h2>
+        <button class="close" data-close="modal-ml">×</button>
+      </header>
+      <div class="modal-body">
+        <div class="ml-actions">
+          <button data-ml="universe">📥 1. ดึงข้อมูล universe (top 150)</button>
+          <button data-ml="features">🧮 2. สร้าง features + labels</button>
+          <button data-ml="train">🤖 3. Train model</button>
+          <button data-ml="backtest">📈 4. Backtest</button>
+        </div>
+        <p class="hint">รันทีละขั้น 1→4 (ขั้น 1 ใช้เวลา ~15 นาที) — ปุ่ม 📥 OHLCV บนการ์ดใช้ดึงข้อมูลรายเหรียญ</p>
+        <div id="ml-summary"></div>
+        <pre id="ml-status">idle</pre>
+      </div>
     </div>
   </div>
 

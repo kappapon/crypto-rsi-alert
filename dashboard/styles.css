@@ -324,3 +324,31 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .calc-value.long { color: var(--green); }
 .calc-value.short { color: var(--red); }
 .calc-section h3 { font-size: 0.95rem; margin: 12px 0 4px; color: var(--blue); }
+
+/* ML Pipeline */
+.ml-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.ml-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+#ml-status {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.78rem;
+  max-height: 260px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  color: var(--text-dim);
+}
