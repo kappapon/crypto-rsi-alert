@@ -37,6 +37,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "STGUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.4446,
+        "resistance": 0.438,
+        "rejection_below": 0.4063,
+        "support_strong": 0.3669,
+        "support_extreme": 0.3164
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
