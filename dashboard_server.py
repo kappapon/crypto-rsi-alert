@@ -25,22 +25,32 @@ ANALYSIS_LOG = ROOT / "analysis_log.json"
 _VENV_PY = ROOT / ".venv" / "bin" / "python3"
 PYTHON = str(_VENV_PY) if _VENV_PY.exists() else sys.executable
 
-_FEATURES, _TRAIN, _BACKTEST = ["build_features.py"], ["train_model.py"], ["backtest.py"]
+def _py(*args: str) -> list[str]:
+    return [PYTHON, *args]
 
 
 def ml_steps(action: str, symbol: str) -> list[list[str]] | None:
-    """Each action = ordered list of script commands, run sequentially."""
+    """Each action = ordered list of commands (full argv), run sequentially."""
+    features, train, backtest = _py("build_features.py"), _py("train_model.py"), _py("backtest.py")
     return {
         # ปุ่ม 🧠 ML Pipeline: ดึง universe → features → train → backtest จบในกดเดียว
-        "pipeline": [["fetch_data.py", "--universe", "150"], _FEATURES, _TRAIN, _BACKTEST],
+        "pipeline": [_py("fetch_data.py", "--universe", "150"), features, train, backtest],
         # ปุ่ม 📥 บนการ์ด: ดึงเหรียญนั้น แล้ว retrain ทั้งชุดให้เลย
-        "fetch_retrain": [["fetch_data.py", symbol], _FEATURES, _TRAIN, _BACKTEST],
+        "fetch_retrain": [_py("fetch_data.py", symbol), features, train, backtest],
+        # ปุ่ม 🗑️ บนการ์ด: ลบจริง + push ให้ workflow ฝั่ง Actions เลิก monitor ด้วย
+        "remove_ticker": [
+            _py("manage_watchlist.py", "remove", symbol),
+            ["git", "add", "watchlist.json"],
+            ["git", "commit", "-m", f"watchlist: remove {symbol} via dashboard"],
+            ["git", "pull", "--rebase"],
+            ["git", "push"],
+        ],
         # ขั้นเดี่ยว (เผื่อเรียกผ่าน API/debug)
-        "fetch": [["fetch_data.py", symbol]],
-        "universe": [["fetch_data.py", "--universe", "150"]],
-        "features": [_FEATURES],
-        "train": [_TRAIN],
-        "backtest": [_BACKTEST],
+        "fetch": [_py("fetch_data.py", symbol)],
+        "universe": [_py("fetch_data.py", "--universe", "150")],
+        "features": [features],
+        "train": [train],
+        "backtest": [backtest],
     }.get(action)
 
 
@@ -52,10 +62,11 @@ _run: dict = {"state": "idle", "action": None, "symbol": None, "step": None,
 def _run_steps(steps: list[list[str]], logf) -> None:
     rc = 0
     for i, cmd in enumerate(steps, 1):
-        _run["step"] = f"{i}/{len(steps)} {cmd[0]}"
-        logf.write(f"\n=== step {i}/{len(steps)}: {' '.join(cmd)} ===\n")
+        label = cmd[1] if cmd[0] == PYTHON else " ".join(cmd[:2])
+        _run["step"] = f"{i}/{len(steps)} {label}"
+        logf.write(f"\n=== step {i}/{len(steps)}: {label} ===\n")
         logf.flush()
-        rc = subprocess.run([PYTHON, *cmd], cwd=ROOT, stdout=logf, stderr=subprocess.STDOUT).returncode
+        rc = subprocess.run(cmd, cwd=ROOT, stdout=logf, stderr=subprocess.STDOUT).returncode
         if rc != 0:
             logf.write(f"\n=== step {i} FAILED (exit {rc}) — stopped ===\n")
             break
@@ -109,7 +120,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             steps = ml_steps(action, symbol)
             if steps is None:
                 raise ValueError(f"unknown action: {action}")
-            if action in ("fetch", "fetch_retrain") and not re.fullmatch(r"[A-Z0-9_]{2,20}", symbol):
+            if action in ("fetch", "fetch_retrain", "remove_ticker") and not re.fullmatch(r"[A-Z0-9_]{2,20}", symbol):
                 raise ValueError(f"{action} requires a valid symbol")
         except Exception as e:
             return self._send_json({"ok": False, "error": str(e)}, 400)

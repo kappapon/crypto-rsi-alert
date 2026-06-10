@@ -553,11 +553,7 @@ document.getElementById("grid").addEventListener("click", (e) => {
   } else if (btn.dataset.action === "analyze") {
     openAnalysisModal(sym);
   } else if (btn.dataset.action === "remove") {
-    const cmd = `python manage_watchlist.py remove ${sym} && git add watchlist.json && git commit -m "watchlist: remove ${sym}" && git push`;
-    if (confirm(`Remove ${sym}?\n\nรัน command นี้ใน terminal:\n\n${cmd}`)) {
-      navigator.clipboard.writeText(cmd);
-      alert("Command copied. รันใน terminal แล้ว refresh dashboard");
-    }
+    if (confirm(`ลบ ${sym} ออกจาก watchlist จริง ๆ? (commit + push ให้เลย)`)) mlStart("remove_ticker", sym);
   }
 });
 
@@ -664,6 +660,7 @@ async function mlPoll() {
     mlPollTimer = setTimeout(mlPoll, 3000);
   } else {
     loadMlSummary();
+    refresh();
   }
 }
 
