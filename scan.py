@@ -212,8 +212,10 @@ def main() -> None:
                 lines.append(_fmt(sym, rsi, source))
         lines.append("")
         lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist (5-15 นาที workflow ถัดไปจะ commit)")
-        spot_buttons = [sym for sym, _, _, source in new_alerts if source == "spot"]
-        reply_markup = _build_keyboard(spot_buttons) if spot_buttons else None
+        # ปุ่มครบทุกเหรียญรวม gate contract (FOLKS_USDT ฯลฯ) — Worker/add-ticker รองรับแล้ว:
+        # suggest บน Actions จะ fallback เป็น gateio_futures เอง (fapi โดน 451)
+        button_syms = [sym for sym, _, _, _ in new_alerts]
+        reply_markup = _build_keyboard(button_syms) if button_syms else None
         send_telegram("\n".join(lines), reply_markup=reply_markup)
 
     save_state(state)
