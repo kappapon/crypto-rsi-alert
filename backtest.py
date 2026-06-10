@@ -14,12 +14,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from build_features import HORIZON, resolve_ambiguous_4h, wilder_atr
-from train_model import (BREAKEVEN, EXCLUDE_SYMBOLS, FEATURES, N_TEST_WINDOWS, SL_ATR,
-                         TP_ATR, TRAIN_FRACTION_MIN, fit_fold, tsa1_proba)
+from build_features import HORIZON, TF, TF_SUFFIX, resolve_ambiguous_4h, wilder_atr
+from train_model import (BAR_SEC, BREAKEVEN, EXCLUDE_SYMBOLS, FEATURES, N_TEST_WINDOWS,
+                         SL_ATR, TP_ATR, TRAIN_FRACTION_MIN, fit_fold, tsa1_proba)
 
 DATA_DIR = Path(__file__).parent / "data"
-REPORT_FILE = DATA_DIR / "backtest_report.json"
+REPORT_FILE = DATA_DIR / f"backtest_report{TF_SUFFIX}.json"
 
 FEE_PCT_ROUNDTRIP = 0.003   # taker 2 sides + slippage, fraction of notional
 TAU_SWEEP = [0.30, 0.35, 0.40, 0.45, 0.50]
@@ -34,7 +34,7 @@ def walk_forward_probs(df: pd.DataFrame) -> pd.DataFrame:
     parts = []
     for k in range(N_TEST_WINDOWS):
         ws, we = edges[k], edges[k + 1]
-        train = df[df["open_time"] < ws - HORIZON * 86400]
+        train = df[df["open_time"] < ws - HORIZON * BAR_SEC]
         test = df[(df["open_time"] >= ws) & (df["open_time"] <= we)].copy()
         if len(train) < 500 or test.empty:
             continue
@@ -51,13 +51,14 @@ def load_ohlcv(symbols: set[str], events: pd.DataFrame) -> dict:
     book = {}
     for sym in symbols:
         key = f"{sym}_{ex_of[sym]}"
-        d = pd.read_parquet(DATA_DIR / "ohlcv" / f"{key}_1d.parquet")
+        d = pd.read_parquet(DATA_DIR / "ohlcv" / f"{key}_{TF}.parquet")
         d["atr"] = wilder_atr(d)
         h4_path = DATA_DIR / "ohlcv" / f"{key}_4h.parquet"
         book[sym] = {
             "d": d,
             "idx": {int(t): i for i, t in enumerate(d["open_time"])},
-            "h4": pd.read_parquet(h4_path) if h4_path.exists() else None,
+            # sub-bar ambiguity resolution only exists for the daily model
+            "h4": pd.read_parquet(h4_path) if TF == "1d" and h4_path.exists() else None,
         }
     return book
 
@@ -109,7 +110,7 @@ def run_config(events: pd.DataFrame, book: dict, tau: float, tp_atr: float, sl_a
     r = tr["r_net"]
     equity = r.cumsum()
     max_dd = float((equity.cummax() - equity).max())
-    starts = sorted(int(e) - b * 86400 for e, b in zip(tr["exit_time"], tr["bars"]))
+    starts = sorted(int(e) - b * BAR_SEC for e, b in zip(tr["exit_time"], tr["bars"]))
     ends = sorted(int(e) for e in tr["exit_time"])
     concurrent, si, ei = 0, 0, 0
     while si < len(starts):
@@ -135,7 +136,7 @@ def fmt(c: dict) -> str:
 
 
 def main() -> None:
-    df = pd.read_parquet(DATA_DIR / "features.parquet")
+    df = pd.read_parquet(DATA_DIR / f"features{TF_SUFFIX}.parquet")
     df = df[~df["symbol"].isin(EXCLUDE_SYMBOLS)].sort_values("open_time").reset_index(drop=True)
     print(f"events: {len(df)} — scoring OOS probabilities (walk-forward, same folds as training)")
     events = walk_forward_probs(df)

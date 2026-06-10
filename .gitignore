@@ -11,3 +11,6 @@ data/
 
 # Claude Code local-only config
 .claude/settings.local.json
+
+# 4h model artifacts — experiment only, no edge yet (walk-forward 27.5% < 33.3%)
+models/*_4h*

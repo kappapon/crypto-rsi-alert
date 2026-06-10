@@ -25,12 +25,13 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-from build_features import FEATURES, HORIZON, TP_ATR, SL_ATR
+from build_features import FEATURES, HORIZON, SL_ATR, TF, TF_SUFFIX, TP_ATR
 
-FEATURES_FILE = Path(__file__).parent / "data" / "features.parquet"
+FEATURES_FILE = Path(__file__).parent / "data" / f"features{TF_SUFFIX}.parquet"
 MODEL_DIR = Path(__file__).parent / "models"
 
 EXCLUDE_SYMBOLS = {"PAXGUSDT", "WBTCUSDT"}  # tokenized gold / BTC duplicate
+BAR_SEC = 86400 if TF == "1d" else 14400
 N_TEST_WINDOWS = 5
 TRAIN_FRACTION_MIN = 3 / 8       # first chunks reserved as initial train window
 VAL_FRACTION = 0.15              # chronological tail of train used for tau + trimming
@@ -113,7 +114,7 @@ def main() -> None:
     agg_picked, agg_hits, agg_pos, fold_rows = 0, 0, 0, []
     for k in range(N_TEST_WINDOWS):
         ws, we = test_edges[k], test_edges[k + 1]
-        train = df[df["open_time"] < ws - HORIZON * 86400]
+        train = df[df["open_time"] < ws - HORIZON * BAR_SEC]
         test = df[(df["open_time"] >= ws) & (df["open_time"] <= we)]
         if len(train) < 500 or len(test) == 0:
             continue
@@ -140,19 +141,20 @@ def main() -> None:
     print("\nfitting final model on all data ...")
     learners, worst, tau, val_ap = fit_fold(df)
     MODEL_DIR.mkdir(exist_ok=True)
-    with open(MODEL_DIR / "model.pkl", "wb") as f:
+    with open(MODEL_DIR / f"model{TF_SUFFIX}.pkl", "wb") as f:
         pickle.dump({"learners": learners, "dropped": worst, "tau": tau, "features": FEATURES}, f)
     meta = {
         "trained_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "timeframe": TF,
         "direction": "short", "tp_atr": TP_ATR, "sl_atr": SL_ATR, "horizon": HORIZON,
         "events": len(df), "tau": tau, "dropped_learner": worst,
         "val_average_precision": {k: round(v, 4) for k, v in val_ap.items()},
         "walk_forward": [dict(zip(["window", "n_test", "base", "tau", "picked", "precision", "dropped"], r))
                          for r in fold_rows],
     }
-    (MODEL_DIR / "meta.json").write_text(json.dumps(meta, indent=2) + "\n")
-    print(f"saved -> {MODEL_DIR / 'model.pkl'} (tau={tau}, dropped={worst})")
-    print(f"saved -> {MODEL_DIR / 'meta.json'}")
+    (MODEL_DIR / f"meta{TF_SUFFIX}.json").write_text(json.dumps(meta, indent=2) + "\n")
+    print(f"saved -> {MODEL_DIR / f'model{TF_SUFFIX}.pkl'} (tau={tau}, dropped={worst})")
+    print(f"saved -> {MODEL_DIR / f'meta{TF_SUFFIX}.json'}")
 
 
 if __name__ == "__main__":

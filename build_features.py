@@ -6,17 +6,22 @@ before SL (SL_ATR x ATR above entry) within HORIZON daily bars, else 0.
 Same-bar TP/SL ambiguity is resolved with 4h candles; still-ambiguous rows are dropped.
 
 Usage:
-    python3 build_features.py            # all symbols in data/ohlcv/
+    python3 build_features.py            # all symbols in data/ohlcv/ (daily model)
+    TF=4h python3 build_features.py      # 4h model variant
     python3 build_features.py BTCUSDT    # one symbol (debug)
 """
+import os
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+TF = os.environ.get("TF", "1d")          # base timeframe: "1d" or "4h"
+TF_SUFFIX = "" if TF == "1d" else f"_{TF}"
+
 DATA_DIR = Path(__file__).parent / "data" / "ohlcv"
-OUT_FILE = Path(__file__).parent / "data" / "features.parquet"
+OUT_FILE = Path(__file__).parent / "data" / f"features{TF_SUFFIX}.parquet"
 
 DIRECTION = "short"   # fade the top (confirmed 2026-06-10); "long" mirrors the barriers
 RSI_ENTRY = 70
@@ -61,6 +66,21 @@ def daily_rsi_4h(df_4h: pd.DataFrame) -> pd.Series:
     return rsi.groupby(day).last()
 
 
+def context_rsi(df: pd.DataFrame, df_other: pd.DataFrame) -> pd.Series:
+    """Cross-timeframe RSI for the 'rsi_4h' feature column.
+
+    TF=1d: last closed 4h RSI of the same day (lower-TF detail, closes with the day).
+    TF=4h: RSI of the *previous* day's daily bar (higher-TF context — today's daily
+    bar is still open while 4h bars print, so using it would be lookahead).
+    """
+    if TF == "1d":
+        return df["open_time"].map(daily_rsi_4h(df_other))
+    rsi_1d = wilder_rsi(df_other["close"])
+    prev_day = pd.Series(rsi_1d.values, index=df_other["open_time"] + 86400)
+    bar_day = (df["open_time"] // 86400) * 86400
+    return bar_day.map(prev_day)
+
+
 def build_symbol_features(df: pd.DataFrame, df_4h: pd.DataFrame | None, btc: pd.DataFrame | None) -> pd.DataFrame:
     out = df.copy()
     out["rsi"] = wilder_rsi(out["close"])
@@ -81,7 +101,7 @@ def build_symbol_features(df: pd.DataFrame, df_4h: pd.DataFrame | None, btc: pd.
     out["ret_7"] = out["close"].pct_change(7)
 
     if df_4h is not None and not df_4h.empty:
-        out["rsi_4h"] = out["open_time"].map(daily_rsi_4h(df_4h))
+        out["rsi_4h"] = context_rsi(out, df_4h)
     else:
         out["rsi_4h"] = np.nan
 
@@ -153,28 +173,31 @@ def load(symbol_exchange_tf: str) -> pd.DataFrame | None:
 
 def main() -> None:
     only = sys.argv[1] if len(sys.argv) > 1 else None
-    daily_files = sorted(DATA_DIR.glob("*_1d.parquet"))
+    other_tf = "4h" if TF == "1d" else "1d"
+    base_files = sorted(DATA_DIR.glob(f"*_{TF}.parquet"))
     if only:
-        daily_files = [f for f in daily_files if f.name.startswith(only + "_")]
-    if not daily_files:
-        sys.exit("no daily parquet files found — run fetch_data.py first")
+        base_files = [f for f in base_files if f.name.startswith(only + "_")]
+    if not base_files:
+        sys.exit(f"no {TF} parquet files found — run fetch_data.py first")
+    print(f"timeframe: {TF} (context: {other_tf})")
 
-    btc = load("BTCUSDT_binance_spot_1d")
+    btc = load(f"BTCUSDT_binance_spot_{TF}")
     rows = []
     dropped = 0
-    for f in daily_files:
-        key = f.stem.removesuffix("_1d")  # SYMBOL_exchange
+    for f in base_files:
+        key = f.stem.removesuffix(f"_{TF}")  # SYMBOL_exchange
         symbol, exchange = key.rsplit("_", 2)[0], "_".join(key.rsplit("_", 2)[1:])
         df = pd.read_parquet(f)
         if len(df) < WARMUP + HORIZON:
             continue
-        df_4h = load(f"{key}_4h")
-        feat = build_symbol_features(df, df_4h, btc)
+        df_other = load(f"{key}_{other_tf}")
+        feat = build_symbol_features(df, df_other, btc)
 
         recently_ob = (feat["rsi"] >= RSI_ENTRY).rolling(EXIT_WINDOW + 1, min_periods=1).max() == 1
         event_idx = feat.index[(recently_ob) & (feat.index >= WARMUP) & feat["atr"].notna()]
+        sub_tf = df_other if TF == "1d" else None  # ambiguity resolution needs a LOWER timeframe
         for i in event_idx:
-            lab = label_event(feat, int(i), df_4h)
+            lab = label_event(feat, int(i), sub_tf)
             if lab is None:
                 dropped += 1
                 continue
