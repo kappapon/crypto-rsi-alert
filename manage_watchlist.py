@@ -142,14 +142,21 @@ def cmd_add(args: argparse.Namespace) -> None:
     if args.funding is not None:
         alerts["funding_high"] = args.funding
 
+    existing = config["tickers"].get(symbol)
+    if existing:
+        # update levels เท่านั้น — คง enabled/alerts ที่ผู้ใช้ตั้งไว้ (รองรับ refresh รายวัน)
+        enabled = existing.get("enabled", True)
+        alerts = existing.get("alerts", alerts)
+    else:
+        enabled = True
     config["tickers"][symbol] = {
         "exchange": args.exchange,
-        "enabled": True,
+        "enabled": enabled,
         "levels": levels,
         "alerts": alerts,
     }
     save_config(config)
-    print(f"✅ Added {symbol} ({args.exchange})")
+    print(f"✅ {'Updated levels for' if existing else 'Added'} {symbol} ({args.exchange})")
     print(f"   Levels:  {levels}")
     print(f"   Alerts:  {alerts}")
 

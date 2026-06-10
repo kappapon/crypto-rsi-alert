@@ -1,0 +1,43 @@
+name: Refresh Watchlist Levels
+on:
+  schedule:
+    - cron: '10 0 * * *'    # 00:10 UTC — levels สดใหม่ก่อน reversal-alert (00:20) และ watchlist (00:25)
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-levels
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Recompute levels for enabled tickers
+        run: |
+          SYMBOLS=$(python -c "import json; t=json.load(open('watchlist.json'))['tickers']; print(' '.join(s for s,c in t.items() if c.get('enabled', True)))")
+          echo "refreshing: $SYMBOLS"
+          for s in $SYMBOLS; do
+            python manage_watchlist.py suggest "$s" --yes || echo "::warning::refresh $s failed — keeping old levels"
+          done
+
+      - name: Commit refreshed levels
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add watchlist.json
+          if git diff --staged --quiet; then
+            echo "No level changes."
+          else
+            git commit -m "watchlist: daily level refresh $(date -u +%Y-%m-%d)"
+            git pull --rebase
+            git push
+          fi
