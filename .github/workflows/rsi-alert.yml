@@ -1,8 +1,7 @@
 name: RSI Alert
 
+# schedule ย้ายไปอยู่ Cloudflare Worker cron (GitHub cron โดน throttle 1-3 ชม.) — Worker ยิง workflow_dispatch ตรงเวลาแทน
 on:
-  schedule:
-    - cron: '23 */4 * * *'
   workflow_dispatch:
 
 concurrency:

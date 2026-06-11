@@ -9,6 +9,12 @@ compatibility_date = "2026-06-01"
 binding = "DEDUPE"
 id = "57bba1d425dd4faf93e858fe1e4c9200"
 
+# ---- Scheduled triggers: Worker = นาฬิกาของระบบ (GitHub cron โดน throttle 1-3 ชม.) ----
+# เวลาไทย +7: 07:10 refresh levels / 07:20 reversal+tracker / :23 ทุก 4 ชม. rsi+watchlist
+# ยืนยัน 2026-06-11: tick แรกคลาด 37 วินาที (GitHub cron คลาด 1-3 ชม.)
+[triggers]
+crons = ["10 0 * * *", "20 0 * * *", "23 0,4,8,12,16,20 * * *"]
+
 # ---- Non-secret vars ----
 [vars]
 GITHUB_REPO = "kappapon/crypto-rsi-alert"

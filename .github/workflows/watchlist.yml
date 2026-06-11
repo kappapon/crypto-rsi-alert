@@ -1,8 +1,7 @@
 name: Watchlist Alert
 
+# schedule ย้ายไปอยู่ Cloudflare Worker cron (GitHub cron โดน throttle 1-3 ชม.) — Worker ยิง workflow_dispatch ตรงเวลาแทน
 on:
-  schedule:
-    - cron: '25 0,4,8,12,16,20 * * *'    # หลังปิดแท่ง 4h — */10 โดน GitHub throttle จนหน่วงจริง 1-4 ชม. อยู่แล้ว
   workflow_dispatch:
 
 concurrency:

@@ -1,7 +1,6 @@
 name: Reversal Alert (ML)
+# schedule ย้ายไปอยู่ Cloudflare Worker cron (GitHub cron โดน throttle 1-3 ชม.) — Worker ยิง workflow_dispatch ตรงเวลาแทน
 on:
-  schedule:
-    - cron: '20 0 * * *'    # 00:20 UTC — after daily candle close
   workflow_dispatch:
     inputs:
       dry_run:
@@ -25,7 +24,14 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements-ml.txt
-      - env:
+      - name: Track open paper trades (ปิดไม้เก่าก่อนเปิดไม้ใหม่)
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
+        run: python track_trades.py
+      - name: Reversal scan
+        env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
