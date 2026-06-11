@@ -99,6 +99,7 @@ def record_paper_trades(hits: list[dict]) -> None:
             "symbol": h["symbol"], "exchange": h["exchange"], "status": "open",
             "opened_at": now_iso, "entry": h["entry"], "sl": h["sl"], "tp": h["tp"],
             "atr": h["atr"], "prob": round(h["prob"], 3), "entry_is_live": h["live"],
+            "breadth": len(hits),
         })
     PAPER_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
     print(f"paper journal: recorded {len(hits)} trade(s)")
@@ -185,8 +186,12 @@ def main() -> None:
             h["sl"] = h["entry"] + SL_ATR * h["atr"]
             h["tp"] = h["entry"] - TP_ATR * h["atr"]
 
+        # breadth = จำนวนสัญญาณวันนี้ — backtest ชี้ว่าวันฝูงใหญ่ (≥5-8) คือวันที่ fade ได้จริง
+        breadth = len(hits)
+        breadth_tag = " 🔥 วันฝูงใหญ่" if breadth >= 5 else ""
         lines = ["<b>🎯 Reversal watch — fade the top</b>",
-                 f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)", ""]
+                 f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)",
+                 f"สัญญาณวันนี้: {breadth} ตัว{breadth_tag}", ""]
         for h in hits:
             lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}")
             price_part = f"ราคาล่าสุด {h['entry']:g}" if h["live"] else f"ราคาปิดแท่ง {h['entry']:g} (ดึงราคาสดไม่ได้)"
