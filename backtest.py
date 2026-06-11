@@ -97,14 +97,38 @@ def simulate_trade(sym_data: dict, event_time: int, tp_atr: float, sl_atr: float
 
 def run_config(events: pd.DataFrame, book: dict, tau: float, tp_atr: float, sl_atr: float) -> dict | None:
     picks = events[events["prob"] >= tau] if tau is not None else events
+    trades = simulate_picks(picks, book, tp_atr, sl_atr)
+    return trade_metrics(trades, tau, tp_atr, sl_atr)
+
+
+def simulate_picks(picks: pd.DataFrame, book: dict, tp_atr: float, sl_atr: float) -> list[dict]:
     trades = []
     for _, e in picks.iterrows():
         t = simulate_trade(book[e["symbol"]], int(e["open_time"]), tp_atr, sl_atr)
         if t is None:
             continue
         t["r_net"] = t["r"] - FEE_PCT_ROUNDTRIP / t["risk_pct"]
+        t["entry_time"] = int(t["exit_time"]) - t["bars"] * BAR_SEC
+        t["prob"] = float(e["prob"]) if "prob" in e else 1.0
         trades.append(t)
-    if len(trades) < 30:
+    return trades
+
+
+def apply_concurrency_cap(trades: list[dict], cap: int | None) -> list[dict]:
+    """จำลองพอร์ตจริง: เรียงตามเวลาเข้า ถ้าไม้เต็ม cap ข้ามไม้นั้น (ชนกันวันเดียวเลือก prob สูงก่อน)."""
+    if cap is None:
+        return trades
+    taken, open_exits = [], []
+    for t in sorted(trades, key=lambda x: (x["entry_time"], -x["prob"])):
+        open_exits = [e for e in open_exits if e > t["entry_time"]]
+        if len(open_exits) < cap:
+            taken.append(t)
+            open_exits.append(int(t["exit_time"]))
+    return taken
+
+
+def trade_metrics(trades: list[dict], tau, tp_atr, sl_atr, min_trades: int = 30) -> dict | None:
+    if len(trades) < min_trades:
         return None
     tr = pd.DataFrame(trades).sort_values("exit_time")
     r = tr["r_net"]
@@ -149,6 +173,46 @@ def main() -> None:
     default = run_config(events, book, 0.35, TP_ATR, SL_ATR)
     print(f"model default:           {fmt(default)}\n")
 
+    # ---- Phase H: risk engine ----
+    months = (events["open_time"].max() - events["open_time"].min()) / (30 * 86400)
+    weak_lo = int(pd.Timestamp("2025-09-01", tz="UTC").timestamp())
+    weak_hi = int(pd.Timestamp("2026-01-01", tz="UTC").timestamp())
+
+    def weak_window_avg(trades: list[dict]) -> tuple[int, float]:
+        w = [t["r_net"] for t in trades if weak_lo <= t["entry_time"] < weak_hi]
+        return len(w), (sum(w) / len(w) if w else float("nan"))
+
+    print(f"== concurrency cap (tau=0.35, TP{TP_ATR}/SL{SL_ATR}, OOS {months:.1f} เดือน) ==")
+    picks_default = events[events["prob"] >= 0.35]
+    trades_default = simulate_picks(picks_default, book, TP_ATR, SL_ATR)
+    cap_rows = []
+    for cap in [1, 2, 3, 5, None]:
+        m = trade_metrics(apply_concurrency_cap(trades_default, cap), 0.35, TP_ATR, SL_ATR)
+        if not m:
+            continue
+        m["cap"] = cap or 0
+        m["trades_per_month"] = round(m["trades"] / months, 1)
+        cap_rows.append(m)
+        print(f"  cap={cap or 'ไม่จำกัด':>2}: {m['trades']} trades ({m['trades_per_month']}/เดือน), "
+              f"hit {m['hit']:.1%}, avg {m['avg_r']:+.3f}R, total {m['sum_r']:+.1f}R, maxDD {m['max_dd_r']:.1f}R")
+
+    print(f"\n== regime filter: งดยิงเมื่อ btc_ret_7 > เกณฑ์ (cap=3) ==")
+    regime_rows = []
+    for thr in [0.05, 0.10, None]:
+        ev = events[~(events["btc_ret_7"] > thr)] if thr is not None else events
+        trades = apply_concurrency_cap(
+            simulate_picks(ev[ev["prob"] >= 0.35], book, TP_ATR, SL_ATR), 3)
+        m = trade_metrics(trades, 0.35, TP_ATR, SL_ATR)
+        if not m:
+            continue
+        n_w, avg_w = weak_window_avg(trades)
+        m.update(btc_thr=thr, trades_per_month=round(m["trades"] / months, 1),
+                 weak_window_trades=n_w, weak_window_avg_r=None if n_w == 0 else round(avg_w, 3))
+        regime_rows.append(m)
+        print(f"  thr={str(thr):>5}: {m['trades']} trades ({m['trades_per_month']}/เดือน), avg {m['avg_r']:+.3f}R, "
+              f"total {m['sum_r']:+.1f}R, maxDD {m['max_dd_r']:.1f}R | ช่วงอ่อนแอ ก.ย.25-ม.ค.26: "
+              f"{n_w} trades avg {avg_w:+.3f}R" if n_w else f"  thr={str(thr):>5}: ช่วงอ่อนแอไม่มีไม้")
+
     print("sweeping tau x TP x SL ...")
     results = []
     for tau in TAU_SWEEP:
@@ -167,6 +231,7 @@ def main() -> None:
         "oos_range": [int(events["open_time"].min()), int(events["open_time"].max())],
         "fee_pct_roundtrip": FEE_PCT_ROUNDTRIP, "breakeven_note": f"R=2 breakeven {BREAKEVEN:.3f}",
         "baseline": baseline, "model_default": default, "sweep_top20": results[:20],
+        "risk_engine": {"months": round(months, 1), "concurrency_caps": cap_rows, "regime_filter": regime_rows},
     }, indent=2) + "\n")
     print(f"\nsaved -> {REPORT_FILE}")
 

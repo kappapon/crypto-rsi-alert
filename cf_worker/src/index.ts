@@ -40,12 +40,17 @@ interface TelegramUpdate {
 const SYMBOL_RE = /^[A-Z0-9_]{2,20}$/;
 
 // ---- Scheduled triggers: Worker เป็นนาฬิกาแทน GitHub cron (โดน throttle 1-3 ชม.) ----
+// จับคู่ด้วย "เวลา tick" ไม่ใช่ cron string — Cloudflare อาจ normalize string จน map ตรง ๆ พลาด
 // เวลาไทย = UTC+7: 00:10 → 07:10 refresh, 00:20 → 07:20 reversal+tracker, :23 ทุก 4 ชม. → rsi+watchlist
-const CRON_DISPATCH: Record<string, string[]> = {
-  "10 0 * * *": ["refresh-levels.yml"],
-  "20 0 * * *": ["reversal-alert.yml"],
-  "23 0,4,8,12,16,20 * * *": ["rsi-alert.yml", "watchlist.yml"],
-};
+function workflowsForTick(scheduledTime: number): string[] {
+  const d = new Date(scheduledTime);
+  const m = d.getUTCMinutes();
+  const h = d.getUTCHours();
+  if (m === 10 && h === 0) return ["refresh-levels.yml"];
+  if (m === 20 && h === 0) return ["reversal-alert.yml"];
+  if (m === 23 && h % 4 === 0) return ["rsi-alert.yml", "watchlist.yml"];
+  return [];
+}
 
 async function dispatchWorkflow(env: Env, workflowFile: string): Promise<void> {
   const r = await fetch(
@@ -66,8 +71,8 @@ async function dispatchWorkflow(env: Env, workflowFile: string): Promise<void> {
 
 export default {
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    const files = CRON_DISPATCH[event.cron] ?? [];
-    console.log(`cron tick ${event.cron} -> ${files.join(", ") || "(no mapping)"}`);
+    const files = workflowsForTick(event.scheduledTime);
+    console.log(`cron tick ${event.cron} @ ${new Date(event.scheduledTime).toISOString()} -> ${files.join(", ") || "(no mapping)"}`);
     ctx.waitUntil(Promise.all(files.map((f) => dispatchWorkflow(env, f))));
   },
 
