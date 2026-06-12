@@ -63,10 +63,10 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
   - Range: "แกว่งในกรอบแคบ ไร้ทิศชัด — รอเลือกทาง"
 - **Verify:** spot-check กับกราฟจริง ≥5 เหรียญ ตรงตาสมเหตุผล (กฎปรับจูนได้ภายหลัง — บันทึกเกณฑ์ไว้ในโค้ด) + tooltip อ่านได้ทั้งจอคอมและมือถือ
 
-## ⬜ Phase D4 — Theme Mover panel (แผงขวาบน)
-- [ ] layout 2 คอลัมน์ (main 60% / sidebar 40%, มือถือ stack แนวตั้ง)
-- [ ] ดึง CoinGecko `/api/v3/coins/categories` (1 call — มี `market_cap_change_24h` ของทุก category ทั้งตลาด) → กรองเฉพาะ theme หลัก ~10 อัน → แสดง bar ± เรียงตามแรงเงินไหล
-- [ ] เพิ่ม `api.coingecko.com` เข้า `ALLOWED_HOSTS` ของ proxy ใน `dashboard_server.py` (CoinGecko ไม่มี CORS เหมือน Gate)
+## ✅ Phase D4 — Theme Mover panel (แผงขวาบน)
+- [x] layout 2 คอลัมน์ (main 60% / sidebar 40%, มือถือ stack แนวตั้ง)
+- [x] ดึง CoinGecko `/api/v3/coins/categories` (1 call — มี `market_cap_change_24h` ของทุก category ทั้งตลาด) → กรองเฉพาะ theme หลัก ~10 อัน → แสดง bar ± เรียงตามแรงเงินไหล
+- [x] เพิ่ม `api.coingecko.com` เข้า `ALLOWED_HOSTS` ของ proxy ใน `dashboard_server.py` (CoinGecko ไม่มี CORS เหมือน Gate)
 - **Verify:** ตัวเลขตรงกับหน้า coingecko.com/en/categories / cache 5 นาทีกัน rate limit
 
 ## ⬜ Phase D5 — Top RSI Mover panel (แผงขวาล่าง)
@@ -80,3 +80,4 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 - 2026-06-12: ✅ D1 เสร็จ — ตาราง Matrix + batch fetch (≤3 calls) + RSI(D) ตรง python เป๊ะบนแท่งปิด (diff ≤0.014) + detail modal + ✕ remove + mobile stack — ต่อไป: D2 (theme)
 - 2026-06-12: ✅ D2 เสร็จ — update_themes.py + coin_meta.json (9 เหรียญ) + theme badge (AI/Gaming/DeFi/Meme/RWA/L1/DePIN) + coin logo 16px + refresh-levels.yml auto-fill — ต่อไป: D3 (pattern)
 - 2026-06-12: ✅ D3 เสร็จ — fetchDailyOHLC + classifyPattern (5 กฎ, OHLC 50 แท่ง) + patternBadge + CSS tooltip ภาษาไทย + cache 5 นาที; เหรียญใหม่ <50 แท่ง แสดง — ถูกต้อง — ต่อไป: D4 (Theme Mover)
+- 2026-06-12: ✅ D4 เสร็จ — cgCategoryToTheme + bestCategoryPerTheme + bar chart 7 themes + cache 5 นาที + timestamp; proxy ได้รับ api.coingecko.com; 2-col layout desktop ✓ — ต่อไป: D5 (Top RSI Mover)

@@ -88,6 +88,7 @@ ALLOWED_HOSTS = {
     "api.gateio.ws",
     "fapi.binance.com",
     "data-api.binance.vision",
+    "api.coingecko.com",
 }
 
 

@@ -372,6 +372,23 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
   color: var(--text-dim);
 }
 
+/* ===== Theme Mover bar chart (D4) ===== */
+.tm-row {
+  display: grid;
+  grid-template-columns: 62px 1fr 44px;
+  gap: 6px;
+  align-items: center;
+  padding: 5px 0;
+  border-top: 1px solid var(--row-line);
+}
+.tm-row:first-child { border-top: none; }
+.tm-label { font-size: 0.73rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tm-track { background: var(--row-line); height: 5px; border-radius: 3px; overflow: hidden; }
+.tm-bar { height: 100%; border-radius: 3px; min-width: 2px; transition: width 0.3s; }
+.tm-pos { background: var(--green); }
+.tm-neg { background: var(--red); }
+.tm-pct { font-size: 0.73rem; text-align: right; font-weight: 600; }
+
 /* ===== Pattern badge colors + CSS tooltip (D3) ===== */
 .pat-parabolic { border-color: #ffd23b; color: #ffd23b; }
 .pat-breakout  { border-color: var(--green); color: var(--green); }

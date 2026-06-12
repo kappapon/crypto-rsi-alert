@@ -495,6 +495,73 @@ async function suggestLevels(symbol, exchange) {
   };
 }
 
+// ============ Theme Mover (D4) ============
+let tmCache = { data: null, ts: 0 };
+
+function cgCategoryToTheme(id) {
+  const s = id.toLowerCase();
+  if (s.includes("artificial-intelligence")) return "AI";
+  if (s.includes("meme")) return "Meme";
+  if (s.includes("gaming") || s.includes("gamefi") || s.includes("play-to-earn")) return "Gaming";
+  if (s.includes("decentralized-finance") || s.includes("-defi")) return "DeFi";
+  if (s.includes("real-world-asset") || s.includes("-rwa")) return "RWA";
+  if (s.includes("layer-1") || s.includes("smart-contract-platform")) return "L1";
+  if (s.includes("depin")) return "DePIN";
+  return null;
+}
+
+function bestCategoryPerTheme(categories) {
+  const byTheme = {};
+  for (const cat of categories) {
+    const theme = cgCategoryToTheme(cat.id);
+    if (!theme || cat.market_cap_change_24h == null) continue;
+    if (!byTheme[theme] || (cat.market_cap || 0) > (byTheme[theme].market_cap || 0)) {
+      byTheme[theme] = { theme, change: cat.market_cap_change_24h, market_cap: cat.market_cap || 0 };
+    }
+  }
+  return Object.values(byTheme).sort((a, b) => b.change - a.change);
+}
+
+function renderThemeMoverContent(rows) {
+  const el = document.getElementById("theme-mover-body");
+  if (!el) return;
+  if (!rows.length) { el.innerHTML = `<p class="faint">ไม่พบข้อมูล category</p>`; return; }
+  const maxAbs = Math.max(...rows.map(r => Math.abs(r.change)), 0.1);
+  el.innerHTML = rows.map(r => {
+    const sign = r.change >= 0 ? "+" : "";
+    const barCls = r.change >= 0 ? "tm-pos" : "tm-neg";
+    const pctCls = r.change >= 0 ? "pct-up" : "pct-down";
+    const w = Math.round(Math.abs(r.change) / maxAbs * 100);
+    const icon = THEME_ICONS[r.theme] || "❔";
+    return `<div class="tm-row">
+      <span class="tm-label">${icon} ${r.theme}</span>
+      <div class="tm-track"><div class="tm-bar ${barCls}" style="width:${w}%"></div></div>
+      <span class="tm-pct ${pctCls}">${sign}${r.change.toFixed(1)}%</span>
+    </div>`;
+  }).join("");
+}
+
+async function refreshThemeMover() {
+  if (tmCache.data && Date.now() - tmCache.ts < 5 * 60 * 1000) {
+    renderThemeMoverContent(tmCache.data);
+    return;
+  }
+  const el = document.getElementById("theme-mover-body");
+  if (el) el.innerHTML = `<p class="faint">กำลังโหลด...</p>`;
+  try {
+    const url = "https://api.coingecko.com/api/v3/coins/categories?order=market_cap_change_24h_desc";
+    const cats = await fetch(`/proxy?url=${encodeURIComponent(url)}`).then(r => r.json());
+    if (!Array.isArray(cats)) throw new Error("unexpected response");
+    const rows = bestCategoryPerTheme(cats);
+    tmCache = { data: rows, ts: Date.now() };
+    renderThemeMoverContent(rows);
+    const upEl = document.getElementById("tm-updated");
+    if (upEl) upEl.textContent = new Date().toLocaleTimeString();
+  } catch (e) {
+    if (el) el.innerHTML = `<p class="faint" style="font-size:0.72rem">โหลดไม่ได้ — ${e.message}</p>`;
+  }
+}
+
 // ============ Main loop ============
 let cache = { watchlist: null, analysis: {}, tickerData: {}, lastFetch: 0 };
 
@@ -612,6 +679,7 @@ async function refresh() {
   statusEl.textContent = `✓ ${names.length} tickers`;
   statusEl.className = "status ok";
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
+  refreshThemeMover(); // sidebar — fire and forget
 }
 
 function startCountdown() {
