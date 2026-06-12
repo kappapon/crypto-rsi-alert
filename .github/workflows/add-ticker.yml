@@ -5,7 +5,8 @@ on:
     types: [add_ticker]
 
 concurrency:
-  group: add-ticker
+  # แยก group ต่อเหรียญ — กดหลายเหรียญพร้อมกันได้ (queue เกิดเฉพาะเหรียญเดิม)
+  group: add-ticker-${{ github.event.client_payload.symbol }}
   cancel-in-progress: false
 
 jobs:
