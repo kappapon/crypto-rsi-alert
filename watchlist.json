@@ -207,6 +207,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "SNDK_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 2044.413,
+        "resistance": 2014.2,
+        "rejection_below": 1887.669,
+        "support_strong": 1914.8297,
+        "support_extreme": 1831.3789
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
