@@ -173,6 +173,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ARC_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.1061,
+        "resistance": 0.1045,
+        "rejection_below": 0.0953,
+        "support_strong": 0.0881,
+        "support_extreme": 0.0855
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
