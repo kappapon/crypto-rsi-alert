@@ -133,5 +133,36 @@
       "BNB Chain Ecosystem",
       "Binance Alpha Spotlight"
     ]
+  },
+  "JNJ": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/55620/small/Ticker_JNJ__Company_Name_johnson-johnson__size_200x200_2x.png?1746861691",
+    "cg_id": "johnson-johnson-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Mantle Ecosystem",
+      "TON Ecosystem",
+      "BackedFi xStocks Ecosystem"
+    ]
+  },
+  "ARC": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/52701/small/u312bPNA_400x400.jpg?1734044765",
+    "cg_id": "ai-rig-complex",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Infrastructure",
+      "Solana Ecosystem",
+      "AI Agents",
+      "Pump.fun Ecosystem",
+      "AI Agent Launchpad",
+      "Binance Alpha Spotlight",
+      "AI Framework"
+    ]
   }
 }
