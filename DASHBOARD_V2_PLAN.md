@@ -8,13 +8,31 @@
 
 **ทรัพยากรรวม:** API เดิมทั้งหมด (Binance data-api, Gate v4) + **CoinGecko free API** (ใหม่ — ไม่ต้องมี key, limit ~10-30 calls/นาที, เราใช้จริง ~1-10 calls/วัน) — ไม่มีค่าใช้จ่าย ไม่มี dependency Python ใหม่
 
+## Design spec — ธีม The Matrix (อนุมัติจาก mockup 2026-06-12)
+CSS variables ใน `styles.css` (ใช้ชุดนี้เป๊ะ อย่า hardcode กระจาย):
+```css
+--bg: #050905;          /* พื้นหลังหลัก ดำอมเขียว */
+--surface: #081108;     /* พื้น panel/card */
+--border: #14471f;      /* เส้นขอบ panel */
+--row-line: #0d2f15;    /* เส้นคั่นแถวตาราง */
+--green: #00e653;       /* หลัก: ค่า +, bar, หัวข้อ */
+--green-soft: #7ddf96;  /* ข้อความรอง, badge theme */
+--green-bright: #baffcb;/* symbol, ตัวเลขเด่น */
+--green-dim: #2e7a42;   /* หัวคอลัมน์ */
+--green-faint: #1f5c30; /* hint, คำพูดประกอบ */
+--amber: #ffd23b;       /* RSI 70-85, pattern parabolic */
+--red: #ff5544;         /* ค่า −, RSI ≥ 85, SL/danger */
+font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
+```
+กติกา: หัวข้อ panel ใช้ "▮ TITLE" letter-spacing 1-2px ตัวพิมพ์ใหญ่ / badge = ขอบ 1px ไม่มีพื้น / แถบ digital-rain ตกแต่งใต้ header (ตัวอักษร katakana จาง ๆ — static พอ ไม่ต้อง animate ในเฟสแรก, ถ้าจะ animate เป็นของแถมท้าย D4) / เสียง beep + toast เดิมคงไว้ / สี RSI: <70 เขียวอ่อน, 70-85 amber, ≥85 แดง
+
 ---
 
 ## ⬜ Phase D1 — โครงตารางหลัก + RSI Day + 1D%
 - [ ] `dashboard.js`: ฟังก์ชัน `wilderRSI(closes)` (logic เดียวกับ scan.py — ewm alpha 1/14, ตัดแท่งยังไม่ปิด)
 - [ ] ดึง daily klines ต่อเหรียญ (reuse `fetchKlines` เปลี่ยน interval เป็น 1d, limit 50)
 - [ ] เปลี่ยน main grid จาก card ใหญ่ → ตารางแถวกระชับ: Symbol | (เว้นที่ Theme) | (เว้นที่ Pattern) | 1D% | RSI(D) — คลิกแถวเปิดการ์ดรายละเอียดเดิม (levels/analyze/calc/OHLCV/remove ทำงานเหมือนเดิมทุกปุ่ม)
-- [ ] `index.html` + `styles.css`: โครง layout ใหม่ (เผื่อคอลัมน์ขวาไว้แต่ยังว่าง)
+- [ ] `index.html` + `styles.css`: โครง layout ใหม่ (เผื่อคอลัมน์ขวาไว้แต่ยังว่าง) + **เปลี่ยนธีมทั้งหน้าเป็น Matrix ตาม Design spec ด้านบน** (รวม modal/ปุ่มเดิมทั้งหมดให้เข้าธีม)
 - **Verify:** RSI(D) ตรง TradingView ±0.1 ทุกเหรียญใน watchlist / ปุ่มเดิมครบ / มือถือใน WiFi เปิดได้
 - **ไม่แตะ:** server, workflows
 
