@@ -1,3 +1,17 @@
 {
-  "trades": []
+  "trades": [
+    {
+      "atr": 0.2180666399031324,
+      "breadth": 1,
+      "entry": 2.247,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-06-12T00:25:39+00:00",
+      "prob": 0.374,
+      "sl": 2.4650666399031325,
+      "status": "open",
+      "symbol": "FOLKS_USDT",
+      "tp": 1.8108667201937352
+    }
+  ]
 }
