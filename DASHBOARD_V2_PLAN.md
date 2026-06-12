@@ -38,12 +38,12 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 - **Verify:** RSI(D) ตรง TradingView ±0.1 ทุกเหรียญใน watchlist / ปุ่มเดิมครบ / มือถือใน WiFi เปิดได้
 - **ไม่แตะ:** server, workflows
 
-## ⬜ Phase D2 — Theme
-- [ ] `coin_meta.json` (symbol → {theme, logo_url}) + script `update_themes.py`: หา category + **รูปโลโก้เหรียญ** จาก CoinGecko (`/search` + `/coins/{id}` field `image.small`), เหรียญที่ไม่เจอ → theme "Unclassified" + โลโก้ fallback เป็นวงกลมอักษรตัวแรก (สร้างด้วย CSS ไม่ต้องมีรูป)
-- [ ] **โลโก้เหรียญต่อท้าย symbol** ในตาราง (`<img>` 16px กลม, onerror → letter-avatar)
-- [ ] **ไอคอนประจำ theme ต่อท้ายชื่อ theme** — map คงที่ในโค้ด: AI 🤖, Meme 🐸, Gaming 🎮, DeFi 🏦, RWA 🏛️, L1 ⛓️, DePIN 📡, Unclassified ❔ (ใช้ชุดเดียวกันในแผง Theme Mover)
-- [ ] ผูกเข้า `refresh-levels.yml`: เหรียญใหม่ใน watchlist ที่ยังไม่มี theme → เติมอัตโนมัติทุกเช้า
-- [ ] badge theme ในตาราง (สี: AI=ม่วง, Meme=ชมพู, DeFi=น้ำเงิน, Gaming=ม่วง, RWA=เขียว ฯลฯ)
+## ✅ Phase D2 — Theme
+- [x] `coin_meta.json` (symbol → {theme, logo_url}) + script `update_themes.py`: หา category + **รูปโลโก้เหรียญ** จาก CoinGecko (`/search` + `/coins/{id}` field `image.small`), เหรียญที่ไม่เจอ → theme "Unclassified" + โลโก้ fallback เป็นวงกลมอักษรตัวแรก (สร้างด้วย CSS ไม่ต้องมีรูป)
+- [x] **โลโก้เหรียญต่อท้าย symbol** ในตาราง (`<img>` 16px กลม, onerror → letter-avatar)
+- [x] **ไอคอนประจำ theme ต่อท้ายชื่อ theme** — map คงที่ในโค้ด: AI 🤖, Meme 🐸, Gaming 🎮, DeFi 🏦, RWA 🏛️, L1 ⛓️, DePIN 📡, Unclassified ❔ (ใช้ชุดเดียวกันในแผง Theme Mover)
+- [x] ผูกเข้า `refresh-levels.yml`: เหรียญใหม่ใน watchlist ที่ยังไม่มี theme → เติมอัตโนมัติทุกเช้า
+- [x] badge theme ในตาราง (สี: AI=ม่วง, Meme=ชมพู, DeFi=น้ำเงิน, Gaming=ม่วง, RWA=เขียว ฯลฯ)
 - **Verify:** ทุกเหรียญใน watchlist มี theme (ดูจริง + curate มือถ้า API จำแนกแปลก)
 - **ทรัพยากร:** CoinGecko free API
 
@@ -78,3 +78,4 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 **บันทึกความคืบหน้า:** (เติมทุกครั้งที่จบเฟส)
 - 2026-06-12: สร้างแผน + mockup อนุมัติแล้ว
 - 2026-06-12: ✅ D1 เสร็จ — ตาราง Matrix + batch fetch (≤3 calls) + RSI(D) ตรง python เป๊ะบนแท่งปิด (diff ≤0.014) + detail modal + ✕ remove + mobile stack — ต่อไป: D2 (theme)
+- 2026-06-12: ✅ D2 เสร็จ — update_themes.py + coin_meta.json (9 เหรียญ) + theme badge (AI/Gaming/DeFi/Meme/RWA/L1/DePIN) + coin logo 16px + refresh-levels.yml auto-fill — ต่อไป: D3 (pattern)

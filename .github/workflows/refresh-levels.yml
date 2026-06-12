@@ -28,13 +28,16 @@ jobs:
             python manage_watchlist.py suggest "$s" --yes || echo "::warning::refresh $s failed — keeping old levels"
           done
 
+      - name: Fill missing themes from CoinGecko
+        run: python update_themes.py --new-only
+
       - name: Commit refreshed levels
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add watchlist.json
+          git add watchlist.json coin_meta.json
           if git diff --staged --quiet; then
-            echo "No level changes."
+            echo "No changes."
           else
             git commit -m "watchlist: daily level refresh $(date -u +%Y-%m-%d)"
             git pull --rebase

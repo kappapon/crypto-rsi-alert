@@ -200,6 +200,8 @@ function buildLevels(symbol, price, levels) {
 // ============ ตารางหลัก (V2) ============
 const lastTriggers = {}; // เก็บ trigger ล่าสุดต่อเหรียญ ไว้แสดงใน detail modal
 
+const THEME_ICONS = { AI: "🤖", Meme: "🐸", Gaming: "🎮", DeFi: "🏦", RWA: "🏛️", L1: "⛓️", DePIN: "📡", Unclassified: "❔" };
+
 function rsiClass(r) {
   if (r == null) return "faint";
   return r >= 85 ? "rsi-hot" : r >= 70 ? "rsi-warm" : "rsi-cool";
@@ -209,14 +211,32 @@ function shortName(symbol) {
   return symbol.replace(/_USDT$|USDT$/, "");
 }
 
+function logoHtml(base) {
+  const m = (cache.coinMeta || {})[base];
+  const letter = base[0];
+  if (m?.logo_url) {
+    return `<img class="coin-logo" src="${m.logo_url}" alt="${letter}" onerror="this.outerHTML='<span class=\\'coin-ava\\'>${letter}</span>'">`;
+  }
+  return `<span class="coin-ava">${letter}</span>`;
+}
+
+function themeBadge(base) {
+  const m = (cache.coinMeta || {})[base];
+  const theme = m?.theme || "Unclassified";
+  const icon = THEME_ICONS[theme] || "❔";
+  const cls = "theme-" + theme.replace(/[^a-zA-Z0-9]/g, "");
+  return `<span class="badge ${cls}" title="${theme}">${icon} ${theme}</span>`;
+}
+
 function renderRow(symbol, cfg, data, rsi) {
+  const base = shortName(symbol);
   const ch = data ? data.change24h : null;
   const chCls = ch == null ? "" : ch >= 0 ? "pct-up" : "pct-down";
   const chTxt = ch == null ? "-" : `${ch >= 0 ? "+" : ""}${ch.toFixed(1)}`;
   const hot = (lastTriggers[symbol] || []).some(t => t.critical);
   return `<tr data-symbol="${symbol}">
-    <td class="sym" title="${symbol} · ${cfg.exchange}">${hot ? "⚡" : ""}${shortName(symbol)}<span class="coin-ava">${symbol[0]}</span></td>
-    <td><span class="badge" title="มาในเฟส D2">—</span></td>
+    <td class="sym" title="${symbol} · ${cfg.exchange}">${hot ? "⚡" : ""}${base}${logoHtml(base)}</td>
+    <td>${themeBadge(base)}</td>
     <td><span class="badge" title="มาในเฟส D3">—</span></td>
     <td class="num ${chCls}">${chTxt}</td>
     <td class="num ${rsiClass(rsi)}">${rsi == null ? "-" : Math.round(rsi)}</td>
@@ -425,6 +445,14 @@ async function loadAnalysis() {
   }
 }
 
+async function loadCoinMeta() {
+  try {
+    const r = await fetch("../coin_meta.json?_=" + Date.now());
+    if (!r.ok) return {};
+    return await r.json();
+  } catch { return {}; }
+}
+
 function fmtTimeAgo(iso) {
   if (!iso) return "-";
   const t = new Date(iso).getTime();
@@ -463,9 +491,10 @@ async function refresh() {
   statusEl.textContent = "🔄 refreshing...";
   statusEl.className = "status";
 
-  const [watchlist, analysis] = await Promise.all([loadWatchlist(), loadAnalysis()]);
+  const [watchlist, analysis, coinMeta] = await Promise.all([loadWatchlist(), loadAnalysis(), loadCoinMeta()]);
   cache.watchlist = watchlist;
   cache.analysis = analysis;
+  cache.coinMeta = coinMeta;
   const tickers = Object.fromEntries(
     Object.entries(watchlist.tickers || {}).filter(([, cfg]) => cfg.enabled !== false));
   const names = Object.keys(tickers);

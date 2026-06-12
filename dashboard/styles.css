@@ -372,6 +372,24 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
   color: var(--text-dim);
 }
 
+/* ===== Theme badge colors (D2) ===== */
+.theme-AI         { border-color: #7c3aed; color: #b06cf5; }
+.theme-Meme       { border-color: #db2777; color: #f472b6; }
+.theme-DeFi       { border-color: #1d4ed8; color: #60a5fa; }
+.theme-Gaming     { border-color: #5b21b6; color: #a78bfa; }
+.theme-RWA        { border-color: #047857; color: #34d399; }
+.theme-L1         { border-color: #0e7490; color: #22d3ee; }
+.theme-DePIN      { border-color: #c2410c; color: #fb923c; }
+.theme-Unclassified { border-color: var(--text-faint); color: var(--text-faint); }
+
+.coin-logo {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  vertical-align: -3px;
+  margin-left: 5px;
+  object-fit: cover;
+}
+
 /* Toast */
 .toast {
   position: fixed;
