@@ -69,9 +69,9 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 - [x] เพิ่ม `api.coingecko.com` เข้า `ALLOWED_HOSTS` ของ proxy ใน `dashboard_server.py` (CoinGecko ไม่มี CORS เหมือน Gate)
 - **Verify:** ตัวเลขตรงกับหน้า coingecko.com/en/categories / cache 5 นาทีกัน rate limit
 
-## ⬜ Phase D5 — Top RSI Mover panel (แผงขวาล่าง)
-- [ ] `scan.py`: หลังคำนวณ RSI ~400 คู่อยู่แล้วทุก 4 ชม. → เขียน `rsi_snapshot.json` {date, rsi:{sym:val}, prev_daily:{sym:val ของเมื่อวานเวลาเดียวกัน}} + commit ใน workflow (เพิ่มไฟล์เข้า git add ของ rsi-alert.yml)
-- [ ] dashboard อ่านไฟล์ → ΔRSI = วันนี้ − เมื่อวาน → **แสดง 10 อันดับ ในกล่อง scroll ได้** (max-height + scrollbar Matrix เหมือนตารางหลัก)
+## ✅ Phase D5 — Top RSI Mover panel (แผงขวาล่าง)
+- [x] `scan.py`: หลังคำนวณ RSI ~400 คู่อยู่แล้วทุก 4 ชม. → เขียน `rsi_snapshot.json` {date, rsi:{sym:val}, prev_daily:{sym:val ของเมื่อวานเวลาเดียวกัน}} + commit ใน workflow (เพิ่มไฟล์เข้า git add ของ rsi-alert.yml)
+- [x] dashboard อ่านไฟล์ → ΔRSI = วันนี้ − เมื่อวาน → **แสดง 10 อันดับ ในกล่อง scroll ได้** (max-height + scrollbar Matrix เหมือนตารางหลัก)
 - **Verify:** คำนวณมือ 2-3 เหรียญตรง / ไฟล์ snapshot ไม่บวมเกิน (~30KB)
 
 ---
@@ -81,3 +81,4 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 - 2026-06-12: ✅ D2 เสร็จ — update_themes.py + coin_meta.json (9 เหรียญ) + theme badge (AI/Gaming/DeFi/Meme/RWA/L1/DePIN) + coin logo 16px + refresh-levels.yml auto-fill — ต่อไป: D3 (pattern)
 - 2026-06-12: ✅ D3 เสร็จ — fetchDailyOHLC + classifyPattern (5 กฎ, OHLC 50 แท่ง) + patternBadge + CSS tooltip ภาษาไทย + cache 5 นาที; เหรียญใหม่ <50 แท่ง แสดง — ถูกต้อง — ต่อไป: D4 (Theme Mover)
 - 2026-06-12: ✅ D4 เสร็จ — cgCategoryToTheme + bestCategoryPerTheme + bar chart 7 themes + cache 5 นาที + timestamp; proxy ได้รับ api.coingecko.com; 2-col layout desktop ✓ — ต่อไป: D5 (Top RSI Mover)
+- 2026-06-13: ✅ D5 เสร็จ — scan.py เก็บ rsi_values ทุก symbol + _save_rsi_snapshot (date rotate → prev_daily); rsi-alert.yml commit rsi_snapshot.json; dashboard loadRsiSnapshot + renderRsiMover (top 10 ΔRSI, scrollable); size ~16KB < 30KB ✓; รอ Actions รอบถัดไปเติมข้อมูลจริง

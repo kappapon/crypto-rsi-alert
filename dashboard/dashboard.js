@@ -562,6 +562,52 @@ async function refreshThemeMover() {
   }
 }
 
+// ============ Top RSI Mover (D5) ============
+async function loadRsiSnapshot() {
+  try {
+    const r = await fetch("../rsi_snapshot.json?_=" + Date.now());
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+function renderRsiMover(snap) {
+  const el = document.getElementById("rsi-mover-body");
+  if (!el) return;
+  if (!snap?.rsi || !Object.keys(snap.rsi).length) {
+    el.innerHTML = `<p class="faint">รอข้อมูลจาก Actions_</p>`;
+    return;
+  }
+
+  const hasDelta = snap.prev_daily && Object.keys(snap.prev_daily).length > 0;
+  const entries = Object.entries(snap.rsi).map(([sym, rsi]) => {
+    const prev = snap.prev_daily?.[sym];
+    const delta = (hasDelta && prev != null) ? rsi - prev : null;
+    return { sym, rsi, delta };
+  });
+
+  entries.sort((a, b) => hasDelta
+    ? (b.delta ?? -999) - (a.delta ?? -999)
+    : b.rsi - a.rsi);
+
+  const top10 = entries.slice(0, 10);
+  el.innerHTML = top10.map(e => {
+    const short = e.sym.replace(/\.GATEIO$/, "★").replace(/_?USDT$/, "");
+    const rsiCls = e.rsi >= 85 ? "rsi-hot" : e.rsi >= 70 ? "rsi-warm" : "rsi-cool";
+    const dHtml = e.delta != null
+      ? `<span class="${e.delta >= 0 ? "pct-up" : "pct-down"}">${e.delta >= 0 ? "+" : ""}${e.delta.toFixed(1)}</span>`
+      : `<span class="faint">—</span>`;
+    return `<div class="rm-row">
+      <span class="rm-sym" title="${e.sym}">${short}</span>
+      <span class="rm-rsi ${rsiCls}">${Math.round(e.rsi)}</span>
+      ${dHtml}
+    </div>`;
+  }).join("");
+
+  const upEl = document.getElementById("rm-updated");
+  if (upEl && snap.date) upEl.textContent = snap.date.slice(11, 16) + " UTC";
+}
+
 // ============ Main loop ============
 let cache = { watchlist: null, analysis: {}, tickerData: {}, lastFetch: 0 };
 
@@ -680,6 +726,7 @@ async function refresh() {
   statusEl.className = "status ok";
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
   refreshThemeMover(); // sidebar — fire and forget
+  loadRsiSnapshot().then(renderRsiMover);
 }
 
 function startCountdown() {

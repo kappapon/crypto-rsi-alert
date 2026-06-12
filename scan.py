@@ -11,7 +11,8 @@ import requests
 
 BINANCE_BASE = "https://data-api.binance.vision"
 GATEIO_BASE = "https://api.gateio.ws/api/v4"
-STATE_FILE = Path(__file__).parent / "state.json"
+STATE_FILE    = Path(__file__).parent / "state.json"
+SNAPSHOT_FILE = Path(__file__).parent / "rsi_snapshot.json"
 RSI_PERIOD = 14
 KLINE_LIMIT = 100
 LEVEL_OVERBOUGHT = 70
@@ -147,6 +148,33 @@ def _state_key(sym: str, source: str) -> str:
     return sym if source == "spot" else f"{sym}.GATEIO"
 
 
+def _save_rsi_snapshot(current_rsi: dict[str, float]) -> None:
+    """Write rsi_snapshot.json for dashboard Top RSI Mover panel.
+    prev_daily rotates when UTC date changes — ΔRSI = today − yesterday.
+    """
+    prev_snap: dict = {}
+    if SNAPSHOT_FILE.exists():
+        try:
+            prev_snap = json.loads(SNAPSHOT_FILE.read_text())
+        except Exception:
+            pass
+
+    today_utc = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+    prev_daily = prev_snap.get("prev_daily") or {}
+
+    prev_date = (prev_snap.get("date") or "")[:10]
+    if prev_date and prev_date != today_utc:
+        prev_daily = prev_snap.get("rsi") or {}
+
+    snapshot = {
+        "date": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "rsi": current_rsi,
+        "prev_daily": prev_daily,
+    }
+    SNAPSHOT_FILE.write_text(json.dumps(snapshot, ensure_ascii=False) + "\n")
+    print(f"Snapshot saved: {len(current_rsi)} symbols, prev_daily: {len(prev_daily)}")
+
+
 def main() -> None:
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())}] scan start")
     today_utc = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
@@ -158,6 +186,7 @@ def main() -> None:
     state = load_state(today_utc)
     levels: dict[str, int] = state["levels"]
     new_alerts: list[tuple[str, float, int, str]] = []
+    rsi_values: dict[str, float] = {}
     errors = 0
 
     sources: list[tuple[str, list[str], callable]] = [
@@ -176,6 +205,8 @@ def main() -> None:
                     continue
 
                 key = _state_key(sym, source)
+                rsi_values[key] = round(float(rsi), 2)
+
                 prev_level = levels.get(key, 0)
                 curr_level = determine_level(rsi)
 
@@ -218,6 +249,7 @@ def main() -> None:
         reply_markup = _build_keyboard(button_syms) if button_syms else None
         send_telegram("\n".join(lines), reply_markup=reply_markup)
 
+    _save_rsi_snapshot(rsi_values)
     save_state(state)
 
 
