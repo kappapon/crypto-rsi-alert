@@ -107,6 +107,32 @@ button.primary:hover { background: #35ff7e; }
 }
 @media (max-width: 900px) { #layout { grid-template-columns: 1fr; } }
 
+@media (max-width: 640px) {
+  /* Header: ชื่อเต็มแถว + ปุ่มแถวล่าง */
+  header { padding: 8px 12px; flex-wrap: wrap; gap: 4px 0; }
+  header h1 { width: 100%; font-size: 0.88rem; margin-bottom: 2px; }
+  .controls { width: 100%; gap: 6px; justify-content: flex-start; flex-wrap: wrap; }
+  #last-train { display: none; }  /* เห็นได้ใน 🧠 ML modal */
+  #ml-btn { display: none; }      /* desktop action */
+  button { padding: 5px 10px; font-size: 0.78rem; }
+  .status { font-size: 0.78rem; padding: 3px 8px; }
+
+  /* Rain strip เล็กลง */
+  #rain { font-size: 8px; letter-spacing: 3px; padding: 3px 12px 0; }
+
+  /* Layout padding */
+  #layout { padding: 8px 10px 16px; gap: 10px; }
+  .panel { padding: 10px 10px; }
+
+  /* Table: compact */
+  #wl-table { font-size: 0.76rem; }
+  #wl-table td { padding: 6px 3px 6px 0; }
+  #wl-table th { padding: 3px 3px 5px 0; }
+  .badge { font-size: 0.58rem; padding: 1px 4px; }
+  .coin-logo { width: 14px; height: 14px; }
+  .coin-ava { width: 14px; height: 14px; font-size: 8px; line-height: 14px; }
+}
+
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
