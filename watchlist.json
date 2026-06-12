@@ -190,6 +190,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "AMAT_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 578.8545,
+        "resistance": 570.3,
+        "rejection_below": 539.79,
+        "support_strong": 553.6642,
+        "support_extreme": 537.593
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
