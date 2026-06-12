@@ -111,6 +111,71 @@ async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
   }
 }
 
+// ============ Daily OHLC + Pattern (D3) ============
+const dailyCandlesCache = {};
+
+async function fetchDailyOHLC(symbol, exchange, limit = 50) {
+  try {
+    if (exchange === "binance_futures") {
+      const rows = await fetch(`https://fapi.binance.com/fapi/v1/klines?symbol=${symbol}&interval=1d&limit=${limit}`).then(r => r.json());
+      return Array.isArray(rows) ? rows.map(r => ({ o: +r[1], h: +r[2], l: +r[3], c: +r[4] })) : [];
+    }
+    if (exchange === "binance_spot") {
+      const rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=1d&limit=${limit}`).then(r => r.json());
+      return Array.isArray(rows) ? rows.map(r => ({ o: +r[1], h: +r[2], l: +r[3], c: +r[4] })) : [];
+    }
+    if (exchange === "gateio_futures") {
+      const rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=1d&limit=${limit}`)).then(r => r.json());
+      return Array.isArray(rows) ? rows.map(r => ({ o: +r.o, h: +r.h, l: +r.l, c: +r.c })) : [];
+    }
+  } catch (e) { console.warn(`fetchDailyOHLC ${symbol}:`, e); }
+  return [];
+}
+
+// Priority: Parabolic > Breakout > Pullback > Downtrend > Range
+// Criteria match the training event definition (RSI overbought fade-the-top context)
+function classifyPattern(candles) {
+  if (!candles || candles.length < 50) return null;
+  const closes = candles.map(c => c.c);
+  const opens  = candles.map(c => c.o);
+  const highs  = candles.map(c => c.h);
+  const n = closes.length;
+  const ema20 = ema(closes, 20);
+  const ema50 = ema(closes, 50);
+  const last  = closes[n - 1];
+
+  // 1. Parabolic — close > EMA20×1.15 and ≥3 green bars in last 4
+  const greenIn4 = [1, 2, 3, 4].filter(i => closes[n - i] > opens[n - i]).length;
+  if (last > ema20 * 1.15 && greenIn4 >= 3)
+    return { name: "Parabolic", tip: "ราคาพุ่งชันต่อเนื่อง ห่างเส้นค่าเฉลี่ยมากผิดปกติ — เสี่ยงพักตัว/กลับตัวแรง" };
+
+  // 2. Breakout — close > highest high of the 20 bars before current
+  const high20 = Math.max(...highs.slice(n - 21, n - 1));
+  if (last > high20)
+    return { name: "Breakout", tip: "ทะลุจุดสูงสุด 20 วัน — ขาขึ้นเปิดทางต่อ" };
+
+  // 3. Pullback — above EMA50 but ≥2 red bars in last 3
+  const redIn3 = [1, 2, 3].filter(i => closes[n - i] < opens[n - i]).length;
+  if (last > ema50 && redIn3 >= 2)
+    return { name: "Pullback", tip: "ย่อระยะสั้นในโครงขาขึ้น — ดูแนวรับ EMA" };
+
+  // 4. Downtrend — below EMA50 and EMA20 < EMA50
+  if (last < ema50 && ema20 < ema50)
+    return { name: "Downtrend", tip: "ต่ำกว่าเส้นค่าเฉลี่ยระยะกลาง — ขาลง อย่าเพิ่งสวน" };
+
+  // 5. Range — catch-all
+  return { name: "Range", tip: "แกว่งในกรอบแคบ ไร้ทิศชัด — รอเลือกทาง" };
+}
+
+async function dailyPattern(symbol, exchange) {
+  const hit = dailyCandlesCache[symbol];
+  if (hit && Date.now() - hit.ts < 5 * 60 * 1000) return hit.pattern;
+  const candles = await fetchDailyOHLC(symbol, exchange, 50);
+  const pattern = classifyPattern(candles);
+  dailyCandlesCache[symbol] = { pattern, ts: Date.now() };
+  return pattern;
+}
+
 // ============ Logic ============
 function classifyScenario(price, levels) {
   if (levels.rejection_below && price < levels.rejection_below) return { code: "A", label: "SHORT signal" };
@@ -228,7 +293,15 @@ function themeBadge(base) {
   return `<span class="badge ${cls}" title="${theme}">${icon} ${theme}</span>`;
 }
 
-function renderRow(symbol, cfg, data, rsi) {
+const PATTERN_CLS = { Parabolic: "pat-parabolic", Breakout: "pat-breakout", Pullback: "pat-pullback", Downtrend: "pat-downtrend", Range: "pat-range" };
+
+function patternBadge(pattern) {
+  if (!pattern) return `<span class="badge pat-range faint">—</span>`;
+  const cls = PATTERN_CLS[pattern.name] || "pat-range";
+  return `<span class="badge ${cls}" data-tooltip="${pattern.tip}">${pattern.name}</span>`;
+}
+
+function renderRow(symbol, cfg, data, rsi, pattern) {
   const base = shortName(symbol);
   const ch = data ? data.change24h : null;
   const chCls = ch == null ? "" : ch >= 0 ? "pct-up" : "pct-down";
@@ -237,7 +310,7 @@ function renderRow(symbol, cfg, data, rsi) {
   return `<tr data-symbol="${symbol}">
     <td class="sym" title="${symbol} · ${cfg.exchange}">${hot ? "⚡" : ""}${base}${logoHtml(base)}</td>
     <td>${themeBadge(base)}</td>
-    <td><span class="badge" title="มาในเฟส D3">—</span></td>
+    <td>${patternBadge(pattern)}</td>
     <td class="num ${chCls}">${chTxt}</td>
     <td class="num ${rsiClass(rsi)}">${rsi == null ? "-" : Math.round(rsi)}</td>
     <td><button class="row-x" data-remove="${symbol}" title="remove ${symbol}">✕</button></td>
@@ -508,10 +581,13 @@ async function refresh() {
     return;
   }
 
-  // ราคา: batch ≤3 calls / RSI daily: ต่อเหรียญ + cache 5 นาที
+  // ราคา: batch ≤3 calls / RSI + pattern daily: ต่อเหรียญ + cache 5 นาที
   const dataMap = await fetchAllTickers(tickers);
   cache.tickerData = dataMap;
-  const rsis = await Promise.all(names.map(s => dailyRSI(s, tickers[s].exchange).catch(() => null)));
+  const [rsis, patterns] = await Promise.all([
+    Promise.all(names.map(s => dailyRSI(s, tickers[s].exchange).catch(() => null))),
+    Promise.all(names.map(s => dailyPattern(s, tickers[s].exchange).catch(() => null))),
+  ]);
 
   const rows = names.map((symbol, i) => {
     const data = dataMap[symbol];
@@ -529,7 +605,7 @@ async function refresh() {
       }
       prevState[symbol] = { ...prevState[symbol], price: data.price };
     }
-    return renderRow(symbol, tickers[symbol], data, rsis[i]);
+    return renderRow(symbol, tickers[symbol], data, rsis[i], patterns[i]);
   });
 
   body.innerHTML = rows.join("");

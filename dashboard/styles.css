@@ -372,6 +372,34 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
   color: var(--text-dim);
 }
 
+/* ===== Pattern badge colors + CSS tooltip (D3) ===== */
+.pat-parabolic { border-color: #ffd23b; color: #ffd23b; }
+.pat-breakout  { border-color: var(--green); color: var(--green); }
+.pat-pullback  { border-color: var(--text-dim); color: var(--text-dim); }
+.pat-downtrend { border-color: var(--red); color: var(--red); }
+.pat-range     { border-color: var(--text-faint); color: var(--text-faint); }
+
+[data-tooltip] { position: relative; cursor: help; }
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.72rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  width: max-content;
+  max-width: 220px;
+  z-index: 50;
+  pointer-events: none;
+  line-height: 1.4;
+}
+
 /* ===== Theme badge colors (D2) ===== */
 .theme-AI         { border-color: #7c3aed; color: #b06cf5; }
 .theme-Meme       { border-color: #db2777; color: #f472b6; }

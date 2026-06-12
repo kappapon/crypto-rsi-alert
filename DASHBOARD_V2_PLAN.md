@@ -47,15 +47,15 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 - **Verify:** ทุกเหรียญใน watchlist มี theme (ดูจริง + curate มือถ้า API จำแนกแปลก)
 - **ทรัพยากร:** CoinGecko free API
 
-## ⬜ Phase D3 — Pattern classifier
-- [ ] กฎ rule-based ใน `dashboard.js` จาก daily candles 50 แท่ง (เรียงตาม priority):
+## ✅ Phase D3 — Pattern classifier
+- [x] กฎ rule-based ใน `dashboard.js` จาก daily candles 50 แท่ง (เรียงตาม priority):
   1. **Parabolic** — close > EMA20×1.15 และเขียว ≥3 แท่งใน 4 แท่งล่าสุด
   2. **Breakout** — close > จุดสูงสุด 20 แท่งก่อนหน้า
   3. **Pullback** — เหนือ EMA50 แต่แดง 2-3 แท่งล่าสุด
   4. **Downtrend** — ใต้ EMA50 และ EMA20 < EMA50
   5. **Range** — ไม่เข้าเงื่อนไขบน + แกว่งใน ±7% ของค่าเฉลี่ย 14 แท่ง
-- [ ] badge pattern ในตาราง (Parabolic=amber, Breakout=เขียวสด, อื่น=เขียวหม่น)
-- [ ] **tooltip ภาษาไทยเมื่อ hover badge** (CSS tooltip — มือถือใช้แตะค้าง):
+- [x] badge pattern ในตาราง (Parabolic=amber, Breakout=เขียวสด, อื่น=เขียวหม่น)
+- [x] **tooltip ภาษาไทยเมื่อ hover badge** (CSS tooltip — มือถือใช้แตะค้าง):
   - Parabolic: "ราคาพุ่งชันต่อเนื่อง ห่างเส้นค่าเฉลี่ยมากผิดปกติ — เสี่ยงพักตัว/กลับตัวแรง"
   - Breakout: "ทะลุจุดสูงสุด 20 วัน — ขาขึ้นเปิดทางต่อ"
   - Pullback: "ย่อระยะสั้นในโครงขาขึ้น — ดูแนวรับ EMA"
@@ -79,3 +79,4 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 - 2026-06-12: สร้างแผน + mockup อนุมัติแล้ว
 - 2026-06-12: ✅ D1 เสร็จ — ตาราง Matrix + batch fetch (≤3 calls) + RSI(D) ตรง python เป๊ะบนแท่งปิด (diff ≤0.014) + detail modal + ✕ remove + mobile stack — ต่อไป: D2 (theme)
 - 2026-06-12: ✅ D2 เสร็จ — update_themes.py + coin_meta.json (9 เหรียญ) + theme badge (AI/Gaming/DeFi/Meme/RWA/L1/DePIN) + coin logo 16px + refresh-levels.yml auto-fill — ต่อไป: D3 (pattern)
+- 2026-06-12: ✅ D3 เสร็จ — fetchDailyOHLC + classifyPattern (5 กฎ, OHLC 50 แท่ง) + patternBadge + CSS tooltip ภาษาไทย + cache 5 นาที; เหรียญใหม่ <50 แท่ง แสดง — ถูกต้อง — ต่อไป: D4 (Theme Mover)
