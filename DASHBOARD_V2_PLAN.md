@@ -31,13 +31,17 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 ## ⬜ Phase D1 — โครงตารางหลัก + RSI Day + 1D%
 - [ ] `dashboard.js`: ฟังก์ชัน `wilderRSI(closes)` (logic เดียวกับ scan.py — ewm alpha 1/14, ตัดแท่งยังไม่ปิด)
 - [ ] ดึง daily klines ต่อเหรียญ (reuse `fetchKlines` เปลี่ยน interval เป็น 1d, limit 50)
-- [ ] เปลี่ยน main grid จาก card ใหญ่ → ตารางแถวกระชับ: Symbol | (เว้นที่ Theme) | (เว้นที่ Pattern) | 1D% | RSI(D) — คลิกแถวเปิดการ์ดรายละเอียดเดิม (levels/analyze/calc/OHLCV/remove ทำงานเหมือนเดิมทุกปุ่ม)
+- [ ] เปลี่ยน main grid จาก card ใหญ่ → ตารางแถวกระชับ: Symbol | (เว้นที่ Theme) | (เว้นที่ Pattern) | 1D% | RSI(D) | ✕ — คลิกแถวเปิดการ์ดรายละเอียดเดิม (levels/analyze/calc/OHLCV ทำงานเหมือนเดิมทุกปุ่ม)
+- [ ] **✕ ท้ายแถว = remove** (confirm แล้วเรียก action `remove_ticker` เดิม) + **ตารางรองรับเหรียญไม่จำกัด**: `max-height` + scrollbar สไตล์ Matrix (`::-webkit-scrollbar` เขียวเข้ม)
+- [ ] **batch price fetch** — จำเป็นเมื่อเหรียญไม่จำกัด: Binance `/ticker/24hr` ไม่ส่ง symbol = ได้ทุกคู่ใน 1 call, Gate `/futures/usdt/tickers` ไม่ส่ง contract = ได้ทุกตัวใน 1 call → ราคาทั้ง watchlist ใช้แค่ 2 calls/refresh (klines สำหรับ RSI ยังเป็นรายเหรียญ — stagger + cache 5 นาที, เตือนผู้ใช้ถ้าเกิน ~40 เหรียญ)
 - [ ] `index.html` + `styles.css`: โครง layout ใหม่ (เผื่อคอลัมน์ขวาไว้แต่ยังว่าง) + **เปลี่ยนธีมทั้งหน้าเป็น Matrix ตาม Design spec ด้านบน** (รวม modal/ปุ่มเดิมทั้งหมดให้เข้าธีม)
 - **Verify:** RSI(D) ตรง TradingView ±0.1 ทุกเหรียญใน watchlist / ปุ่มเดิมครบ / มือถือใน WiFi เปิดได้
 - **ไม่แตะ:** server, workflows
 
 ## ⬜ Phase D2 — Theme
-- [ ] `themes.json` (symbol → theme) + script `update_themes.py`: ลองหา category จาก CoinGecko (`/search` + `/coins/{id}`), เหรียญที่ไม่เจอ (Gate เล็ก) → "Unclassified" แล้วผู้ใช้/Claude แก้มือได้
+- [ ] `coin_meta.json` (symbol → {theme, logo_url}) + script `update_themes.py`: หา category + **รูปโลโก้เหรียญ** จาก CoinGecko (`/search` + `/coins/{id}` field `image.small`), เหรียญที่ไม่เจอ → theme "Unclassified" + โลโก้ fallback เป็นวงกลมอักษรตัวแรก (สร้างด้วย CSS ไม่ต้องมีรูป)
+- [ ] **โลโก้เหรียญต่อท้าย symbol** ในตาราง (`<img>` 16px กลม, onerror → letter-avatar)
+- [ ] **ไอคอนประจำ theme ต่อท้ายชื่อ theme** — map คงที่ในโค้ด: AI 🤖, Meme 🐸, Gaming 🎮, DeFi 🏦, RWA 🏛️, L1 ⛓️, DePIN 📡, Unclassified ❔ (ใช้ชุดเดียวกันในแผง Theme Mover)
 - [ ] ผูกเข้า `refresh-levels.yml`: เหรียญใหม่ใน watchlist ที่ยังไม่มี theme → เติมอัตโนมัติทุกเช้า
 - [ ] badge theme ในตาราง (สี: AI=ม่วง, Meme=ชมพู, DeFi=น้ำเงิน, Gaming=ม่วง, RWA=เขียว ฯลฯ)
 - **Verify:** ทุกเหรียญใน watchlist มี theme (ดูจริง + curate มือถ้า API จำแนกแปลก)
@@ -50,8 +54,14 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
   3. **Pullback** — เหนือ EMA50 แต่แดง 2-3 แท่งล่าสุด
   4. **Downtrend** — ใต้ EMA50 และ EMA20 < EMA50
   5. **Range** — ไม่เข้าเงื่อนไขบน + แกว่งใน ±7% ของค่าเฉลี่ย 14 แท่ง
-- [ ] badge pattern ในตาราง (Parabolic=ส้ม, Breakout=เขียว, อื่น=เทา)
-- **Verify:** spot-check กับกราฟจริง ≥5 เหรียญ ตรงตาสมเหตุผล (กฎปรับจูนได้ภายหลัง — บันทึกเกณฑ์ไว้ในโค้ด)
+- [ ] badge pattern ในตาราง (Parabolic=amber, Breakout=เขียวสด, อื่น=เขียวหม่น)
+- [ ] **tooltip ภาษาไทยเมื่อ hover badge** (CSS tooltip — มือถือใช้แตะค้าง):
+  - Parabolic: "ราคาพุ่งชันต่อเนื่อง ห่างเส้นค่าเฉลี่ยมากผิดปกติ — เสี่ยงพักตัว/กลับตัวแรง"
+  - Breakout: "ทะลุจุดสูงสุด 20 วัน — ขาขึ้นเปิดทางต่อ"
+  - Pullback: "ย่อระยะสั้นในโครงขาขึ้น — ดูแนวรับ EMA"
+  - Downtrend: "ต่ำกว่าเส้นค่าเฉลี่ยระยะกลาง — ขาลง อย่าเพิ่งสวน"
+  - Range: "แกว่งในกรอบแคบ ไร้ทิศชัด — รอเลือกทาง"
+- **Verify:** spot-check กับกราฟจริง ≥5 เหรียญ ตรงตาสมเหตุผล (กฎปรับจูนได้ภายหลัง — บันทึกเกณฑ์ไว้ในโค้ด) + tooltip อ่านได้ทั้งจอคอมและมือถือ
 
 ## ⬜ Phase D4 — Theme Mover panel (แผงขวาบน)
 - [ ] layout 2 คอลัมน์ (main 60% / sidebar 40%, มือถือ stack แนวตั้ง)
@@ -61,7 +71,7 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 
 ## ⬜ Phase D5 — Top RSI Mover panel (แผงขวาล่าง)
 - [ ] `scan.py`: หลังคำนวณ RSI ~400 คู่อยู่แล้วทุก 4 ชม. → เขียน `rsi_snapshot.json` {date, rsi:{sym:val}, prev_daily:{sym:val ของเมื่อวานเวลาเดียวกัน}} + commit ใน workflow (เพิ่มไฟล์เข้า git add ของ rsi-alert.yml)
-- [ ] dashboard อ่านไฟล์ → ΔRSI = วันนี้ − เมื่อวาน → top 10 ขึ้น/ลง
+- [ ] dashboard อ่านไฟล์ → ΔRSI = วันนี้ − เมื่อวาน → **แสดง 10 อันดับ ในกล่อง scroll ได้** (max-height + scrollbar Matrix เหมือนตารางหลัก)
 - **Verify:** คำนวณมือ 2-3 เหรียญตรง / ไฟล์ snapshot ไม่บวมเกิน (~30KB)
 
 ---
