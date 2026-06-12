@@ -76,8 +76,8 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0003,
-        "resistance": 0.0003,
+        "breakout_above": 0.0004,
+        "resistance": 0.0004,
         "rejection_below": 0.0003,
         "support_strong": 0.0003,
         "support_extreme": 0.0003
