@@ -1,24 +1,24 @@
 {
-  "trained_at": "2026-06-10T16:46:06+00:00",
+  "trained_at": "2026-06-12T17:34:06+00:00",
   "timeframe": "1d",
   "direction": "short",
   "tp_atr": 2.0,
   "sl_atr": 1.0,
   "horizon": 10,
-  "events": 10264,
-  "tau": 0.35,
+  "events": 10285,
+  "tau": 0.325,
   "dropped_learner": "lr",
   "val_average_precision": {
-    "lr": 0.3123,
-    "rf": 0.3265,
-    "gb": 0.332,
-    "hgb": 0.323,
-    "knn": 0.3707
+    "lr": 0.3116,
+    "rf": 0.327,
+    "gb": 0.3338,
+    "hgb": 0.3294,
+    "knn": 0.3705
   },
   "walk_forward": [
     {
       "window": "2024-09->2025-01",
-      "n_test": 2189,
+      "n_test": 2190,
       "base": "30.7%",
       "tau": 0.35,
       "picked": 54,
@@ -27,8 +27,8 @@
     },
     {
       "window": "2025-01->2025-05",
-      "n_test": 706,
-      "base": "25.2%",
+      "n_test": 731,
+      "base": "24.4%",
       "tau": 0.325,
       "picked": 128,
       "precision": "45.3%",
@@ -36,29 +36,29 @@
     },
     {
       "window": "2025-05->2025-09",
-      "n_test": 1440,
-      "base": "31.7%",
+      "n_test": 1404,
+      "base": "32.6%",
       "tau": 0.325,
-      "picked": 149,
-      "precision": "44.3%",
+      "picked": 150,
+      "precision": "44.7%",
       "dropped": "knn"
     },
     {
       "window": "2025-09->2026-01",
-      "n_test": 673,
-      "base": "29.4%",
+      "n_test": 662,
+      "base": "29.3%",
       "tau": 0.4,
-      "picked": 33,
-      "precision": "24.2%",
+      "picked": 32,
+      "precision": "21.9%",
       "dropped": "hgb"
     },
     {
       "window": "2026-01->2026-06",
-      "n_test": 1559,
+      "n_test": 1557,
       "base": "27.5%",
       "tau": 0.45,
-      "picked": 187,
-      "precision": "34.2%",
+      "picked": 226,
+      "precision": "34.5%",
       "dropped": "knn"
     }
   ]
