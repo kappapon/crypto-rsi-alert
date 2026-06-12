@@ -17,65 +17,92 @@ const prevState = {}; // { symbol: { price, alertedTriggers: Set } }
 let countdownTimer = null;
 let refreshTimer = null;
 
-// ============ Exchange API ============
-async function fetchTicker(symbol, exchange) {
-  try {
-    if (exchange === "binance_futures") {
-      const [pi, t24] = await Promise.all([
-        fetch(`https://fapi.binance.com/fapi/v1/premiumIndex?symbol=${symbol}`).then(r => r.json()),
-        fetch(`https://fapi.binance.com/fapi/v1/ticker/24hr?symbol=${symbol}`).then(r => r.json()),
-      ]);
-      return {
-        price: parseFloat(pi.markPrice),
-        funding: parseFloat(pi.lastFundingRate) * 100,
-        change24h: parseFloat(t24.priceChangePercent),
-        volume24h: parseFloat(t24.quoteVolume),
-        high24h: parseFloat(t24.highPrice),
-        low24h: parseFloat(t24.lowPrice),
-      };
-    }
-    if (exchange === "binance_spot") {
-      const t = await fetch(`https://data-api.binance.vision/api/v3/ticker/24hr?symbol=${symbol}`).then(r => r.json());
-      return {
-        price: parseFloat(t.lastPrice),
-        funding: 0,
-        change24h: parseFloat(t.priceChangePercent),
-        volume24h: parseFloat(t.quoteVolume),
-        high24h: parseFloat(t.highPrice),
-        low24h: parseFloat(t.lowPrice),
-      };
-    }
-    if (exchange === "gateio_futures") {
-      const arr = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/tickers?contract=${symbol}`)).then(r => r.json());
-      if (!arr || !arr.length) return null;
-      const d = arr[0];
-      return {
-        price: parseFloat(d.last),
-        funding: parseFloat(d.funding_rate) * 100,
-        change24h: parseFloat(d.change_percentage),
-        volume24h: parseFloat(d.volume_24h_quote),
-        high24h: parseFloat(d.high_24h),
-        low24h: parseFloat(d.low_24h),
-      };
-    }
-  } catch (e) {
-    console.warn(`fetchTicker ${symbol}@${exchange}:`, e);
-    return null;
-  }
+// ============ Exchange API — batch: ราคาทั้ง watchlist ใน ≤3 calls ไม่ว่ากี่เหรียญ ============
+function tickerFromBinance(t) {
+  return { price: parseFloat(t.lastPrice), funding: 0, change24h: parseFloat(t.priceChangePercent),
+           volume24h: parseFloat(t.quoteVolume), high24h: parseFloat(t.highPrice), low24h: parseFloat(t.lowPrice) };
 }
 
-async function fetchKlines(symbol, exchange, limit = 24) {
+async function fetchAllTickers(tickers) {
+  const out = {};
+  const exs = new Set(Object.values(tickers).map(c => c.exchange));
+  const jobs = [];
+  if (exs.has("binance_spot")) {
+    const syms = Object.entries(tickers).filter(([, c]) => c.exchange === "binance_spot").map(([s]) => s);
+    const q = encodeURIComponent(JSON.stringify(syms));
+    jobs.push(fetch(`https://data-api.binance.vision/api/v3/ticker/24hr?symbols=${q}`)
+      .then(r => r.json())
+      .then(arr => { (Array.isArray(arr) ? arr : []).forEach(t => { out[t.symbol] = tickerFromBinance(t); }); })
+      .catch(e => console.warn("batch binance_spot:", e)));
+  }
+  if (exs.has("binance_futures")) {
+    jobs.push(Promise.all([
+      fetch("https://fapi.binance.com/fapi/v1/ticker/24hr").then(r => r.json()),
+      fetch("https://fapi.binance.com/fapi/v1/premiumIndex").then(r => r.json()),
+    ]).then(([t24, pi]) => {
+      const fmap = {};
+      (Array.isArray(pi) ? pi : []).forEach(p => { fmap[p.symbol] = parseFloat(p.lastFundingRate) * 100; });
+      (Array.isArray(t24) ? t24 : []).forEach(t => {
+        if (tickers[t.symbol]?.exchange === "binance_futures") {
+          out[t.symbol] = { ...tickerFromBinance(t), funding: fmap[t.symbol] || 0 };
+        }
+      });
+    }).catch(e => console.warn("batch binance_futures:", e)));
+  }
+  if (exs.has("gateio_futures")) {
+    jobs.push(fetch(px("https://api.gateio.ws/api/v4/futures/usdt/tickers"))
+      .then(r => r.json())
+      .then(arr => {
+        (Array.isArray(arr) ? arr : []).forEach(d => {
+          if (tickers[d.contract]?.exchange === "gateio_futures") {
+            out[d.contract] = { price: parseFloat(d.last), funding: parseFloat(d.funding_rate) * 100,
+                                change24h: parseFloat(d.change_percentage), volume24h: parseFloat(d.volume_24h_quote),
+                                high24h: parseFloat(d.high_24h), low24h: parseFloat(d.low_24h) };
+          }
+        });
+      }).catch(e => console.warn("batch gateio:", e)));
+  }
+  await Promise.all(jobs);
+  return out;
+}
+
+// ============ RSI Day — Wilder สูตรเดียวกับ scan.py (ewm alpha=1/14, รวมแท่ง live แบบ TradingView) ============
+function wilderRSI(closes, period = 14) {
+  if (!closes || closes.length < period + 1) return null;
+  const a = 1 / period;
+  let avgGain = Math.max(closes[1] - closes[0], 0);
+  let avgLoss = Math.max(closes[0] - closes[1], 0);
+  for (let i = 2; i < closes.length; i++) {
+    const d = closes[i] - closes[i - 1];
+    avgGain = (d > 0 ? d : 0) * a + avgGain * (1 - a);
+    avgLoss = (d < 0 ? -d : 0) * a + avgLoss * (1 - a);
+  }
+  if (avgLoss === 0) return 100;
+  return 100 - 100 / (1 + avgGain / avgLoss);
+}
+
+const rsiCache = {}; // RSI daily ขยับช้า — cache 5 นาที ลดจำนวน kline calls
+async function dailyRSI(symbol, exchange) {
+  const hit = rsiCache[symbol];
+  if (hit && Date.now() - hit.ts < 5 * 60 * 1000) return hit.rsi;
+  const closes = await fetchKlines(symbol, exchange, 120, "1d");
+  const rsi = wilderRSI(closes);
+  rsiCache[symbol] = { rsi, ts: Date.now() };
+  return rsi;
+}
+
+async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
   try {
     if (exchange === "binance_futures") {
-      const rows = await fetch(`https://fapi.binance.com/fapi/v1/klines?symbol=${symbol}&interval=1h&limit=${limit}`).then(r => r.json());
+      const rows = await fetch(`https://fapi.binance.com/fapi/v1/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`).then(r => r.json());
       return rows.map(r => parseFloat(r[4])); // close
     }
     if (exchange === "binance_spot") {
-      const rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=1h&limit=${limit}`).then(r => r.json());
+      const rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`).then(r => r.json());
       return rows.map(r => parseFloat(r[4]));
     }
     if (exchange === "gateio_futures") {
-      const rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=1h&limit=${limit}`)).then(r => r.json());
+      const rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
       return rows.map(r => parseFloat(r.c));
     }
   } catch (e) {
@@ -170,64 +197,80 @@ function buildLevels(symbol, price, levels) {
   }).join("");
 }
 
-function renderCard(symbol, cfg, data, klines) {
+// ============ ตารางหลัก (V2) ============
+const lastTriggers = {}; // เก็บ trigger ล่าสุดต่อเหรียญ ไว้แสดงใน detail modal
+
+function rsiClass(r) {
+  if (r == null) return "faint";
+  return r >= 85 ? "rsi-hot" : r >= 70 ? "rsi-warm" : "rsi-cool";
+}
+
+function shortName(symbol) {
+  return symbol.replace(/_USDT$|USDT$/, "");
+}
+
+function renderRow(symbol, cfg, data, rsi) {
+  const ch = data ? data.change24h : null;
+  const chCls = ch == null ? "" : ch >= 0 ? "pct-up" : "pct-down";
+  const chTxt = ch == null ? "-" : `${ch >= 0 ? "+" : ""}${ch.toFixed(1)}`;
+  const hot = (lastTriggers[symbol] || []).some(t => t.critical);
+  return `<tr data-symbol="${symbol}">
+    <td class="sym" title="${symbol} · ${cfg.exchange}">${hot ? "⚡" : ""}${shortName(symbol)}<span class="coin-ava">${symbol[0]}</span></td>
+    <td><span class="badge" title="มาในเฟส D2">—</span></td>
+    <td><span class="badge" title="มาในเฟส D3">—</span></td>
+    <td class="num ${chCls}">${chTxt}</td>
+    <td class="num ${rsiClass(rsi)}">${rsi == null ? "-" : Math.round(rsi)}</td>
+    <td><button class="row-x" data-remove="${symbol}" title="remove ${symbol}">✕</button></td>
+  </tr>`;
+}
+
+// ============ Detail modal — เนื้อหาการ์ดเดิมทั้งหมด ============
+function renderDetail(symbol, cfg, data) {
   const { price, funding, change24h, volume24h, high24h } = data;
-  const scenario = classifyScenario(price, cfg.levels);
-  const prev = prevState[symbol];
-  const triggers = prev ? detectTriggers(symbol, price, prev.price, cfg.levels) : [];
-
-  if (triggers.length) {
-    const newTrig = triggers.find(t => !(prev.alertedTriggers || new Set()).has(t.key));
-    if (newTrig) {
-      beep(newTrig.critical);
-      prev.alertedTriggers = prev.alertedTriggers || new Set();
-      prev.alertedTriggers.add(newTrig.key);
-    }
-  }
-
-  const cardCls = triggers.some(t => t.critical) ? "card alert-critical" : (triggers.length ? "card alert" : "card");
+  const scenario = classifyScenario(price, cfg.levels || {});
   const changeCls = change24h >= 0 ? "up" : "down";
-  const priceCls = (prev && price > prev.price) ? "up" : (prev && price < prev.price) ? "down" : "";
-
-  const alertsHtml = triggers.map(t =>
+  const alertsHtml = (lastTriggers[symbol] || []).map(t =>
     `<div class="card-alert ${t.critical ? "" : "warn"}">${t.icon} <b>${t.text}</b></div>`
   ).join("");
 
-  return `<div class="card ${cardCls}" data-symbol="${symbol}">
+  return `<div class="card">
     <div class="card-head">
-      <div>
-        <div class="card-symbol">${symbol}</div>
-        <div class="card-exchange">${cfg.exchange}</div>
-      </div>
+      <div><div class="card-exchange">${cfg.exchange}</div></div>
       <div class="card-scenario scen-${scenario.code}">${scenario.code} · ${scenario.label}</div>
     </div>
-
     <div>
-      <span class="card-price ${priceCls}">${fmt(price, 6)}</span>
+      <span class="card-price">${fmt(price, 6)}</span>
       <span class="card-change ${changeCls}">${change24h >= 0 ? "+" : ""}${change24h.toFixed(2)}%</span>
     </div>
-
-    ${renderSparkline(klines, change24h)}
-
+    <div class="spark-slot"></div>
     <div class="card-meta">
       <span>Funding: <b>${funding >= 0 ? "+" : ""}${funding.toFixed(3)}%</b></span>
       <span>Vol: <b>$${(volume24h / 1e6).toFixed(1)}M</b></span>
       <span>24h H: <b>${fmt(high24h)}</b></span>
     </div>
-
-    <div class="levels">${buildLevels(symbol, price, cfg.levels)}</div>
-
+    <div class="levels">${buildLevels(symbol, price, cfg.levels || {})}</div>
     ${alertsHtml}
-
     ${renderAnalysis(symbol)}
-
     <div class="card-actions">
       <button data-action="analyze" data-symbol="${symbol}">📝 Analyze</button>
       <button data-action="calc" data-symbol="${symbol}">💰 Position Calc</button>
       <button data-action="ohlcv" data-symbol="${symbol}">📥 OHLCV + Retrain</button>
-      <button data-action="remove" data-symbol="${symbol}">🗑️ Remove</button>
     </div>
   </div>`;
+}
+
+function openDetail(symbol) {
+  const cfg = cache.watchlist?.tickers?.[symbol];
+  const data = cache.tickerData?.[symbol];
+  if (!cfg || !data) return;
+  document.getElementById("detail-symbol").textContent = symbol;
+  const body = document.getElementById("detail-body");
+  body.innerHTML = renderDetail(symbol, cfg, data);
+  document.getElementById("modal-detail").classList.remove("hidden");
+  fetchKlines(symbol, cfg.exchange, SPARKLINE_HOURS, "1h").then(kl => {
+    const slot = body.querySelector(".spark-slot");
+    if (slot && kl.length) slot.innerHTML = renderSparkline(kl, data.change24h);
+  });
 }
 
 // ============ Position Calculator ============
@@ -360,7 +403,7 @@ async function suggestLevels(symbol, exchange) {
 }
 
 // ============ Main loop ============
-let cache = { watchlist: null, analysis: {}, lastFetch: 0 };
+let cache = { watchlist: null, analysis: {}, tickerData: {}, lastFetch: 0 };
 
 async function loadWatchlist() {
   try {
@@ -416,38 +459,53 @@ function renderAnalysis(symbol) {
 }
 
 async function refresh() {
-  document.getElementById("status").textContent = "🔄 refreshing...";
-  document.getElementById("status").className = "status";
+  const statusEl = document.getElementById("status");
+  statusEl.textContent = "🔄 refreshing...";
+  statusEl.className = "status";
 
   const [watchlist, analysis] = await Promise.all([loadWatchlist(), loadAnalysis()]);
   cache.watchlist = watchlist;
   cache.analysis = analysis;
-  const tickers = Object.entries(watchlist.tickers || {}).filter(([, cfg]) => cfg.enabled !== false);
+  const tickers = Object.fromEntries(
+    Object.entries(watchlist.tickers || {}).filter(([, cfg]) => cfg.enabled !== false));
+  const names = Object.keys(tickers);
+  document.getElementById("wl-count").textContent = `${names.length} symbols · unlimited_`;
+  const body = document.getElementById("wl-body");
 
-  if (!tickers.length) {
-    document.getElementById("grid").innerHTML = `<div class="loading">
-      ยังไม่มี ticker ใน watchlist<br><br>
-      กด <b>+ Add Ticker</b> เพื่อเริ่ม
-    </div>`;
-    document.getElementById("status").textContent = "✓ ready";
-    document.getElementById("status").className = "status ok";
+  if (!names.length) {
+    body.innerHTML = `<tr><td colspan="6" class="loading">ยังไม่มี ticker — กด + Add Ticker เพื่อเริ่ม</td></tr>`;
+    statusEl.textContent = "✓ ready";
+    statusEl.className = "status ok";
     return;
   }
 
-  const cards = await Promise.all(tickers.map(async ([symbol, cfg]) => {
-    const [data, klines] = await Promise.all([
-      fetchTicker(symbol, cfg.exchange),
-      fetchKlines(symbol, cfg.exchange, SPARKLINE_HOURS),
-    ]);
-    if (!data) return `<div class="card"><div class="card-symbol">${symbol}</div><div>❌ no data</div></div>`;
-    const html = renderCard(symbol, cfg, data, klines);
-    prevState[symbol] = { ...prevState[symbol], price: data.price };
-    return html;
-  }));
+  // ราคา: batch ≤3 calls / RSI daily: ต่อเหรียญ + cache 5 นาที
+  const dataMap = await fetchAllTickers(tickers);
+  cache.tickerData = dataMap;
+  const rsis = await Promise.all(names.map(s => dailyRSI(s, tickers[s].exchange).catch(() => null)));
 
-  document.getElementById("grid").innerHTML = cards.join("");
-  document.getElementById("status").textContent = `✓ ${tickers.length} tickers`;
-  document.getElementById("status").className = "status ok";
+  const rows = names.map((symbol, i) => {
+    const data = dataMap[symbol];
+    if (data) {
+      const prev = prevState[symbol];
+      const triggers = prev ? detectTriggers(symbol, data.price, prev.price, tickers[symbol].levels || {}) : [];
+      lastTriggers[symbol] = triggers;
+      if (triggers.length) {
+        const newTrig = triggers.find(t => !(prev.alertedTriggers || new Set()).has(t.key));
+        if (newTrig) {
+          beep(newTrig.critical);
+          prev.alertedTriggers = prev.alertedTriggers || new Set();
+          prev.alertedTriggers.add(newTrig.key);
+        }
+      }
+      prevState[symbol] = { ...prevState[symbol], price: data.price };
+    }
+    return renderRow(symbol, tickers[symbol], data, rsis[i]);
+  });
+
+  body.innerHTML = rows.join("");
+  statusEl.textContent = `✓ ${names.length} tickers`;
+  statusEl.className = "status ok";
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
 }
 
@@ -538,22 +596,33 @@ document.getElementById("copy-cmd-btn").addEventListener("click", () => {
   });
 });
 
-document.getElementById("grid").addEventListener("click", (e) => {
+// คลิกแถว = เปิดรายละเอียด / ✕ = remove
+document.getElementById("wl-body").addEventListener("click", (e) => {
+  const x = e.target.closest("button[data-remove]");
+  if (x) {
+    e.stopPropagation();
+    const sym = x.dataset.remove;
+    if (confirm(`ลบ ${sym} ออกจาก watchlist จริง ๆ? (commit + push ให้เลย)`)) mlStart("remove_ticker", sym);
+    return;
+  }
+  const tr = e.target.closest("tr[data-symbol]");
+  if (tr) openDetail(tr.dataset.symbol);
+});
+
+// ปุ่ม action ใน detail modal
+document.getElementById("detail-body").addEventListener("click", (e) => {
   const btn = e.target.closest("button[data-action]");
   if (!btn) return;
   const sym = btn.dataset.symbol;
   const cfg = cache.watchlist.tickers[sym];
 
   if (btn.dataset.action === "calc") {
-    fetchTicker(sym, cfg.exchange).then(data => {
-      if (data) renderCalcModal(sym, cfg, data);
-    });
+    const data = cache.tickerData[sym];
+    if (data) renderCalcModal(sym, cfg, data);
   } else if (btn.dataset.action === "ohlcv") {
     if (confirm(`ดึงข้อมูล ${sym} แล้ว retrain model ทั้งชุด (~10 นาที)?`)) mlStart("fetch_retrain", sym);
   } else if (btn.dataset.action === "analyze") {
     openAnalysisModal(sym);
-  } else if (btn.dataset.action === "remove") {
-    if (confirm(`ลบ ${sym} ออกจาก watchlist จริง ๆ? (commit + push ให้เลย)`)) mlStart("remove_ticker", sym);
   }
 });
 

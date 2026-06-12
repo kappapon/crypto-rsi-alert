@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>📊 Crypto Watchlist</h1>
+    <h1>▮ THE WATCHLIST</h1>
     <div class="controls">
       <span id="last-train" class="status" title="train model ล่าสุด">🤖 -</span>
       <span id="status" class="status">⏳ loading...</span>
@@ -22,8 +22,43 @@
     </div>
   </header>
 
-  <main id="grid">
-    <div class="loading">กำลังโหลดข้อมูล...</div>
+  <div id="rain">ﾊ7ﾐｸ0ﾋ1ｰｳ4ｼ9ﾅ2ﾓﾆ8ｻ5ﾜ3ﾂｵ1ﾘ0ｱ7ﾎ2ﾃ6ﾏ4ｹ9ﾒ1ｴ5ｶ0ｷ3ﾑ8ﾕ2ﾗ6ｾ1ﾈ4ﾊ7ﾐｸ0ﾋ1ｰｳ4ｼ9ﾅ2ﾓﾆ8ｻ5ﾜ3ﾂｵ1ﾘ0ｱ7</div>
+
+  <main id="layout">
+    <section class="panel" id="main-panel">
+      <div class="panel-head">
+        <span>▮ WATCHLIST</span>
+        <span class="faint" id="wl-count">loading_</span>
+      </div>
+      <div id="table-wrap">
+        <table id="wl-table">
+          <thead>
+            <tr>
+              <th style="width:26%">SYMBOL</th>
+              <th style="width:21%">THEME</th>
+              <th style="width:25%">PATTERN</th>
+              <th class="num" style="width:12%">1D%</th>
+              <th class="num" style="width:10%">RSI·D</th>
+              <th style="width:6%"></th>
+            </tr>
+          </thead>
+          <tbody id="wl-body">
+            <tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="faint" style="margin-top:8px">> click row → levels / analyze / position calc_</p>
+    </section>
+    <aside id="side-panel">
+      <div class="panel">
+        <div class="panel-head"><span>▮ THEME MOVER · 24H</span></div>
+        <p class="faint">มาในเฟส D4_</p>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><span>▮ TOP RSI MOVER · 1D</span></div>
+        <p class="faint">มาในเฟส D5_</p>
+      </div>
+    </aside>
   </main>
 
   <footer>
@@ -108,6 +143,17 @@
         <button class="close" data-close="modal-calc">×</button>
       </header>
       <div class="modal-body" id="calc-body"></div>
+    </div>
+  </div>
+
+  <!-- Ticker Detail Modal -->
+  <div id="modal-detail" class="modal hidden">
+    <div class="modal-content">
+      <header>
+        <h2>▮ <span id="detail-symbol"></span></h2>
+        <button class="close" data-close="modal-detail">×</button>
+      </header>
+      <div class="modal-body" id="detail-body"></div>
     </div>
   </div>
 

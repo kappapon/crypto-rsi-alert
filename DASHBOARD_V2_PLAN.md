@@ -28,13 +28,13 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 
 ---
 
-## ⬜ Phase D1 — โครงตารางหลัก + RSI Day + 1D%
-- [ ] `dashboard.js`: ฟังก์ชัน `wilderRSI(closes)` (logic เดียวกับ scan.py — ewm alpha 1/14, ตัดแท่งยังไม่ปิด)
-- [ ] ดึง daily klines ต่อเหรียญ (reuse `fetchKlines` เปลี่ยน interval เป็น 1d, limit 50)
-- [ ] เปลี่ยน main grid จาก card ใหญ่ → ตารางแถวกระชับ: Symbol | (เว้นที่ Theme) | (เว้นที่ Pattern) | 1D% | RSI(D) | ✕ — คลิกแถวเปิดการ์ดรายละเอียดเดิม (levels/analyze/calc/OHLCV ทำงานเหมือนเดิมทุกปุ่ม)
-- [ ] **✕ ท้ายแถว = remove** (confirm แล้วเรียก action `remove_ticker` เดิม) + **ตารางรองรับเหรียญไม่จำกัด**: `max-height` + scrollbar สไตล์ Matrix (`::-webkit-scrollbar` เขียวเข้ม)
-- [ ] **batch price fetch** — จำเป็นเมื่อเหรียญไม่จำกัด: Binance `/ticker/24hr` ไม่ส่ง symbol = ได้ทุกคู่ใน 1 call, Gate `/futures/usdt/tickers` ไม่ส่ง contract = ได้ทุกตัวใน 1 call → ราคาทั้ง watchlist ใช้แค่ 2 calls/refresh (klines สำหรับ RSI ยังเป็นรายเหรียญ — stagger + cache 5 นาที, เตือนผู้ใช้ถ้าเกิน ~40 เหรียญ)
-- [ ] `index.html` + `styles.css`: โครง layout ใหม่ (เผื่อคอลัมน์ขวาไว้แต่ยังว่าง) + **เปลี่ยนธีมทั้งหน้าเป็น Matrix ตาม Design spec ด้านบน** (รวม modal/ปุ่มเดิมทั้งหมดให้เข้าธีม)
+## ✅ Phase D1 — โครงตารางหลัก + RSI Day + 1D% (เสร็จ 2026-06-12)
+- [x] `dashboard.js`: ฟังก์ชัน `wilderRSI(closes)` (logic เดียวกับ scan.py — ewm alpha 1/14, ตัดแท่งยังไม่ปิด)
+- [x] ดึง daily klines ต่อเหรียญ (reuse `fetchKlines` เปลี่ยน interval เป็น 1d, limit 50)
+- [x] เปลี่ยน main grid จาก card ใหญ่ → ตารางแถวกระชับ: Symbol | (เว้นที่ Theme) | (เว้นที่ Pattern) | 1D% | RSI(D) | ✕ — คลิกแถวเปิดการ์ดรายละเอียดเดิม (levels/analyze/calc/OHLCV ทำงานเหมือนเดิมทุกปุ่ม)
+- [x] **✕ ท้ายแถว = remove** (confirm แล้วเรียก action `remove_ticker` เดิม) + **ตารางรองรับเหรียญไม่จำกัด**: `max-height` + scrollbar สไตล์ Matrix (`::-webkit-scrollbar` เขียวเข้ม)
+- [x] **batch price fetch** — จำเป็นเมื่อเหรียญไม่จำกัด: Binance `/ticker/24hr` ไม่ส่ง symbol = ได้ทุกคู่ใน 1 call, Gate `/futures/usdt/tickers` ไม่ส่ง contract = ได้ทุกตัวใน 1 call → ราคาทั้ง watchlist ใช้แค่ 2 calls/refresh (klines สำหรับ RSI ยังเป็นรายเหรียญ — stagger + cache 5 นาที, เตือนผู้ใช้ถ้าเกิน ~40 เหรียญ)
+- [x] `index.html` + `styles.css`: โครง layout ใหม่ (เผื่อคอลัมน์ขวาไว้แต่ยังว่าง) + **เปลี่ยนธีมทั้งหน้าเป็น Matrix ตาม Design spec ด้านบน** (รวม modal/ปุ่มเดิมทั้งหมดให้เข้าธีม)
 - **Verify:** RSI(D) ตรง TradingView ±0.1 ทุกเหรียญใน watchlist / ปุ่มเดิมครบ / มือถือใน WiFi เปิดได้
 - **ไม่แตะ:** server, workflows
 
@@ -76,4 +76,5 @@ font-family: monospace ทั้งหน้า (SF Mono / Consolas / monospace)
 
 ---
 **บันทึกความคืบหน้า:** (เติมทุกครั้งที่จบเฟส)
-- 2026-06-12: สร้างแผน + mockup อนุมัติแล้ว — ยังไม่เริ่ม D1
+- 2026-06-12: สร้างแผน + mockup อนุมัติแล้ว
+- 2026-06-12: ✅ D1 เสร็จ — ตาราง Matrix + batch fetch (≤3 calls) + RSI(D) ตรง python เป๊ะบนแท่งปิด (diff ≤0.014) + detail modal + ✕ remove + mobile stack — ต่อไป: D2 (theme)
