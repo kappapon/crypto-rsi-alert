@@ -156,6 +156,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "JNJ_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 246.7668,
+        "resistance": 243.12,
+        "rejection_below": 226.955,
+        "support_strong": 238.9761,
+        "support_extreme": 238.5757
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
