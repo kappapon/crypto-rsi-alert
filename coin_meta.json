@@ -164,5 +164,30 @@
       "Binance Alpha Spotlight",
       "AI Framework"
     ]
+  },
+  "AMAT": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/31821/small/Omikami_BTC_AMZN.png?1696530635",
+    "cg_id": "amaterasu-omikami",
+    "categories": [
+      "Meme",
+      "Ethereum Ecosystem",
+      "Dog-Themed"
+    ]
+  },
+  "SNDK": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102172440/small/sndkon_160x160.png?1773419692",
+    "cg_id": "sandisk-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "HyperEVM Ecosystem",
+      "Ondo Tokenized Assets"
+    ]
   }
 }
