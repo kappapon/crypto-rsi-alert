@@ -3,15 +3,31 @@
     {
       "atr": 0.2180666399031324,
       "breadth": 1,
+      "closed_at": "2026-06-13T16:00:00+00:00",
       "entry": 2.247,
       "entry_is_live": true,
       "exchange": "gateio_futures",
+      "exit": 1.8108667201937352,
       "opened_at": "2026-06-12T00:25:39+00:00",
       "prob": 0.374,
+      "r": 2.0,
       "sl": 2.4650666399031325,
-      "status": "open",
+      "status": "closed_tp",
       "symbol": "FOLKS_USDT",
       "tp": 1.8108667201937352
+    },
+    {
+      "atr": 128.19428380173758,
+      "breadth": 1,
+      "entry": 1994.18,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-06-14T00:25:43+00:00",
+      "prob": 0.405,
+      "sl": 2122.374283801738,
+      "status": "open",
+      "symbol": "SNDK_USDT",
+      "tp": 1737.791432396525
     }
   ]
 }
