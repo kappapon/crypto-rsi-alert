@@ -46,6 +46,7 @@ function workflowsForTick(scheduledTime: number): string[] {
   const d = new Date(scheduledTime);
   const m = d.getUTCMinutes();
   const h = d.getUTCHours();
+  if (m === 30 && h === 0 && d.getUTCDay() === 1) return ["weekly-summary.yml"];
   if (m === 10 && h === 0) return ["refresh-levels.yml"];
   if (m === 20 && h === 0) return ["reversal-alert.yml"];
   if (m === 23 && h % 4 === 0) return ["rsi-alert.yml", "watchlist.yml"];
