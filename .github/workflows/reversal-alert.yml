@@ -36,6 +36,10 @@ jobs:
           CHAT_ID: ${{ secrets.CHAT_ID }}
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
         run: python reversal_scan.py
+      - name: Score watchlist triggers (reliability journal)
+        env:
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
+        run: python track_triggers.py
       - name: Commit updated state
         run: |
           if [ ! -f reversal_state.json ]; then
@@ -46,6 +50,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add reversal_state.json
           [ -f paper_trades.json ] && git add paper_trades.json
+          [ -f trigger_log.json ] && git add trigger_log.json
+          [ -f trigger_stats.json ] && git add trigger_stats.json
           if git diff --staged --quiet; then
             echo "No state changes."
           else

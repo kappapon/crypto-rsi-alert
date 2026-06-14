@@ -14,6 +14,16 @@ GATEIO_BASE = "https://api.gateio.ws/api/v4"
 
 CONFIG_FILE = Path(__file__).parent / "watchlist.json"
 STATE_FILE = Path(__file__).parent / "watchlist_state.json"
+TRIGGER_LOG_FILE = Path(__file__).parent / "trigger_log.json"
+
+# ทิศทางที่ trigger "เดิมพัน" — ใช้ตัดสิน triple-barrier ใน track_triggers.py (fade-the-top)
+TRIGGER_DIRECTION = {
+    "rejection": "short",
+    "support_break": "short",
+    "resistance_test": "short",
+    "breakout": "long",
+    # funding คิดทิศจากเครื่องหมาย (longs paying = crowded longs = short bias)
+}
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 CHAT_ID = os.environ.get("CHAT_ID", "")
@@ -124,12 +134,24 @@ def mark_triggered(state_entry: dict, key: str) -> None:
 
 
 def check_triggers(symbol: str, cfg: dict, ticker_data: dict, prev_price: float | None,
-                   state_entry: dict, cooldown_minutes: int) -> list[str]:
-    """Return list of alert message lines triggered for this ticker."""
+                   state_entry: dict, cooldown_minutes: int, events: list | None = None) -> list[str]:
+    """Return list of alert message lines triggered for this ticker.
+    Appends a journal record to `events` for each trigger fired (for track_triggers.py)."""
     alerts = []
     price = ticker_data["price"]
+    funding = ticker_data["funding_rate"]
     levels = cfg["levels"]
     alert_cfg = cfg.get("alerts", {})
+    now_iso = dt.datetime.now(dt.timezone.utc).isoformat()
+
+    def fire(key: str, msg: str, direction: str) -> None:
+        alerts.append(msg)
+        mark_triggered(state_entry, key)
+        if events is not None:
+            events.append({
+                "symbol": symbol, "exchange": cfg["exchange"], "type": key,
+                "direction": direction, "ts": now_iso, "price": price, "funding": funding,
+            })
 
     def crossed_up(level: float) -> bool:
         return prev_price is not None and prev_price < level <= price
@@ -140,36 +162,75 @@ def check_triggers(symbol: str, cfg: dict, ticker_data: dict, prev_price: float 
     if alert_cfg.get("price_breakout") and "breakout_above" in levels:
         level = levels["breakout_above"]
         if crossed_up(level) and not in_cooldown(state_entry, "breakout", cooldown_minutes):
-            alerts.append(f"⚡ <b>BREAKOUT</b> — ทะลุ {level} (LONG signal)")
-            mark_triggered(state_entry, "breakout")
+            fire("breakout", f"⚡ <b>BREAKOUT</b> — ทะลุ {level} (LONG signal)", "long")
 
     if alert_cfg.get("price_rejection") and "rejection_below" in levels:
         level = levels["rejection_below"]
         if crossed_down(level) and not in_cooldown(state_entry, "rejection", cooldown_minutes):
-            alerts.append(f"🔻 <b>REJECTION</b> — หลุด {level} (SHORT signal)")
-            mark_triggered(state_entry, "rejection")
+            fire("rejection", f"🔻 <b>REJECTION</b> — หลุด {level} (SHORT signal)", "short")
 
     if alert_cfg.get("support_break") and "support_strong" in levels:
         level = levels["support_strong"]
         if crossed_down(level) and not in_cooldown(state_entry, "support_break", cooldown_minutes):
-            alerts.append(f"💥 <b>SUPPORT BREAK</b> — หลุด {level} (deeper correction)")
-            mark_triggered(state_entry, "support_break")
+            fire("support_break", f"💥 <b>SUPPORT BREAK</b> — หลุด {level} (deeper correction)", "short")
 
     if "resistance" in levels:
         level = levels["resistance"]
         if crossed_up(level) and not in_cooldown(state_entry, "resistance_test", cooldown_minutes):
-            alerts.append(f"⚠️ <b>ATH TEST</b> — แตะ resistance {level}")
-            mark_triggered(state_entry, "resistance_test")
+            fire("resistance_test", f"⚠️ <b>ATH TEST</b> — แตะ resistance {level}", "short")
 
     funding_threshold = alert_cfg.get("funding_high")
     if funding_threshold:
-        funding = ticker_data["funding_rate"]
         if abs(funding) >= funding_threshold and not in_cooldown(state_entry, "funding", cooldown_minutes):
-            direction = "longs paying" if funding > 0 else "shorts paying"
-            alerts.append(f"🔥 <b>FUNDING HIGH</b> — {funding:+.3f}% ({direction})")
-            mark_triggered(state_entry, "funding")
+            label = "longs paying" if funding > 0 else "shorts paying"
+            fire("funding", f"🔥 <b>FUNDING HIGH</b> — {funding:+.3f}% ({label})",
+                 "short" if funding > 0 else "long")
 
     return alerts
+
+
+def append_trigger_log(events: list) -> list[str]:
+    """Append fired triggers to trigger_log.json and return direction-flip alerts.
+
+    Dedupe-while-pending: ถ้า symbol+type นั้นยังมี event status=pending อยู่ → ไม่สร้าง
+    record ใหม่ แค่ +1 ที่ `repeats` (กันนับซ้ำตัวอย่างที่ไม่อิสระ).
+    Flip: trigger ใหม่ที่ทิศทางสวนกับ trigger ที่ยังเปิดอยู่บนเหรียญเดียวกัน = สัญญาณพลิกทิศ.
+    """
+    if not events:
+        return []
+    log = load_json(TRIGGER_LOG_FILE, {"events": []})
+    log.setdefault("events", [])
+    pending = [e for e in log["events"] if e.get("status") == "pending"]
+
+    flips: list[str] = []
+    added = 0
+    for e in events:
+        sym = e["symbol"]
+        # direction flip — สวนทางกับ trigger คนละ type ที่ยังเปิดอยู่ (สัญญาณชัด)
+        for p in pending:
+            if p["symbol"] == sym and p["type"] != e["type"] and p["direction"] != e["direction"]:
+                tail = " · failed breakout 🎯" if p["type"] == "breakout" and e["direction"] == "short" else ""
+                flips.append(
+                    f"🔄 <b>{sym}</b> — {p['type'].upper()} ({p['direction']}) "
+                    f"→ {e['type'].upper()} ({e['direction']}){tail}"
+                )
+        # dedupe — symbol+type ยัง pending → bump repeats แทนการเพิ่ม record
+        dup = next((p for p in pending if p["symbol"] == sym and p["type"] == e["type"]), None)
+        if dup:
+            dup["repeats"] = dup.get("repeats", 1) + 1
+            dup["last_repeat"] = e["ts"]
+            continue
+        e["id"] = f"{sym}:{e['type']}:{e['ts']}"
+        e["status"] = "pending"
+        e["repeats"] = 1
+        log["events"].append(e)
+        pending.append(e)  # ให้ event ถัด ๆ ใน batch เดียวกัน dedupe/flip เทียบได้
+        added += 1
+
+    if not DRY_RUN:
+        TRIGGER_LOG_FILE.write_text(json.dumps(log, indent=2, ensure_ascii=False) + "\n")
+    print(f"  trigger log: +{added} new, {len(flips)} flip(s)")
+    return flips
 
 
 def format_alert(symbol: str, ticker_data: dict, alerts: list[str]) -> str:
@@ -199,6 +260,7 @@ def main() -> None:
     state.setdefault("tickers", {})
 
     total_alerts = []
+    log_events: list = []
     for symbol, cfg in config["tickers"].items():
         if not cfg.get("enabled", True):
             continue
@@ -211,7 +273,7 @@ def main() -> None:
         entry = state["tickers"].setdefault(symbol, {})
         prev_price = entry.get("last_price")
 
-        alerts = check_triggers(symbol, cfg, ticker_data, prev_price, entry, cooldown)
+        alerts = check_triggers(symbol, cfg, ticker_data, prev_price, entry, cooldown, log_events)
 
         entry["last_price"] = ticker_data["price"]
         entry["last_funding"] = ticker_data["funding_rate"]
@@ -224,8 +286,12 @@ def main() -> None:
         else:
             print(f"  {symbol}: price={ticker_data['price']:.6g} (no triggers)")
 
-    if total_alerts:
-        send_telegram("\n\n".join(total_alerts))
+    flip_alerts = append_trigger_log(log_events)
+    if flip_alerts:
+        flip_alerts = ["<b>⚠️ DIRECTION FLIP</b>", *flip_alerts]
+    all_alerts = total_alerts + (["\n".join(flip_alerts)] if flip_alerts else [])
+    if all_alerts:
+        send_telegram("\n\n".join(all_alerts))
 
     save_state(state)
     print(f"Done. Tickers: {len(config['tickers'])}, alerts sent: {len(total_alerts)}")
