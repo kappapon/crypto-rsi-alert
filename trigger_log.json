@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "symbol": "VELVET_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-14T20:24:15.263599+00:00",
+      "price": 0.3441,
+      "funding": 0.0006000000000000001,
+      "id": "VELVET_USDT:rejection:2026-06-14T20:24:15.263599+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZEST_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-14T20:24:18.177693+00:00",
+      "price": 0.26833,
+      "funding": 0.005,
+      "id": "ZEST_USDT:support_break:2026-06-14T20:24:18.177693+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GWEI_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-06-14T20:24:23.425211+00:00",
+      "price": 0.172175,
+      "funding": 0.14220000000000002,
+      "id": "GWEI_USDT:funding:2026-06-14T20:24:23.425211+00:00",
+      "status": "pending",
+      "repeats": 1
+    }
+  ]
+}
