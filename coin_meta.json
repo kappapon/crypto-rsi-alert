@@ -189,5 +189,53 @@
       "HyperEVM Ecosystem",
       "Ondo Tokenized Assets"
     ]
+  },
+  "HD": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/13929/small/avatar-circle-pink.png?1717638991",
+    "cg_id": "hydradx",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Smart Contract Platform",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Polkadot Ecosystem",
+      "Layer 1 (L1)"
+    ]
+  },
+  "GWEI": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71375/small/ethgas_token_200.png?1769055039",
+    "cg_id": "ethgas-2",
+    "categories": [
+      "Infrastructure",
+      "Decentralized Finance (DeFi)",
+      "BNB Chain Ecosystem",
+      "Derivatives",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "COAI": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69447/small/coai.png?1758625501",
+    "cg_id": "chainopera-ai",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "BNB Chain Ecosystem",
+      "AI Applications",
+      "Binance Alpha Spotlight",
+      "AI Framework"
+    ]
+  },
+  "BP": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102171961/small/image_%285%29.png?1774269858",
+    "cg_id": "backpack",
+    "categories": [
+      "Exchange-based Tokens",
+      "Centralized Exchange (CEX) Token",
+      "Solana Ecosystem",
+      "Wallets"
+    ]
   }
 }
