@@ -47,7 +47,8 @@
       "funding": 0.1303,
       "id": "FOLKS_USDT:funding:2026-06-15T00:24:17.730132+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-15T12:24:24.781866+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -178,6 +179,42 @@
       "price": 0.1005,
       "funding": 0.0,
       "id": "RIFUSDT:support_break:2026-06-15T08:24:26.247694+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AIO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-15T12:24:25.294117+00:00",
+      "price": 0.11008,
+      "funding": 0.005,
+      "id": "AIO_USDT:rejection:2026-06-15T12:24:25.294117+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ASTS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-15T12:24:31.854712+00:00",
+      "price": 85.96,
+      "funding": 0.01,
+      "id": "ASTS_USDT:rejection:2026-06-15T12:24:31.854712+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ASTS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-15T12:24:31.854712+00:00",
+      "price": 85.96,
+      "funding": 0.01,
+      "id": "ASTS_USDT:support_break:2026-06-15T12:24:31.854712+00:00",
       "status": "pending",
       "repeats": 1
     }
