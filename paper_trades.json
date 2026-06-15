@@ -28,6 +28,45 @@
       "status": "open",
       "symbol": "SNDK_USDT",
       "tp": 1737.791432396525
+    },
+    {
+      "atr": 125.15969210161346,
+      "breadth": 3,
+      "entry": 2065.52,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-06-15T00:27:03+00:00",
+      "prob": 0.408,
+      "sl": 2190.6796921016135,
+      "status": "open",
+      "symbol": "SNDK_USDT",
+      "tp": 1815.200615796773
+    },
+    {
+      "atr": 0.01475288221522648,
+      "breadth": 3,
+      "entry": 0.1211,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-06-15T00:27:03+00:00",
+      "prob": 0.359,
+      "sl": 0.13585288221522648,
+      "status": "open",
+      "symbol": "RIFUSDT",
+      "tp": 0.09159423556954704
+    },
+    {
+      "atr": 2.0767669669632203,
+      "breadth": 3,
+      "entry": 82.52,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-06-15T00:27:03+00:00",
+      "prob": 0.341,
+      "sl": 84.59676696696322,
+      "status": "open",
+      "symbol": "KO_USDT",
+      "tp": 78.36646606607356
     }
   ]
 }
