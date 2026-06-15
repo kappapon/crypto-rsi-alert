@@ -326,6 +326,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "INFQ_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 21.5687,
+        "resistance": 21.25,
+        "rejection_below": 13.78,
+        "support_strong": 13.7338,
+        "support_extreme": 13.7465
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
