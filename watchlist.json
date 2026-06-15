@@ -343,6 +343,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ASML_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 1973.3833,
+        "resistance": 1944.22,
+        "rejection_below": 1840.416,
+        "support_strong": 1897.0709,
+        "support_extreme": 1878.6507
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
