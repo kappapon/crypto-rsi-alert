@@ -35,6 +35,42 @@
       "id": "GWEI_USDT:funding:2026-06-14T20:24:23.425211+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "FOLKS_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-06-15T00:24:17.730132+00:00",
+      "price": 1.805,
+      "funding": 0.1303,
+      "id": "FOLKS_USDT:funding:2026-06-15T00:24:17.730132+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-15T00:24:19.017031+00:00",
+      "price": 82.52,
+      "funding": 0.01,
+      "id": "KO_USDT:support_break:2026-06-15T00:24:19.017031+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HD_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-15T00:24:22.332265+00:00",
+      "price": 331.4,
+      "funding": 0.02,
+      "id": "HD_USDT:resistance_test:2026-06-15T00:24:22.332265+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
