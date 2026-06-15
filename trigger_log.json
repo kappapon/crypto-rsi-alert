@@ -47,8 +47,8 @@
       "funding": 0.1303,
       "id": "FOLKS_USDT:funding:2026-06-15T00:24:17.730132+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-15T12:24:24.781866+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-15T16:24:25.836069+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -215,6 +215,30 @@
       "price": 85.96,
       "funding": 0.01,
       "id": "ASTS_USDT:support_break:2026-06-15T12:24:31.854712+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ALLOUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-15T16:24:24.046401+00:00",
+      "price": 0.3529,
+      "funding": 0.0,
+      "id": "ALLOUSDT:support_break:2026-06-15T16:24:24.046401+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ASML_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-15T16:24:34.931096+00:00",
+      "price": 1896.23,
+      "funding": 0.01,
+      "id": "ASML_USDT:support_break:2026-06-15T16:24:34.931096+00:00",
       "status": "pending",
       "repeats": 1
     }
