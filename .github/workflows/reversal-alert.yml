@@ -40,6 +40,12 @@ jobs:
         env:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
         run: python track_triggers.py
+      - name: Auto-evict cooled-off tickers
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
+        run: python auto_evict.py
       - name: Commit updated state
         run: |
           if [ ! -f reversal_state.json ]; then
@@ -52,6 +58,7 @@ jobs:
           [ -f paper_trades.json ] && git add paper_trades.json
           [ -f trigger_log.json ] && git add trigger_log.json
           [ -f trigger_stats.json ] && git add trigger_stats.json
+          git add watchlist.json
           if git diff --staged --quiet; then
             echo "No state changes."
           else
