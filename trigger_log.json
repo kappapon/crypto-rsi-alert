@@ -47,8 +47,8 @@
       "funding": 0.1303,
       "id": "FOLKS_USDT:funding:2026-06-15T00:24:17.730132+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-06-16T16:24:28.768230+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-06-16T20:24:30.000312+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -487,6 +487,18 @@
       "price": 13.71,
       "funding": 0.01,
       "id": "INFQ_USDT:support_break:2026-06-16T16:24:40.458181+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BP_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-16T20:24:36.915727+00:00",
+      "price": 0.4177,
+      "funding": 0.005,
+      "id": "BP_USDT:rejection:2026-06-16T20:24:36.915727+00:00",
       "status": "pending",
       "repeats": 1
     }
