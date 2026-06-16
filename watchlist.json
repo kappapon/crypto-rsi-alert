@@ -428,6 +428,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "HIMS_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 32.3501,
+        "resistance": 31.872,
+        "rejection_below": 30.0874,
+        "support_strong": 30.2084,
+        "support_extreme": 29.2724
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
