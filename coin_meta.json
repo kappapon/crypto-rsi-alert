@@ -250,5 +250,84 @@
       "Rootstock Ecosystem",
       "Outlier Ventures Portfolio"
     ]
+  },
+  "JELLYJELLY": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/54087/small/jellyjelly-logo.webp?1738218050",
+    "cg_id": "jelly-my-jelly",
+    "categories": [
+      "Solana Ecosystem",
+      "Pump.fun Ecosystem",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "EVAA": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69601/small/evaa.png?1759214696",
+    "cg_id": "evaa-protocol",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "BNB Chain Ecosystem",
+      "Lending/Borrowing Protocols",
+      "Animoca Brands Portfolio",
+      "TON Ecosystem",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "ASTS": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102172479/small/astson_160x160.png?1773506781",
+    "cg_id": "ast-spacemobile-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "ASML": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68642/small/asmlon_160x160.png?1756156077",
+    "cg_id": "asml-holding-nv-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "WDC": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102172453/small/wdcon_160x160.png?1773420241",
+    "cg_id": "western-digital-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "AAOI": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173752/small/aaoion_160x160.png?1781494202",
+    "cg_id": "applied-optoelectronics-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
   }
 }
