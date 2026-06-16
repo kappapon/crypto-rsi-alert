@@ -1,10 +1,29 @@
 {
-  "updated": "2026-06-15T00:27:10+00:00",
+  "updated": "2026-06-16T00:27:17+00:00",
   "overall": {
-    "n": 0,
-    "hit_rate": 0,
-    "avg_r": 0,
-    "pending": 3
+    "n": 2,
+    "hit_rate": 0.5,
+    "avg_r": 0.5,
+    "pending": 18
   },
-  "per_type": {}
+  "per_type": {
+    "breakout": {
+      "n": 1,
+      "hit_rate": 0.0,
+      "avg_r": -1.0,
+      "sum_r": -1.0,
+      "tp": 0,
+      "sl": 1,
+      "expiry": 0
+    },
+    "resistance_test": {
+      "n": 1,
+      "hit_rate": 1.0,
+      "avg_r": 2.0,
+      "sum_r": 2.0,
+      "tp": 1,
+      "sl": 0,
+      "expiry": 0
+    }
+  }
 }
