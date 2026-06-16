@@ -47,8 +47,8 @@
       "funding": 0.1303,
       "id": "FOLKS_USDT:funding:2026-06-15T00:24:17.730132+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-06-16T00:24:19.476556+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-06-16T12:24:27.536085+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -145,7 +145,8 @@
       "funding": 0.01,
       "id": "JNJ_USDT:support_break:2026-06-15T08:24:22.488393+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-16T12:24:29.538938+00:00"
     },
     {
       "symbol": "AMAT_USDT",
@@ -253,7 +254,8 @@
       "funding": 0.01,
       "id": "ASML_USDT:support_break:2026-06-15T16:24:34.931096+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-16T12:24:37.565427+00:00"
     },
     {
       "symbol": "SNDK_USDT",
@@ -348,6 +350,54 @@
       "price": 212.82,
       "funding": 0.3546,
       "id": "SPCX_USDT:funding:2026-06-16T04:24:26.569863+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-16T12:24:25.341210+00:00",
+      "price": 2.9358,
+      "funding": -0.0022,
+      "id": "BEAT_USDT:rejection:2026-06-16T12:24:25.341210+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AMAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-16T12:24:30.830969+00:00",
+      "price": 586.8,
+      "funding": 0.01,
+      "id": "AMAT_USDT:support_break:2026-06-16T12:24:30.830969+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BP_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-16T12:24:34.178578+00:00",
+      "price": 0.4457,
+      "funding": 0.005,
+      "id": "BP_USDT:support_break:2026-06-16T12:24:34.178578+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EVAA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-16T12:24:36.238253+00:00",
+      "price": 0.6648,
+      "funding": 0.01,
+      "id": "EVAA_USDT:support_break:2026-06-16T12:24:36.238253+00:00",
       "status": "pending",
       "repeats": 1
     }
