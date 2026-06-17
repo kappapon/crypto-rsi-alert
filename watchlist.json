@@ -547,6 +547,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "UNIUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 3.7849,
+        "resistance": 3.729,
+        "rejection_below": 3.3345,
+        "support_strong": 3.3644,
+        "support_extreme": 3.1008
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
