@@ -84,7 +84,8 @@
       "funding": 0.056499999999999995,
       "id": "FOLKS_USDT:support_break:2026-06-15T04:24:20.778142+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T00:24:22.709199+00:00"
     },
     {
       "symbol": "RIFUSDT",
@@ -499,6 +500,18 @@
       "price": 0.4177,
       "funding": 0.005,
       "id": "BP_USDT:rejection:2026-06-16T20:24:36.915727+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JTOUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-17T00:24:35.830108+00:00",
+      "price": 0.7881,
+      "funding": 0.0,
+      "id": "JTOUSDT:support_break:2026-06-17T00:24:35.830108+00:00",
       "status": "pending",
       "repeats": 1
     }
