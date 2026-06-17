@@ -184,7 +184,8 @@
       "funding": 0.0,
       "id": "RIFUSDT:rejection:2026-06-15T08:24:26.247694+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T08:24:28.378091+00:00"
     },
     {
       "symbol": "RIFUSDT",
@@ -295,8 +296,8 @@
       "funding": 0.005,
       "id": "AIO_USDT:support_break:2026-06-16T04:24:19.091359+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-16T16:24:29.472379+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-17T08:24:22.775266+00:00"
     },
     {
       "symbol": "COAI_USDT",
@@ -308,8 +309,8 @@
       "funding": 0.01,
       "id": "COAI_USDT:support_break:2026-06-16T04:24:22.631164+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-16T16:24:34.335523+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-17T08:24:27.249974+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -371,7 +372,8 @@
       "funding": -0.0022,
       "id": "BEAT_USDT:rejection:2026-06-16T12:24:25.341210+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T08:24:20.510725+00:00"
     },
     {
       "symbol": "AMAT_USDT",
@@ -550,6 +552,30 @@
       "price": 205.49,
       "funding": -0.12589999999999998,
       "id": "SPCX_USDT:support_break:2026-06-17T04:24:27.913463+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-17T08:24:20.510725+00:00",
+      "price": 2.0647,
+      "funding": -0.0755,
+      "id": "BEAT_USDT:support_break:2026-06-17T08:24:20.510725+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "COAI_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T08:24:27.249974+00:00",
+      "price": 0.3291,
+      "funding": 0.01,
+      "id": "COAI_USDT:rejection:2026-06-17T08:24:27.249974+00:00",
       "status": "pending",
       "repeats": 1
     }
