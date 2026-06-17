@@ -22,8 +22,8 @@
       "funding": 0.005,
       "id": "ZEST_USDT:support_break:2026-06-14T20:24:18.177693+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-17T04:24:18.316857+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-17T20:24:25.123045+00:00"
     },
     {
       "symbol": "GWEI_USDT",
@@ -172,8 +172,8 @@
       "funding": 0.005,
       "id": "GWEI_USDT:rejection:2026-06-15T08:24:24.804185+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-16T16:24:33.731816+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-17T20:24:29.272068+00:00"
     },
     {
       "symbol": "RIFUSDT",
@@ -628,7 +628,8 @@
       "funding": 0.0,
       "id": "WLDUSDT:rejection:2026-06-17T12:24:31.899491+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T20:24:37.216209+00:00"
     },
     {
       "symbol": "WLDUSDT",
@@ -640,7 +641,8 @@
       "funding": 0.0,
       "id": "WLDUSDT:support_break:2026-06-17T12:24:31.899491+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T20:24:37.216209+00:00"
     },
     {
       "symbol": "AMAT_USDT",
@@ -711,6 +713,66 @@
       "price": 0.5126,
       "funding": -0.0024000000000000002,
       "id": "AERO_USDT:resistance_test:2026-06-17T16:24:50.045921+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HD_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-17T20:24:28.820824+00:00",
+      "price": 329.2,
+      "funding": 0.01,
+      "id": "HD_USDT:support_break:2026-06-17T20:24:28.820824+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SPCX_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T20:24:33.872770+00:00",
+      "price": 194.58,
+      "funding": 0.0135,
+      "id": "SPCX_USDT:rejection:2026-06-17T20:24:33.872770+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SQD_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T20:24:37.677978+00:00",
+      "price": 0.0482,
+      "funding": 0.005,
+      "id": "SQD_USDT:rejection:2026-06-17T20:24:37.677978+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AERO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T20:24:39.044270+00:00",
+      "price": 0.4673,
+      "funding": 0.0026,
+      "id": "AERO_USDT:rejection:2026-06-17T20:24:39.044270+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AERO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-17T20:24:39.044270+00:00",
+      "price": 0.4673,
+      "funding": 0.0026,
+      "id": "AERO_USDT:support_break:2026-06-17T20:24:39.044270+00:00",
       "status": "pending",
       "repeats": 1
     }
