@@ -421,7 +421,8 @@
       "funding": 0.01,
       "id": "SNDK_USDT:support_break:2026-06-16T16:24:32.533836+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T12:24:21.796024+00:00"
     },
     {
       "symbol": "JELLYJELLY_USDT",
@@ -553,7 +554,8 @@
       "funding": -0.12589999999999998,
       "id": "SPCX_USDT:support_break:2026-06-17T04:24:27.913463+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T12:24:28.559091+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -576,6 +578,66 @@
       "price": 0.3291,
       "funding": 0.01,
       "id": "COAI_USDT:rejection:2026-06-17T08:24:27.249974+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JTOUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T12:24:29.679355+00:00",
+      "price": 0.7295,
+      "funding": 0.0,
+      "id": "JTOUSDT:rejection:2026-06-17T12:24:29.679355+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SENTUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T12:24:31.356743+00:00",
+      "price": 0.01796,
+      "funding": 0.0,
+      "id": "SENTUSDT:rejection:2026-06-17T12:24:31.356743+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SENTUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-17T12:24:31.356743+00:00",
+      "price": 0.01796,
+      "funding": 0.0,
+      "id": "SENTUSDT:support_break:2026-06-17T12:24:31.356743+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "WLDUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-17T12:24:31.899491+00:00",
+      "price": 0.6545,
+      "funding": 0.0,
+      "id": "WLDUSDT:rejection:2026-06-17T12:24:31.899491+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "WLDUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-17T12:24:31.899491+00:00",
+      "price": 0.6545,
+      "funding": 0.0,
+      "id": "WLDUSDT:support_break:2026-06-17T12:24:31.899491+00:00",
       "status": "pending",
       "repeats": 1
     }
