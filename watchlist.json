@@ -496,6 +496,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "SPX_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.4973,
+        "resistance": 0.49,
+        "rejection_below": 0.4618,
+        "support_strong": 0.415,
+        "support_extreme": 0.3848
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
