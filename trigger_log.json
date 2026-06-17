@@ -159,7 +159,8 @@
       "funding": 0.01,
       "id": "AMAT_USDT:resistance_test:2026-06-15T08:24:23.426425+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-17T16:24:37.152936+00:00"
     },
     {
       "symbol": "GWEI_USDT",
@@ -638,6 +639,78 @@
       "price": 0.6545,
       "funding": 0.0,
       "id": "WLDUSDT:support_break:2026-06-17T12:24:31.899491+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AMAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-06-17T16:24:37.152936+00:00",
+      "price": 610.6,
+      "funding": 0.01,
+      "id": "AMAT_USDT:breakout:2026-06-17T16:24:37.152936+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-17T16:24:46.171328+00:00",
+      "price": 358.85,
+      "funding": 0.01,
+      "id": "GE_USDT:resistance_test:2026-06-17T16:24:46.171328+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HIMS_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-06-17T16:24:46.716110+00:00",
+      "price": 32.613,
+      "funding": 0.01,
+      "id": "HIMS_USDT:breakout:2026-06-17T16:24:46.716110+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HIMS_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-17T16:24:46.716110+00:00",
+      "price": 32.613,
+      "funding": 0.01,
+      "id": "HIMS_USDT:resistance_test:2026-06-17T16:24:46.716110+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AERO_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-06-17T16:24:50.045921+00:00",
+      "price": 0.5126,
+      "funding": -0.0024000000000000002,
+      "id": "AERO_USDT:breakout:2026-06-17T16:24:50.045921+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AERO_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-17T16:24:50.045921+00:00",
+      "price": 0.5126,
+      "funding": -0.0024000000000000002,
+      "id": "AERO_USDT:resistance_test:2026-06-17T16:24:50.045921+00:00",
       "status": "pending",
       "repeats": 1
     }
