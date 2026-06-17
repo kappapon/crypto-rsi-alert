@@ -479,6 +479,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "SQD_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0544,
+        "resistance": 0.0536,
+        "rejection_below": 0.05,
+        "support_strong": 0.0474,
+        "support_extreme": 0.0444
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
