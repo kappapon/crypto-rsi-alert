@@ -329,5 +329,81 @@
       "Real World Assets (RWA)",
       "Ondo Tokenized Assets"
     ]
+  },
+  "SPCX": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173747/small/HbrI04tM_400x400.jpg?1781237061",
+    "cg_id": "spacex-backpack-securities",
+    "categories": [
+      "Tokenized Assets",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Real World Assets (RWA)",
+      "Backpack Securities Ecosystem"
+    ]
+  },
+  "INFQ": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "JTO": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/33228/small/jto.png?1701137022",
+    "cg_id": "jito-governance-token",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Solana Ecosystem",
+      "Liquid Staking Governance Tokens",
+      "Multicoin Capital Portfolio",
+      "Alameda Research Portfolio",
+      "Delphi Ventures Portfolio",
+      "Liquid Staking",
+      "Made in USA"
+    ]
+  },
+  "GE": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/5/small/dogecoin.png?1696501409",
+    "cg_id": "dogecoin",
+    "categories": [
+      "Smart Contract Platform",
+      "Meme",
+      "Dog-Themed",
+      "Elon Musk-Inspired",
+      "Proof of Work (PoW)",
+      "GMCI Meme Index",
+      "GMCI 30 Index",
+      "GMCI Index",
+      "Coinbase 50 Index",
+      "4chan-Themed"
+    ]
+  },
+  "HIMS": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68553/small/himson_160x160.png?1756105686",
+    "cg_id": "hims-hers-health-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "SENT": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/70508/small/SENTIENT-Icon-BlushForce-L.png?1762267532",
+    "cg_id": "sentient",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Smart Contract Platform",
+      "Ethereum Ecosystem",
+      "Binance Alpha Spotlight",
+      "Binance Wallet IDO"
+    ]
   }
 }
