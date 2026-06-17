@@ -513,6 +513,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ATMUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 1.5732,
+        "resistance": 1.55,
+        "rejection_below": 1.273,
+        "support_strong": 1.2229,
+        "support_extreme": 1.1676
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
