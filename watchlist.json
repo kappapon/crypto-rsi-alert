@@ -683,6 +683,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "JPM_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 343.2324,
+        "resistance": 338.16,
+        "rejection_below": 317.908,
+        "support_strong": 334.0222,
+        "support_extreme": 331.1682
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
