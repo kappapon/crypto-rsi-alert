@@ -405,5 +405,134 @@
       "Binance Alpha Spotlight",
       "Binance Wallet IDO"
     ]
+  },
+  "WLD": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/31069/small/worldcoin.jpeg?1696529903",
+    "cg_id": "worldcoin-wld",
+    "categories": [
+      "Smart Contract Platform",
+      "Ethereum Ecosystem",
+      "Decentralized Identifier (DID)",
+      "Optimism Ecosystem",
+      "Coinbase Ventures Portfolio",
+      "Multicoin Capital Portfolio",
+      "Andreessen Horowitz (a16z) Portfolio",
+      "Blockchain Capital Portfolio",
+      "Optimism Superchain Ecosystem",
+      "World Chain Ecosystem",
+      "Made in USA",
+      "Governance"
+    ]
+  },
+  "SQD": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/37869/small/New_Logo_SQD_Icon.png?1720048443",
+    "cg_id": "subsquid",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Big Data",
+      "Analytics",
+      "BNB Chain Ecosystem",
+      "Arbitrum Ecosystem",
+      "Base Ecosystem",
+      "CoinList Launchpad",
+      "Base Native"
+    ]
+  },
+  "SPX": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/31401/small/centeredcoin_%281%29.png?1737048493",
+    "cg_id": "spx6900",
+    "categories": [
+      "Solana Ecosystem",
+      "Avalanche Ecosystem",
+      "Meme",
+      "Ethereum Ecosystem",
+      "Base Ecosystem",
+      "Bridged-Tokens",
+      "Murad Picks",
+      "Stock market-themed",
+      "4chan-Themed",
+      "Base Native"
+    ]
+  },
+  "ATM": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/11689/small/ATM.png?1741425591",
+    "cg_id": "atletico-madrid",
+    "categories": [
+      "Sports",
+      "Binance Launchpool",
+      "Fan Token",
+      "Solana Ecosystem",
+      "Base Ecosystem",
+      "Chiliz Ecosystem",
+      "YZi Labs (Prev. Binance Labs) Portfolio"
+    ]
+  },
+  "AERO": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/31745/small/token.png?1696530564",
+    "cg_id": "aerodrome-finance",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Automated Market Maker (AMM)",
+      "Base Ecosystem",
+      "Binance Alpha Spotlight",
+      "Made in USA",
+      "Base Native"
+    ]
+  },
+  "UNI": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/12504/small/uniswap-logo.png?1720676669",
+    "cg_id": "uniswap",
+    "categories": [
+      "Automated Market Maker (AMM)",
+      "BNB Chain Ecosystem",
+      "Andreessen Horowitz (a16z) Portfolio",
+      "Huobi ECO Chain Ecosystem",
+      "Avalanche Ecosystem",
+      "Arbitrum Ecosystem",
+      "GMCI 30 Index",
+      "Harmony Ecosystem",
+      "Index Coop Defi Index",
+      "Blockchain Capital Portfolio",
+      "Paradigm Portfolio",
+      "Decentralized Exchange (DEX)",
+      "Yield Farming",
+      "Coinbase 50 Index",
+      "Polychain Capital Portfolio",
+      "Polygon Ecosystem",
+      "Optimism Ecosystem",
+      "Made in USA",
+      "GMCI Index",
+      "Near Protocol Ecosystem",
+      "Gnosis Chain Ecosystem",
+      "GMCI DeFi Index",
+      "Sora Ecosystem",
+      "Ethereum Ecosystem",
+      "Energi Ecosystem",
+      "Unichain Ecosystem",
+      "Exchange-based Tokens",
+      "Governance",
+      "Coinbase Ventures Portfolio",
+      "Decentralized Finance (DeFi)"
+    ]
+  },
+  "KOMA": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/50902/small/IMG_7580.jpeg?1729520086",
+    "cg_id": "koma-inu",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Meme",
+      "Dog-Themed",
+      "Binance Alpha Spotlight",
+      "Made in USA"
+    ]
   }
 }
