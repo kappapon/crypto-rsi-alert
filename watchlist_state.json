@@ -1,19 +1,19 @@
 {
   "tickers": {
     "AAOI_USDT": {
-      "last_funding": 0.01,
-      "last_price": 164.92,
-      "last_updated": "2026-06-18T16:24:31.609653+00:00",
+      "last_funding": 0.0215,
+      "last_price": 162.82,
+      "last_updated": "2026-06-18T20:24:31.539177+00:00",
       "triggers": {
         "funding": "2026-06-18T00:24:27.390384+00:00",
-        "rejection": "2026-06-16T16:24:39.259374+00:00",
+        "rejection": "2026-06-18T20:24:31.539168+00:00",
         "support_break": "2026-06-18T16:24:31.609646+00:00"
       }
     },
     "AERO_USDT": {
-      "last_funding": 0.0013,
-      "last_price": 0.437,
-      "last_updated": "2026-06-18T16:24:38.857938+00:00",
+      "last_funding": 0.005,
+      "last_price": 0.4463,
+      "last_updated": "2026-06-18T20:24:38.035901+00:00",
       "triggers": {
         "breakout": "2026-06-17T16:24:50.045947+00:00",
         "rejection": "2026-06-17T20:24:39.044302+00:00",
@@ -22,14 +22,14 @@
       }
     },
     "AGT_USDT": {
-      "last_funding": 0.0428,
-      "last_price": 0.027869,
-      "last_updated": "2026-06-18T16:24:43.468945+00:00"
+      "last_funding": 0.051699999999999996,
+      "last_price": 0.028391,
+      "last_updated": "2026-06-18T20:24:42.216318+00:00"
     },
     "AIO_USDT": {
-      "last_funding": 0.005,
-      "last_price": 0.12178,
-      "last_updated": "2026-06-18T16:24:20.453850+00:00",
+      "last_funding": 0.0341,
+      "last_price": 0.12252,
+      "last_updated": "2026-06-18T20:24:21.991938+00:00",
       "triggers": {
         "rejection": "2026-06-15T12:24:25.294145+00:00",
         "support_break": "2026-06-17T08:24:22.775298+00:00"
@@ -37,8 +37,8 @@
     },
     "ALLOUSDT": {
       "last_funding": 0.0,
-      "last_price": 0.3848,
-      "last_updated": "2026-06-18T16:24:18.472825+00:00",
+      "last_price": 0.3908,
+      "last_updated": "2026-06-18T20:24:20.164521+00:00",
       "triggers": {
         "rejection": "2026-06-16T04:24:17.775878+00:00",
         "support_break": "2026-06-15T16:24:24.046442+00:00"
@@ -51,8 +51,8 @@
     },
     "AMAT_USDT": {
       "last_funding": 0.01,
-      "last_price": 629.5,
-      "last_updated": "2026-06-18T16:24:23.367189+00:00",
+      "last_price": 621.0,
+      "last_updated": "2026-06-18T20:24:24.394907+00:00",
       "triggers": {
         "breakout": "2026-06-17T16:24:37.152970+00:00",
         "resistance_test": "2026-06-18T16:24:23.367181+00:00",
@@ -61,16 +61,16 @@
     },
     "APH_USDT": {
       "last_funding": 0.01,
-      "last_price": 165.87,
-      "last_updated": "2026-06-18T16:24:46.146102+00:00",
+      "last_price": 164.65,
+      "last_updated": "2026-06-18T20:24:44.579915+00:00",
       "triggers": {
         "resistance_test": "2026-06-18T16:24:46.146095+00:00"
       }
     },
     "ARC_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.08175,
-      "last_updated": "2026-06-18T16:24:22.699255+00:00",
+      "last_price": 0.08177,
+      "last_updated": "2026-06-18T20:24:23.804238+00:00",
       "triggers": {
         "rejection": "2026-06-18T16:24:22.699238+00:00",
         "support_break": "2026-06-18T16:24:22.699248+00:00"
@@ -78,16 +78,16 @@
     },
     "ASML_USDT": {
       "last_funding": 0.01,
-      "last_price": 1928.54,
-      "last_updated": "2026-06-18T16:24:30.313024+00:00",
+      "last_price": 1936.73,
+      "last_updated": "2026-06-18T20:24:30.357345+00:00",
       "triggers": {
         "support_break": "2026-06-16T12:24:37.565477+00:00"
       }
     },
     "ASTS_USDT": {
       "last_funding": 0.01,
-      "last_price": 78.69,
-      "last_updated": "2026-06-18T16:24:29.644076+00:00",
+      "last_price": 80.29,
+      "last_updated": "2026-06-18T20:24:29.765803+00:00",
       "triggers": {
         "rejection": "2026-06-18T16:24:29.644060+00:00",
         "support_break": "2026-06-18T16:24:29.644070+00:00"
@@ -95,13 +95,13 @@
     },
     "ATMUSDT": {
       "last_funding": 0.0,
-      "last_price": 1.385,
-      "last_updated": "2026-06-18T16:24:38.200503+00:00"
+      "last_price": 1.336,
+      "last_updated": "2026-06-18T20:24:37.445275+00:00"
     },
     "BEAT_USDT": {
-      "last_funding": 0.0394,
-      "last_price": 1.8669,
-      "last_updated": "2026-06-18T16:24:17.648422+00:00",
+      "last_funding": 0.01,
+      "last_price": 1.8664,
+      "last_updated": "2026-06-18T20:24:19.546008+00:00",
       "triggers": {
         "breakout": "2026-06-11T08:23:52.811738+00:00",
         "funding": "2026-06-18T08:24:18.197298+00:00",
@@ -112,8 +112,8 @@
     },
     "BP_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.6408,
-      "last_updated": "2026-06-18T16:24:26.775697+00:00",
+      "last_price": 0.6361,
+      "last_updated": "2026-06-18T20:24:27.389255+00:00",
       "triggers": {
         "breakout": "2026-06-18T12:24:25.270369+00:00",
         "rejection": "2026-06-16T20:24:36.915762+00:00",
@@ -122,17 +122,17 @@
       }
     },
     "BTW_USDT": {
-      "last_funding": 0.0974,
-      "last_price": 0.048648,
-      "last_updated": "2026-06-18T16:24:41.529043+00:00",
+      "last_funding": 0.1403,
+      "last_price": 0.050252,
+      "last_updated": "2026-06-18T20:24:40.435373+00:00",
       "triggers": {
-        "funding": "2026-06-18T08:24:33.576677+00:00"
+        "funding": "2026-06-18T20:24:40.435367+00:00"
       }
     },
     "COAI_USDT": {
       "last_funding": 0.01,
-      "last_price": 0.3201,
-      "last_updated": "2026-06-18T16:24:26.031576+00:00",
+      "last_price": 0.3339,
+      "last_updated": "2026-06-18T20:24:26.768117+00:00",
       "triggers": {
         "funding": "2026-06-13T16:23:28.755450+00:00",
         "rejection": "2026-06-18T12:24:24.676311+00:00",
@@ -147,6 +147,11 @@
         "rejection": "2026-06-09T16:41:41.163734+00:00",
         "support_break": "2026-06-09T16:41:41.163752+00:00"
       }
+    },
+    "DRAM_USDT": {
+      "last_funding": 0.01,
+      "last_price": 77.3,
+      "last_updated": "2026-06-18T20:24:45.766580+00:00"
     },
     "EPIC_USDT": {
       "last_funding": 0.005,
@@ -163,17 +168,17 @@
     },
     "EVAA_USDT": {
       "last_funding": 0.01,
-      "last_price": 0.6822,
-      "last_updated": "2026-06-18T16:24:28.992655+00:00",
+      "last_price": 0.6471,
+      "last_updated": "2026-06-18T20:24:29.175231+00:00",
       "triggers": {
         "rejection": "2026-06-17T04:24:25.385429+00:00",
         "support_break": "2026-06-16T12:24:36.238279+00:00"
       }
     },
     "FOLKS_USDT": {
-      "last_funding": 0.0696,
-      "last_price": 2.384,
-      "last_updated": "2026-06-18T16:24:19.797035+00:00",
+      "last_funding": 0.0692,
+      "last_price": 2.431,
+      "last_updated": "2026-06-18T20:24:21.350405+00:00",
       "triggers": {
         "breakout": "2026-06-18T04:24:21.592567+00:00",
         "funding": "2026-06-18T12:24:19.277264+00:00",
@@ -184,16 +189,16 @@
     },
     "GE_USDT": {
       "last_funding": 0.01,
-      "last_price": 359.7,
-      "last_updated": "2026-06-18T16:24:34.234994+00:00",
+      "last_price": 359.5,
+      "last_updated": "2026-06-18T20:24:33.899295+00:00",
       "triggers": {
         "resistance_test": "2026-06-17T16:24:46.171352+00:00"
       }
     },
     "GWEI_USDT": {
-      "last_funding": -0.0091,
-      "last_price": 0.10291,
-      "last_updated": "2026-06-18T16:24:25.349755+00:00",
+      "last_funding": 0.009600000000000001,
+      "last_price": 0.102383,
+      "last_updated": "2026-06-18T20:24:26.175539+00:00",
       "triggers": {
         "funding": "2026-06-14T20:24:23.425244+00:00",
         "rejection": "2026-06-17T20:24:29.272098+00:00",
@@ -202,17 +207,17 @@
     },
     "HD_USDT": {
       "last_funding": 0.01,
-      "last_price": 335.1,
-      "last_updated": "2026-06-18T16:24:24.702354+00:00",
+      "last_price": 333.2,
+      "last_updated": "2026-06-18T20:24:25.583590+00:00",
       "triggers": {
         "resistance_test": "2026-06-15T00:24:22.332296+00:00",
-        "support_break": "2026-06-17T20:24:28.820859+00:00"
+        "support_break": "2026-06-18T20:24:25.583582+00:00"
       }
     },
     "HIMS_USDT": {
       "last_funding": 0.01,
-      "last_price": 34.387,
-      "last_updated": "2026-06-18T16:24:34.894833+00:00",
+      "last_price": 35.441,
+      "last_updated": "2026-06-18T20:24:34.490126+00:00",
       "triggers": {
         "breakout": "2026-06-18T16:24:34.894818+00:00",
         "resistance_test": "2026-06-18T16:24:34.894828+00:00"
@@ -231,13 +236,13 @@
     },
     "HOODX_USDT": {
       "last_funding": 0.01,
-      "last_price": 106.9,
-      "last_updated": "2026-06-18T16:24:42.176459+00:00"
+      "last_price": 107.89,
+      "last_updated": "2026-06-18T20:24:41.026655+00:00"
     },
     "INFQ_USDT": {
       "last_funding": 0.01,
-      "last_price": 13.11,
-      "last_updated": "2026-06-18T16:24:32.936927+00:00",
+      "last_price": 13.51,
+      "last_updated": "2026-06-18T20:24:32.720319+00:00",
       "triggers": {
         "rejection": "2026-06-16T16:24:40.458214+00:00",
         "support_break": "2026-06-18T16:24:32.936919+00:00"
@@ -245,32 +250,32 @@
     },
     "JELLYJELLY_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.0579,
-      "last_updated": "2026-06-18T16:24:28.269893+00:00",
+      "last_price": 0.05834,
+      "last_updated": "2026-06-18T20:24:28.572101+00:00",
       "triggers": {
         "rejection": "2026-06-18T16:24:28.269884+00:00"
       }
     },
     "JNJ_USDT": {
       "last_funding": 0.01,
-      "last_price": 228.2,
-      "last_updated": "2026-06-18T16:24:22.045743+00:00",
+      "last_price": 229.14,
+      "last_updated": "2026-06-18T20:24:23.213009+00:00",
       "triggers": {
         "support_break": "2026-06-18T12:24:21.117361+00:00"
       }
     },
     "JPM_USDT": {
       "last_funding": 0.01,
-      "last_price": 331.71,
-      "last_updated": "2026-06-18T16:24:44.773220+00:00",
+      "last_price": 327.19,
+      "last_updated": "2026-06-18T20:24:43.397170+00:00",
       "triggers": {
         "support_break": "2026-06-18T16:24:44.773212+00:00"
       }
     },
     "JTOUSDT": {
       "last_funding": 0.0,
-      "last_price": 0.704,
-      "last_updated": "2026-06-18T16:24:33.584842+00:00",
+      "last_price": 0.7453,
+      "last_updated": "2026-06-18T20:24:33.308360+00:00",
       "triggers": {
         "rejection": "2026-06-17T12:24:29.679386+00:00",
         "support_break": "2026-06-17T00:24:35.830130+00:00"
@@ -278,8 +283,8 @@
     },
     "KOMA_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.008002,
-      "last_updated": "2026-06-18T16:24:40.201211+00:00",
+      "last_price": 0.008164,
+      "last_updated": "2026-06-18T20:24:39.215576+00:00",
       "triggers": {
         "rejection": "2026-06-18T12:24:37.515726+00:00",
         "support_break": "2026-06-18T12:24:37.515732+00:00"
@@ -287,35 +292,35 @@
     },
     "KO_USDT": {
       "last_funding": 0.01,
-      "last_price": 79.44,
-      "last_updated": "2026-06-18T16:24:21.208702+00:00",
+      "last_price": 79.6,
+      "last_updated": "2026-06-18T20:24:22.622198+00:00",
       "triggers": {
         "support_break": "2026-06-15T00:24:19.017068+00:00"
       }
     },
     "RIFUSDT": {
       "last_funding": 0.0,
-      "last_price": 0.0813,
-      "last_updated": "2026-06-18T16:24:27.602822+00:00",
+      "last_price": 0.08,
+      "last_updated": "2026-06-18T20:24:27.979137+00:00",
       "triggers": {
         "breakout": "2026-06-15T04:24:28.197857+00:00",
         "rejection": "2026-06-17T08:24:28.378164+00:00",
         "resistance_test": "2026-06-15T04:24:28.197866+00:00",
-        "support_break": "2026-06-15T08:24:26.247742+00:00"
+        "support_break": "2026-06-18T20:24:27.979129+00:00"
       }
     },
     "RTX_USDT": {
       "last_funding": 0.01,
-      "last_price": 186.64,
-      "last_updated": "2026-06-18T16:24:44.119076+00:00",
+      "last_price": 186.31,
+      "last_updated": "2026-06-18T20:24:42.807467+00:00",
       "triggers": {
         "support_break": "2026-06-18T16:24:44.119069+00:00"
       }
     },
     "SENTUSDT": {
       "last_funding": 0.0,
-      "last_price": 0.01566,
-      "last_updated": "2026-06-18T16:24:35.574881+00:00",
+      "last_price": 0.01622,
+      "last_updated": "2026-06-18T20:24:35.082596+00:00",
       "triggers": {
         "rejection": "2026-06-18T12:24:33.327574+00:00",
         "support_break": "2026-06-17T12:24:31.356780+00:00"
@@ -323,18 +328,19 @@
     },
     "SNDK_USDT": {
       "last_funding": 0.01,
-      "last_price": 2171.24,
-      "last_updated": "2026-06-18T16:24:24.046002+00:00",
+      "last_price": 2206.19,
+      "last_updated": "2026-06-18T20:24:24.987782+00:00",
       "triggers": {
+        "breakout": "2026-06-18T20:24:24.987770+00:00",
         "funding": "2026-06-16T00:24:22.552273+00:00",
         "resistance_test": "2026-06-18T16:24:24.045994+00:00",
         "support_break": "2026-06-17T12:24:21.796062+00:00"
       }
     },
     "SPCX_USDT": {
-      "last_funding": 0.0274,
-      "last_price": 174.4,
-      "last_updated": "2026-06-18T16:24:32.260192+00:00",
+      "last_funding": 0.0137,
+      "last_price": 183.59,
+      "last_updated": "2026-06-18T20:24:32.131872+00:00",
       "triggers": {
         "funding": "2026-06-18T08:24:27.433543+00:00",
         "rejection": "2026-06-18T16:24:32.260184+00:00",
@@ -344,17 +350,17 @@
     },
     "SPX_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.3797,
-      "last_updated": "2026-06-18T16:24:37.545968+00:00",
+      "last_price": 0.3882,
+      "last_updated": "2026-06-18T20:24:36.853917+00:00",
       "triggers": {
         "rejection": "2026-06-18T12:24:35.109399+00:00",
         "support_break": "2026-06-18T00:24:33.400797+00:00"
       }
     },
     "SQD_USDT": {
-      "last_funding": 0.005,
-      "last_price": 0.04492,
-      "last_updated": "2026-06-18T16:24:36.896941+00:00",
+      "last_funding": 0.0136,
+      "last_price": 0.04556,
+      "last_updated": "2026-06-18T20:24:36.263549+00:00",
       "triggers": {
         "rejection": "2026-06-17T20:24:37.678005+00:00"
       }
@@ -372,8 +378,8 @@
     },
     "SYNUSDT": {
       "last_funding": 0.0,
-      "last_price": 0.1195,
-      "last_updated": "2026-06-18T16:24:40.877493+00:00",
+      "last_price": 0.142,
+      "last_updated": "2026-06-18T20:24:39.803514+00:00",
       "triggers": {
         "breakout": "2026-06-18T12:24:38.129556+00:00",
         "resistance_test": "2026-06-18T12:24:38.129563+00:00"
@@ -381,21 +387,22 @@
     },
     "TAC_USDT": {
       "last_funding": 0.005,
-      "last_price": 0.022169,
-      "last_updated": "2026-06-18T16:24:42.820485+00:00",
+      "last_price": 0.021968,
+      "last_updated": "2026-06-18T20:24:41.623020+00:00",
       "triggers": {
-        "rejection": "2026-06-18T16:24:42.820477+00:00"
+        "rejection": "2026-06-18T16:24:42.820477+00:00",
+        "support_break": "2026-06-18T20:24:41.623011+00:00"
       }
     },
     "TLT_USDT": {
       "last_funding": 0.01,
       "last_price": 88.53,
-      "last_updated": "2026-06-18T16:24:46.792645+00:00"
+      "last_updated": "2026-06-18T20:24:45.174467+00:00"
     },
     "UNIUSDT": {
       "last_funding": 0.0,
-      "last_price": 2.955,
-      "last_updated": "2026-06-18T16:24:39.551027+00:00",
+      "last_price": 3.034,
+      "last_updated": "2026-06-18T20:24:38.624606+00:00",
       "triggers": {
         "rejection": "2026-06-18T16:24:39.551019+00:00"
       }
@@ -414,8 +421,8 @@
     },
     "WDC_USDT": {
       "last_funding": 0.01,
-      "last_price": 757.1,
-      "last_updated": "2026-06-18T16:24:30.952992+00:00",
+      "last_price": 755.5,
+      "last_updated": "2026-06-18T20:24:30.947305+00:00",
       "triggers": {
         "breakout": "2026-06-18T16:24:30.952982+00:00",
         "resistance_test": "2026-06-18T08:24:26.555874+00:00"
@@ -423,17 +430,17 @@
     },
     "WLDUSDT": {
       "last_funding": 0.0,
-      "last_price": 0.6169,
-      "last_updated": "2026-06-18T16:24:36.240187+00:00",
+      "last_price": 0.6311,
+      "last_updated": "2026-06-18T20:24:35.671825+00:00",
       "triggers": {
         "rejection": "2026-06-18T16:24:36.240179+00:00",
         "support_break": "2026-06-18T04:24:33.896346+00:00"
       }
     },
     "ZEST_USDT": {
-      "last_funding": 0.02,
-      "last_price": 0.26403,
-      "last_updated": "2026-06-18T16:24:19.150133+00:00",
+      "last_funding": 0.005,
+      "last_price": 0.26021,
+      "last_updated": "2026-06-18T20:24:20.758378+00:00",
       "triggers": {
         "rejection": "2026-06-11T16:23:58.224107+00:00",
         "support_break": "2026-06-17T20:24:25.123081+00:00"
@@ -441,8 +448,12 @@
     },
     "ZHIPU_USDT": {
       "last_funding": 0.01,
-      "last_price": 250.67,
-      "last_updated": "2026-06-18T16:24:45.429516+00:00"
+      "last_price": 266.12,
+      "last_updated": "2026-06-18T20:24:43.988717+00:00",
+      "triggers": {
+        "breakout": "2026-06-18T20:24:43.988700+00:00",
+        "resistance_test": "2026-06-18T20:24:43.988711+00:00"
+      }
     }
   }
 }
