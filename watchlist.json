@@ -751,6 +751,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "DRAM_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 78.6828,
+        "resistance": 77.52,
+        "rejection_below": 73.0075,
+        "support_strong": 74.4852,
+        "support_extreme": 72.6909
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
