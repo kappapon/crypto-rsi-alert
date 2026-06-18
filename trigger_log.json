@@ -360,8 +360,8 @@
       "funding": 0.3546,
       "id": "SPCX_USDT:funding:2026-06-16T04:24:26.569863+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-17T04:24:27.913463+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-18T00:24:28.051036+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -773,6 +773,30 @@
       "price": 0.4673,
       "funding": 0.0026,
       "id": "AERO_USDT:support_break:2026-06-17T20:24:39.044270+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AAOI_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-06-18T00:24:27.390352+00:00",
+      "price": 172.58,
+      "funding": 0.1271,
+      "id": "AAOI_USDT:funding:2026-06-18T00:24:27.390352+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SPX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-18T00:24:33.400767+00:00",
+      "price": 0.4266,
+      "funding": 0.005,
+      "id": "SPX_USDT:support_break:2026-06-18T00:24:33.400767+00:00",
       "status": "pending",
       "repeats": 1
     }
