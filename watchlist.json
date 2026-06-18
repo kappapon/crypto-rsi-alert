@@ -700,6 +700,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ZHIPU_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 259.7182,
+        "resistance": 255.88,
+        "rejection_below": 222.0815,
+        "support_strong": 213.6185,
+        "support_extreme": 198.8881
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
