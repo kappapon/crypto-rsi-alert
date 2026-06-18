@@ -581,6 +581,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "SYNUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.1005,
+        "resistance": 0.099,
+        "rejection_below": 0.0783,
+        "support_strong": 0.0712,
+        "support_extreme": 0.0602
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
