@@ -666,6 +666,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "RTX_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 203.1624,
+        "resistance": 200.16,
+        "rejection_below": 184.0055,
+        "support_strong": 191.7243,
+        "support_extreme": 189.0903
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
