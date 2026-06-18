@@ -615,6 +615,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "HOODX_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 112.3605,
+        "resistance": 110.7,
+        "rejection_below": 102.9135,
+        "support_strong": 104.8484,
+        "support_extreme": 101.4036
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
