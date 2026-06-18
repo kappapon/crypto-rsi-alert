@@ -717,6 +717,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "APH_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 167.2923,
+        "resistance": 164.82,
+        "rejection_below": 155.116,
+        "support_strong": 162.0806,
+        "support_extreme": 160.7944
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
