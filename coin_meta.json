@@ -534,5 +534,166 @@
       "Binance Alpha Spotlight",
       "Made in USA"
     ]
+  },
+  "SYN": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/18024/small/synapse_social_icon.png?1696517540",
+    "cg_id": "synapse-2",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Avalanche Ecosystem",
+      "Polygon Ecosystem",
+      "Fantom Ecosystem",
+      "Arbitrum Ecosystem",
+      "Olympus Pro Ecosystem",
+      "Ethereum Ecosystem",
+      "Optimism Ecosystem",
+      "Bridge Governance Tokens",
+      "Base Ecosystem",
+      "Alameda Research Portfolio",
+      "Intent"
+    ]
+  },
+  "BTW": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71205/small/bitway.png?1766388722",
+    "cg_id": "bitway",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Yield Farming",
+      "Ethereum Ecosystem",
+      "Binance Alpha Spotlight",
+      "Governance"
+    ]
+  },
+  "HOODX": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/55613/small/Ticker_HOOD__Company_Name_Robinhood__size_200x200_2x.png?1746858880",
+    "cg_id": "robinhood-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "BackedFi xStocks Ecosystem"
+    ]
+  },
+  "TAC": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/67357/small/tac.jpg?1752491437",
+    "cg_id": "tac",
+    "categories": [
+      "Infrastructure",
+      "BNB Chain Ecosystem",
+      "TON Ecosystem",
+      "Binance Alpha Spotlight",
+      "TAC Ecosystem"
+    ]
+  },
+  "AGT": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/34544/small/Image_2024-01-14_at_16.36.jpeg?1705340501",
+    "cg_id": "avatago",
+    "categories": [
+      "BNB Chain Ecosystem"
+    ]
+  },
+  "RTX": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69338/small/OrbitX_dao.png?1758225997",
+    "cg_id": "orbitx-dao",
+    "categories": [
+      "BNB Chain Ecosystem"
+    ]
+  },
+  "JPM": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68602/small/jpmon_160x160.png?1756129944",
+    "cg_id": "jpmorgan-chase-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "ZHIPU": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "APH": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/13397/small/Graph_Token.png?1696513159",
+    "cg_id": "the-graph",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Infrastructure",
+      "Analytics",
+      "Avalanche Ecosystem",
+      "Polygon Ecosystem",
+      "Near Protocol Ecosystem",
+      "Harmony Ecosystem",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "DePIN",
+      "Coinbase Ventures Portfolio",
+      "Multicoin Capital Portfolio",
+      "Proof of Stake (PoS)",
+      "Energi Ecosystem",
+      "Sora Ecosystem",
+      "Made in USA",
+      "Coinbase 50 Index"
+    ]
+  },
+  "TLT": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68647/small/tlton_160x160.png?1756156198",
+    "cg_id": "ishares-20-year-treasury-bond-etf-ondo-tokenized-etf",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Tokenized Exchange-Traded Funds (ETFs)",
+      "Ondo Tokenized Assets",
+      "Tokenized Exchange-Traded Product (ETPs)"
+    ]
+  },
+  "DRAM": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173846/small/dramon_160x160.png?1781494626",
+    "cg_id": "roundhill-memory-etf-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Tokenized Exchange-Traded Funds (ETFs)",
+      "Ondo Tokenized Assets",
+      "Tokenized Exchange-Traded Product (ETPs)"
+    ]
+  },
+  "ZEREBRO": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/51289/small/zerebro_2.png?1730588883",
+    "cg_id": "zerebro",
+    "categories": [
+      "Solana Ecosystem",
+      "Meme",
+      "Solana Meme",
+      "AI Meme",
+      "Pump.fun Ecosystem",
+      "Binance Alpha Spotlight"
+    ]
   }
 }
