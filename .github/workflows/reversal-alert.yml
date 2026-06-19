@@ -46,7 +46,11 @@ jobs:
           CHAT_ID: ${{ secrets.CHAT_ID }}
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
         run: python auto_evict.py
-      - name: Commit updated state
+      - name: Commit updated state (retry on shared-file race)
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
         run: |
           if [ ! -f reversal_state.json ]; then
             echo "No state file (dry run) — skip."
@@ -54,15 +58,31 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reversal_state.json
-          [ -f paper_trades.json ] && git add paper_trades.json
-          [ -f trigger_log.json ] && git add trigger_log.json
-          [ -f trigger_stats.json ] && git add trigger_stats.json
-          git add watchlist.json
-          if git diff --staged --quiet; then
-            echo "No state changes."
-          else
+          # trigger_log.json ถูกเขียนจาก watchlist.yml ด้วย → git pull --rebase ชน conflict เสมอ (gotcha #3)
+          # pattern เดียวกับ add-ticker: re-apply บน tip ล่าสุดแทน rebase
+          #   - ไฟล์ที่ workflow นี้เขียนคนเดียว (paper_trades/reversal_state) = เก็บไว้ข้าม reset
+          #   - ไฟล์ shared (trigger_log/stats จาก track_triggers เงียบ, watchlist จาก auto_evict) = re-derive idempotent บน tip ใหม่
+          tmp=$(mktemp -d)
+          cp paper_trades.json reversal_state.json "$tmp"/
+          for attempt in 1 2 3 4 5 6; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp "$tmp"/paper_trades.json "$tmp"/reversal_state.json .
+            python track_triggers.py    # trigger_log (รวม appends ของ watchlist.yml) -> trigger_stats, เงียบ
+            python auto_evict.py         # re-apply eviction บน watchlist tip ล่าสุด
+            git add reversal_state.json paper_trades.json watchlist.json
+            [ -f trigger_log.json ] && git add trigger_log.json
+            [ -f trigger_stats.json ] && git add trigger_stats.json
+            if git diff --staged --quiet; then
+              echo "No state changes."
+              exit 0
+            fi
             git commit -m "chore: reversal state $(date -u +%Y-%m-%d)"
-            git pull --rebase
-            git push
-          fi
+            if git push; then
+              exit 0
+            fi
+            sleep $((RANDOM % 5 + 1))
+            echo "push rejected (attempt $attempt) — retrying on fresh tip"
+          done
+          echo "::error::push failed after 6 attempts"
+          exit 1

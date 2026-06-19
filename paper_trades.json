@@ -73,6 +73,58 @@
       "status": "open",
       "symbol": "KO_USDT",
       "tp": 78.36646606607356
+    },
+    {
+      "atr": 5.99379,
+      "breadth": 4,
+      "entry": 107.8,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-06-19T00:26:24+00:00",
+      "prob": 0.52,
+      "sl": 113.794,
+      "status": "open",
+      "symbol": "HOODX_USDT",
+      "tp": 95.8124
+    },
+    {
+      "atr": 0.0154445,
+      "breadth": 4,
+      "entry": 0.1328,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-06-19T00:26:24+00:00",
+      "prob": 0.418,
+      "sl": 0.148245,
+      "status": "open",
+      "symbol": "SYNUSDT",
+      "tp": 0.101911
+    },
+    {
+      "atr": 0.130533,
+      "breadth": 4,
+      "entry": 1.371,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-06-19T00:26:24+00:00",
+      "prob": 0.364,
+      "sl": 1.50153,
+      "status": "open",
+      "symbol": "ATMUSDT",
+      "tp": 1.10993
+    },
+    {
+      "atr": 0.00450538,
+      "breadth": 4,
+      "entry": 0.042663,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-06-19T00:26:24+00:00",
+      "prob": 0.364,
+      "sl": 0.0471684,
+      "status": "open",
+      "symbol": "ZEREBRO_USDT",
+      "tp": 0.0336522
     }
   ]
 }
