@@ -785,6 +785,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "BELUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.128,
+        "resistance": 0.1261,
+        "rejection_below": 0.1133,
+        "support_strong": 0.1133,
+        "support_extreme": 0.1049
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
