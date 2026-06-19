@@ -415,8 +415,8 @@
       "funding": 0.3546,
       "id": "SPCX_USDT:funding:2026-06-16T04:24:26.569863+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-06-18T08:24:27.433511+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-06-19T00:24:27.043402+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -652,8 +652,8 @@
       "funding": -0.0755,
       "id": "BEAT_USDT:support_break:2026-06-17T08:24:20.510725+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-18T08:24:18.197244+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-19T00:24:17.495605+00:00"
     },
     {
       "symbol": "COAI_USDT",
@@ -889,7 +889,8 @@
       "funding": 0.1271,
       "id": "AAOI_USDT:funding:2026-06-18T00:24:27.390352+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-19T00:24:26.596916+00:00"
     },
     {
       "symbol": "SPX_USDT",
@@ -937,8 +938,8 @@
       "funding": 0.1726,
       "id": "FOLKS_USDT:funding:2026-06-18T04:24:21.592535+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-18T12:24:19.277225+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-19T00:24:18.863258+00:00"
     },
     {
       "symbol": "SPX_USDT",
@@ -999,8 +1000,8 @@
       "funding": 0.2566,
       "id": "BTW_USDT:funding:2026-06-18T08:24:33.576649+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-18T20:24:40.435333+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-19T00:24:33.438783+00:00"
     },
     {
       "symbol": "BP_USDT",
@@ -1215,6 +1216,54 @@
       "price": 266.12,
       "funding": 0.01,
       "id": "ZHIPU_USDT:resistance_test:2026-06-18T20:24:43.988674+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "WDC_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-06-19T00:24:26.149978+00:00",
+      "price": 766.8,
+      "funding": 0.1773,
+      "id": "WDC_USDT:funding:2026-06-19T00:24:26.149978+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-19T00:24:28.464188+00:00",
+      "price": 357.95,
+      "funding": 0.01,
+      "id": "GE_USDT:support_break:2026-06-19T00:24:28.464188+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SYNUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-19T00:24:32.993217+00:00",
+      "price": 0.1309,
+      "funding": 0.0,
+      "id": "SYNUSDT:rejection:2026-06-19T00:24:32.993217+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DRAM_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-06-19T00:24:37.505868+00:00",
+      "price": 77.69,
+      "funding": -0.305,
+      "id": "DRAM_USDT:funding:2026-06-19T00:24:37.505868+00:00",
       "status": "pending",
       "repeats": 1
     }
