@@ -695,5 +695,36 @@
       "Pump.fun Ecosystem",
       "Binance Alpha Spotlight"
     ]
+  },
+  "BEL": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/12478/small/Bella.png?1696512296",
+    "cg_id": "bella-protocol",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Yield Farming",
+      "BNB Chain Ecosystem",
+      "Binance Launchpool",
+      "Yield Aggregator",
+      "Ethereum Ecosystem",
+      "Manta Network Ecosystem",
+      "YZi Labs (Prev. Binance Labs) Portfolio"
+    ]
+  },
+  "BICO": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/21061/small/biconomy_logo.jpg?1696520444",
+    "cg_id": "biconomy",
+    "categories": [
+      "Infrastructure",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Account Abstraction",
+      "Coinbase Ventures Portfolio",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "Consensys Portfolio",
+      "Outlier Ventures Portfolio",
+      "CoinList Launchpad"
+    ]
   }
 }
