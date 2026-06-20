@@ -807,11 +807,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0379,
-        "resistance": 0.0373,
-        "rejection_below": 0.0343,
-        "support_strong": 0.0298,
-        "support_extreme": 0.0252
+        "breakout_above": 0.0456,
+        "resistance": 0.0449,
+        "rejection_below": 0.0337,
+        "support_strong": 0.0312,
+        "support_extreme": 0.0262
       },
       "alerts": {
         "price_breakout": true,
