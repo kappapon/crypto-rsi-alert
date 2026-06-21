@@ -887,6 +887,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "EIGENUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.2888,
+        "resistance": 0.2845,
+        "rejection_below": 0.2555,
+        "support_strong": 0.2625,
+        "support_extreme": 0.252
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
