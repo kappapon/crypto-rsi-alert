@@ -819,6 +819,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ALICEUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.1837,
+        "resistance": 0.181,
+        "rejection_below": 0.1667,
+        "support_strong": 0.1445,
+        "support_extreme": 0.1272
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
