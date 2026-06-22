@@ -921,6 +921,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "BE_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 353.22,
+        "resistance": 348.0,
+        "rejection_below": 309.13,
+        "support_strong": 340.3263,
+        "support_extreme": 337.1338
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
