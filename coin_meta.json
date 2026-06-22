@@ -726,5 +726,90 @@
       "Outlier Ventures Portfolio",
       "CoinList Launchpad"
     ]
+  },
+  "ALICE": {
+    "theme": "Gaming",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/14375/small/alice_logo.jpg?1696514067",
+    "cg_id": "my-neighbor-alice",
+    "categories": [
+      "Gaming (GameFi)",
+      "NFT",
+      "BNB Chain Ecosystem",
+      "Binance Launchpool",
+      "Metaverse",
+      "DaoMaker Launchpad",
+      "Ethereum Ecosystem",
+      "Gaming Governance Token",
+      "Gaming Utility Token",
+      "Simulation Games",
+      "YZi Labs (Prev. Binance Labs) Portfolio"
+    ]
+  },
+  "VELODROME": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/25783/small/velo.png?1696524870",
+    "cg_id": "velodrome-finance",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Optimism Ecosystem"
+    ]
+  },
+  "MET": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69110/small/meteora.png?1757517561",
+    "cg_id": "meteora",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Solana Ecosystem",
+      "Launchpad",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "TNSR": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/35972/small/tnsr.png?1712687367",
+    "cg_id": "tensor",
+    "categories": [
+      "NFT",
+      "Solana Ecosystem",
+      "NFT Marketplace"
+    ]
+  },
+  "EIGEN": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/37441/small/eigencloud.jpg?1751003565",
+    "cg_id": "eigenlayer",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Infrastructure",
+      "Ethereum Ecosystem",
+      "Base Ecosystem",
+      "Data Availability",
+      "Restaking",
+      "Polychain Capital Portfolio",
+      "AI Framework",
+      "Made in USA",
+      "x402 Ecosystem"
+    ]
+  },
+  "MMT": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69899/small/4_icon_PFP_RGB.png?1762090516",
+    "cg_id": "momentum-3",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Sui Ecosystem",
+      "Coinbase Ventures Portfolio",
+      "OKX Ventures Portfolio",
+      "Binance HODLer Airdrops",
+      "Binance Wallet IDO",
+      "CeFi"
+    ]
   }
 }
