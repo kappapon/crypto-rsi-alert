@@ -955,6 +955,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "CRDO_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 279.0641,
+        "resistance": 274.94,
+        "rejection_below": 253.84,
+        "support_strong": 270.6375,
+        "support_extreme": 269.7611
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
