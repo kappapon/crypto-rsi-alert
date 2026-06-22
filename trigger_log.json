@@ -473,8 +473,8 @@
       "funding": -0.0022,
       "id": "BEAT_USDT:rejection:2026-06-16T12:24:25.341210+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-22T12:23:30.892322+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-22T20:23:49.186604+00:00"
     },
     {
       "symbol": "AMAT_USDT",
@@ -1172,7 +1172,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-06-18T12:24:37.515702+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-22T20:24:04.180097+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -1488,8 +1489,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-06-19T04:24:37.089018+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-22T04:23:44.749154+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-22T20:24:03.735908+00:00"
     },
     {
       "symbol": "HOODX_USDT",
@@ -2758,6 +2759,66 @@
       "price": 0.1933,
       "funding": 0.0,
       "id": "MMTUSDT:breakout:2026-06-22T16:24:15.846923+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AMAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-22T20:23:52.700340+00:00",
+      "price": 640.6,
+      "funding": 0.01,
+      "id": "AMAT_USDT:resistance_test:2026-06-22T20:23:52.700340+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BP_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-22T20:23:54.881074+00:00",
+      "price": 0.7102,
+      "funding": 0.005,
+      "id": "BP_USDT:support_break:2026-06-22T20:23:54.881074+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "VELODROMEUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-06-22T20:24:11.326288+00:00",
+      "price": 0.02176,
+      "funding": 0.0,
+      "id": "VELODROMEUSDT:breakout:2026-06-22T20:24:11.326288+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "VELODROMEUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-22T20:24:11.326288+00:00",
+      "price": 0.02176,
+      "funding": 0.0,
+      "id": "VELODROMEUSDT:resistance_test:2026-06-22T20:24:11.326288+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-22T20:24:13.938443+00:00",
+      "price": 123.28,
+      "funding": 0.01,
+      "id": "BX_USDT:support_break:2026-06-22T20:24:13.938443+00:00",
       "status": "pending",
       "repeats": 1
     }
