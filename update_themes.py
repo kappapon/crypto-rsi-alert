@@ -11,6 +11,17 @@ BASE = pathlib.Path(__file__).parent
 WATCHLIST = BASE / "watchlist.json"
 META_FILE = BASE / "coin_meta.json"
 
+# Manual cg_id overrides — tokenized stocks ที่ CoinGecko ใช้ symbol ต่างจาก ticker เปล่า
+# (เช่น RTXON ไม่ใช่ RTX) ทำให้ search_coin จับคู่ผิดไปเป็นคริปโต symbol เดียวกัน
+CG_ID_OVERRIDES = {
+    "RTX": "rtx-ondo-tokenized",
+    "AMAT": "applied-materials-ondo-tokenized-stocks",
+    "KO": "coca-cola-ondo-tokenized-stock",
+    "HD": "home-depot-ondo-tokenized-stock",
+    "APH": "amphenol-ondo-tokenized",
+    "GE": "general-electric-ondo-tokenized-stock",
+}
+
 # Priority-ordered keyword → theme mapping (first match wins)
 THEME_KEYWORDS = [
     ("artificial intelligence", "AI"), ("ai", "AI"),
@@ -29,7 +40,8 @@ def detect_theme(categories):
     lower = [c.lower() for c in (categories or [])]
     for cat in lower:
         for keyword, theme in THEME_KEYWORDS:
-            if keyword in cat:
+            # word-boundary match — keyword สั้น ("ai") ต้องไม่ไป match กลางคำ ("ch-ai-n")
+            if re.search(rf"\b{re.escape(keyword)}\b", cat):
                 return theme
     return "Unclassified"
 
@@ -73,6 +85,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--new-only", action="store_true",
                     help="only process coins not already in coin_meta.json")
+    ap.add_argument("--only", default="",
+                    help="comma-separated base symbols to process (e.g. RTX,AMAT)")
     args = ap.parse_args()
 
     watchlist = json.loads(WATCHLIST.read_text())
@@ -82,6 +96,9 @@ def main():
     coins = [base_symbol(s) for s in tickers]
     if args.new_only:
         coins = [c for c in coins if c not in meta]
+    if args.only:
+        want = {s.strip().upper() for s in args.only.split(",") if s.strip()}
+        coins = [c for c in coins if c.upper() in want]
 
     if not coins:
         print("Nothing to update.")
@@ -91,7 +108,7 @@ def main():
     for coin in coins:
         print(f"Looking up {coin}...", end=" ", flush=True)
         try:
-            cg_id = search_coin(coin)
+            cg_id = CG_ID_OVERRIDES.get(coin.upper()) or search_coin(coin)
             if not cg_id:
                 print("not found → Unclassified")
                 meta[coin] = {"theme": "Unclassified", "logo_url": None, "cg_id": None, "categories": []}

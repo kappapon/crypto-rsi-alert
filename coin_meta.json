@@ -125,17 +125,21 @@
     ]
   },
   "KO": {
-    "theme": "Gaming",
-    "logo_url": "https://coin-images.coingecko.com/coins/images/69392/small/ko.png?1758368517",
-    "cg_id": "kyuzo-s-friends",
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68569/small/koon_160x160.png?1756106230",
+    "cg_id": "coca-cola-ondo-tokenized-stock",
     "categories": [
-      "Gaming (GameFi)",
+      "Tokenized Assets",
       "BNB Chain Ecosystem",
-      "Binance Alpha Spotlight"
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
     ]
   },
   "JNJ": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/55620/small/Ticker_JNJ__Company_Name_johnson-johnson__size_200x200_2x.png?1746861691",
     "cg_id": "johnson-johnson-xstock",
     "categories": [
@@ -166,17 +170,21 @@
     ]
   },
   "AMAT": {
-    "theme": "Meme",
-    "logo_url": "https://coin-images.coingecko.com/coins/images/31821/small/Omikami_BTC_AMZN.png?1696530635",
-    "cg_id": "amaterasu-omikami",
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71404/small/amaton_160x160.png?1767875400",
+    "cg_id": "applied-materials-ondo-tokenized-stocks",
     "categories": [
-      "Meme",
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
       "Ethereum Ecosystem",
-      "Dog-Themed"
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
     ]
   },
   "SNDK": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/102172440/small/sndkon_160x160.png?1773419692",
     "cg_id": "sandisk-ondo-tokenized",
     "categories": [
@@ -191,16 +199,17 @@
     ]
   },
   "HD": {
-    "theme": "DeFi",
-    "logo_url": "https://coin-images.coingecko.com/coins/images/13929/small/avatar-circle-pink.png?1717638991",
-    "cg_id": "hydradx",
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71427/small/hdon_160x160.png?1767882478",
+    "cg_id": "home-depot-ondo-tokenized-stock",
     "categories": [
-      "Decentralized Exchange (DEX)",
-      "Smart Contract Platform",
-      "Exchange-based Tokens",
-      "Decentralized Finance (DeFi)",
-      "Polkadot Ecosystem",
-      "Layer 1 (L1)"
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
     ]
   },
   "GWEI": {
@@ -275,7 +284,7 @@
     ]
   },
   "ASTS": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/102172479/small/astson_160x160.png?1773506781",
     "cg_id": "ast-spacemobile-ondo-tokenized",
     "categories": [
@@ -289,7 +298,7 @@
     ]
   },
   "ASML": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/68642/small/asmlon_160x160.png?1756156077",
     "cg_id": "asml-holding-nv-ondo-tokenized-stock",
     "categories": [
@@ -303,7 +312,7 @@
     ]
   },
   "WDC": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/102172453/small/wdcon_160x160.png?1773420241",
     "cg_id": "western-digital-ondo-tokenized",
     "categories": [
@@ -317,7 +326,7 @@
     ]
   },
   "AAOI": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/102173752/small/aaoion_160x160.png?1781494202",
     "cg_id": "applied-optoelectronics-ondo-tokenized",
     "categories": [
@@ -364,24 +373,21 @@
     ]
   },
   "GE": {
-    "theme": "L1",
-    "logo_url": "https://coin-images.coingecko.com/coins/images/5/small/dogecoin.png?1696501409",
-    "cg_id": "dogecoin",
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68614/small/geon_160x160.png?1756130103",
+    "cg_id": "general-electric-ondo-tokenized-stock",
     "categories": [
-      "Smart Contract Platform",
-      "Meme",
-      "Dog-Themed",
-      "Elon Musk-Inspired",
-      "Proof of Work (PoW)",
-      "GMCI Meme Index",
-      "GMCI 30 Index",
-      "GMCI Index",
-      "Coinbase 50 Index",
-      "4chan-Themed"
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
     ]
   },
   "HIMS": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/68553/small/himson_160x160.png?1756105686",
     "cg_id": "hims-hers-health-ondo-tokenized-stock",
     "categories": [
@@ -487,7 +493,7 @@
     ]
   },
   "UNI": {
-    "theme": "AI",
+    "theme": "DeFi",
     "logo_url": "https://coin-images.coingecko.com/coins/images/12504/small/uniswap-logo.png?1720676669",
     "cg_id": "uniswap",
     "categories": [
@@ -524,7 +530,7 @@
     ]
   },
   "KOMA": {
-    "theme": "AI",
+    "theme": "Meme",
     "logo_url": "https://coin-images.coingecko.com/coins/images/50902/small/IMG_7580.jpeg?1729520086",
     "cg_id": "koma-inu",
     "categories": [
@@ -536,7 +542,7 @@
     ]
   },
   "SYN": {
-    "theme": "AI",
+    "theme": "Unclassified",
     "logo_url": "https://coin-images.coingecko.com/coins/images/18024/small/synapse_social_icon.png?1696517540",
     "cg_id": "synapse-2",
     "categories": [
@@ -567,7 +573,7 @@
     ]
   },
   "HOODX": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/55613/small/Ticker_HOOD__Company_Name_Robinhood__size_200x200_2x.png?1746858880",
     "cg_id": "robinhood-xstock",
     "categories": [
@@ -593,7 +599,7 @@
     ]
   },
   "AGT": {
-    "theme": "AI",
+    "theme": "Unclassified",
     "logo_url": "https://coin-images.coingecko.com/coins/images/34544/small/Image_2024-01-14_at_16.36.jpeg?1705340501",
     "cg_id": "avatago",
     "categories": [
@@ -601,15 +607,21 @@
     ]
   },
   "RTX": {
-    "theme": "AI",
-    "logo_url": "https://coin-images.coingecko.com/coins/images/69338/small/OrbitX_dao.png?1758225997",
-    "cg_id": "orbitx-dao",
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71464/small/rtxon_160x160.png?1767890843",
+    "cg_id": "rtx-ondo-tokenized",
     "categories": [
-      "BNB Chain Ecosystem"
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
     ]
   },
   "JPM": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/68602/small/jpmon_160x160.png?1756129944",
     "cg_id": "jpmorgan-chase-ondo-tokenized-stock",
     "categories": [
@@ -629,31 +641,21 @@
     "categories": []
   },
   "APH": {
-    "theme": "AI",
-    "logo_url": "https://coin-images.coingecko.com/coins/images/13397/small/Graph_Token.png?1696513159",
-    "cg_id": "the-graph",
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173874/small/aphon_160x160.png?1781494392",
+    "cg_id": "amphenol-ondo-tokenized",
     "categories": [
-      "Artificial Intelligence (AI)",
-      "Infrastructure",
-      "Analytics",
-      "Avalanche Ecosystem",
-      "Polygon Ecosystem",
-      "Near Protocol Ecosystem",
-      "Harmony Ecosystem",
-      "Arbitrum Ecosystem",
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
       "Ethereum Ecosystem",
-      "DePIN",
-      "Coinbase Ventures Portfolio",
-      "Multicoin Capital Portfolio",
-      "Proof of Stake (PoS)",
-      "Energi Ecosystem",
-      "Sora Ecosystem",
-      "Made in USA",
-      "Coinbase 50 Index"
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
     ]
   },
   "TLT": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/68647/small/tlton_160x160.png?1756156198",
     "cg_id": "ishares-20-year-treasury-bond-etf-ondo-tokenized-etf",
     "categories": [
@@ -668,7 +670,7 @@
     ]
   },
   "DRAM": {
-    "theme": "AI",
+    "theme": "RWA",
     "logo_url": "https://coin-images.coingecko.com/coins/images/102173846/small/dramon_160x160.png?1781494626",
     "cg_id": "roundhill-memory-etf-ondo-tokenized",
     "categories": [
