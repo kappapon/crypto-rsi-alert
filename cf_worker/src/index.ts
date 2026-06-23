@@ -58,6 +58,9 @@ const DIV_LOOKBACK_BARS = 48; // 12 ชม. — เทียบนิวไฮ�
 const DIV_RSI_MIN = 65; // swing high ก่อนหน้าต้อง RSI สูงพอ — กรองให้เป็น fade-the-top context
 const DIV_DEDUPE_TTL = 6 * 3600; // alert ต่อ 1 setup ครั้งเดียว (คีย์ด้วย ts ของ high ที่สอง)
 const DIV_FRESH_BARS = 4; // p2 ต้องอยู่ภายใน N แท่งล่าสุด (~1 ชม.) — กัน stale alert หลัง downtime
+// ---- flip detection (mirror): bullish divergence ที่ "ก้น" หลัง bearish div ยิงไปแล้ว ----
+const DIV_RSI_MAX_LOW = 35; // trough ก่อนหน้าต้อง oversold พอ (mirror ของ DIV_RSI_MIN)
+const FLIP_WATCH_TTL = 24 * 3600; // หลัง bearish div เปิด flip-watch นาน N — พ้นแล้วเลิกเฝ้า
 // CF Worker edge ดึง data-api.binance.vision / api.binance.com ไม่ได้ (403 bot-protect, probe 2026-06-23)
 // api-gcp.binance.com เข้าได้จาก edge แต่ต้องใช้ browser UA
 const KLINES_BASE = "https://api-gcp.binance.com";
@@ -262,9 +265,8 @@ async function runDivergenceWatch(env: Env): Promise<void> {
 
 // ดึง klines → normalize เป็น {highs, closes, times(ms)} จาก 2 format:
 // binance spot (array ของ array, t=ms) | gate futures (array ของ object {h,c,t}, t=วินาที)
-async function fetchKlines(
-  item: DivSym,
-): Promise<{ highs: number[]; closes: number[]; times: number[] } | { error: string; code?: number }> {
+type Klines = { highs: number[]; lows: number[]; closes: number[]; times: number[] };
+async function fetchKlines(item: DivSym): Promise<Klines | { error: string; code?: number }> {
   const url =
     item.source === "gate"
       ? `https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${item.symbol}&interval=15m&limit=150`
@@ -275,83 +277,129 @@ async function fetchKlines(
   if (!Array.isArray(raw) || raw.length < 41) return { error: "too_few_klines" };
   const k = raw.slice(0, -1); // ตัดแท่งกำลังก่อตัวทิ้ง → closed only (กัน whipsaw, gotcha #9)
   if (item.source === "gate") {
-    const a = k as { h: string; c: string; t: number }[];
-    return { highs: a.map((r) => parseFloat(r.h)), closes: a.map((r) => parseFloat(r.c)), times: a.map((r) => r.t * 1000) };
+    const a = k as { h: string; l: string; c: string; t: number }[];
+    return {
+      highs: a.map((r) => parseFloat(r.h)), lows: a.map((r) => parseFloat(r.l)),
+      closes: a.map((r) => parseFloat(r.c)), times: a.map((r) => r.t * 1000),
+    };
   }
   const a = k as string[][];
-  return { highs: a.map((r) => parseFloat(r[2])), closes: a.map((r) => parseFloat(r[4])), times: a.map((r) => Number(r[0])) };
+  return {
+    highs: a.map((r) => parseFloat(r[2])), lows: a.map((r) => parseFloat(r[3])),
+    closes: a.map((r) => parseFloat(r[4])), times: a.map((r) => Number(r[0])),
+  };
+}
+
+// swing low = low[i] ต่ำกว่า k แท่งทั้งสองข้าง (mirror ของ swingHighs)
+function swingLows(lows: number[], k: number): number[] {
+  const out: number[] = [];
+  for (let i = k; i < lows.length - k; i++) {
+    let ok = true;
+    for (let j = 1; j <= k; j++) {
+      if (lows[i] >= lows[i - j] || lows[i] >= lows[i + j]) { ok = false; break; }
+    }
+    if (ok) out.push(i);
+  }
+  return out;
+}
+
+// หา divergence จาก pivot series — dir "bearish" เทียบยอดสูงสุดใน window, "bullish" เทียบก้นต่ำสุด
+function detectDiv(
+  prices: number[], rsi: number[], pivots: number[], dir: "bearish" | "bullish",
+): { p1: number; p2: number } | null {
+  if (pivots.length < 2) return null;
+  const p2 = pivots[pivots.length - 1];
+  const win = pivots.filter((i) => i < p2 && i >= p2 - DIV_LOOKBACK_BARS);
+  if (win.length === 0) return null;
+  let p1 = win[0];
+  for (const i of win) if (dir === "bearish" ? prices[i] > prices[p1] : prices[i] < prices[p1]) p1 = i;
+  if (Number.isNaN(rsi[p1]) || Number.isNaN(rsi[p2])) return null;
+  const ok =
+    dir === "bearish"
+      ? prices[p2] > prices[p1] && rsi[p2] < rsi[p1] && rsi[p1] >= DIV_RSI_MIN
+      : prices[p2] < prices[p1] && rsi[p2] > rsi[p1] && rsi[p1] <= DIV_RSI_MAX_LOW;
+  return ok ? { p1, p2 } : null;
 }
 
 async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, unknown>> {
   const symbol = item.label;
   const kl = await fetchKlines(item);
   if ("error" in kl) return kl.code ? { symbol, status: kl.error, code: kl.code } : { symbol, status: kl.error };
-  const { highs, closes, times } = kl;
+  const { highs, lows, closes, times } = kl;
   const rsi = wilderRSI(closes, 14);
+  const lastIdx = closes.length - 1;
+  const fresh = (p2: number) => lastIdx - p2 <= DIV_FRESH_BARS;
 
-  const piv = swingHighs(highs, DIV_PIVOT_K);
-  if (piv.length < 2) return { symbol, status: "too_few_pivots" };
-  const p2 = piv[piv.length - 1]; // นิวไฮล่าสุด (confirmed)
+  // ---- FLIP: bullish divergence ที่ก้น หลัง bearish div เปิด flip-watch ไว้ ----
+  const bull = detectDiv(lows, rsi, swingLows(lows, DIV_PIVOT_K), "bullish");
+  if (bull && fresh(bull.p2) && (await env.DEDUPE.get(`flip:${item.symbol}`))) {
+    const diag = { symbol, dir: "flip", p1: { l: lows[bull.p1], rsi: +rsi[bull.p1].toFixed(1) }, p2: { l: lows[bull.p2], rsi: +rsi[bull.p2].toFixed(1) } };
+    const fkey = `divflip:${item.symbol}:${times[bull.p2]}`;
+    if (await env.DEDUPE.get(fkey)) return { ...diag, status: "flip_deduped" };
+    const sent = await sendFlipAlert(env, symbol, lows, rsi, times, bull.p1, bull.p2);
+    if (sent) {
+      await env.DEDUPE.put(fkey, "1", { expirationTtl: DIV_DEDUPE_TTL });
+      await env.DEDUPE.delete(`flip:${item.symbol}`); // ปิด flip-watch หลังแจ้ง flip แล้ว
+    }
+    return { ...diag, status: sent ? "flip_sent" : "flip_send_failed" };
+  }
 
-  // p1 = ยอด "ราคาสูงสุด" ใน lookback ก่อน p2 — กัน blind spot ที่เทียบแค่ยอดติดกัน
-  // แล้วพลาด divergence เมื่อมียอดเตี้ยคั่นกลาง (เคส SYN 2026-06-22)
-  const window = piv.filter((i) => i < p2 && i >= p2 - DIV_LOOKBACK_BARS);
-  if (window.length === 0) return { symbol, status: "no_window_peak" };
-  let p1 = window[0];
-  for (const i of window) if (highs[i] > highs[p1]) p1 = i;
-  if (Number.isNaN(rsi[p1]) || Number.isNaN(rsi[p2])) return { symbol, status: "rsi_nan" };
-
-  // bearish divergence: นิวไฮทะลุยอดสูงสุดก่อนหน้า (HH) แต่ RSI อ่อนกว่า (LH) จากโซน overbought
-  const bearish = highs[p2] > highs[p1] && rsi[p2] < rsi[p1] && rsi[p1] >= DIV_RSI_MIN;
-  const diag = { symbol, p1: { h: highs[p1], rsi: +rsi[p1].toFixed(1) }, p2: { h: highs[p2], rsi: +rsi[p2].toFixed(1) }, bearish };
-  if (!bearish) return { ...diag, status: "no_divergence" };
-
-  // freshness: p2 ต้องสด — กันยิง signal เก่าที่ค้างเป็น swing high ล่าสุดหลัง downtime (เคส backfill 2026-06-23)
-  const ageBars = highs.length - 1 - p2;
-  if (ageBars > DIV_FRESH_BARS) return { ...diag, status: "stale", ageBars };
+  // ---- BEARISH divergence ที่ยอด (fade-the-top) ----
+  const bear = detectDiv(highs, rsi, swingHighs(highs, DIV_PIVOT_K), "bearish");
+  if (!bear) return { symbol, status: "no_divergence" };
+  const { p1, p2 } = bear;
+  const diag = { symbol, dir: "bearish", p1: { h: highs[p1], rsi: +rsi[p1].toFixed(1) }, p2: { h: highs[p2], rsi: +rsi[p2].toFixed(1) }, bearish: true };
+  if (!fresh(p2)) return { ...diag, status: "stale", ageBars: lastIdx - p2 };
 
   const key = `div:${item.symbol}:${times[p2]}`;
   if (await env.DEDUPE.get(key)) return { ...diag, status: "deduped" };
 
   // เขียน dedupe หลังส่งสำเร็จเท่านั้น — กันเผา key ทิ้งตอนส่งไม่สำเร็จ (เช่น CHAT_ID ยังไม่ตั้ง)
   const sent = await sendDivergenceAlert(env, symbol, highs, rsi, times, p1, p2);
-  if (sent) await env.DEDUPE.put(key, "1", { expirationTtl: DIV_DEDUPE_TTL });
+  if (sent) {
+    await env.DEDUPE.put(key, "1", { expirationTtl: DIV_DEDUPE_TTL });
+    await env.DEDUPE.put(`flip:${item.symbol}`, String(times[p2]), { expirationTtl: FLIP_WATCH_TTL }); // เปิด flip-watch
+  }
   return { ...diag, status: sent ? "sent" : "send_failed" };
 }
 
-async function sendDivergenceAlert(
-  env: Env,
-  symbol: string,
-  highs: number[],
-  rsi: number[],
-  times: number[],
-  p1: number,
-  p2: number,
-): Promise<boolean> {
+const divFmt = (p: number) => (p >= 1 ? p.toFixed(2) : p.toPrecision(4));
+const divTs = (ms: number) => new Date(ms).toISOString().slice(5, 16).replace("T", " ") + " UTC";
+
+async function sendTelegram(env: Env, tag: string, text: string): Promise<boolean> {
   if (!env.BOT_TOKEN || !env.CHAT_ID) {
-    console.log(`divergence ${symbol}: BOT_TOKEN/CHAT_ID not set`);
+    console.log(`${tag}: BOT_TOKEN/CHAT_ID not set`);
     return false;
   }
-  const fmt = (p: number) => (p >= 1 ? p.toFixed(2) : p.toPrecision(4));
-  const ts = (ms: number) => new Date(ms).toISOString().slice(5, 16).replace("T", " ") + " UTC";
-  const text =
-    `🐻 <b>${symbol} bearish divergence (15m)</b>\n` +
-    `ราคาทำ higher high แต่ RSI lower high — สัญญาณ fade-the-top\n\n` +
-    `High 1: $${fmt(highs[p1])} · RSI ${rsi[p1].toFixed(1)} · ${ts(times[p1])}\n` +
-    `High 2: $${fmt(highs[p2])} · RSI ${rsi[p2].toFixed(1)} · ${ts(times[p2])} ⬅️ ราคาสูงกว่า RSI ต่ำกว่า`;
-
   const r = await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      chat_id: env.CHAT_ID,
-      text,
-      parse_mode: "HTML",
-      disable_web_page_preview: true,
-    }),
+    body: JSON.stringify({ chat_id: env.CHAT_ID, text, parse_mode: "HTML", disable_web_page_preview: true }),
   });
-  if (!r.ok) console.log(`divergence ${symbol}: telegram ${r.status}`);
+  if (!r.ok) console.log(`${tag}: telegram ${r.status}`);
   return r.ok;
+}
+
+async function sendDivergenceAlert(
+  env: Env, symbol: string, highs: number[], rsi: number[], times: number[], p1: number, p2: number,
+): Promise<boolean> {
+  const text =
+    `🐻 <b>${symbol} bearish divergence (15m)</b>\n` +
+    `ราคาทำ higher high แต่ RSI lower high — สัญญาณ fade-the-top\n\n` +
+    `High 1: $${divFmt(highs[p1])} · RSI ${rsi[p1].toFixed(1)} · ${divTs(times[p1])}\n` +
+    `High 2: $${divFmt(highs[p2])} · RSI ${rsi[p2].toFixed(1)} · ${divTs(times[p2])} ⬅️ ราคาสูงกว่า RSI ต่ำกว่า`;
+  return sendTelegram(env, `divergence ${symbol}`, text);
+}
+
+async function sendFlipAlert(
+  env: Env, symbol: string, lows: number[], rsi: number[], times: number[], p1: number, p2: number,
+): Promise<boolean> {
+  const text =
+    `🔄 <b>${symbol} divergence flipped (15m)</b>\n` +
+    `หลัง bearish div — ตอนนี้ราคาทำ lower low แต่ RSI higher low = bullish divergence ที่ก้น\n\n` +
+    `Low 1: $${divFmt(lows[p1])} · RSI ${rsi[p1].toFixed(1)} · ${divTs(times[p1])}\n` +
+    `Low 2: $${divFmt(lows[p2])} · RSI ${rsi[p2].toFixed(1)} · ${divTs(times[p2])} ⬅️ ราคาต่ำกว่า RSI สูงกว่า`;
+  return sendTelegram(env, `flip ${symbol}`, text);
 }
 
 async function dispatchAddTicker(env: Env, symbol: string): Promise<void> {
