@@ -811,5 +811,41 @@
       "Binance Wallet IDO",
       "CeFi"
     ]
+  },
+  "BE": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/50767/small/wlfi.png?1756438915",
+    "cg_id": "world-liberty-financial",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Stablecoin Issuer",
+      "Made in USA",
+      "Trump-Affiliated"
+    ]
+  },
+  "BX": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/36544/small/bxn-200x200.png?1711715002",
+    "cg_id": "bxn",
+    "categories": [
+      "Smart Contract Platform",
+      "Layer 1 (L1)"
+    ]
+  },
+  "CRDO": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173797/small/crdoon_160x160.png?1781494331",
+    "cg_id": "credo-technology-group-holding-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
   }
 }
