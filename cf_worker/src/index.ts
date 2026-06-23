@@ -49,6 +49,7 @@ const DIV_WATCH: DivSym[] = [
   { symbol: "SYNUSDT", source: "binance", label: "SYNUSDT" },
   { symbol: "BELUSDT", source: "binance", label: "BELUSDT" },
   { symbol: "MMTUSDT", source: "binance", label: "MMTUSDT" },
+  { symbol: "DEXEUSDT", source: "binance", label: "DEXEUSDT" },
   { symbol: "FOLKS_USDT", source: "gate", label: "FOLKS" }, // ไม่มีบน Binance spot — ใช้ Gate futures
   { symbol: "AMAT_USDT", source: "gate", label: "AMAT" }, // หุ้น tokenized — Gate เท่านั้น
 ];
