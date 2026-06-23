@@ -446,23 +446,6 @@
         "funding_high": 0.1
       }
     },
-    "SENTUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0217,
-        "resistance": 0.0214,
-        "rejection_below": 0.0137,
-        "support_strong": 0.0148,
-        "support_extreme": 0.0151
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "WLDUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
