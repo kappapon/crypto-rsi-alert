@@ -991,8 +991,8 @@
       "funding": 0.005,
       "id": "SQD_USDT:rejection:2026-06-17T20:24:37.677978+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-21T16:23:40.041962+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-23T16:23:43.098003+00:00"
     },
     {
       "symbol": "AERO_USDT",
@@ -1902,8 +1902,8 @@
       "funding": 0.005,
       "id": "TAC_USDT:support_break:2026-06-20T04:24:41.493675+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-23T00:24:05.367042+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-23T16:23:47.039562+00:00"
     },
     {
       "symbol": "APH_USDT",
@@ -2308,8 +2308,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-06-21T04:23:52.037100+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-23T04:24:42.578699+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-23T16:23:50.556317+00:00"
     },
     {
       "symbol": "BP_USDT",
@@ -2585,8 +2585,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-06-21T20:23:55.374028+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-23T04:24:42.578699+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-23T16:23:50.556317+00:00"
     },
     {
       "symbol": "MMTUSDT",
@@ -3136,7 +3136,8 @@
       "funding": 0.0,
       "id": "BELUSDT:rejection:2026-06-23T04:24:43.231739+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T16:23:50.995782+00:00"
     },
     {
       "symbol": "TNSRUSDT",
@@ -3315,6 +3316,42 @@
       "price": 281.42,
       "funding": 0.01,
       "id": "CRDO_USDT:rejection:2026-06-23T12:24:02.448084+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AERO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T16:23:44.416110+00:00",
+      "price": 0.5109,
+      "funding": 0.005,
+      "id": "AERO_USDT:rejection:2026-06-23T16:23:44.416110+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "VELODROMEUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T16:23:52.301452+00:00",
+      "price": 0.01984,
+      "funding": 0.0,
+      "id": "VELODROMEUSDT:rejection:2026-06-23T16:23:52.301452+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BLESS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-23T16:23:55.773042+00:00",
+      "price": 0.009834,
+      "funding": 0.005,
+      "id": "BLESS_USDT:support_break:2026-06-23T16:23:55.773042+00:00",
       "status": "pending",
       "repeats": 1
     }
