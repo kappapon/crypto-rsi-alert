@@ -989,6 +989,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "AWEUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0645,
+        "resistance": 0.0635,
+        "rejection_below": 0.0593,
+        "support_strong": 0.0607,
+        "support_extreme": 0.0588
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
