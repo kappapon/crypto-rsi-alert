@@ -84,8 +84,8 @@
       "funding": 0.01,
       "id": "KO_USDT:support_break:2026-06-15T00:24:19.017031+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-21T12:23:28.121646+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-23T04:24:16.810808+00:00"
     },
     {
       "symbol": "HD_USDT",
@@ -1294,8 +1294,8 @@
       "funding": 0.005,
       "id": "ARC_USDT:rejection:2026-06-18T16:24:22.699199+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-21T04:23:29.193924+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-23T04:24:18.184841+00:00"
     },
     {
       "symbol": "ARC_USDT",
@@ -1630,8 +1630,8 @@
       "funding": -0.3575,
       "id": "ASML_USDT:funding:2026-06-19T08:24:28.034014+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-06-23T00:23:54.095340+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-06-23T04:24:25.441845+00:00"
     },
     {
       "symbol": "WDC_USDT",
@@ -1833,8 +1833,8 @@
       "funding": 0.005,
       "id": "AIO_USDT:rejection:2026-06-20T04:24:19.701809+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-21T04:23:27.368025+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-23T04:24:16.162691+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -2182,7 +2182,8 @@
       "funding": -0.0091,
       "id": "AERO_USDT:resistance_test:2026-06-20T16:23:41.591967+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T04:24:33.576598+00:00"
     },
     {
       "symbol": "HIMS_USDT",
@@ -2306,8 +2307,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-06-21T04:23:52.037100+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-21T20:23:55.374028+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-23T04:24:42.578699+00:00"
     },
     {
       "symbol": "BP_USDT",
@@ -2526,7 +2527,8 @@
       "funding": 0.01,
       "id": "JNJ_USDT:rejection:2026-06-21T16:23:29.606628+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T04:24:17.473617+00:00"
     },
     {
       "symbol": "HD_USDT",
@@ -2581,8 +2583,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-06-21T20:23:55.374028+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-22T12:23:53.539953+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-23T04:24:42.578699+00:00"
     },
     {
       "symbol": "MMTUSDT",
@@ -2870,7 +2872,8 @@
       "funding": 0.0,
       "id": "TNSRUSDT:support_break:2026-06-22T08:23:56.999014+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T04:24:46.472755+00:00"
     },
     {
       "symbol": "CRDO_USDT",
@@ -2912,7 +2915,8 @@
       "funding": 0.01,
       "id": "AMAT_USDT:support_break:2026-06-22T16:23:55.555138+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T04:24:18.856948+00:00"
     },
     {
       "symbol": "AGT_USDT",
@@ -2991,7 +2995,8 @@
       "funding": 0.0,
       "id": "VELODROMEUSDT:breakout:2026-06-22T20:24:11.326288+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T04:24:45.156838+00:00"
     },
     {
       "symbol": "VELODROMEUSDT",
@@ -3003,7 +3008,8 @@
       "funding": 0.0,
       "id": "VELODROMEUSDT:resistance_test:2026-06-22T20:24:11.326288+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-23T04:24:45.156838+00:00"
     },
     {
       "symbol": "BX_USDT",
@@ -3026,6 +3032,150 @@
       "price": 0.1818,
       "funding": 0.0,
       "id": "BELUSDT:support_break:2026-06-23T00:24:10.722226+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ALLOUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:14.197719+00:00",
+      "price": 0.4247,
+      "funding": 0.0,
+      "id": "ALLOUSDT:support_break:2026-06-23T04:24:14.197719+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:16.810808+00:00",
+      "price": 79.68,
+      "funding": 0.01,
+      "id": "KO_USDT:rejection:2026-06-23T04:24:16.810808+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "WDC_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:26.084214+00:00",
+      "price": 693.3,
+      "funding": 0.01,
+      "id": "WDC_USDT:rejection:2026-06-23T04:24:26.084214+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SYNUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:35.497713+00:00",
+      "price": 0.2574,
+      "funding": 0.0,
+      "id": "SYNUSDT:rejection:2026-06-23T04:24:35.497713+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SYNUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:35.497713+00:00",
+      "price": 0.2574,
+      "funding": 0.0,
+      "id": "SYNUSDT:support_break:2026-06-23T04:24:35.497713+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZHIPU_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:40.024011+00:00",
+      "price": 270.83,
+      "funding": 0.01,
+      "id": "ZHIPU_USDT:rejection:2026-06-23T04:24:40.024011+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DRAM_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:41.937476+00:00",
+      "price": 74.88,
+      "funding": 0.01,
+      "id": "DRAM_USDT:rejection:2026-06-23T04:24:41.937476+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BELUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:43.231739+00:00",
+      "price": 0.1694,
+      "funding": 0.0,
+      "id": "BELUSDT:rejection:2026-06-23T04:24:43.231739+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TNSRUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:46.472755+00:00",
+      "price": 0.038,
+      "funding": 0.0,
+      "id": "TNSRUSDT:rejection:2026-06-23T04:24:46.472755+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EIGENUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:47.120746+00:00",
+      "price": 0.2665,
+      "funding": 0.0,
+      "id": "EIGENUSDT:rejection:2026-06-23T04:24:47.120746+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:48.410424+00:00",
+      "price": 331.6,
+      "funding": 0.01,
+      "id": "BE_USDT:support_break:2026-06-23T04:24:48.410424+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "CRDO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-23T04:24:49.698838+00:00",
+      "price": 292.63,
+      "funding": 0.003,
+      "id": "CRDO_USDT:support_break:2026-06-23T04:24:49.698838+00:00",
       "status": "pending",
       "repeats": 1
     }
