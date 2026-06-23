@@ -972,6 +972,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "VOLX_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 21.9321,
+        "resistance": 21.608,
+        "rejection_below": 19.0,
+        "support_strong": 18.8431,
+        "support_extreme": 18.5216
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
