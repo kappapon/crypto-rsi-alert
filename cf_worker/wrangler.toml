@@ -13,8 +13,9 @@ id = "57bba1d425dd4faf93e858fe1e4c9200"
 # เวลาไทย +7: 07:10 refresh levels / 07:20 reversal+tracker / :23 ทุก 4 ชม. rsi+watchlist
 # จันทร์ 07:30 ไทย (00:30 UTC) → weekly-summary
 # ยืนยัน 2026-06-11: tick แรกคลาด 37 วินาที (GitHub cron คลาด 1-3 ชม.)
+# :02/:17/:32/:47 ทุก ชม. → 15m bearish-divergence watcher (offset เลี่ยงชนนาที workflow เดิม)
 [triggers]
-crons = ["10 0 * * *", "20 0 * * *", "23 0,4,8,12,16,20 * * *", "30 0 * * 1"]
+crons = ["10 0 * * *", "20 0 * * *", "23 0,4,8,12,16,20 * * *", "30 0 * * 1", "2,17,32,47 * * * *"]
 
 # ---- Non-secret vars ----
 [vars]
@@ -25,3 +26,4 @@ DEDUPE_TTL_SECONDS = "60"
 # - BOT_TOKEN          Telegram bot token
 # - WEBHOOK_SECRET     Random string; Telegram sends it in X-Telegram-Bot-Api-Secret-Token
 # - GITHUB_TOKEN       GitHub PAT with `repo` scope (repository_dispatch)
+# - CHAT_ID            Telegram chat id ปลายทาง alert (เดียวกับ CHAT_ID ฝั่ง Python/Actions)
