@@ -849,5 +849,39 @@
       "Real World Assets (RWA)",
       "Ondo Tokenized Assets"
     ]
+  },
+  "BLESS": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69339/small/Layer_1_%284%29.png?1758523043",
+    "cg_id": "bless-2",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "DePIN",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "VOLX": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "AWE": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/8713/small/awe-network.jpg?1747816016",
+    "cg_id": "stp-network",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Infrastructure",
+      "Decentralized Finance (DeFi)",
+      "Derivatives",
+      "Synthetic Issuer",
+      "Base Ecosystem",
+      "AI Agents",
+      "Synthetic",
+      "AI Agent Launchpad",
+      "Base Native"
+    ]
   }
 }
