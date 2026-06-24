@@ -67,6 +67,15 @@ const FLIP_WATCH_TTL = 24 * 3600; // หลัง bearish div เปิด flip-
 const KLINES_BASE = "https://api-gcp.binance.com";
 const KLINES_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36";
 
+// ---- observability: health record + fail-alert + daily heartbeat (กัน watcher fail เงียบเหมือนเคส 403) ----
+const DIV_HEALTH_KEY = "health:div";
+const DIV_HEALTH_TTL = 6 * 3600; // health record สด 6 ชม. — หาย/เก่ากว่านี้ = watcher ไม่ได้ tick
+const DIV_FAIL_ALERT_AFTER = 2; // เตือนเมื่อ fetch fail ติดกัน N tick (กัน network blip ครั้งเดียว)
+const DIV_FAIL_DEDUPE_TTL = 3 * 3600; // เตือน fail ซ้ำเหรียญเดิมไม่เกิน 1 ครั้ง/3 ชม.
+// สถานะที่นับเป็น "ดึงข้อมูลไม่ได้" — fade-the-top จะตาบอดเหรียญนั้น (เทียบเคส 403 ที่ fail เงียบทุก tick)
+const FETCH_ERROR_STATUSES = new Set(["klines_http_error", "too_few_klines", "exception"]);
+type DivHealth = { ts: number; symbols: Record<string, { status: string; code?: number; fails: number }> };
+
 // ---- Scheduled triggers: Worker เป็นนาฬิกาแทน GitHub cron (โดน throttle 1-3 ชม.) ----
 // จับคู่ด้วย "เวลา tick" ไม่ใช่ cron string — Cloudflare อาจ normalize string จน map ตรง ๆ พลาด
 // เวลาไทย = UTC+7: 00:10 → 07:10 refresh, 00:20 → 07:20 reversal+tracker, :23 ทุก 4 ชม. → rsi+watchlist
@@ -110,6 +119,24 @@ export default {
   },
 
   async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    if (req.method === "GET") {
+      // GET /health?token=<WEBHOOK_SECRET> — สถานะ watcher ล่าสุด (แทน temp debug route + wrangler tail ที่ไม่นิ่ง)
+      const url = new URL(req.url);
+      if (url.pathname === "/health") {
+        if (url.searchParams.get("token") !== env.WEBHOOK_SECRET) {
+          return new Response("forbidden", { status: 403 });
+        }
+        const h = await readDivHealth(env);
+        const body = h
+          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000) }
+          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)" };
+        return new Response(JSON.stringify(body, null, 2), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        });
+      }
+      return new Response("ok", { status: 200 });
+    }
     if (req.method !== "POST") return new Response("ok", { status: 200 });
 
     const secret = req.headers.get("X-Telegram-Bot-Api-Secret-Token");
@@ -254,14 +281,75 @@ function swingHighs(highs: number[], k: number): number[] {
 }
 
 async function runDivergenceWatch(env: Env): Promise<void> {
+  const prev = await readDivHealth(env);
+  const symbols: DivHealth["symbols"] = {};
+  const crossed: { label: string; status: string; code?: number }[] = [];
+
   for (const item of DIV_WATCH) {
+    let status = "ok";
+    let code: number | undefined;
     try {
       const r = await checkDivergence(env, item);
+      status = String(r.status ?? "ok");
+      if (typeof r.code === "number") code = r.code;
       console.log(`divergence ${item.label}: ${JSON.stringify(r)}`);
     } catch (e) {
+      status = "exception";
       console.log(`divergence ${item.label} error: ${e}`);
     }
+    // fail ติดกัน → นับสะสม; ok → reset (alert เฉพาะตอน "ข้าม" เกณฑ์พอดี เพื่อให้ส่งครั้งเดียว)
+    const isErr = FETCH_ERROR_STATUSES.has(status);
+    const fails = isErr ? (prev?.symbols[item.label]?.fails ?? 0) + 1 : 0;
+    symbols[item.label] = code !== undefined ? { status, code, fails } : { status, fails };
+    if (isErr && fails === DIV_FAIL_ALERT_AFTER) crossed.push({ label: item.label, status, code });
   }
+
+  await writeDivHealth(env, { ts: Date.now(), symbols });
+
+  // push: fetch fail ติดกันถึงเกณฑ์ → เตือนทันที (deduped) ไม่ปล่อย fail เงียบแบบเคส 403
+  for (const f of crossed) {
+    const dkey = `divfail:${f.label}:${f.status}${f.code ?? ""}`;
+    if (await env.DEDUPE.get(dkey)) continue;
+    const sent = await sendTelegram(
+      env,
+      `watcher-fail ${f.label}`,
+      `⚠️ <b>15m watcher: ${f.label} ดึงข้อมูลไม่ได้</b>\n` +
+        `status <code>${f.status}</code>${f.code ? ` (HTTP ${f.code})` : ""} — fail ${DIV_FAIL_ALERT_AFTER} tick ติดกัน\n` +
+        `watcher อาจตาบอดเหรียญนี้ (เทียบเคส 403 ที่เคย fail เงียบ)`,
+    );
+    if (sent) await env.DEDUPE.put(dkey, "1", { expirationTtl: DIV_FAIL_DEDUPE_TTL });
+  }
+
+  await maybeHeartbeat(env, symbols);
+}
+
+async function readDivHealth(env: Env): Promise<DivHealth | null> {
+  const raw = await env.DEDUPE.get(DIV_HEALTH_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as DivHealth;
+  } catch {
+    return null;
+  }
+}
+
+async function writeDivHealth(env: Env, h: DivHealth): Promise<void> {
+  await env.DEDUPE.put(DIV_HEALTH_KEY, JSON.stringify(h), { expirationTtl: DIV_HEALTH_TTL });
+}
+
+// dead-man heartbeat: tick แรกของแต่ละวัน UTC ส่ง 1 บรรทัด — ถ้าวันไหนไม่มา = worker ตายทั้งตัว
+async function maybeHeartbeat(env: Env, symbols: DivHealth["symbols"]): Promise<void> {
+  const today = new Date().toISOString().slice(0, 10);
+  if (await env.DEDUPE.get(`divhb:${today}`)) return;
+  const entries = Object.entries(symbols);
+  const errs = entries.filter(([, v]) => FETCH_ERROR_STATUSES.has(v.status));
+  const text =
+    errs.length === 0
+      ? `✅ 15m watcher alive — ${entries.length}/${entries.length} เหรียญดึงข้อมูลได้`
+      : `⚠️ 15m watcher alive แต่ ${errs.length}/${entries.length} fetch fail: ` +
+        errs.map(([k, v]) => `${k}(${v.status}${v.code ?? ""})`).join(", ");
+  const sent = await sendTelegram(env, "watcher-heartbeat", text);
+  if (sent) await env.DEDUPE.put(`divhb:${today}`, "1", { expirationTtl: 26 * 3600 });
 }
 
 // ดึง klines → normalize เป็น {highs, closes, times(ms)} จาก 2 format:
