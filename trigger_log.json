@@ -84,8 +84,8 @@
       "funding": 0.01,
       "id": "KO_USDT:support_break:2026-06-15T00:24:19.017031+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-23T04:24:16.810808+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-24T08:23:33.713783+00:00"
     },
     {
       "symbol": "HD_USDT",
@@ -1145,7 +1145,8 @@
       "funding": -0.1585,
       "id": "BEAT_USDT:funding:2026-06-18T08:24:18.197244+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-24T08:23:28.579845+00:00"
     },
     {
       "symbol": "GWEI_USDT",
@@ -3198,7 +3199,8 @@
       "funding": 0.0,
       "id": "ALLOUSDT:support_break:2026-06-23T04:24:14.197719+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-24T08:23:29.748770+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -3714,6 +3716,42 @@
       "price": 0.06001,
       "funding": 0.0,
       "id": "AWEUSDT:support_break:2026-06-24T04:23:56.647511+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RTX_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-24T08:24:04.736166+00:00",
+      "price": 186.37,
+      "funding": 0.01,
+      "id": "RTX_USDT:rejection:2026-06-24T08:24:04.736166+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BLESS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-24T08:24:19.938837+00:00",
+      "price": 0.007397,
+      "funding": 0.005,
+      "id": "BLESS_USDT:rejection:2026-06-24T08:24:19.938837+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EBAY_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-24T08:24:22.364562+00:00",
+      "price": 109.1,
+      "funding": 0.01,
+      "id": "EBAY_USDT:rejection:2026-06-24T08:24:22.364562+00:00",
       "status": "pending",
       "repeats": 1
     }
