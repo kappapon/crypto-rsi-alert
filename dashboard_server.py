@@ -104,6 +104,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
+    def end_headers(self):
+        # static (js/css/html) เปลี่ยนบ่อย — บังคับ browser revalidate ทุกครั้ง กัน cache ค้าง
+        # (เจอตอนแก้ dashboard.js แล้วหน้าไม่อัปเดตเพราะ HTML อ้างไฟล์โดยไม่มี ?v=)
+        self.send_header("Cache-Control", "no-cache")
+        super().end_headers()
+
     def do_GET(self):
         if self.path.startswith("/proxy?"):
             return self.handle_proxy()
@@ -231,7 +237,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             self.send_response(resp.status_code)
             self.send_header("Content-Type", resp.headers.get("Content-Type", "application/json"))
             self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("Cache-Control", "no-store")
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
