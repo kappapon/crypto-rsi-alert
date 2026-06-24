@@ -501,11 +501,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 1.7255,
-        "resistance": 1.7,
-        "rejection_below": 1.3176,
-        "support_strong": 1.3957,
-        "support_extreme": 1.4364
+        "breakout_above": 2.029,
+        "resistance": 1.999,
+        "rejection_below": 1.525,
+        "support_strong": 1.4804,
+        "support_extreme": 1.4587
       },
       "alerts": {
         "price_breakout": true,
