@@ -7,6 +7,7 @@ Then open: http://localhost:8765/dashboard/
 import datetime as dt
 import http.server
 import json
+import os
 import re
 import socketserver
 import subprocess
@@ -20,6 +21,13 @@ import requests
 PORT = 8765
 ROOT = Path(__file__).parent
 ANALYSIS_LOG = ROOT / "analysis_log.json"
+
+# 15m divergence watcher health — proxy worker /health server-side so the token stays off the client
+WORKER_HEALTH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/health"
+
+def _health_token() -> str | None:
+    tok = os.environ.get("WEBHOOK_SECRET")
+    return tok.strip() if tok else None
 
 # ML pipeline runner — scripts need the local venv (sklearn/pyarrow), not Actions' python
 _VENV_PY = ROOT / ".venv" / "bin" / "python3"
@@ -101,6 +109,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return self.handle_proxy()
         if self.path.startswith("/api/run/status"):
             return self.handle_run_status()
+        if self.path.startswith("/api/div_health"):
+            return self.handle_div_health()
         return super().do_GET()
 
     def do_POST(self):
@@ -155,6 +165,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 "step": _run["step"], "started": _run["started"], "finished": _run["finished"],
                 "returncode": _run["returncode"], "tail": tail,
             })
+
+    def handle_div_health(self):
+        tok = _health_token()
+        if not tok:
+            return self._send_json({"configured": False})
+        try:
+            r = requests.get(WORKER_HEALTH_URL, params={"token": tok}, timeout=10,
+                             headers={"User-Agent": "dashboard-proxy/1.0"})
+            if r.status_code != 200:
+                return self._send_json({"configured": True, "error": f"http {r.status_code}"})
+            return self._send_json({"configured": True, **r.json()})
+        except Exception as e:
+            return self._send_json({"configured": True, "error": str(e)})
 
     def handle_save_analysis(self):
         try:

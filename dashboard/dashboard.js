@@ -111,6 +111,132 @@ async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
   }
 }
 
+// ============ 15m divergence watch — mirror cf_worker DIV_WATCH (client-side, live) ============
+// sync กับ cf_worker/src/index.ts DIV_WATCH เวลาเพิ่ม/ลบเหรียญ (อยู่ 2 ที่)
+const DIV_WATCH = [
+  { symbol: "SYNUSDT", exchange: "binance_spot", label: "SYN" },
+  { symbol: "BELUSDT", exchange: "binance_spot", label: "BEL" },
+  { symbol: "MMTUSDT", exchange: "binance_spot", label: "MMT" },
+  { symbol: "DEXEUSDT", exchange: "binance_spot", label: "DEXE" },
+  { symbol: "FOLKS_USDT", exchange: "gateio_futures", label: "FOLKS" },
+  { symbol: "AMAT_USDT", exchange: "gateio_futures", label: "AMAT" },
+];
+const DIV_PIVOT_K = 2, DIV_LOOKBACK = 48, DIV_RSI_MIN = 65, DIV_FRESH = 4;
+
+// Wilder RSI แบบ series (คืนทั้ง array) — ตรง cf_worker wilderRSI: seed ที่ diff แรก (i=1)
+function wilderRSISeries(closes, period = 14) {
+  const n = closes.length;
+  const rsi = new Array(n).fill(NaN);
+  if (n < period + 1) return rsi;
+  const a = 1 / period;
+  let avgG = NaN, avgL = NaN;
+  for (let i = 1; i < n; i++) {
+    const d = closes[i] - closes[i - 1];
+    const g = d > 0 ? d : 0, l = d < 0 ? -d : 0;
+    if (Number.isNaN(avgG)) { avgG = g; avgL = l; }
+    else { avgG = (1 - a) * avgG + a * g; avgL = (1 - a) * avgL + a * l; }
+    if (i >= period) rsi[i] = avgL === 0 ? 100 : 100 - 100 / (1 + avgG / avgL);
+  }
+  return rsi;
+}
+
+function swingHighsIdx(highs, k) {
+  const out = [];
+  for (let i = k; i < highs.length - k; i++) {
+    let ok = true;
+    for (let j = 1; j <= k; j++) if (highs[i] <= highs[i - j] || highs[i] <= highs[i + j]) { ok = false; break; }
+    if (ok) out.push(i);
+  }
+  return out;
+}
+
+// bearish divergence: ราคา HH + RSI LH เทียบยอดสูงสุดใน lookback (ตรง cf_worker detectDiv "bearish")
+function bearishDivClient(highs, rsi) {
+  const piv = swingHighsIdx(highs, DIV_PIVOT_K);
+  if (piv.length < 2) return null;
+  const p2 = piv[piv.length - 1];
+  const win = piv.filter(i => i < p2 && i >= p2 - DIV_LOOKBACK);
+  if (!win.length) return null;
+  let p1 = win[0];
+  for (const i of win) if (highs[i] > highs[p1]) p1 = i;
+  if (Number.isNaN(rsi[p1]) || Number.isNaN(rsi[p2])) return null;
+  if (!(highs[p2] > highs[p1] && rsi[p2] < rsi[p1] && rsi[p1] >= DIV_RSI_MIN)) return null;
+  const age = (highs.length - 1) - p2;
+  return { age, fresh: age <= DIV_FRESH };
+}
+
+async function fetchOHLC15(symbol, exchange) {
+  let rows;
+  if (exchange === "binance_spot") {
+    rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=15m&limit=150`).then(r => r.json());
+    if (!Array.isArray(rows)) return null;
+    rows = rows.slice(0, -1); // ตัดแท่งกำลังก่อตัว (closed only) ตรงกับ worker
+    return { highs: rows.map(r => +r[2]), closes: rows.map(r => +r[4]) };
+  }
+  if (exchange === "gateio_futures") {
+    rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=15m&limit=150`)).then(r => r.json());
+    if (!Array.isArray(rows)) return null;
+    rows = rows.slice(0, -1);
+    return { highs: rows.map(r => +r.h), closes: rows.map(r => +r.c) };
+  }
+  return null;
+}
+
+const divWatchCache = {}; // 15m แท่งปิดทุก 15 นาที — cache 2 นาที ลด kline calls
+async function computeDiv(d) {
+  const hit = divWatchCache[d.symbol];
+  if (hit && Date.now() - hit.ts < 2 * 60 * 1000) return hit.res;
+  let res;
+  try {
+    const kl = await fetchOHLC15(d.symbol, d.exchange);
+    if (!kl || kl.closes.length < 20) res = { ...d, ok: false };
+    else {
+      const rsi = wilderRSISeries(kl.closes, 14);
+      res = { ...d, ok: true, rsi: rsi[rsi.length - 1], div: bearishDivClient(kl.highs, rsi) };
+    }
+  } catch { res = { ...d, ok: false }; }
+  divWatchCache[d.symbol] = { ts: Date.now(), res };
+  return res;
+}
+async function loadDivWatch() { return Promise.all(DIV_WATCH.map(computeDiv)); }
+
+async function loadDivHealth() {
+  try {
+    const r = await fetch("/api/div_health?_=" + Date.now());
+    return r.ok ? await r.json() : null;
+  } catch { return null; }
+}
+
+const DIV_ERR_STATUS = new Set(["klines_http_error", "too_few_klines", "exception"]);
+function renderDivWatch(rows, health) {
+  const el = document.getElementById("div-watch-body");
+  if (el) {
+    el.innerHTML = rows.map(d => {
+      if (!d.ok) return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span></span><span class="dw-status faint">⚠️ fetch</span></div>`;
+      const rsiTxt = (d.rsi == null || Number.isNaN(d.rsi)) ? "-" : d.rsi.toFixed(1);
+      let badge;
+      if (d.div && d.div.fresh) badge = `<span class="dw-status pct-down">🐻 bearish div</span>`;
+      else if (d.div) badge = `<span class="dw-status faint">div · ${d.div.age}b เก่า</span>`;
+      else if (d.rsi >= DIV_RSI_MIN) badge = `<span class="dw-status rsi-hot">RSI hot</span>`;
+      else badge = `<span class="dw-status faint">quiet</span>`;
+      const rCls = d.rsi >= DIV_RSI_MIN ? "rsi-hot" : "rsi-cool";
+      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}</div>`;
+    }).join("");
+  }
+  const hEl = document.getElementById("dw-health");
+  if (!hEl) return;
+  if (!health || health.configured === false) { hEl.textContent = "health off"; hEl.style.color = ""; }
+  else if (health.error) { hEl.textContent = "health ⚠️"; hEl.style.color = "var(--red)"; }
+  else if (health.symbols) {
+    const syms = Object.values(health.symbols);
+    const okN = syms.filter(s => !DIV_ERR_STATUS.has(s.status)).length;
+    const age = health.ageMinutes != null ? `${health.ageMinutes}m` : "?";
+    const stale = health.ageMinutes != null && health.ageMinutes > 20;
+    hEl.textContent = `● ${okN}/${syms.length} · ${age}`;
+    hEl.style.color = stale ? "var(--red)" : (okN < syms.length ? "var(--yellow)" : "var(--green)");
+  } else { hEl.textContent = ""; }
+}
+
 // ============ Daily OHLC + Pattern (D3) ============
 const dailyCandlesCache = {};
 
@@ -645,7 +771,55 @@ function renderTriggerStats(stats) {
 }
 
 // ============ Main loop ============
-let cache = { watchlist: null, analysis: {}, tickerData: {}, lastFetch: 0 };
+let cache = { watchlist: null, analysis: {}, tickerData: {}, lastFetch: 0, rows: [] };
+
+// ============ Sortable watchlist columns ============
+let sortState = { col: null, dir: -1 }; // dir 1 = asc (↑), -1 = desc (↓)
+const SORT_KEYS = {
+  sym: r => r.base.toLowerCase(),
+  theme: r => r.theme.toLowerCase(),
+  pattern: r => r.patternName.toLowerCase(),
+  change: r => r.change,
+  rsi: r => r.rsi,
+};
+const SORT_NUMERIC = new Set(["change", "rsi"]);
+
+function applySortAndRender() {
+  const body = document.getElementById("wl-body");
+  if (!body) return;
+  const rows = (cache.rows || []).slice();
+  if (sortState.col && SORT_KEYS[sortState.col]) {
+    const key = SORT_KEYS[sortState.col];
+    const numeric = SORT_NUMERIC.has(sortState.col);
+    rows.sort((a, b) => {
+      const va = key(a), vb = key(b);
+      const na = va == null || (numeric && Number.isNaN(va));
+      const nb = vb == null || (numeric && Number.isNaN(vb));
+      if (na && nb) return a.idx - b.idx;
+      if (na) return 1;   // ค่าว่างไปท้ายเสมอ ไม่ว่าทิศไหน
+      if (nb) return -1;
+      if (numeric) return (va - vb) * sortState.dir;
+      return va < vb ? -sortState.dir : va > vb ? sortState.dir : a.idx - b.idx;
+    });
+  } else {
+    rows.sort((a, b) => a.idx - b.idx); // ไม่ได้เลือก = ลำดับใน watchlist.json
+  }
+  body.innerHTML = rows.map(r => r.html).join("");
+  updateSortArrows();
+}
+
+function updateSortArrows() {
+  document.querySelectorAll("#wl-table th.sortable").forEach(th => {
+    const arrow = th.querySelector(".sort-arrow");
+    if (th.dataset.sort === sortState.col) {
+      if (arrow) arrow.textContent = sortState.dir === 1 ? " ↑" : " ↓";
+      th.classList.add("sorted");
+    } else {
+      if (arrow) arrow.textContent = "";
+      th.classList.remove("sorted");
+    }
+  });
+}
 
 async function loadWatchlist() {
   try {
@@ -724,6 +898,7 @@ async function refresh() {
   const body = document.getElementById("wl-body");
 
   if (!names.length) {
+    cache.rows = [];
     body.innerHTML = `<tr><td colspan="6" class="loading">ยังไม่มี ticker — กด + Add Ticker เพื่อเริ่ม</td></tr>`;
     statusEl.textContent = "✓ ready";
     statusEl.className = "status ok";
@@ -738,7 +913,7 @@ async function refresh() {
     Promise.all(names.map(s => dailyPattern(s, tickers[s].exchange).catch(() => null))),
   ]);
 
-  const rows = names.map((symbol, i) => {
+  cache.rows = names.map((symbol, i) => {
     const data = dataMap[symbol];
     if (data) {
       const prev = prevState[symbol];
@@ -754,16 +929,25 @@ async function refresh() {
       }
       prevState[symbol] = { ...prevState[symbol], price: data.price };
     }
-    return renderRow(symbol, tickers[symbol], data, rsis[i], patterns[i]);
+    const base = shortName(symbol);
+    return {
+      symbol, idx: i, base,
+      theme: (cache.coinMeta || {})[base]?.theme || "Unclassified",
+      patternName: patterns[i]?.name || "",
+      change: data ? data.change24h : null,
+      rsi: rsis[i],
+      html: renderRow(symbol, tickers[symbol], data, rsis[i], patterns[i]),
+    };
   });
 
-  body.innerHTML = rows.join("");
+  applySortAndRender(); // คงลำดับ sort ที่ผู้ใช้เลือกไว้ข้าม auto-refresh
   statusEl.textContent = `✓ ${names.length} tickers`;
   statusEl.className = "status ok";
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
   refreshThemeMover(); // sidebar — fire and forget
   loadRsiSnapshot().then(renderRsiMover);
   loadTriggerStats().then(renderTriggerStats);
+  Promise.all([loadDivWatch(), loadDivHealth()]).then(([dw, h]) => renderDivWatch(dw, h));
 }
 
 function startCountdown() {
@@ -784,6 +968,16 @@ function startCountdown() {
 document.getElementById("refresh-btn").addEventListener("click", () => {
   refresh();
   startCountdown();
+});
+
+// คลิกหัวคอลัมน์ → เรียง; คลิกซ้ำ = สลับทิศ (เลข default มาก→น้อย, ตัวอักษร default A→Z)
+document.querySelectorAll("#wl-table th.sortable").forEach(th => {
+  th.addEventListener("click", () => {
+    const col = th.dataset.sort;
+    if (sortState.col === col) sortState.dir *= -1;
+    else { sortState.col = col; sortState.dir = SORT_NUMERIC.has(col) ? -1 : 1; }
+    applySortAndRender();
+  });
 });
 
 document.getElementById("add-btn").addEventListener("click", () => {

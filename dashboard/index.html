@@ -34,11 +34,11 @@
         <table id="wl-table">
           <thead>
             <tr>
-              <th style="width:26%">SYMBOL</th>
-              <th style="width:21%">THEME</th>
-              <th style="width:25%">PATTERN</th>
-              <th class="num" style="width:12%">1D%</th>
-              <th class="num" style="width:10%">RSI·D</th>
+              <th class="sortable" data-sort="sym" style="width:26%">SYMBOL<span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="theme" style="width:21%">THEME<span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="pattern" style="width:25%">PATTERN<span class="sort-arrow"></span></th>
+              <th class="num sortable" data-sort="change" style="width:12%">1D%<span class="sort-arrow"></span></th>
+              <th class="num sortable" data-sort="rsi" style="width:10%">RSI·D<span class="sort-arrow"></span></th>
               <th style="width:6%"></th>
             </tr>
           </thead>
@@ -50,6 +50,13 @@
       <p class="faint" style="margin-top:8px">> click row → levels / analyze / position calc_</p>
     </section>
     <aside id="side-panel">
+      <div class="panel" id="div-watch">
+        <div class="panel-head">
+          <span>▮ 15m DIV WATCH</span>
+          <span id="dw-health" class="faint"></span>
+        </div>
+        <div id="div-watch-body"><p class="faint">กำลังโหลด...</p></div>
+      </div>
       <div class="panel" id="theme-mover">
         <div class="panel-head">
           <span>▮ THEME MOVER · 24H</span>

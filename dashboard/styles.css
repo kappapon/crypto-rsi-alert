@@ -165,6 +165,10 @@ button.primary:hover { background: #35ff7e; }
   background: var(--surface);
 }
 #wl-table th.num, #wl-table td.num { text-align: right; }
+#wl-table th.sortable { cursor: pointer; user-select: none; }
+#wl-table th.sortable:hover { color: var(--text-dim); }
+#wl-table th.sorted { color: var(--green); }
+.sort-arrow { color: var(--green); font-weight: 700; }
 #wl-table td { padding: 8px 6px 8px 0; border-top: 1px solid var(--row-line); vertical-align: middle; }
 #wl-table tbody tr { cursor: pointer; }
 #wl-table tbody tr:hover td { background: rgba(0, 230, 83, 0.05); }
@@ -429,6 +433,22 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .tj-hit { text-align: right; color: var(--text); }
 .tj-r { text-align: right; font-weight: 700; }
 .tj-foot { margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--border); font-size: 0.7rem; }
+
+/* 15m DIV WATCH panel */
+.dw-row {
+  display: grid;
+  grid-template-columns: 1fr 42px auto;
+  gap: 6px;
+  align-items: center;
+  padding: 5px 0;
+  border-top: 1px solid var(--row-line);
+  font-size: 0.75rem;
+}
+.dw-row:first-child { border-top: none; }
+.dw-sym { color: var(--text); font-weight: 600; }
+.dw-rsi { text-align: right; }
+.dw-status { text-align: right; white-space: nowrap; }
+.rsi-hot { color: var(--yellow); }
 
 /* ===== Theme Mover bar chart (D4) ===== */
 .tm-row {
