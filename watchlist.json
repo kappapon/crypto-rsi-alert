@@ -1006,6 +1006,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "EBAY_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 113.1522,
+        "resistance": 111.48,
+        "rejection_below": 109.15,
+        "support_strong": 108.0489,
+        "support_extreme": 107.1599
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
