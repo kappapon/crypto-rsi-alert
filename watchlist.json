@@ -1023,6 +1023,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "RIVN_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 17.4144,
+        "resistance": 17.157,
+        "rejection_below": 14.2775,
+        "support_strong": 15.0463,
+        "support_extreme": 15.4039
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
