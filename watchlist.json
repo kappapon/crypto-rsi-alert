@@ -1040,6 +1040,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "EWZ_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 36.1441,
+        "resistance": 35.61,
+        "rejection_below": 34.25,
+        "support_strong": 34.1313,
+        "support_extreme": 34.0666
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
