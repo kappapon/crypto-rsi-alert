@@ -994,11 +994,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0649,
-        "resistance": 0.0639,
-        "rejection_below": 0.0579,
-        "support_strong": 0.0609,
-        "support_extreme": 0.0605
+        "breakout_above": 0.0685,
+        "resistance": 0.0675,
+        "rejection_below": 0.0628,
+        "support_strong": 0.0634,
+        "support_extreme": 0.0619
       },
       "alerts": {
         "price_breakout": true,
