@@ -883,5 +883,83 @@
       "AI Agent Launchpad",
       "Base Native"
     ]
+  },
+  "EBAY": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69636/small/Ticker_EBAYx__Company_Name_Ebay__size_200x200.png?1759233629",
+    "cg_id": "ebay-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "BackedFi xStocks Ecosystem"
+    ]
+  },
+  "RIVN": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71463/small/rivnon_160x160.png?1767890637",
+    "cg_id": "rivian-automotive-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "HyperEVM Ecosystem",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "EWZ": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102172423/small/ewzon_160x160.png?1773395129",
+    "cg_id": "ishares-msci-brazil-etf-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Tokenized Exchange-Traded Funds (ETFs)",
+      "Ondo Tokenized Assets",
+      "Tokenized Exchange-Traded Product (ETPs)"
+    ]
+  },
+  "WIN": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/9129/small/WinK.png?1696509252",
+    "cg_id": "wink",
+    "categories": [
+      "Oracle",
+      "Binance Launchpad",
+      "Tron Ecosystem",
+      "YZi Labs (Prev. Binance Labs) Portfolio"
+    ]
+  },
+  "DEGEN": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/34515/small/android-chrome-512x512.png?1706198225",
+    "cg_id": "degen-base",
+    "categories": [
+      "Smart Contract Platform",
+      "Meme",
+      "Base Ecosystem",
+      "Layer 3 (L3)",
+      "Base Meme",
+      "Farcaster Ecosystem",
+      "Binance Alpha Spotlight",
+      "Base Native"
+    ]
+  },
+  "BAS": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/67419/small/bas.jpg?1752736026",
+    "cg_id": "bas",
+    "categories": [
+      "Analytics",
+      "BNB Chain Ecosystem",
+      "Decentralized Identifier (DID)",
+      "Binance Wallet IDO"
+    ]
   }
 }
