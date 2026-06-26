@@ -56,6 +56,7 @@ const DIV_WATCH: DivSym[] = [
   { symbol: "G_USDT", source: "gate", label: "G" },
   { symbol: "FOLKS_USDT", source: "gate", label: "FOLKS" },
   { symbol: "BAS_USDT", source: "gate", label: "BAS" },
+  { symbol: "TAC_USDT", source: "gate", label: "TAC" },
 ];
 const DIV_MINUTES = [2, 17, 32, 47];
 const DIV_PIVOT_K = 2; // แท่งซ้าย/ขวาที่ต้องต่ำกว่า ถึงนับเป็น swing high (ยืนยันแล้ว = closed)

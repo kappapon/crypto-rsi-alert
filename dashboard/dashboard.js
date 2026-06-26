@@ -124,6 +124,7 @@ const DIV_WATCH = [
   { symbol: "G_USDT", exchange: "gateio_futures", label: "G" },
   { symbol: "FOLKS_USDT", exchange: "gateio_futures", label: "FOLKS" },
   { symbol: "BAS_USDT", exchange: "gateio_futures", label: "BAS" },
+  { symbol: "TAC_USDT", exchange: "gateio_futures", label: "TAC" },
 ];
 const DIV_PIVOT_K = 2, DIV_LOOKBACK = 48, DIV_RSI_MIN = 65, DIV_FRESH = 4;
 
