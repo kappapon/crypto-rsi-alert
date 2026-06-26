@@ -1662,8 +1662,8 @@
       "funding": 0.01,
       "id": "TLT_USDT:support_break:2026-06-19T04:24:44.444942+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-06-23T20:24:43.669057+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-06-26T00:23:50.304151+00:00"
     },
     {
       "symbol": "BP_USDT",
@@ -3655,8 +3655,8 @@
       "funding": 0.1248,
       "id": "FOLKS_USDT:funding:2026-06-23T20:24:16.747347+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-24T04:23:32.111846+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-26T00:23:32.707786+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -4049,8 +4049,8 @@
       "funding": 0.0,
       "id": "TNSRUSDT:support_break:2026-06-24T16:24:02.630625+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-25T04:24:00.046044+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-26T00:23:53.881731+00:00"
     },
     {
       "symbol": "MMTUSDT",
@@ -4451,6 +4451,54 @@
       "price": 19.2,
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-06-25T20:24:07.836064+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SYNUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-26T00:23:46.315159+00:00",
+      "price": 0.34136,
+      "funding": 0.0,
+      "id": "SYNUSDT:support_break:2026-06-26T00:23:46.315159+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZHIPU_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-26T00:23:49.419692+00:00",
+      "price": 295.32,
+      "funding": 0.01,
+      "id": "ZHIPU_USDT:support_break:2026-06-26T00:23:49.419692+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DRAM_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-26T00:23:50.735728+00:00",
+      "price": 75.6,
+      "funding": 0.01,
+      "id": "DRAM_USDT:support_break:2026-06-26T00:23:50.735728+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-26T00:23:55.644169+00:00",
+      "price": 114.32,
+      "funding": 0.01,
+      "id": "BX_USDT:support_break:2026-06-26T00:23:55.644169+00:00",
       "status": "pending",
       "repeats": 1
     }
