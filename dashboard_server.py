@@ -24,6 +24,7 @@ ANALYSIS_LOG = ROOT / "analysis_log.json"
 
 # 15m divergence watcher health — proxy worker /health server-side so the token stays off the client
 WORKER_HEALTH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/health"
+WORKER_DIVWATCH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/divwatch"
 
 def _health_token() -> str | None:
     tok = os.environ.get("WEBHOOK_SECRET")
@@ -124,6 +125,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return self.handle_save_analysis()
         if self.path == "/api/run":
             return self.handle_run_start()
+        if self.path == "/api/divwatch":
+            return self.handle_divwatch()
         return self.send_error(404, "unknown endpoint")
 
     def _send_json(self, obj: dict, code: int = 200):
@@ -184,6 +187,25 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return self._send_json({"configured": True, **r.json()})
         except Exception as e:
             return self._send_json({"configured": True, "error": str(e)})
+
+    def handle_divwatch(self):
+        # add/remove ticker ใน DIV_WATCH — forward ไป worker พร้อม token (เก็บฝั่ง server ไม่โผล่ client)
+        tok = _health_token()
+        if not tok:
+            return self._send_json({"ok": False, "error": "ตั้ง WEBHOOK_SECRET ก่อนรัน dashboard ถึงจะ add/remove ได้"}, 400)
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            body = json.loads(self.rfile.read(length))
+            action = (body.get("action") or "").strip()
+            symbol = (body.get("symbol") or "").strip()
+        except Exception as e:
+            return self._send_json({"ok": False, "error": str(e)}, 400)
+        try:
+            r = requests.post(WORKER_DIVWATCH_URL, params={"token": tok, "action": action, "symbol": symbol},
+                              timeout=20, headers={"User-Agent": "dashboard-proxy/1.0"})
+            return self._send_json(r.json(), r.status_code)
+        except Exception as e:
+            return self._send_json({"ok": False, "error": str(e)}, 502)
 
     def handle_save_analysis(self):
         try:

@@ -111,11 +111,10 @@ async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
   }
 }
 
-// ============ 15m divergence watch — mirror cf_worker DIV_WATCH (client-side, live) ============
-// sync กับ cf_worker/src/index.ts DIV_WATCH เวลาเพิ่ม/ลบเหรียญ (อยู่ 2 ที่)
-// ทุกตัวใช้ gate futures — symbol ต้องตรงกับ worker DIV_WATCH (lifecycle badge lookup ด้วย symbol)
-// api-gcp.binance.com โดน 451 จาก CF edge (2026-06-26) → worker ย้ายมา gate, dashboard ตามให้ symbol ตรงกัน
-const DIV_WATCH = [
+// ============ 15m divergence watch — list มาจาก worker /health (KV) แบบ dynamic ============
+// แก้ list ผ่านปุ่ม add/remove (POST /api/divwatch → worker). FALLBACK ใช้เมื่อไม่มี token/health
+// (ต้องตั้ง WEBHOOK_SECRET ฝั่ง dashboard ถึงจะได้ list สดจาก worker + add/remove ได้)
+const DIV_WATCH_FALLBACK = [
   { symbol: "SYN_USDT", exchange: "gateio_futures", label: "SYN" },
   { symbol: "BEL_USDT", exchange: "gateio_futures", label: "BEL" },
   { symbol: "MMT_USDT", exchange: "gateio_futures", label: "MMT" },
@@ -203,7 +202,44 @@ async function computeDiv(d) {
   divWatchCache[d.symbol] = { ts: Date.now(), res };
   return res;
 }
-async function loadDivWatch() { return Promise.all(DIV_WATCH.map(computeDiv)); }
+const srcToExchange = (source) => (source === "gate" ? "gateio_futures" : "binance_spot");
+
+// list สดจาก worker (health.divwatch) → compute div ทุกตัว → render. ไม่มี token = fallback list
+async function refreshDivWatch() {
+  const health = await loadDivHealth();
+  const list = (health && Array.isArray(health.divwatch) && health.divwatch.length)
+    ? health.divwatch.map(d => ({ symbol: d.symbol, exchange: srcToExchange(d.source), label: d.label }))
+    : DIV_WATCH_FALLBACK;
+  const rows = await Promise.all(list.map(computeDiv));
+  renderDivWatch(rows, health);
+  populateDivWatchDatalist();
+}
+
+// datalist ให้ add input autocomplete จากเหรียญใน watchlist (= "เพิ่มจาก watchlist")
+function populateDivWatchDatalist() {
+  const dl = document.getElementById("dw-wl-options");
+  if (!dl || !cache.watchlist) return;
+  const names = [...new Set(Object.keys(cache.watchlist.tickers || {}).map(shortName))].sort();
+  dl.innerHTML = names.map(n => `<option value="${n}"></option>`).join("");
+}
+
+// add/remove ticker → worker ผ่าน proxy (ต้องมี WEBHOOK_SECRET ฝั่ง server)
+async function divWatchMutate(action, symbol) {
+  const msg = document.getElementById("dw-msg");
+  const setMsg = (t, c) => { if (msg) { msg.textContent = t; msg.style.color = c || ""; } };
+  setMsg(`${action === "add" ? "กำลังเพิ่ม+ตรวจสอบ" : "กำลังลบ"} ${symbol}...`);
+  try {
+    const r = await fetch("/api/divwatch", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ action, symbol }) });
+    const d = await r.json();
+    if (d.ok) {
+      setMsg(action === "add" ? `✅ เพิ่ม ${d.added?.label || symbol} (${d.added?.source})` : `✅ ลบ ${d.removed || symbol}`, "var(--green)");
+      const inp = document.getElementById("dw-add-input"); if (inp && action === "add") inp.value = "";
+      await refreshDivWatch();
+    } else {
+      setMsg(`⚠️ ${d.error || "ล้มเหลว"}`, "var(--red)");
+    }
+  } catch (e) { setMsg(`⚠️ ${e}`, "var(--red)"); }
+}
 
 async function loadDivHealth() {
   try {
@@ -217,7 +253,8 @@ function renderDivWatch(rows, health) {
   const el = document.getElementById("div-watch-body");
   if (el) {
     el.innerHTML = rows.map(d => {
-      if (!d.ok) return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span></span><span class="dw-status faint">⚠️ fetch</span></div>`;
+      const xBtn = `<button class="dw-x" data-divremove="${d.label}" title="remove ${d.label}">✕</button>`;
+      if (!d.ok) return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span></span><span class="dw-status faint">⚠️ fetch</span>${xBtn}</div>`;
       const rsiTxt = (d.rsi == null || Number.isNaN(d.rsi)) ? "-" : d.rsi.toFixed(1);
       // worker lifecycle (armed/swept/confirmed) มาก่อน client-side div — เป็น state ของ 2-stage จริง
       const cw = health && health.confirm ? health.confirm[d.symbol] : null;
@@ -230,7 +267,7 @@ function renderDivWatch(rows, health) {
       else if (d.rsi >= DIV_RSI_MIN) badge = `<span class="dw-status rsi-hot">RSI hot</span>`;
       else badge = `<span class="dw-status faint">quiet</span>`;
       const rCls = d.rsi >= DIV_RSI_MIN ? "rsi-hot" : "rsi-cool";
-      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}</div>`;
+      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}</div>`;
     }).join("");
   }
   const hEl = document.getElementById("dw-health");
@@ -957,7 +994,7 @@ async function refresh() {
   refreshThemeMover(); // sidebar — fire and forget
   loadRsiSnapshot().then(renderRsiMover);
   loadTriggerStats().then(renderTriggerStats);
-  Promise.all([loadDivWatch(), loadDivHealth()]).then(([dw, h]) => renderDivWatch(dw, h));
+  refreshDivWatch();
 }
 
 function startCountdown() {
@@ -988,6 +1025,16 @@ document.querySelectorAll("#wl-table th.sortable").forEach(th => {
     else { sortState.col = col; sortState.dir = SORT_NUMERIC.has(col) ? -1 : 1; }
     applySortAndRender();
   });
+});
+
+// div watch: add (ปุ่ม/Enter) + remove (✕ ต่อแถว, delegation)
+const dwAddInput = document.getElementById("dw-add-input");
+const dwAddSubmit = () => { const v = (dwAddInput.value || "").trim(); if (v) divWatchMutate("add", v); };
+document.getElementById("dw-add-btn")?.addEventListener("click", dwAddSubmit);
+dwAddInput?.addEventListener("keydown", (e) => { if (e.key === "Enter") dwAddSubmit(); });
+document.getElementById("div-watch-body")?.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-divremove]");
+  if (btn) divWatchMutate("remove", btn.dataset.divremove);
 });
 
 document.getElementById("add-btn").addEventListener("click", () => {

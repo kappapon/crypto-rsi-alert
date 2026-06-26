@@ -435,9 +435,19 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .tj-foot { margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--border); font-size: 0.7rem; }
 
 /* 15m DIV WATCH panel */
+#dw-add { display: flex; gap: 6px; margin: 6px 0 4px; }
+#dw-add input {
+  flex: 1; min-width: 0; background: var(--surface-2); color: var(--text);
+  border: 1px solid var(--border); padding: 4px 6px; font-size: 0.74rem; font-family: inherit;
+}
+#dw-add input:focus { outline: none; border-color: var(--green); }
+#dw-add button { padding: 4px 10px; font-size: 0.72rem; }
+#dw-msg { font-size: 0.7rem; min-height: 0.85rem; margin-bottom: 4px; }
+.dw-x { background: none; border: none; color: var(--text-faint); cursor: pointer; padding: 0; font-size: 0.72rem; }
+.dw-x:hover { color: var(--red); background: none; }
 .dw-row {
   display: grid;
-  grid-template-columns: 1fr 42px auto;
+  grid-template-columns: 1fr 38px auto 14px;
   gap: 6px;
   align-items: center;
   padding: 5px 0;

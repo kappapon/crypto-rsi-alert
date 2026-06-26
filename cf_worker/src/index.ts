@@ -47,7 +47,8 @@ const SYMBOL_RE = /^[A-Z0-9_]{2,20}$/;
 // (2026-06-26: binance ทั้ง 6 ตัวโดน geo-block ผ่าน api-gcp ซ้ำรอย 403/451 → ย้ายมา gate ที่ edge ดึงได้ชัวร์)
 // code ยังรองรับ source "binance" ไว้ (fetchKlines) เผื่อกลับมาใช้ได้ภายหลัง
 type DivSym = { symbol: string; source: "binance" | "gate"; label: string };
-const DIV_WATCH: DivSym[] = [
+const DIVWATCH_KEY = "divwatch:list"; // single source of truth ใน KV — แก้ผ่าน dashboard (POST /divwatch); default = seed ครั้งแรก
+const DIV_WATCH_DEFAULT: DivSym[] = [
   { symbol: "SYN_USDT", source: "gate", label: "SYN" },
   { symbol: "BEL_USDT", source: "gate", label: "BEL" },
   { symbol: "MMT_USDT", source: "gate", label: "MMT" },
@@ -58,6 +59,16 @@ const DIV_WATCH: DivSym[] = [
   { symbol: "BAS_USDT", source: "gate", label: "BAS" },
   { symbol: "TAC_USDT", source: "gate", label: "TAC" },
 ];
+
+// อ่าน DIV_WATCH จาก KV (seed default ถ้ายังไม่มี) — worker + dashboard ใช้ list เดียวกัน
+async function getDivWatch(env: Env): Promise<DivSym[]> {
+  const raw = await env.DEDUPE.get(DIVWATCH_KEY);
+  if (raw) {
+    try { const a = JSON.parse(raw); if (Array.isArray(a) && a.length) return a as DivSym[]; } catch { /* fall through to seed */ }
+  }
+  await env.DEDUPE.put(DIVWATCH_KEY, JSON.stringify(DIV_WATCH_DEFAULT));
+  return DIV_WATCH_DEFAULT;
+}
 const DIV_MINUTES = [2, 17, 32, 47];
 const DIV_PIVOT_K = 2; // แท่งซ้าย/ขวาที่ต้องต่ำกว่า ถึงนับเป็น swing high (ยืนยันแล้ว = closed)
 const DIV_LOOKBACK_BARS = 48; // 12 ชม. — เทียบนิวไฮกับยอดสูงสุดใน window นี้ (ไม่ใช่แค่ยอดติดกัน)
@@ -139,16 +150,21 @@ export default {
           return new Response("forbidden", { status: 403 });
         }
         const h = await readDivHealth(env);
-        const confirm = await readConfirmStates(env); // lifecycle armed/swept/confirmed ต่อเหรียญ — ให้ dashboard โชว์
+        const list = await getDivWatch(env);
+        const confirm = await readConfirmStates(env, list); // lifecycle armed/swept/confirmed ต่อเหรียญ — ให้ dashboard โชว์
         const body = h
-          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000), confirm }
-          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)", confirm };
+          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000), divwatch: list, confirm }
+          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)", divwatch: list, confirm };
         return new Response(JSON.stringify(body, null, 2), {
           status: 200,
           headers: { "content-type": "application/json" },
         });
       }
       return new Response("ok", { status: 200 });
+    }
+    if (req.method === "POST") {
+      const u = new URL(req.url);
+      if (u.pathname === "/divwatch") return handleDivWatchMutate(env, u); // add/remove ticker จาก dashboard
     }
     if (req.method !== "POST") return new Response("ok", { status: 200 });
 
@@ -295,10 +311,11 @@ function swingHighs(highs: number[], k: number): number[] {
 
 async function runDivergenceWatch(env: Env): Promise<void> {
   const prev = await readDivHealth(env);
+  const list = await getDivWatch(env);
   const symbols: DivHealth["symbols"] = {};
   const crossed: { label: string; status: string; code?: number }[] = [];
 
-  for (const item of DIV_WATCH) {
+  for (const item of list) {
     let status = "ok";
     let code: number | undefined;
     try {
@@ -352,9 +369,9 @@ async function writeDivHealth(env: Env, h: DivHealth): Promise<void> {
 
 // อ่าน lifecycle ของ confirm-watch ต่อเหรียญ (armed/swept/confirmed) — keyed by symbol ให้ dashboard match ได้
 type ConfirmState = { state: "armed" | "swept" | "confirmed"; armedHigh?: number; peakHigh?: number; ageMin: number };
-async function readConfirmStates(env: Env): Promise<Record<string, ConfirmState>> {
+async function readConfirmStates(env: Env, list: DivSym[]): Promise<Record<string, ConfirmState>> {
   const out: Record<string, ConfirmState> = {};
-  for (const item of DIV_WATCH) {
+  for (const item of list) {
     const raw = await env.DEDUPE.get(`confirm:${item.symbol}`);
     if (raw) {
       try {
@@ -367,6 +384,43 @@ async function readConfirmStates(env: Env): Promise<Record<string, ConfirmState>
     }
   }
   return out;
+}
+
+function jsonResp(obj: unknown, status = 200): Response {
+  return new Response(JSON.stringify(obj), { status, headers: { "content-type": "application/json" } });
+}
+
+// add/remove ticker ใน DIV_WATCH (KV) จาก dashboard — guard ด้วย WEBHOOK_SECRET.
+// validate จาก edge จริง: ลอง gate (X_USDT) ก่อน, ไม่ได้ค่อย fallback binance (XUSDT) — fetchKlines เช็คแท่ง ≥41 ให้แล้ว
+async function handleDivWatchMutate(env: Env, url: URL): Promise<Response> {
+  if (url.searchParams.get("token") !== env.WEBHOOK_SECRET) return jsonResp({ ok: false, error: "forbidden" }, 403);
+  const action = url.searchParams.get("action");
+  const base = (url.searchParams.get("symbol") || "").trim().toUpperCase().replace(/_?USDT$/, "");
+  if (!/^[A-Z0-9]{1,15}$/.test(base)) return jsonResp({ ok: false, error: "symbol ไม่ถูกต้อง" });
+  const list = await getDivWatch(env);
+  const has = (d: DivSym) => d.label === base || d.symbol === `${base}_USDT` || d.symbol === `${base}USDT`;
+
+  if (action === "remove") {
+    const next = list.filter((d) => !has(d));
+    if (next.length === list.length) return jsonResp({ ok: false, error: `${base} ไม่อยู่ใน div watch` });
+    await env.DEDUPE.put(DIVWATCH_KEY, JSON.stringify(next));
+    return jsonResp({ ok: true, removed: base, divwatch: next });
+  }
+  if (action === "add") {
+    if (list.some(has)) return jsonResp({ ok: false, error: `${base} อยู่ใน div watch แล้ว` });
+    let chosen: DivSym | null = null;
+    const gate = await fetchKlines({ symbol: `${base}_USDT`, source: "gate", label: base });
+    if (!("error" in gate)) chosen = { symbol: `${base}_USDT`, source: "gate", label: base };
+    else {
+      const bin = await fetchKlines({ symbol: `${base}USDT`, source: "binance", label: base });
+      if (!("error" in bin)) chosen = { symbol: `${base}USDT`, source: "binance", label: base };
+    }
+    if (!chosen) return jsonResp({ ok: false, error: `${base} ดึงข้อมูลไม่ได้ (ไม่มีบน Gate และ Binance edge 451) หรือแท่งไม่พอ` });
+    const next = [...list, chosen];
+    await env.DEDUPE.put(DIVWATCH_KEY, JSON.stringify(next));
+    return jsonResp({ ok: true, added: chosen, divwatch: next });
+  }
+  return jsonResp({ ok: false, error: "action ต้องเป็น add หรือ remove" });
 }
 
 // dead-man heartbeat: tick แรกของแต่ละวัน UTC ส่ง 1 บรรทัด — ถ้าวันไหนไม่มา = worker ตายทั้งตัว
