@@ -361,23 +361,6 @@
         "funding_high": 0.1
       }
     },
-    "SPCX_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 231.3388,
-        "resistance": 227.92,
-        "rejection_below": 144.9985,
-        "support_strong": 153.9908,
-        "support_extreme": 155.787
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "INFQ_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
