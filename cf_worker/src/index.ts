@@ -161,6 +161,7 @@ export default {
           headers: { "content-type": "application/json" },
         });
       }
+      if (url.pathname === "/divmanage") return handleDivManage(env, url); // หน้าจัดการ div watch จาก remote (token-gated)
       return new Response("ok", { status: 200 });
     }
     if (req.method === "POST") {
@@ -422,6 +423,65 @@ async function handleDivWatchMutate(env: Env, url: URL): Promise<Response> {
     return jsonResp({ ok: true, added: chosen, divwatch: next });
   }
   return jsonResp({ ok: false, error: "action ต้องเป็น add หรือ remove" });
+}
+
+// หน้าเว็บเล็ก ๆ จัดการ div watch จาก remote (มือถือ) — token ใน URL, เรียก /divwatch ของ worker เอง
+async function handleDivManage(env: Env, url: URL): Promise<Response> {
+  const htmlHeaders = { "content-type": "text/html; charset=utf-8" };
+  if (url.searchParams.get("token") !== env.DASH_TOKEN) {
+    return new Response("<h2>forbidden</h2><p>ใส่ ?token=&lt;DASH_TOKEN&gt; ใน URL</p>", { status: 403, headers: htmlHeaders });
+  }
+  const list = await getDivWatch(env);
+  return new Response(divManagePage(JSON.stringify(list)), { status: 200, headers: htmlHeaders });
+}
+
+function divManagePage(listJson: string): string {
+  return `<!doctype html><html lang="th"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DIV WATCH — manage</title>
+<style>
+:root{color-scheme:dark}
+body{font-family:-apple-system,system-ui,sans-serif;background:#0a0f0a;color:#cfe4d6;margin:0 auto;padding:16px;max-width:520px}
+h1{font-size:1.05rem;color:#3fd07d;margin:0 0 12px}
+.row{display:flex;align-items:center;gap:8px;padding:11px 4px;border-top:1px solid #1c3a24}
+.row .lbl{flex:1;font-weight:600}
+.row .src{color:#6a9a7c;font-size:.78rem}
+button{background:#13351f;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:9px 14px;font-size:.92rem}
+button:active{background:#1c5a30}
+.x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
+.x:active{color:#ff5544}
+.add{display:flex;gap:8px;margin:14px 0 4px}
+.add input{flex:1;min-width:0;background:#0d1b10;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:11px;font-size:1rem}
+#msg{min-height:1.2rem;font-size:.85rem;margin:6px 0}
+.ok{color:#3fd07d}.err{color:#ff5544}.muted{color:#6a9a7c}
+</style></head><body>
+<h1>&#9646; 15m DIV WATCH &mdash; manage</h1>
+<div class="add">
+<input id="sym" placeholder="+ ticker เช่น TAC" autocomplete="off" autocapitalize="characters">
+<button id="add">add</button></div>
+<div id="msg" class="muted"></div>
+<div id="list"></div>
+<script>
+var TOKEN=new URLSearchParams(location.search).get('token');
+var list=${listJson};
+var $=function(id){return document.getElementById(id)};
+function render(){
+$('list').innerHTML=list.map(function(d){return '<div class="row"><span class="lbl">'+d.label+'</span><span class="src">'+d.source+'</span><button class="x" data-sym="'+d.label+'">&#10005;</button></div>'}).join('')||'<p class="muted">ว่าง</p>';
+}
+function setMsg(t,c){var m=$('msg');m.textContent=t;m.className=c||'muted';}
+function mutate(action,symbol){
+setMsg((action==='add'?'กำลังเพิ่ม+ตรวจสอบ ':'กำลังลบ ')+symbol+'...','muted');
+fetch('/divwatch?token='+encodeURIComponent(TOKEN)+'&action='+action+'&symbol='+encodeURIComponent(symbol),{method:'POST'})
+.then(function(r){return r.json()}).then(function(d){
+if(d.ok){list=d.divwatch;render();setMsg(action==='add'?('\\u2705 เพิ่ม '+(d.added&&d.added.label)+' ('+(d.added&&d.added.source)+')'):('\\u2705 ลบ '+d.removed),'ok');if(action==='add')$('sym').value='';}
+else setMsg('\\u26a0\\ufe0f '+(d.error||'ล้มเหลว'),'err');
+}).catch(function(e){setMsg('\\u26a0\\ufe0f '+e,'err')});
+}
+$('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
+$('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
+$('list').addEventListener('click',function(e){var b=e.target.closest('[data-sym]');if(b)mutate('remove',b.dataset.sym)});
+render();
+</script></body></html>`;
 }
 
 // dead-man heartbeat: tick แรกของแต่ละวัน UTC ส่ง 1 บรรทัด — ถ้าวันไหนไม่มา = worker ตายทั้งตัว
