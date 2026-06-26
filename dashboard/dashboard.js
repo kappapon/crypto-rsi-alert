@@ -118,8 +118,10 @@ const DIV_WATCH = [
   { symbol: "BELUSDT", exchange: "binance_spot", label: "BEL" },
   { symbol: "MMTUSDT", exchange: "binance_spot", label: "MMT" },
   { symbol: "DEXEUSDT", exchange: "binance_spot", label: "DEXE" },
+  { symbol: "AWEUSDT", exchange: "binance_spot", label: "AWE" },
+  { symbol: "GUSDT", exchange: "binance_spot", label: "G" },
   { symbol: "FOLKS_USDT", exchange: "gateio_futures", label: "FOLKS" },
-  { symbol: "AMAT_USDT", exchange: "gateio_futures", label: "AMAT" },
+  { symbol: "BAS_USDT", exchange: "gateio_futures", label: "BAS" },
 ];
 const DIV_PIVOT_K = 2, DIV_LOOKBACK = 48, DIV_RSI_MIN = 65, DIV_FRESH = 4;
 
@@ -214,8 +216,13 @@ function renderDivWatch(rows, health) {
     el.innerHTML = rows.map(d => {
       if (!d.ok) return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span></span><span class="dw-status faint">⚠️ fetch</span></div>`;
       const rsiTxt = (d.rsi == null || Number.isNaN(d.rsi)) ? "-" : d.rsi.toFixed(1);
+      // worker lifecycle (armed/swept/confirmed) มาก่อน client-side div — เป็น state ของ 2-stage จริง
+      const cw = health && health.confirm ? health.confirm[d.symbol] : null;
       let badge;
-      if (d.div && d.div.fresh) badge = `<span class="dw-status pct-down">🐻 bearish div</span>`;
+      if (cw && cw.state === "confirmed") badge = `<span class="dw-status dw-confirmed">🎯 confirmed${cw.ageMin != null ? ` ${cw.ageMin}m` : ""}</span>`;
+      else if (cw && cw.state === "swept") badge = `<span class="dw-status dw-swept">⏳ swept</span>`;
+      else if (cw && cw.state === "armed") badge = `<span class="dw-status dw-armed">🔫 armed</span>`;
+      else if (d.div && d.div.fresh) badge = `<span class="dw-status pct-down">🐻 bearish div</span>`;
       else if (d.div) badge = `<span class="dw-status faint">div · ${d.div.age}b เก่า</span>`;
       else if (d.rsi >= DIV_RSI_MIN) badge = `<span class="dw-status rsi-hot">RSI hot</span>`;
       else badge = `<span class="dw-status faint">quiet</span>`;

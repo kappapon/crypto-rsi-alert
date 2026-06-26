@@ -50,8 +50,10 @@ const DIV_WATCH: DivSym[] = [
   { symbol: "BELUSDT", source: "binance", label: "BELUSDT" },
   { symbol: "MMTUSDT", source: "binance", label: "MMTUSDT" },
   { symbol: "DEXEUSDT", source: "binance", label: "DEXEUSDT" },
+  { symbol: "AWEUSDT", source: "binance", label: "AWEUSDT" },
+  { symbol: "GUSDT", source: "binance", label: "GUSDT" },
   { symbol: "FOLKS_USDT", source: "gate", label: "FOLKS" }, // ไม่มีบน Binance spot — ใช้ Gate futures
-  { symbol: "AMAT_USDT", source: "gate", label: "AMAT" }, // หุ้น tokenized — Gate เท่านั้น
+  { symbol: "BAS_USDT", source: "gate", label: "BAS" }, // ไม่มีบน Binance spot — ใช้ Gate futures
 ];
 const DIV_MINUTES = [2, 17, 32, 47];
 const DIV_PIVOT_K = 2; // แท่งซ้าย/ขวาที่ต้องต่ำกว่า ถึงนับเป็น swing high (ยืนยันแล้ว = closed)
@@ -68,6 +70,7 @@ const CONFIRM_WATCH_TTL = 12 * 3600; // arm รอ confirm ได้ 12 ชม. 
 const CONFIRM_DEDUPE_TTL = 6 * 3600; // entry alert ต่อ 1 setup ครั้งเดียว
 const CONFIRM_STOP_ATR = 0.5; // stop = peakHigh + 0.5×ATR(15m) — เหนือ wick กระชาก
 const CONFIRM_PEAK_BARS = 4; // อัปเดต peak/sweep จาก N แท่งล่าสุด (กัน tick หายแล้วพลาดยอด)
+const CONFIRM_RECENT_TTL = 2 * 3600; // โชว์ "confirmed" บน dashboard นาน N หลังเข้า (lastconfirm marker)
 // CF Worker edge ดึง data-api.binance.vision / api.binance.com ไม่ได้ (403 bot-protect, probe 2026-06-23)
 // api-gcp.binance.com เข้าได้จาก edge แต่ต้องใช้ browser UA
 const KLINES_BASE = "https://api-gcp.binance.com";
@@ -133,9 +136,10 @@ export default {
           return new Response("forbidden", { status: 403 });
         }
         const h = await readDivHealth(env);
+        const confirm = await readConfirmStates(env); // lifecycle armed/swept/confirmed ต่อเหรียญ — ให้ dashboard โชว์
         const body = h
-          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000) }
-          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)" };
+          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000), confirm }
+          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)", confirm };
         return new Response(JSON.stringify(body, null, 2), {
           status: 200,
           headers: { "content-type": "application/json" },
@@ -343,6 +347,25 @@ async function writeDivHealth(env: Env, h: DivHealth): Promise<void> {
   await env.DEDUPE.put(DIV_HEALTH_KEY, JSON.stringify(h), { expirationTtl: DIV_HEALTH_TTL });
 }
 
+// อ่าน lifecycle ของ confirm-watch ต่อเหรียญ (armed/swept/confirmed) — keyed by symbol ให้ dashboard match ได้
+type ConfirmState = { state: "armed" | "swept" | "confirmed"; armedHigh?: number; peakHigh?: number; ageMin: number };
+async function readConfirmStates(env: Env): Promise<Record<string, ConfirmState>> {
+  const out: Record<string, ConfirmState> = {};
+  for (const item of DIV_WATCH) {
+    const raw = await env.DEDUPE.get(`confirm:${item.symbol}`);
+    if (raw) {
+      try {
+        const cw = JSON.parse(raw) as { armedHigh: number; peakHigh: number; swept: boolean; ts: number };
+        out[item.symbol] = { state: cw.swept ? "swept" : "armed", armedHigh: cw.armedHigh, peakHigh: cw.peakHigh, ageMin: Math.round((Date.now() - cw.ts) / 60000) };
+      } catch { /* skip bad record */ }
+    } else {
+      const lc = await env.DEDUPE.get(`lastconfirm:${item.symbol}`);
+      if (lc) out[item.symbol] = { state: "confirmed", ageMin: Math.round((Date.now() - Number(lc)) / 60000) };
+    }
+  }
+  return out;
+}
+
 // dead-man heartbeat: tick แรกของแต่ละวัน UTC ส่ง 1 บรรทัด — ถ้าวันไหนไม่มา = worker ตายทั้งตัว
 async function maybeHeartbeat(env: Env, symbols: DivHealth["symbols"]): Promise<void> {
   const today = new Date().toISOString().slice(0, 10);
@@ -472,6 +495,7 @@ async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, u
         const sent = await sendEntryAlert(env, symbol, lastClose, cw.armedHigh, peakHigh, stop);
         if (sent) {
           await env.DEDUPE.put(ckey, "1", { expirationTtl: CONFIRM_DEDUPE_TTL });
+          await env.DEDUPE.put(`lastconfirm:${item.symbol}`, String(Date.now()), { expirationTtl: CONFIRM_RECENT_TTL }); // ให้ dashboard โชว์ "confirmed"
           await env.DEDUPE.delete(`confirm:${item.symbol}`);
         }
         return { symbol, status: sent ? "confirm_entry_sent" : "confirm_send_failed", entry: lastClose, stop };
