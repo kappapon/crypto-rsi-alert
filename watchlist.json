@@ -1159,6 +1159,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "PANW_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 304.3883,
+        "resistance": 299.89,
+        "rejection_below": 278.2075,
+        "support_strong": 291.1412,
+        "support_extreme": 289.2855
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
