@@ -1210,6 +1210,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "MAGMA_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.7639,
+        "resistance": 0.7526,
+        "rejection_below": 0.6824,
+        "support_strong": 0.5738,
+        "support_extreme": 0.4979
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
