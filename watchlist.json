@@ -1193,6 +1193,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "UNH_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 436.2267,
+        "resistance": 429.78,
+        "rejection_below": 404.5385,
+        "support_strong": 419.5919,
+        "support_extreme": 414.8587
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
