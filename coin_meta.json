@@ -961,5 +961,65 @@
       "Decentralized Identifier (DID)",
       "Binance Wallet IDO"
     ]
+  },
+  "QUICK": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/25393/small/quickswap.png?1696524525",
+    "cg_id": "quickswap",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Derivatives",
+      "Perpetuals",
+      "Polygon Ecosystem",
+      "Ethereum Ecosystem",
+      "Base Ecosystem",
+      "DWF Labs Portfolio",
+      "Manta Network Ecosystem",
+      "Dogechain Ecosystem",
+      "Polygon zkEVM Ecosystem",
+      "Base Native"
+    ]
+  },
+  "SLX": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71128/small/slx.png?1779455873",
+    "cg_id": "solstice",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Yield Farming",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Binance Alpha Spotlight",
+      "Governance"
+    ]
+  },
+  "ABBV": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/55646/small/Ticker_ABBV__Company_Name_SP500__size_200x200_2x.png?1746864179",
+    "cg_id": "abbvie-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Mantle Ecosystem",
+      "TON Ecosystem",
+      "BackedFi xStocks Ecosystem"
+    ]
+  },
+  "HEI": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/54379/small/heima.png?1739444240",
+    "cg_id": "heima",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Binance Launchpool",
+      "Ethereum Ecosystem",
+      "YZi Labs (Prev. Binance Labs) Portfolio"
+    ]
   }
 }
