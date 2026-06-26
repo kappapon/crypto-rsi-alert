@@ -607,8 +607,8 @@
       "funding": 0.005,
       "id": "JELLYJELLY_USDT:rejection:2026-06-16T16:24:36.263369+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-06-26T04:23:39.086531+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-06-26T20:23:35.146109+00:00"
     },
     {
       "symbol": "AAOI_USDT",
@@ -3341,8 +3341,8 @@
       "funding": 0.0,
       "id": "ALLOUSDT:support_break:2026-06-23T04:24:14.197719+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-25T16:23:30.042936+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-26T20:23:27.840438+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -3539,8 +3539,8 @@
       "funding": 0.0,
       "id": "ALLOUSDT:rejection:2026-06-23T12:23:24.814784+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-25T20:23:30.384240+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-26T20:23:27.840438+00:00"
     },
     {
       "symbol": "FOLKS_USDT",
@@ -4314,8 +4314,8 @@
       "funding": 0.01,
       "id": "EBAY_USDT:support_break:2026-06-25T00:24:06.307679+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-25T12:24:04.856537+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-26T20:23:56.509391+00:00"
     },
     {
       "symbol": "ARC_USDT",
@@ -4565,8 +4565,8 @@
       "funding": 0.0127,
       "id": "DRAM_USDT:rejection:2026-06-25T16:23:58.062722+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-26T04:23:53.071210+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-26T20:23:48.122345+00:00"
     },
     {
       "symbol": "BE_USDT",
@@ -5099,6 +5099,42 @@
       "price": 299.92,
       "funding": 0.01,
       "id": "PANW_USDT:resistance_test:2026-06-26T16:24:08.793461+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ALICEUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-26T20:23:50.357464+00:00",
+      "price": 0.1193,
+      "funding": 0.0,
+      "id": "ALICEUSDT:support_break:2026-06-26T20:23:50.357464+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "QUICKUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-26T20:23:59.568884+00:00",
+      "price": 0.00713,
+      "funding": 0.0,
+      "id": "QUICKUSDT:rejection:2026-06-26T20:23:59.568884+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-06-26T20:24:00.542761+00:00",
+      "price": 252.28,
+      "funding": 0.01,
+      "id": "ABBV_USDT:breakout:2026-06-26T20:24:00.542761+00:00",
       "status": "pending",
       "repeats": 1
     }
