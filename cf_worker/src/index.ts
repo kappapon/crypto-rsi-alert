@@ -17,6 +17,7 @@ export interface Env {
   GITHUB_REPO: string;
   DEDUPE_TTL_SECONDS: string;
   CHAT_ID: string;
+  DASH_TOKEN: string; // token เฉพาะ dashboard endpoints (/health, /divwatch) — แยกจาก WEBHOOK_SECRET ของ Telegram
 }
 
 interface InlineButton {
@@ -146,7 +147,7 @@ export default {
       // GET /health?token=<WEBHOOK_SECRET> — สถานะ watcher ล่าสุด (แทน temp debug route + wrangler tail ที่ไม่นิ่ง)
       const url = new URL(req.url);
       if (url.pathname === "/health") {
-        if (url.searchParams.get("token") !== env.WEBHOOK_SECRET) {
+        if (url.searchParams.get("token") !== env.DASH_TOKEN) {
           return new Response("forbidden", { status: 403 });
         }
         const h = await readDivHealth(env);
@@ -393,7 +394,7 @@ function jsonResp(obj: unknown, status = 200): Response {
 // add/remove ticker ใน DIV_WATCH (KV) จาก dashboard — guard ด้วย WEBHOOK_SECRET.
 // validate จาก edge จริง: ลอง gate (X_USDT) ก่อน, ไม่ได้ค่อย fallback binance (XUSDT) — fetchKlines เช็คแท่ง ≥41 ให้แล้ว
 async function handleDivWatchMutate(env: Env, url: URL): Promise<Response> {
-  if (url.searchParams.get("token") !== env.WEBHOOK_SECRET) return jsonResp({ ok: false, error: "forbidden" }, 403);
+  if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
   const action = url.searchParams.get("action");
   const base = (url.searchParams.get("symbol") || "").trim().toUpperCase().replace(/_?USDT$/, "");
   if (!/^[A-Z0-9]{1,15}$/.test(base)) return jsonResp({ ok: false, error: "symbol ไม่ถูกต้อง" });

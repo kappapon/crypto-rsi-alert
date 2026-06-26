@@ -27,7 +27,8 @@ WORKER_HEALTH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/healt
 WORKER_DIVWATCH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/divwatch"
 
 def _health_token() -> str | None:
-    tok = os.environ.get("WEBHOOK_SECRET")
+    # token เฉพาะ dashboard endpoints (แยกจาก WEBHOOK_SECRET ของ Telegram). รับ WEBHOOK_SECRET เป็น fallback เผื่อ env เดิม
+    tok = os.environ.get("DASH_TOKEN") or os.environ.get("WEBHOOK_SECRET")
     return tok.strip() if tok else None
 
 # ML pipeline runner — scripts need the local venv (sklearn/pyarrow), not Actions' python
