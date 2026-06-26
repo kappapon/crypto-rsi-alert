@@ -62,6 +62,12 @@ const DIV_FRESH_BARS = 4; // p2 ต้องอยู่ภายใน N แท
 // ---- flip detection (mirror): bullish divergence ที่ "ก้น" หลัง bearish div ยิงไปแล้ว ----
 const DIV_RSI_MAX_LOW = 35; // trough ก่อนหน้าต้อง oversold พอ (mirror ของ DIV_RSI_MIN)
 const FLIP_WATCH_TTL = 24 * 3600; // หลัง bearish div เปิด flip-watch นาน N — พ้นแล้วเลิกเฝ้า
+// ---- 2-stage entry confirm: หลัง bearish div = "arm" → รอ sweep+reclaim ค่อยส่ง entry จริง (กันโดนกระชาก/liquidate) ----
+// PROTOTYPE: threshold ตั้งต้นจากเหตุผล ยังไม่ได้ calibrate จากข้อมูลจริง (instrument ทีหลังเพื่อจูน)
+const CONFIRM_WATCH_TTL = 12 * 3600; // arm รอ confirm ได้ 12 ชม. — เกินนี้ setup หมดอายุ
+const CONFIRM_DEDUPE_TTL = 6 * 3600; // entry alert ต่อ 1 setup ครั้งเดียว
+const CONFIRM_STOP_ATR = 0.5; // stop = peakHigh + 0.5×ATR(15m) — เหนือ wick กระชาก
+const CONFIRM_PEAK_BARS = 4; // อัปเดต peak/sweep จาก N แท่งล่าสุด (กัน tick หายแล้วพลาดยอด)
 // CF Worker edge ดึง data-api.binance.vision / api.binance.com ไม่ได้ (403 bot-protect, probe 2026-06-23)
 // api-gcp.binance.com เข้าได้จาก edge แต่ต้องใช้ browser UA
 const KLINES_BASE = "https://api-gcp.binance.com";
@@ -410,6 +416,17 @@ function detectDiv(
   return ok ? { p1, p2 } : null;
 }
 
+// ATR(14) บนแท่ง 15m (ค่าเฉลี่ย TR ธรรมดา) — ใช้กะ buffer ของ stop เหนือ wick กระชาก
+function atr14(highs: number[], lows: number[], closes: number[], period = 14): number {
+  const n = closes.length;
+  if (n < period + 1) return 0;
+  let sum = 0;
+  for (let i = n - period; i < n; i++) {
+    sum += Math.max(highs[i] - lows[i], Math.abs(highs[i] - closes[i - 1]), Math.abs(lows[i] - closes[i - 1]));
+  }
+  return sum / period;
+}
+
 async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, unknown>> {
   const symbol = item.label;
   const kl = await fetchKlines(item);
@@ -433,7 +450,39 @@ async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, u
     return { ...diag, status: sent ? "flip_sent" : "flip_send_failed" };
   }
 
-  // ---- BEARISH divergence ที่ยอด (fade-the-top) ----
+  // ---- CONFIRM stage: symbol ที่ arm ไว้แล้ว — รอ sweep+reclaim ก่อนส่ง entry จริง ----
+  const cwRaw = await env.DEDUPE.get(`confirm:${item.symbol}`);
+  if (cwRaw) {
+    let cw: { armedHigh: number; peakHigh: number; swept: boolean; ts: number } | null = null;
+    try { cw = JSON.parse(cwRaw); } catch { cw = null; }
+    if (cw) {
+      if (Date.now() - cw.ts > CONFIRM_WATCH_TTL * 1000) {
+        await env.DEDUPE.delete(`confirm:${item.symbol}`); // setup หมดอายุ ไม่เข้าแล้ว
+        return { symbol, status: "confirm_expired" };
+      }
+      const recentHigh = Math.max(...highs.slice(-CONFIRM_PEAK_BARS));
+      const peakHigh = Math.max(cw.peakHigh, recentHigh);
+      const swept = cw.swept || recentHigh > cw.armedHigh; // ราคากระชากเหนือไฮ div แล้วหรือยัง
+      const lastClose = closes[lastIdx];
+      if (swept && lastClose < cw.armedHigh) {
+        // reclaim: กระชากกวาดไฮแล้วปิดกลับลงใต้ไฮ div → จังหวะเข้าหลังกระชากจบ
+        const stop = peakHigh + CONFIRM_STOP_ATR * atr14(highs, lows, closes);
+        const ckey = `confirmed:${item.symbol}:${Math.round(cw.ts / 1000)}`;
+        if (await env.DEDUPE.get(ckey)) return { symbol, status: "confirm_deduped" };
+        const sent = await sendEntryAlert(env, symbol, lastClose, cw.armedHigh, peakHigh, stop);
+        if (sent) {
+          await env.DEDUPE.put(ckey, "1", { expirationTtl: CONFIRM_DEDUPE_TTL });
+          await env.DEDUPE.delete(`confirm:${item.symbol}`);
+        }
+        return { symbol, status: sent ? "confirm_entry_sent" : "confirm_send_failed", entry: lastClose, stop };
+      }
+      // ยังไม่ confirm — อัปเดต peak/sweep ไว้แล้วเฝ้าต่อ
+      await env.DEDUPE.put(`confirm:${item.symbol}`, JSON.stringify({ ...cw, peakHigh, swept }), { expirationTtl: CONFIRM_WATCH_TTL });
+      return { symbol, status: swept ? "confirm_swept_waiting" : "confirm_armed", armedHigh: cw.armedHigh, peakHigh };
+    }
+  }
+
+  // ---- BEARISH divergence ที่ยอด (fade-the-top) → arm confirm-watch (ยังไม่ใช่ entry) ----
   const bear = detectDiv(highs, rsi, swingHighs(highs, DIV_PIVOT_K), "bearish");
   if (!bear) return { symbol, status: "no_divergence" };
   const { p1, p2 } = bear;
@@ -448,8 +497,12 @@ async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, u
   if (sent) {
     await env.DEDUPE.put(key, "1", { expirationTtl: DIV_DEDUPE_TTL });
     await env.DEDUPE.put(`flip:${item.symbol}`, String(times[p2]), { expirationTtl: FLIP_WATCH_TTL }); // เปิด flip-watch
+    // arm confirm-watch: รอ sweep+reclaim ก่อนค่อยให้สัญญาณ entry จริง (stage 2)
+    await env.DEDUPE.put(`confirm:${item.symbol}`,
+      JSON.stringify({ armedHigh: highs[p2], peakHigh: highs[p2], swept: false, ts: Date.now() }),
+      { expirationTtl: CONFIRM_WATCH_TTL });
   }
-  return { ...diag, status: sent ? "sent" : "send_failed" };
+  return { ...diag, status: sent ? "armed" : "send_failed" };
 }
 
 const divFmt = (p: number) => (p >= 1 ? p.toFixed(2) : p.toPrecision(4));
@@ -473,11 +526,25 @@ async function sendDivergenceAlert(
   env: Env, symbol: string, highs: number[], rsi: number[], times: number[], p1: number, p2: number,
 ): Promise<boolean> {
   const text =
-    `🐻 <b>${symbol} bearish divergence (15m)</b>\n` +
-    `ราคาทำ higher high แต่ RSI lower high — สัญญาณ fade-the-top\n\n` +
+    `🐻 <b>${symbol} bearish divergence (15m) — setup armed</b>\n` +
+    `ราคาทำ higher high แต่ RSI lower high — fade-the-top\n` +
+    `⏳ <b>ยังไม่เข้า</b> — รอ sweep+reclaim (กระชากกวาดไฮแล้วปิดกลับลง) ค่อยส่ง 🎯 entry\n\n` +
     `High 1: $${divFmt(highs[p1])} · RSI ${rsi[p1].toFixed(1)} · ${divTs(times[p1])}\n` +
-    `High 2: $${divFmt(highs[p2])} · RSI ${rsi[p2].toFixed(1)} · ${divTs(times[p2])} ⬅️ ราคาสูงกว่า RSI ต่ำกว่า`;
+    `High 2: $${divFmt(highs[p2])} · RSI ${rsi[p2].toFixed(1)} · ${divTs(times[p2])} ⬅️ ไฮ div`;
   return sendTelegram(env, `divergence ${symbol}`, text);
+}
+
+async function sendEntryAlert(
+  env: Env, symbol: string, entry: number, armedHigh: number, sweptHigh: number, stop: number,
+): Promise<boolean> {
+  const riskPct = entry > 0 ? ((stop - entry) / entry) * 100 : 0;
+  const text =
+    `🎯 <b>${symbol} confirmed short entry (15m)</b>\n` +
+    `กระชากกวาดไฮ $${divFmt(sweptHigh)} แล้ว reclaim ปิดใต้ไฮ div $${divFmt(armedHigh)} → เข้าหลังกระชากจบ\n\n` +
+    `Entry ~$${divFmt(entry)}\n` +
+    `Stop $${divFmt(stop)} (เหนือ wick กระชาก +${CONFIRM_STOP_ATR}×ATR) · ระยะ ~${riskPct.toFixed(1)}%\n` +
+    `⚠️ size ตาม stop นี้ — อย่าใช้ leverage จน stop = จุด liquidation`;
+  return sendTelegram(env, `entry ${symbol}`, text);
 }
 
 async function sendFlipAlert(
