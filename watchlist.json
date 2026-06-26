@@ -1176,6 +1176,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "AAVEUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 97.44,
+        "resistance": 96.0,
+        "rejection_below": 90.934,
+        "support_strong": 86.504,
+        "support_extreme": 82.8344
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
