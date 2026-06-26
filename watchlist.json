@@ -1159,6 +1159,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "HEIUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.1924,
+        "resistance": 0.1896,
+        "rejection_below": 0.1752,
+        "support_strong": 0.1578,
+        "support_extreme": 0.1378
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
