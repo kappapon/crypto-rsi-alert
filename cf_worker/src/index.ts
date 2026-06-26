@@ -43,17 +43,19 @@ const SYMBOL_RE = /^[A-Z0-9_]{2,20}$/;
 // ---- 15m bearish-divergence watcher (fade-the-top) ----
 // รันทุก 15 นาที offset (:02/:17/:32/:47) เลี่ยงชนนาที workflow เดิม
 // เริ่มจาก SYN ตัวเดียว — ขยายเป็น watchlist ทีหลังได้
-// source: binance spot (api-gcp) | gate futures (api.gateio.ws) — ทั้งคู่ edge ดึงได้ (probe 2026-06-23)
+// source: ทุกตัวใช้ gate futures (api.gateio.ws) — api-gcp.binance.com โดน 451 จาก CF edge แล้ว
+// (2026-06-26: binance ทั้ง 6 ตัวโดน geo-block ผ่าน api-gcp ซ้ำรอย 403/451 → ย้ายมา gate ที่ edge ดึงได้ชัวร์)
+// code ยังรองรับ source "binance" ไว้ (fetchKlines) เผื่อกลับมาใช้ได้ภายหลัง
 type DivSym = { symbol: string; source: "binance" | "gate"; label: string };
 const DIV_WATCH: DivSym[] = [
-  { symbol: "SYNUSDT", source: "binance", label: "SYNUSDT" },
-  { symbol: "BELUSDT", source: "binance", label: "BELUSDT" },
-  { symbol: "MMTUSDT", source: "binance", label: "MMTUSDT" },
-  { symbol: "DEXEUSDT", source: "binance", label: "DEXEUSDT" },
-  { symbol: "AWEUSDT", source: "binance", label: "AWEUSDT" },
-  { symbol: "GUSDT", source: "binance", label: "GUSDT" },
-  { symbol: "FOLKS_USDT", source: "gate", label: "FOLKS" }, // ไม่มีบน Binance spot — ใช้ Gate futures
-  { symbol: "BAS_USDT", source: "gate", label: "BAS" }, // ไม่มีบน Binance spot — ใช้ Gate futures
+  { symbol: "SYN_USDT", source: "gate", label: "SYN" },
+  { symbol: "BEL_USDT", source: "gate", label: "BEL" },
+  { symbol: "MMT_USDT", source: "gate", label: "MMT" },
+  { symbol: "DEXE_USDT", source: "gate", label: "DEXE" },
+  { symbol: "AWE_USDT", source: "gate", label: "AWE" },
+  { symbol: "G_USDT", source: "gate", label: "G" },
+  { symbol: "FOLKS_USDT", source: "gate", label: "FOLKS" },
+  { symbol: "BAS_USDT", source: "gate", label: "BAS" },
 ];
 const DIV_MINUTES = [2, 17, 32, 47];
 const DIV_PIVOT_K = 2; // แท่งซ้าย/ขวาที่ต้องต่ำกว่า ถึงนับเป็น swing high (ยืนยันแล้ว = closed)

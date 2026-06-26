@@ -113,13 +113,15 @@ async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
 
 // ============ 15m divergence watch — mirror cf_worker DIV_WATCH (client-side, live) ============
 // sync กับ cf_worker/src/index.ts DIV_WATCH เวลาเพิ่ม/ลบเหรียญ (อยู่ 2 ที่)
+// ทุกตัวใช้ gate futures — symbol ต้องตรงกับ worker DIV_WATCH (lifecycle badge lookup ด้วย symbol)
+// api-gcp.binance.com โดน 451 จาก CF edge (2026-06-26) → worker ย้ายมา gate, dashboard ตามให้ symbol ตรงกัน
 const DIV_WATCH = [
-  { symbol: "SYNUSDT", exchange: "binance_spot", label: "SYN" },
-  { symbol: "BELUSDT", exchange: "binance_spot", label: "BEL" },
-  { symbol: "MMTUSDT", exchange: "binance_spot", label: "MMT" },
-  { symbol: "DEXEUSDT", exchange: "binance_spot", label: "DEXE" },
-  { symbol: "AWEUSDT", exchange: "binance_spot", label: "AWE" },
-  { symbol: "GUSDT", exchange: "binance_spot", label: "G" },
+  { symbol: "SYN_USDT", exchange: "gateio_futures", label: "SYN" },
+  { symbol: "BEL_USDT", exchange: "gateio_futures", label: "BEL" },
+  { symbol: "MMT_USDT", exchange: "gateio_futures", label: "MMT" },
+  { symbol: "DEXE_USDT", exchange: "gateio_futures", label: "DEXE" },
+  { symbol: "AWE_USDT", exchange: "gateio_futures", label: "AWE" },
+  { symbol: "G_USDT", exchange: "gateio_futures", label: "G" },
   { symbol: "FOLKS_USDT", exchange: "gateio_futures", label: "FOLKS" },
   { symbol: "BAS_USDT", exchange: "gateio_futures", label: "BAS" },
 ];
