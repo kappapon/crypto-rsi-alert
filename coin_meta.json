@@ -1021,5 +1021,88 @@
       "Ethereum Ecosystem",
       "YZi Labs (Prev. Binance Labs) Portfolio"
     ]
+  },
+  "PANW": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68599/small/panwon_160x160.png?1756129923",
+    "cg_id": "palo-alto-networks-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "LLY": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/54087/small/jellyjelly-logo.webp?1738218050",
+    "cg_id": "jelly-my-jelly",
+    "categories": [
+      "Solana Ecosystem",
+      "Pump.fun Ecosystem",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "AAVE": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/12645/small/aave-token-round.png?1720472354",
+    "cg_id": "aave",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Yield Farming",
+      "BNB Chain Ecosystem",
+      "Lending/Borrowing Protocols",
+      "Solana Ecosystem",
+      "Avalanche Ecosystem",
+      "Polygon Ecosystem",
+      "Near Protocol Ecosystem",
+      "Fantom Ecosystem",
+      "Harmony Ecosystem",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Optimism Ecosystem",
+      "Base Ecosystem",
+      "Index Coop Defi Index",
+      "Stablecoin Issuer",
+      "Energi Ecosystem",
+      "Sora Ecosystem",
+      "Huobi ECO Chain Ecosystem",
+      "GMCI DeFi Index",
+      "Blockchain Capital Portfolio",
+      "GMCI Index",
+      "World Liberty Financial Portfolio",
+      "Coinbase 50 Index",
+      "Hydration Ecosystem",
+      "Governance",
+      "Base Native"
+    ]
+  },
+  "UNH": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68624/small/unhon_160x160.png?1756130276",
+    "cg_id": "unitedhealth-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "MAGMA": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71100/small/magma.png?1765796989",
+    "cg_id": "magma-finance",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Automated Market Maker (AMM)",
+      "Sui Ecosystem",
+      "Binance Alpha Spotlight"
+    ]
   }
 }
