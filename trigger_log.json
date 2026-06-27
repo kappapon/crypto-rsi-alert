@@ -1738,8 +1738,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-06-19T04:24:37.089018+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-06-26T12:23:52.862493+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-06-27T12:23:45.792654+00:00"
     },
     {
       "symbol": "HOODX_USDT",
@@ -3648,8 +3648,8 @@
       "funding": 0.0605,
       "id": "FOLKS_USDT:rejection:2026-06-23T12:23:26.115410+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-26T12:23:41.194360+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-27T12:23:32.344514+00:00"
     },
     {
       "symbol": "AMAT_USDT",
@@ -5013,8 +5013,8 @@
       "funding": -0.0232,
       "id": "BLESS_USDT:support_break:2026-06-26T04:23:59.491240+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-27T04:24:01.012753+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-27T12:23:58.469894+00:00"
     },
     {
       "symbol": "AWEUSDT",
@@ -5112,8 +5112,8 @@
       "funding": 0.01,
       "id": "EVAA_USDT:support_break:2026-06-26T08:23:47.664689+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-26T16:23:45.675459+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-27T12:23:39.037908+00:00"
     },
     {
       "symbol": "ATMUSDT",
@@ -5404,7 +5404,8 @@
       "funding": 0.005,
       "id": "BLESS_USDT:rejection:2026-06-27T04:24:01.012753+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-27T12:23:58.469894+00:00"
     },
     {
       "symbol": "RIVN_USDT",
@@ -5523,6 +5524,18 @@
       "price": 0.45079,
       "funding": 0.005,
       "id": "MAGMA_USDT:rejection:2026-06-27T08:24:01.278555+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AWEUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-27T12:23:59.487950+00:00",
+      "price": 0.05958,
+      "funding": 0.0,
+      "id": "AWEUSDT:rejection:2026-06-27T12:23:59.487950+00:00",
       "status": "pending",
       "repeats": 1
     }
