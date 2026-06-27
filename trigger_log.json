@@ -4247,7 +4247,8 @@
       "funding": 0.01,
       "id": "INFQ_USDT:support_break:2026-06-24T16:23:43.164740+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-27T16:23:36.998075+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -4465,8 +4466,8 @@
       "funding": 0.005,
       "id": "ZEST_USDT:rejection:2026-06-25T08:23:32.359526+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-26T04:23:32.211869+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-27T16:23:28.716140+00:00"
     },
     {
       "symbol": "FOLKS_USDT",
@@ -4847,8 +4848,8 @@
       "funding": 0.0,
       "id": "SYNUSDT:support_break:2026-06-26T00:23:46.315159+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-26T16:23:52.412909+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-27T16:23:42.025292+00:00"
     },
     {
       "symbol": "ZHIPU_USDT",
@@ -5125,7 +5126,8 @@
       "funding": 0.0,
       "id": "ATMUSDT:support_break:2026-06-26T08:23:52.466847+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-27T16:23:39.912411+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -5536,6 +5538,78 @@
       "price": 0.05958,
       "funding": 0.0,
       "id": "AWEUSDT:rejection:2026-06-27T12:23:59.487950+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EVAA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-27T16:23:34.838951+00:00",
+      "price": 0.8169,
+      "funding": 0.01,
+      "id": "EVAA_USDT:rejection:2026-06-27T16:23:34.838951+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SYNUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-27T16:23:42.025292+00:00",
+      "price": 0.28818,
+      "funding": 0.0,
+      "id": "SYNUSDT:rejection:2026-06-27T16:23:42.025292+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AGT_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-06-27T16:23:43.740616+00:00",
+      "price": 0.022607,
+      "funding": 0.10139999999999999,
+      "id": "AGT_USDT:funding:2026-06-27T16:23:43.740616+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TNSRUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-27T16:23:49.729508+00:00",
+      "price": 0.0363,
+      "funding": 0.0,
+      "id": "TNSRUSDT:rejection:2026-06-27T16:23:49.729508+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EWZ_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-27T16:23:54.773479+00:00",
+      "price": 34.61,
+      "funding": 0.01,
+      "id": "EWZ_USDT:rejection:2026-06-27T16:23:54.773479+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SLX_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-27T16:23:56.922578+00:00",
+      "price": 0.48935,
+      "funding": 0.005,
+      "id": "SLX_USDT:resistance_test:2026-06-27T16:23:56.922578+00:00",
       "status": "pending",
       "repeats": 1
     }
