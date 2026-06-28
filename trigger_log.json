@@ -3914,8 +3914,8 @@
       "funding": 0.1248,
       "id": "FOLKS_USDT:funding:2026-06-23T20:24:16.747347+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-26T00:23:32.707786+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-28T08:23:26.391751+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -4477,8 +4477,8 @@
       "funding": 0.01,
       "id": "EBAY_USDT:support_break:2026-06-25T00:24:06.307679+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-06-28T00:24:01.965078+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-06-28T08:24:00.401822+00:00"
     },
     {
       "symbol": "ARC_USDT",
@@ -4883,8 +4883,8 @@
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-06-25T20:24:07.836064+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-27T08:23:54.129884+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-28T08:23:59.094981+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -4909,8 +4909,8 @@
       "funding": 0.01,
       "id": "ZHIPU_USDT:support_break:2026-06-26T00:23:49.419692+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-28T00:23:50.683892+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-28T08:23:48.468188+00:00"
     },
     {
       "symbol": "DRAM_USDT",
@@ -5638,7 +5638,8 @@
       "funding": 0.005,
       "id": "MAGMA_USDT:rejection:2026-06-27T08:24:01.278555+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-28T08:24:09.725772+00:00"
     },
     {
       "symbol": "AWEUSDT",
@@ -5835,6 +5836,102 @@
       "price": 426.83,
       "funding": 0.01,
       "id": "UNH_USDT:support_break:2026-06-28T04:24:10.157625+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AIO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T08:23:27.050033+00:00",
+      "price": 0.09454,
+      "funding": 0.005,
+      "id": "AIO_USDT:support_break:2026-06-28T08:23:27.050033+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JTOUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-28T08:23:37.749120+00:00",
+      "price": 0.7666,
+      "funding": 0.0,
+      "id": "JTOUSDT:rejection:2026-06-28T08:23:37.749120+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AWEUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T08:23:59.743842+00:00",
+      "price": 0.06107,
+      "funding": 0.0,
+      "id": "AWEUSDT:support_break:2026-06-28T08:23:59.743842+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BAS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-28T08:24:03.654157+00:00",
+      "price": 0.040455,
+      "funding": -0.0119,
+      "id": "BAS_USDT:rejection:2026-06-28T08:24:03.654157+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BAS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T08:24:03.654157+00:00",
+      "price": 0.040455,
+      "funding": -0.0119,
+      "id": "BAS_USDT:support_break:2026-06-28T08:24:03.654157+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "QUICKUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-28T08:24:04.433563+00:00",
+      "price": 0.0076,
+      "funding": 0.0,
+      "id": "QUICKUSDT:rejection:2026-06-28T08:24:04.433563+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PANW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T08:24:07.126221+00:00",
+      "price": 302.55,
+      "funding": 0.01,
+      "id": "PANW_USDT:support_break:2026-06-28T08:24:07.126221+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AAVEUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T08:24:08.424577+00:00",
+      "price": 91.44,
+      "funding": 0.0,
+      "id": "AAVEUSDT:support_break:2026-06-28T08:24:08.424577+00:00",
       "status": "pending",
       "repeats": 1
     }
