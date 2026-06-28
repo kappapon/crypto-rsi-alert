@@ -4910,8 +4910,8 @@
       "funding": 0.01,
       "id": "ZHIPU_USDT:support_break:2026-06-26T00:23:49.419692+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-28T08:23:48.468188+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-28T16:23:44.806537+00:00"
     },
     {
       "symbol": "DRAM_USDT",
@@ -5466,7 +5466,8 @@
       "funding": 0.0,
       "id": "EIGENUSDT:support_break:2026-06-27T00:23:51.612264+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-28T16:23:50.518244+00:00"
     },
     {
       "symbol": "TAC_USDT",
@@ -5503,8 +5504,8 @@
       "funding": 0.005,
       "id": "BLESS_USDT:rejection:2026-06-27T04:24:01.012753+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-27T12:23:58.469894+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-28T16:23:52.504373+00:00"
     },
     {
       "symbol": "RIVN_USDT",
@@ -5653,7 +5654,8 @@
       "funding": 0.0,
       "id": "AWEUSDT:rejection:2026-06-27T12:23:59.487950+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-28T16:23:53.503504+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -5900,7 +5902,8 @@
       "funding": -0.0119,
       "id": "BAS_USDT:support_break:2026-06-28T08:24:03.654157+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-28T16:23:56.497105+00:00"
     },
     {
       "symbol": "QUICKUSDT",
@@ -5995,6 +5998,18 @@
       "price": 0.132,
       "funding": 0.0,
       "id": "HEIUSDT:rejection:2026-06-28T12:24:07.346659+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AAVEUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-06-28T16:24:00.121964+00:00",
+      "price": 88.72,
+      "funding": 0.0,
+      "id": "AAVEUSDT:rejection:2026-06-28T16:24:00.121964+00:00",
       "status": "pending",
       "repeats": 1
     }
