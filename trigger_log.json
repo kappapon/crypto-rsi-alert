@@ -1529,8 +1529,8 @@
       "funding": 0.01,
       "id": "RTX_USDT:support_break:2026-06-18T16:24:44.119041+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-22T12:23:50.504331+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-28T04:23:48.067614+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -3293,8 +3293,8 @@
       "funding": 0.005,
       "id": "AGT_USDT:support_break:2026-06-22T16:24:09.155227+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-06-27T04:23:47.565831+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-06-28T04:23:47.413918+00:00"
     },
     {
       "symbol": "BELUSDT",
@@ -4270,8 +4270,8 @@
       "funding": 0.01,
       "id": "INFQ_USDT:rejection:2026-06-24T16:23:43.164740+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-27T04:23:38.140637+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-28T04:23:37.544495+00:00"
     },
     {
       "symbol": "INFQ_USDT",
@@ -4283,8 +4283,8 @@
       "funding": 0.01,
       "id": "INFQ_USDT:support_break:2026-06-24T16:23:43.164740+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-06-27T16:23:36.998075+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-06-28T04:23:37.544495+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -5763,6 +5763,78 @@
       "price": 348.7,
       "funding": 0.01,
       "id": "HD_USDT:support_break:2026-06-28T00:23:34.008948+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JTOUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T04:23:38.196104+00:00",
+      "price": 0.8037,
+      "funding": 0.0,
+      "id": "JTOUSDT:support_break:2026-06-28T04:23:38.196104+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HIMS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T04:23:39.536433+00:00",
+      "price": 33.917,
+      "funding": 0.01,
+      "id": "HIMS_USDT:support_break:2026-06-28T04:23:39.536433+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HOODX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T04:23:46.042841+00:00",
+      "price": 98.28,
+      "funding": 0.01,
+      "id": "HOODX_USDT:support_break:2026-06-28T04:23:46.042841+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIVN_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T04:24:02.065811+00:00",
+      "price": 15.612,
+      "funding": 0.01,
+      "id": "RIVN_USDT:support_break:2026-06-28T04:24:02.065811+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "QUICKUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T04:24:05.365178+00:00",
+      "price": 0.00782,
+      "funding": 0.0,
+      "id": "QUICKUSDT:support_break:2026-06-28T04:24:05.365178+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNH_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-06-28T04:24:10.157625+00:00",
+      "price": 426.83,
+      "funding": 0.01,
+      "id": "UNH_USDT:support_break:2026-06-28T04:24:10.157625+00:00",
       "status": "pending",
       "repeats": 1
     }
