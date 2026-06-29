@@ -705,6 +705,32 @@
       "status": "open",
       "symbol": "MMTUSDT",
       "tp": 0.16337797289160094
+    },
+    {
+      "atr": 8.707489568674925e-07,
+      "breadth": 2,
+      "entry": 2.057e-05,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-06-29T00:25:04+00:00",
+      "prob": 0.524,
+      "sl": 2.1440748956867494e-05,
+      "status": "open",
+      "symbol": "WINUSDT",
+      "tp": 1.8828502086265017e-05
+    },
+    {
+      "atr": 0.040612468521013405,
+      "breadth": 2,
+      "entry": 0.5766,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-06-29T00:25:04+00:00",
+      "prob": 0.414,
+      "sl": 0.6172124685210134,
+      "status": "open",
+      "symbol": "KAITOUSDT",
+      "tp": 0.4953750629579732
     }
   ]
 }
