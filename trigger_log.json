@@ -6103,8 +6103,8 @@
       "funding": 0.11329999999999998,
       "id": "TAC_USDT:funding:2026-06-28T20:23:45.668866+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-06-29T12:23:44.529081+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-06-29T20:23:45.073175+00:00"
     },
     {
       "symbol": "EIGENUSDT",
@@ -6337,7 +6337,8 @@
       "funding": -0.21619999999999998,
       "id": "GWEI_USDT:funding:2026-06-29T12:23:33.685161+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-06-29T20:23:33.040676+00:00"
     },
     {
       "symbol": "RTX_USDT",
@@ -6528,6 +6529,18 @@
       "price": 328.19,
       "funding": 0.01,
       "id": "PANW_USDT:breakout:2026-06-29T16:24:04.185488+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JNJ_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-06-29T20:23:30.276551+00:00",
+      "price": 258.18,
+      "funding": 0.01,
+      "id": "JNJ_USDT:resistance_test:2026-06-29T20:23:30.276551+00:00",
       "status": "pending",
       "repeats": 1
     }
