@@ -1210,6 +1210,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "POWRUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0741,
+        "resistance": 0.073,
+        "rejection_below": 0.0563,
+        "support_strong": 0.0535,
+        "support_extreme": 0.0497
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
