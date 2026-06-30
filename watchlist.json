@@ -654,11 +654,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 91.8575,
-        "resistance": 90.5,
-        "rejection_below": 84.9585,
-        "support_strong": 89.3833,
-        "support_extreme": 89.2024
+        "breakout_above": 92.8116,
+        "resistance": 91.44,
+        "rejection_below": 85.9655,
+        "support_strong": 89.7362,
+        "support_extreme": 89.4161
       },
       "alerts": {
         "price_breakout": true,
