@@ -1261,6 +1261,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "DDOG_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 263.9101,
+        "resistance": 260.01,
+        "rejection_below": 246.6865,
+        "support_strong": 251.315,
+        "support_extreme": 247.1861
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
