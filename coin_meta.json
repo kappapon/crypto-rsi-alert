@@ -1129,5 +1129,35 @@
       "Governance",
       "Base Native"
     ]
+  },
+  "POWR": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/1104/small/Powerledger_Token_logo_%281%29.png?1741750417",
+    "cg_id": "power-ledger",
+    "categories": [
+      "Energy",
+      "Ethereum Ecosystem",
+      "DePIN",
+      "Alleged SEC Securities",
+      "Energi Ecosystem",
+      "GMCI DePIN Index",
+      "Blockchain Capital Portfolio",
+      "GMCI Index"
+    ]
+  },
+  "IN": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/1/small/bitcoin.png?1696501400",
+    "cg_id": "bitcoin",
+    "categories": [
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "FTX Holdings",
+      "Proof of Work (PoW)",
+      "Bitcoin Ecosystem",
+      "GMCI 30 Index",
+      "GMCI Index",
+      "Coinbase 50 Index"
+    ]
   }
 }
