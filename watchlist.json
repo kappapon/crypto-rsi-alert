@@ -637,11 +637,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 171.8598,
-        "resistance": 169.32,
-        "rejection_below": 158.4505,
-        "support_strong": 165.6381,
-        "support_extreme": 164.9003
+        "breakout_above": 178.8937,
+        "resistance": 176.25,
+        "rejection_below": 167.143,
+        "support_strong": 169.7066,
+        "support_extreme": 167.2522
       },
       "alerts": {
         "price_breakout": true,
