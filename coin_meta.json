@@ -1159,5 +1159,33 @@
       "GMCI Index",
       "Coinbase 50 Index"
     ]
+  },
+  "CGNX": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "SMH": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/33009/small/oLBL3X94_400x400.png?1700168194",
+    "cg_id": "spacemesh",
+    "categories": [
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "Paradigm Portfolio",
+      "Coinbase Ventures Portfolio"
+    ]
+  },
+  "DDOG": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/36707/small/birddog-cg-200-200.png?1741217896",
+    "cg_id": "bird-dog",
+    "categories": [
+      "Meme",
+      "Ethereum Ecosystem",
+      "Dog-Themed",
+      "The Boy’s Club"
+    ]
   }
 }
