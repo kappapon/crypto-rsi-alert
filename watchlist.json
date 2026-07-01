@@ -1278,6 +1278,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "GEV_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 1244.8975,
+        "resistance": 1226.5,
+        "rejection_below": 1117.675,
+        "support_strong": 1145.0665,
+        "support_extreme": 1115.0495
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
