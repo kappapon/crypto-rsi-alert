@@ -1312,6 +1312,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "DYDXUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.2401,
+        "resistance": 0.2366,
+        "rejection_below": 0.2212,
+        "support_strong": 0.1818,
+        "support_extreme": 0.1705
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
