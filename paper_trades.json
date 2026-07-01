@@ -696,13 +696,16 @@
     {
       "atr": 0.018211013554199525,
       "breadth": 3,
+      "closed_at": "2026-06-30T08:00:00+00:00",
       "entry": 0.1998,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.16337797289160094,
       "opened_at": "2026-06-28T00:26:57+00:00",
       "prob": 0.434,
+      "r": 2.0,
       "sl": 0.21801101355419952,
-      "status": "open",
+      "status": "closed_tp",
       "symbol": "MMTUSDT",
       "tp": 0.16337797289160094
     },
