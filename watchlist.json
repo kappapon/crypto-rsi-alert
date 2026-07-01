@@ -1329,6 +1329,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "TAIKO_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.1816,
+        "resistance": 0.1789,
+        "rejection_below": 0.1322,
+        "support_strong": 0.0981,
+        "support_extreme": 0.0836
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
