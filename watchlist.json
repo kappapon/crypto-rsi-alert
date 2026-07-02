@@ -520,7 +520,7 @@
       "levels": {
         "breakout_above": 114.2179,
         "resistance": 112.53,
-        "rejection_below": 107.0,
+        "rejection_below": 107,
         "support_strong": 105.6224,
         "support_extreme": 103.2404
       },
@@ -655,7 +655,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 83.23,
-        "resistance": 82.0,
+        "resistance": 82,
         "rejection_below": 61.6835,
         "support_strong": 67.552,
         "support_extreme": 69.6005
@@ -914,23 +914,6 @@
         "rejection_below": 32.4805,
         "support_strong": 34.3218,
         "support_extreme": 34.4305
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "WINUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
       },
       "alerts": {
         "price_breakout": true,
