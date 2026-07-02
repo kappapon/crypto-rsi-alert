@@ -1346,6 +1346,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "TLMUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0021,
+        "resistance": 0.002,
+        "rejection_below": 0.0015,
+        "support_strong": 0.0013,
+        "support_extreme": 0.0012
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
