@@ -684,23 +684,6 @@
         "funding_high": 0.1
       }
     },
-    "BELUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.2334,
-        "resistance": 0.23,
-        "rejection_below": 0.0888,
-        "support_strong": 0.0973,
-        "support_extreme": 0.1027
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BICOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
@@ -1169,23 +1152,6 @@
         "rejection_below": 0.5841,
         "support_strong": 0.597,
         "support_extreme": 0.5867
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "POWRUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0741,
-        "resistance": 0.073,
-        "rejection_below": 0.041,
-        "support_strong": 0.0436,
-        "support_extreme": 0.0452
       },
       "alerts": {
         "price_breakout": true,

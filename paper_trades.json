@@ -573,13 +573,16 @@
     {
       "atr": 5.769734275513447,
       "breadth": 3,
+      "closed_at": "2026-07-01T16:00:00+00:00",
       "entry": 98.92,
       "entry_is_live": true,
       "exchange": "gateio_futures",
+      "exit": 104.68973427551344,
       "opened_at": "2026-06-25T00:27:41+00:00",
       "prob": 0.329,
+      "r": -1.0,
       "sl": 104.68973427551344,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "HOODX_USDT",
       "tp": 87.3805314489731
     },
@@ -628,13 +631,16 @@
     {
       "atr": 6.05140353347843,
       "breadth": 4,
+      "closed_at": "2026-07-01T16:00:00+00:00",
       "entry": 98.31,
       "entry_is_live": true,
       "exchange": "gateio_futures",
+      "exit": 104.36140353347844,
       "opened_at": "2026-06-27T00:27:29+00:00",
       "prob": 0.414,
+      "r": -1.0,
       "sl": 104.36140353347844,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "HOODX_USDT",
       "tp": 86.20719293304315
     },
@@ -725,13 +731,16 @@
     {
       "atr": 0.040612468521013405,
       "breadth": 2,
+      "closed_at": "2026-07-02T00:00:00+00:00",
       "entry": 0.5766,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.6172124685210134,
       "opened_at": "2026-06-29T00:25:04+00:00",
       "prob": 0.414,
+      "r": -1.0,
       "sl": 0.6172124685210134,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "KAITOUSDT",
       "tp": 0.4953750629579732
     }
