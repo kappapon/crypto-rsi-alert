@@ -905,23 +905,6 @@
         "funding_high": 0.1
       }
     },
-    "BAS_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0647,
-        "resistance": 0.0637,
-        "rejection_below": 0.0366,
-        "support_strong": 0.0454,
-        "support_extreme": 0.0471
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "QUICKUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
