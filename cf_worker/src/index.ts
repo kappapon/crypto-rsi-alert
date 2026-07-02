@@ -587,9 +587,13 @@ async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
   if (cw) {
     try { confirm = (JSON.parse(cw) as { swept: boolean }).swept ? "swept" : "armed"; } catch { /* skip */ }
   } else if (await env.DEDUPE.get(`lastconfirm:${item.symbol}`)) confirm = "confirmed";
+  const patSnap = (await ghFetchJsonCached(env, "pattern_snapshot.json")) as
+    { parabolic_seen?: Record<string, string> } | null;
+  const paraSeen = patSnap?.parabolic_seen?.[item.label.replace(/_/g, "").replace(/USDT$/, "")] ?? null;
   return jsonResp({
     ok: true, label: item.label, source: item.source, rsi15, div, cross,
     lastdivMin: ld ? Math.round((Date.now() - Number(ld)) / 60000) : null, confirm,
+    para_seen: paraSeen,
   });
 }
 
@@ -641,23 +645,30 @@ async function handleChatCommand(env: Env, cmd: string, arg: string): Promise<vo
 async function handleWl(env: Env, url: URL, method: "GET" | "POST"): Promise<Response> {
   if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
   if (method === "GET") {
-    const [cur, snapR, dw] = await Promise.all([
+    const [cur, snapR, dw, patR] = await Promise.all([
       ghFetchWatchlist(env),
       ghFetchJson(env, "rsi_snapshot.json"), // RSI(D) สดจาก scan.py ทุก 4 ชม. — key binance = SYM, gate = SYM.GATEIO
       getDivWatch(env),
+      ghFetchJsonCached(env, "pattern_snapshot.json"), // pattern + parabolic history จาก pattern_scan.py
     ]);
     if ("error" in cur) return jsonResp({ ok: false, error: cur.error });
     const snap = "error" in snapR ? null : (snapR.data as { date?: string; rsi?: Record<string, number> });
     const rsiMap = snap?.rsi ?? {};
+    const pat = (patR ?? {}) as { patterns?: Record<string, string>; parabolic_seen?: Record<string, string> };
+    const patterns = pat.patterns ?? {};
+    const paraSeen = pat.parabolic_seen ?? {};
     const inDiv = new Set(dw.map((d) => d.symbol.replace(/_?USDT$/, "")));
     const tickers = Object.entries(cur.data.tickers ?? {}).map(([symbol, cfg]) => {
       const ex = cfg.exchange ?? "?";
       const rsiKey = ex === "gateio_futures" ? `${symbol}.GATEIO` : symbol;
       const rsi = rsiMap[rsiKey];
+      const base = symbol.replace(/_/g, "").replace(/USDT$/, "");
       return {
         symbol, exchange: ex, enabled: cfg.enabled !== false,
         rsi_d: typeof rsi === "number" ? rsi : null,
         in_div: inDiv.has(symbol.replace(/_?USDT$/, "")),
+        pattern: patterns[symbol] ?? null,
+        para_seen: paraSeen[base] ?? null,
       };
     });
     return jsonResp({ ok: true, count: tickers.length, tickers, snapshot_date: snap?.date ?? null });
@@ -710,6 +721,11 @@ input{flex:1;min-width:0}
 select{flex:0 0 auto;font-size:.85rem;padding:8px}
 .rsi{font-variant-numeric:tabular-nums;min-width:38px;text-align:right}
 .rsi.hot{color:#ff5544;font-weight:600}.rsi.warm{color:#ffb04d}.rsi.dim{color:#6a9a7c}
+.pat{font-size:.68rem;border:1px solid #1c3a24;border-radius:4px;padding:2px 5px;white-space:nowrap;color:#6a9a7c}
+.pat.Parabolic{color:#ff5544;border-color:#ff5544}
+.pat.Breakout{color:#ffb04d;border-color:#ffb04d}
+.pat.Pullback{color:#3fd07d;border-color:#1c5a30}
+.pat.Downtrend{color:#888}
 .dv{background:none;border:1px solid #1c5a30;border-radius:6px;color:#6a9a7c;font-size:.72rem;padding:5px 8px}
 .dv:active{background:#13351f}
 .dv.on{color:#3fd07d;border-color:#3fd07d}
@@ -742,8 +758,9 @@ $('count').textContent=list.length+' ตัว';
 $('list').innerHTML=rows.map(function(d){
 var r=d.rsi_d==null?'&ndash;':d.rsi_d.toFixed(0);
 var dv=d.in_div?'<button class="dv on" disabled>&#10003;div</button>':'<button class="dv" data-adddiv="'+d.symbol+'">+div</button>';
+var pat=d.pattern?'<span class="pat '+d.pattern+'" title="'+(d.para_seen?'เคย Parabolic '+d.para_seen:'')+'">'+(d.para_seen&&d.pattern!=='Parabolic'?'\\uD83D\\uDE80 ':'')+d.pattern+'</span>':'<span class="pat">&ndash;</span>';
 return '<div class="row"><span class="lbl">'+d.symbol+(d.enabled?'':' <span class="off">(off)</span>')+'</span>'+
-'<span class="rsi '+rsiCls(d.rsi_d)+'">'+r+'</span>'+
+pat+'<span class="rsi '+rsiCls(d.rsi_d)+'">'+r+'</span>'+
 '<span class="src">'+d.exchange.replace('gateio_futures','gate').replace('binance_spot','binance')+'</span>'+dv+
 '<button class="x" data-sym="'+d.symbol+'">&#10005;</button></div>';
 }).join('')||'<p class="muted">'+(q?'ไม่พบ':'ว่าง')+'</p>';
@@ -875,6 +892,7 @@ h+=chip('2h',s.cross&&s.cross['2h']);
 var c2=s.cross&&s.cross['2h'];
 if(s.lastdivMin!=null&&c2&&(c2.crossed||c2.below))h+='<span class="tf red">\\uD83C\\uDFAF div '+(s.lastdivMin/60).toFixed(1)+'\\u0E0A\\u0E21.+2H</span>';
 else if(s.lastdivMin!=null)h+='<span class="tf">\\uD83D\\uDC3B div '+(s.lastdivMin/60).toFixed(1)+'\\u0E0A\\u0E21.</span>';
+if(s.para_seen)h+='<span class="tf yel" title="เคยแสดง pattern Parabolic">\\uD83D\\uDE80 para '+s.para_seen.slice(5)+'</span>';
 u.innerHTML=h;
 }).catch(function(){});
 });
@@ -1164,6 +1182,19 @@ async function ghFetchJson(env: Env, path: string): Promise<{ data: unknown; sha
   } catch {
     return { error: `${path} parse failed` };
   }
+}
+
+// อ่านไฟล์ repo แบบ cache ใน KV (snapshot อัปเดตทุก 4 ชม. — cache 10 นาทีพอ)
+async function ghFetchJsonCached(env: Env, path: string, ttlSec = 600): Promise<unknown | null> {
+  const ckey = `ghcache:${path}`;
+  const hit = await env.DEDUPE.get(ckey);
+  if (hit) {
+    try { return JSON.parse(hit); } catch { /* refetch */ }
+  }
+  const r = await ghFetchJson(env, path);
+  if ("error" in r) return null;
+  await env.DEDUPE.put(ckey, JSON.stringify(r.data), { expirationTtl: ttlSec });
+  return r.data;
 }
 
 async function ghFetchWatchlist(env: Env): Promise<{ data: WatchlistFile; sha: string } | { error: string }> {
