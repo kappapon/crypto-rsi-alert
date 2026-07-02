@@ -361,6 +361,7 @@ async function fetchDailyOHLC(symbol, exchange, limit = 50) {
 
 // Priority: Parabolic > Breakout > Pullback > Downtrend > Range
 // Criteria match the training event definition (RSI overbought fade-the-top context)
+// ⚠️ มี python port ใน pattern_scan.py (wlmanage/divmanage ใช้) — แก้กติกาที่นี่ต้องแก้ที่นั่นด้วย
 function classifyPattern(candles) {
   if (!candles || candles.length < 50) return null;
   const closes = candles.map(c => c.c);
