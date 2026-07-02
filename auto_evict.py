@@ -26,7 +26,7 @@ ROOT = Path(__file__).parent
 TRIGGER_LOG = ROOT / "trigger_log.json"
 PAPER_FILE = ROOT / "paper_trades.json"
 EVICT_RSI_BELOW = 50.0
-EVICT_CONSEC_DAYS = 2
+EVICT_CONSEC_DAYS = 1  # เดิม 2 — user ขอไวขึ้น 2026-07-02 (watchlist โตเร็ว เอาตัวเย็นออกเร็ว)
 DAY = 86400
 RSI_PERIOD = 14
 
