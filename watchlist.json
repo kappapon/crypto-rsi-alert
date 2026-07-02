@@ -1312,6 +1312,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "REUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 1.1107,
+        "resistance": 1.0943,
+        "rejection_below": 0.569,
+        "support_strong": 0.6139,
+        "support_extreme": 0.6384
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
