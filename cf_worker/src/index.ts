@@ -191,6 +191,26 @@ export default {
       if (url.pathname === "/coinstatus") return handleCoinStatus(env, url); // สถานะต่อเหรียญให้หน้า divmanage
       if (url.pathname === "/wlmanage") return handleWlManage(env, url); // หน้าจัดการ watchlist หลักจาก remote
       if (url.pathname === "/wl") return handleWl(env, url, "GET"); // list watchlist (JSON)
+      // ops: ดู/ซ่อม webhook config — เคส 2026-07-02: allowed_updates เดิมมีแค่ callback_query
+      // ทำให้คำสั่งพิมพ์ (/wl ฯลฯ) ไม่เคยถูกส่งมา; /fixwebhook ตั้งใหม่พร้อม secret เดิม (idempotent)
+      if (url.pathname === "/webhookinfo") {
+        if (url.searchParams.get("token") !== env.DASH_TOKEN) return new Response("forbidden", { status: 403 });
+        const r = await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/getWebhookInfo`);
+        return new Response(await r.text(), { headers: { "content-type": "application/json" } });
+      }
+      if (url.pathname === "/fixwebhook") {
+        if (url.searchParams.get("token") !== env.DASH_TOKEN) return new Response("forbidden", { status: 403 });
+        const r = await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/setWebhook`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            url: "https://crypto-rsi-webhook.kappaponpuesan.workers.dev",
+            secret_token: env.WEBHOOK_SECRET,
+            allowed_updates: ["message", "callback_query"],
+          }),
+        });
+        return new Response(await r.text(), { headers: { "content-type": "application/json" } });
+      }
       return new Response("ok", { status: 200 });
     }
     if (req.method === "POST") {
