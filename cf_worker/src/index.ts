@@ -184,6 +184,7 @@ export default {
         });
       }
       if (url.pathname === "/divmanage") return handleDivManage(env, url); // หน้าจัดการ div watch จาก remote (token-gated)
+      if (url.pathname === "/coinstatus") return handleCoinStatus(env, url); // สถานะต่อเหรียญให้หน้า divmanage
       return new Response("ok", { status: 200 });
     }
     if (req.method === "POST") {
@@ -388,6 +389,20 @@ function smaAt(vals: number[], i: number, period: number): number {
   return s / period;
 }
 
+// สถานะ RSI(14) เทียบ RSI-based MA บนแท่งปิดล่าสุด — ใช้ทั้ง watcher และ /coinstatus
+function crossState(closes: number[]): { rsi: number; ma: number; crossed: boolean; below: boolean; hot: boolean } | null {
+  const i = closes.length - 1;
+  const rsi = wilderRSI(closes, 14);
+  const maPrev = smaAt(rsi, i - 1, CROSS_MA_PERIOD);
+  const maNow = smaAt(rsi, i, CROSS_MA_PERIOD);
+  if ([rsi[i - 1], rsi[i], maPrev, maNow].some(Number.isNaN)) return null;
+  return {
+    rsi: rsi[i], ma: maNow,
+    crossed: rsi[i - 1] >= maPrev && rsi[i] < maNow,
+    below: rsi[i] < maNow, hot: maPrev >= CROSS_MA_MIN,
+  };
+}
+
 // RSI ตัดลงใต้ RSI-based MA จากโซนสูง บนแท่งปิดล่าสุด — เช็คเฉพาะแท่งล่าสุด = fresh เสมอ
 async function runRsiMaCrossWatch(env: Env): Promise<void> {
   const list = await getDivWatch(env);
@@ -401,24 +416,21 @@ async function runRsiMaCrossWatch(env: Env): Promise<void> {
         }
         const { closes, times } = kl;
         const i = closes.length - 1;
-        const rsi = wilderRSI(closes, 14);
-        const maPrev = smaAt(rsi, i - 1, CROSS_MA_PERIOD);
-        const maNow = smaAt(rsi, i, CROSS_MA_PERIOD);
-        if ([rsi[i - 1], rsi[i], maPrev, maNow].some(Number.isNaN)) continue;
-        const crossedDown = rsi[i - 1] >= maPrev && rsi[i] < maNow;
-        if (!crossedDown) {
-          console.log(`rsicross ${item.label} ${tf}: quiet rsi=${rsi[i].toFixed(1)} ma=${maNow.toFixed(1)}`);
+        const st = crossState(closes);
+        if (!st) continue;
+        if (!st.crossed) {
+          console.log(`rsicross ${item.label} ${tf}: quiet rsi=${st.rsi.toFixed(1)} ma=${st.ma.toFixed(1)}`);
           continue;
         }
         // confluence: 2h cross + bearish div (15m) ภายใน 24 ชม. → 🎯 CONFIRMED; div ทดแทน zone filter
         const lastDiv = tf === CROSS_CONFIRM_TF ? await env.DEDUPE.get(`lastdiv:${item.symbol}`) : null;
-        if (!lastDiv && maPrev < CROSS_MA_MIN) {
-          console.log(`rsicross ${item.label} ${tf}: cross below zone (ma=${maPrev.toFixed(1)})`);
+        if (!lastDiv && !st.hot) {
+          console.log(`rsicross ${item.label} ${tf}: cross below zone (ma=${st.ma.toFixed(1)})`);
           continue;
         }
         const key = `rsicross:${item.symbol}:${tf}:${times[i]}`;
         if (await env.DEDUPE.get(key)) continue;
-        const stats = `RSI ${rsi[i].toFixed(1)} ↓ MA ${maNow.toFixed(1)} · ราคา ${divFmt(closes[i])}`;
+        const stats = `RSI ${st.rsi.toFixed(1)} ↓ MA ${st.ma.toFixed(1)} · ราคา ${divFmt(closes[i])}`;
         const text = lastDiv
           ? `🎯 <b>${item.label}</b> — CONFIRMED SHORT SETUP\n` +
             `🐻 bearish div 15m (${((Date.now() - Number(lastDiv)) / 3600000).toFixed(1)} ชม.ก่อน) + 📉 RSI ตัดลง MA (2H)\n` +
@@ -509,6 +521,41 @@ async function handleDivWatchMutate(env: Env, url: URL): Promise<Response> {
   return jsonResp({ ok: false, error: "action ต้องเป็น add หรือ remove" });
 }
 
+// สถานะเต็มต่อเหรียญสำหรับหน้า /divmanage — RSI 15m + div + cross 1h/2h + lifecycle (3 fetch + KV ไม่กี่ op ต่อ call)
+async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
+  if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
+  const sym = (url.searchParams.get("symbol") || "").trim().toUpperCase();
+  const list = await getDivWatch(env);
+  const item = list.find((d) => d.symbol === sym || d.label === sym);
+  if (!item) return jsonResp({ ok: false, error: "ไม่อยู่ใน div watch" });
+  const [k15, k1, k2] = await Promise.all([fetchKlines(item), fetchKlines(item, "1h"), fetchKlines(item, "2h")]);
+  let rsi15: number | null = null;
+  let div: { age: number; fresh: boolean } | null = null;
+  if (!("error" in k15)) {
+    const rsi = wilderRSI(k15.closes, 14);
+    const last = rsi[rsi.length - 1];
+    rsi15 = Number.isNaN(last) ? null : +last.toFixed(1);
+    const bear = detectDiv(k15.highs, rsi, swingHighs(k15.highs, DIV_PIVOT_K), "bearish");
+    if (bear) {
+      const age = k15.closes.length - 1 - bear.p2;
+      div = { age, fresh: age <= DIV_FRESH_BARS };
+    }
+  }
+  const cross: Record<string, ReturnType<typeof crossState>> = {};
+  if (!("error" in k1)) cross["1h"] = crossState(k1.closes);
+  if (!("error" in k2)) cross["2h"] = crossState(k2.closes);
+  const ld = await env.DEDUPE.get(`lastdiv:${item.symbol}`);
+  let confirm: string | null = null;
+  const cw = await env.DEDUPE.get(`confirm:${item.symbol}`);
+  if (cw) {
+    try { confirm = (JSON.parse(cw) as { swept: boolean }).swept ? "swept" : "armed"; } catch { /* skip */ }
+  } else if (await env.DEDUPE.get(`lastconfirm:${item.symbol}`)) confirm = "confirmed";
+  return jsonResp({
+    ok: true, label: item.label, source: item.source, rsi15, div, cross,
+    lastdivMin: ld ? Math.round((Date.now() - Number(ld)) / 60000) : null, confirm,
+  });
+}
+
 // หน้าเว็บเล็ก ๆ จัดการ div watch จาก remote (มือถือ) — token ใน URL, เรียก /divwatch ของ worker เอง
 async function handleDivManage(env: Env, url: URL): Promise<Response> {
   const htmlHeaders = { "content-type": "text/html; charset=utf-8" };
@@ -526,20 +573,29 @@ function divManagePage(listJson: string): string {
 <style>
 :root{color-scheme:dark}
 body{font-family:-apple-system,system-ui,sans-serif;background:#0a0f0a;color:#cfe4d6;margin:0 auto;padding:16px;max-width:520px}
-h1{font-size:1.05rem;color:#3fd07d;margin:0 0 12px}
-.row{display:flex;align-items:center;gap:8px;padding:11px 4px;border-top:1px solid #1c3a24}
-.row .lbl{flex:1;font-weight:600}
-.row .src{color:#6a9a7c;font-size:.78rem}
+h1{font-size:1.05rem;color:#3fd07d;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+h1 .rf{margin-left:auto}
+.row{padding:9px 4px;border-top:1px solid #1c3a24}
+.main{display:flex;align-items:center;gap:8px}
+.main .lbl{flex:1;font-weight:600}
+.main .rsi{font-variant-numeric:tabular-nums}
+.rsi.hot{color:#ffb04d}.rsi.cool{color:#6a9a7c}
+.bdg{font-size:.78rem;white-space:nowrap}
+.bdg.red{color:#ff5544;font-weight:600}.bdg.amb{color:#ffb04d}.bdg.dim{color:#6a9a7c}
+.sub{display:flex;gap:12px;font-size:.74rem;padding:3px 0 0 2px;min-height:1em}
+.tf{white-space:nowrap;color:#6a9a7c}
+.tf.red{color:#ff5544;font-weight:600}.tf.yel{color:#ffb04d}
 button{background:#13351f;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:9px 14px;font-size:.92rem}
 button:active{background:#1c5a30}
 .x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
 .x:active{color:#ff5544}
+.rf{background:none;border:1px solid #1c5a30;border-radius:6px;color:#6a9a7c;font-size:.8rem;padding:5px 10px}
 .add{display:flex;gap:8px;margin:14px 0 4px}
 .add input{flex:1;min-width:0;background:#0d1b10;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:11px;font-size:1rem}
 #msg{min-height:1.2rem;font-size:.85rem;margin:6px 0}
 .ok{color:#3fd07d}.err{color:#ff5544}.muted{color:#6a9a7c}
 </style></head><body>
-<h1>&#9646; 15m DIV WATCH &mdash; manage</h1>
+<h1>&#9646; 15m DIV WATCH &mdash; manage <button class="rf" id="rf">&#8635; refresh</button></h1>
 <div class="add">
 <input id="sym" placeholder="+ ticker เช่น TAC" autocomplete="off" autocapitalize="characters">
 <button id="add">add</button></div>
@@ -550,21 +606,63 @@ var TOKEN=new URLSearchParams(location.search).get('token');
 var list=${listJson};
 var $=function(id){return document.getElementById(id)};
 function render(){
-$('list').innerHTML=list.map(function(d){return '<div class="row"><span class="lbl">'+d.label+'</span><span class="src">'+d.source+'</span><button class="x" data-sym="'+d.label+'">&#10005;</button></div>'}).join('')||'<p class="muted">ว่าง</p>';
+$('list').innerHTML=list.map(function(d){
+return '<div class="row"><div class="main"><span class="lbl">'+d.label+'</span>'+
+'<span class="rsi cool" id="rsi-'+d.label+'">&ndash;</span>'+
+'<span class="bdg dim" id="bdg-'+d.label+'">&hellip;</span>'+
+'<button class="x" data-sym="'+d.label+'">&#10005;</button></div>'+
+'<div class="sub" id="sub-'+d.label+'"></div></div>';
+}).join('')||'<p class="muted">ว่าง</p>';
+}
+function chip(tf,c){
+if(!c)return '<span class="tf">'+tf.toUpperCase()+' &ndash;</span>';
+var a=c.crossed?'\\u2702\\uFE0F':(c.below?'\\u2193':'\\u2191');
+var cls=c.crossed&&c.hot?'tf red':(c.below?'tf yel':'tf');
+return '<span class="'+cls+'">'+tf.toUpperCase()+' '+a+Math.round(c.rsi)+'/'+Math.round(c.ma)+'</span>';
+}
+function badge(s){
+if(s.confirm==='confirmed')return ['\\uD83C\\uDFAF confirmed','red'];
+if(s.confirm==='swept')return ['\\u23F3 swept','amb'];
+if(s.confirm==='armed')return ['\\uD83D\\uDD2B armed','amb'];
+if(s.div&&s.div.fresh)return ['\\uD83D\\uDC3B bearish div','red'];
+if(s.div)return ['div '+s.div.age+'b เก่า','dim'];
+if(s.rsi15!=null&&s.rsi15>=65)return ['RSI hot','amb'];
+return ['quiet','dim'];
+}
+function loadStatus(){
+list.forEach(function(d){
+fetch('/coinstatus?token='+encodeURIComponent(TOKEN)+'&symbol='+encodeURIComponent(d.symbol))
+.then(function(r){return r.json()}).then(function(s){
+if(!s.ok)return;
+var r=$('rsi-'+d.label),b=$('bdg-'+d.label),u=$('sub-'+d.label);
+if(!r)return;
+r.textContent=s.rsi15!=null?s.rsi15.toFixed(1):'?';
+r.className='rsi '+(s.rsi15!=null&&s.rsi15>=65?'hot':'cool');
+var bd=badge(s);b.innerHTML=bd[0];b.className='bdg '+bd[1];
+var h='';
+h+=chip('1h',s.cross&&s.cross['1h']);
+h+=chip('2h',s.cross&&s.cross['2h']);
+var c2=s.cross&&s.cross['2h'];
+if(s.lastdivMin!=null&&c2&&(c2.crossed||c2.below))h+='<span class="tf red">\\uD83C\\uDFAF div '+(s.lastdivMin/60).toFixed(1)+'\\u0E0A\\u0E21.+2H</span>';
+else if(s.lastdivMin!=null)h+='<span class="tf">\\uD83D\\uDC3B div '+(s.lastdivMin/60).toFixed(1)+'\\u0E0A\\u0E21.</span>';
+u.innerHTML=h;
+}).catch(function(){});
+});
 }
 function setMsg(t,c){var m=$('msg');m.textContent=t;m.className=c||'muted';}
 function mutate(action,symbol){
 setMsg((action==='add'?'กำลังเพิ่ม+ตรวจสอบ ':'กำลังลบ ')+symbol+'...','muted');
 fetch('/divwatch?token='+encodeURIComponent(TOKEN)+'&action='+action+'&symbol='+encodeURIComponent(symbol),{method:'POST'})
 .then(function(r){return r.json()}).then(function(d){
-if(d.ok){list=d.divwatch;render();setMsg(action==='add'?('\\u2705 เพิ่ม '+(d.added&&d.added.label)+' ('+(d.added&&d.added.source)+')'):('\\u2705 ลบ '+d.removed),'ok');if(action==='add')$('sym').value='';}
+if(d.ok){list=d.divwatch;render();loadStatus();setMsg(action==='add'?('\\u2705 เพิ่ม '+(d.added&&d.added.label)+' ('+(d.added&&d.added.source)+')'):('\\u2705 ลบ '+d.removed),'ok');if(action==='add')$('sym').value='';}
 else setMsg('\\u26a0\\ufe0f '+(d.error||'ล้มเหลว'),'err');
 }).catch(function(e){setMsg('\\u26a0\\ufe0f '+e,'err')});
 }
 $('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
 $('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
 $('list').addEventListener('click',function(e){var b=e.target.closest('[data-sym]');if(b)mutate('remove',b.dataset.sym)});
-render();
+$('rf').onclick=loadStatus;
+render();loadStatus();
 </script></body></html>`;
 }
 
