@@ -378,23 +378,6 @@
         "funding_high": 0.1
       }
     },
-    "WLDUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.7337,
-        "resistance": 0.7229,
-        "rejection_below": 0.3433,
-        "support_strong": 0.3818,
-        "support_extreme": 0.3987
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "SPX_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
