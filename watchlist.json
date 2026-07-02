@@ -616,23 +616,6 @@
         "funding_high": 0.1
       }
     },
-    "DRAM_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 83.23,
-        "resistance": 82,
-        "rejection_below": 61.6835,
-        "support_strong": 67.552,
-        "support_extreme": 69.6005
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ZEREBRO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
