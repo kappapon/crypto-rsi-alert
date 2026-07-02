@@ -27,6 +27,10 @@ interface InlineButton {
 
 interface TelegramUpdate {
   update_id: number;
+  message?: {
+    text?: string;
+    chat?: { id: number };
+  };
   callback_query?: {
     id: string;
     data?: string;
@@ -185,11 +189,14 @@ export default {
       }
       if (url.pathname === "/divmanage") return handleDivManage(env, url); // หน้าจัดการ div watch จาก remote (token-gated)
       if (url.pathname === "/coinstatus") return handleCoinStatus(env, url); // สถานะต่อเหรียญให้หน้า divmanage
+      if (url.pathname === "/wlmanage") return handleWlManage(env, url); // หน้าจัดการ watchlist หลักจาก remote
+      if (url.pathname === "/wl") return handleWl(env, url, "GET"); // list watchlist (JSON)
       return new Response("ok", { status: 200 });
     }
     if (req.method === "POST") {
       const u = new URL(req.url);
       if (u.pathname === "/divwatch") return handleDivWatchMutate(env, u); // add/remove ticker จาก dashboard
+      if (u.pathname === "/wl") return handleWl(env, u, "POST"); // add/remove ใน watchlist หลัก
     }
     if (req.method !== "POST") return new Response("ok", { status: 200 });
 
@@ -203,6 +210,16 @@ export default {
       update = await req.json();
     } catch {
       return new Response("bad json", { status: 400 });
+    }
+
+    // ---- คำสั่งพิมพ์ในแชท: /add SYM, /remove SYM, /wl — เฉพาะแชทของ user (CHAT_ID) ----
+    const msg = update.message;
+    if (msg?.text && String(msg.chat?.id ?? "") === env.CHAT_ID) {
+      const m = msg.text.trim().match(/^\/(add|remove|rm|wl)(?:\s+(\S+))?$/i);
+      if (m) {
+        ctx.waitUntil(handleChatCommand(env, m[1].toLowerCase(), (m[2] || "").toUpperCase()));
+        return new Response("command", { status: 200 });
+      }
     }
 
     const cb = update.callback_query;
@@ -556,6 +573,152 @@ async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
   });
 }
 
+// user พิมพ์ base เปล่า ("WIN") → หา format ที่ suggest บน Actions จะเจอ: gate futures = X_USDT (probe จาก edge ได้),
+// ไม่เจอ → สมมติ binance spot = XUSDT (Actions validate ต่อเอง). พิมพ์ format เต็มมา = ใช้ตามนั้น
+async function resolveAddSymbol(env: Env, input: string): Promise<string> {
+  if (/USDT$/.test(input)) return input; // เต็มอยู่แล้ว (WINUSDT / WIN_USDT)
+  const gate = await fetchKlines({ symbol: `${input}_USDT`, source: "gate", label: input });
+  const live = !("error" in gate) && new Set(gate.closes.slice(-20)).size > 1;
+  return live ? `${input}_USDT` : `${input}USDT`;
+}
+
+// คำสั่งพิมพ์ในแชท Telegram — /add /remove /wl (ใช้ backend เดียวกับ /wl route)
+async function handleChatCommand(env: Env, cmd: string, arg: string): Promise<void> {
+  if (cmd === "wl") {
+    const cur = await ghFetchWatchlist(env);
+    if ("error" in cur) {
+      await sendTelegram(env, "cmd wl", `⚠️ อ่าน watchlist ไม่ได้: ${cur.error}`);
+      return;
+    }
+    const entries = Object.entries(cur.data.tickers ?? {});
+    const names = entries.map(([k, v]) => (v.enabled === false ? `${k}(off)` : k)).join(", ");
+    await sendTelegram(env, "cmd wl", `📋 <b>watchlist ${entries.length} ตัว</b>\n${names}`);
+    return;
+  }
+  if (!/^[A-Z0-9_]{1,20}$/.test(arg)) {
+    await sendTelegram(env, "cmd", `⚠️ ใช้: /${cmd} SYMBOL เช่น /${cmd} CRCL`);
+    return;
+  }
+  const base = arg.replace(/_?USDT$/, "");
+  if (cmd === "add") {
+    const full = await resolveAddSymbol(env, arg);
+    const dkey = `recent:${full}`;
+    if (await env.DEDUPE.get(dkey)) {
+      await sendTelegram(env, "cmd add", `⏭️ ${full} กำลังเพิ่มอยู่แล้ว`);
+      return;
+    }
+    await env.DEDUPE.put(dkey, "1", { expirationTtl: Math.max(60, parseInt(env.DEDUPE_TTL_SECONDS, 10) || 60) });
+    await dispatchAddTicker(env, full);
+    await sendTelegram(env, "cmd add", `⏳ <b>${full}</b> เข้าคิวแล้ว — Actions validate+หา levels ~1 นาที`);
+    return;
+  }
+  // remove | rm
+  const r = await ghRemoveTicker(env, base);
+  await sendTelegram(env, "cmd remove", r.ok ? `✅ ลบ <b>${r.removed}</b> ออกจาก watchlist แล้ว` : `⚠️ ${r.error}`);
+}
+
+// list/add/remove watchlist หลัก — GET = list, POST action=add (dispatch ➕ path) | action=remove (contents API)
+async function handleWl(env: Env, url: URL, method: "GET" | "POST"): Promise<Response> {
+  if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
+  if (method === "GET") {
+    const cur = await ghFetchWatchlist(env);
+    if ("error" in cur) return jsonResp({ ok: false, error: cur.error });
+    const tickers = Object.entries(cur.data.tickers ?? {}).map(([symbol, cfg]) => ({
+      symbol, exchange: cfg.exchange ?? "?", enabled: cfg.enabled !== false,
+    }));
+    return jsonResp({ ok: true, count: tickers.length, tickers });
+  }
+  const action = url.searchParams.get("action");
+  const raw = (url.searchParams.get("symbol") || "").trim().toUpperCase();
+  if (!/^[A-Z0-9_]{1,20}$/.test(raw)) return jsonResp({ ok: false, error: "symbol ไม่ถูกต้อง" });
+  const base = raw.replace(/_?USDT$/, "");
+  if (action === "add") {
+    const full = await resolveAddSymbol(env, raw);
+    await dispatchAddTicker(env, full);
+    return jsonResp({ ok: true, queued: full, note: "ส่งเข้า GitHub Actions แล้ว — validate+หา levels ~1 นาที" });
+  }
+  if (action === "remove") {
+    const r = await ghRemoveTicker(env, base);
+    return r.ok ? jsonResp({ ok: true, removed: r.removed }) : jsonResp({ ok: false, error: r.error });
+  }
+  return jsonResp({ ok: false, error: "action ต้องเป็น add หรือ remove" });
+}
+
+// หน้าเว็บเล็ก ๆ จัดการ watchlist หลักจาก remote (มือถือ) — สไตล์เดียวกับ /divmanage
+async function handleWlManage(env: Env, url: URL): Promise<Response> {
+  const htmlHeaders = { "content-type": "text/html; charset=utf-8" };
+  if (url.searchParams.get("token") !== env.DASH_TOKEN) {
+    return new Response("<h2>forbidden</h2><p>ใส่ ?token=&lt;DASH_TOKEN&gt; ใน URL</p>", { status: 403, headers: htmlHeaders });
+  }
+  return new Response(wlManagePage(), { status: 200, headers: htmlHeaders });
+}
+
+function wlManagePage(): string {
+  return `<!doctype html><html lang="th"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WATCHLIST — manage</title>
+<style>
+:root{color-scheme:dark}
+body{font-family:-apple-system,system-ui,sans-serif;background:#0a0f0a;color:#cfe4d6;margin:0 auto;padding:16px;max-width:520px}
+h1{font-size:1.05rem;color:#3fd07d;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+h1 .n{margin-left:auto;color:#6a9a7c;font-size:.8rem;font-weight:400}
+.row{display:flex;align-items:center;gap:8px;padding:9px 4px;border-top:1px solid #1c3a24}
+.row .lbl{flex:1;font-weight:600}
+.row .lbl .off{color:#888;font-weight:400;font-size:.75rem}
+.row .src{color:#6a9a7c;font-size:.72rem}
+button{background:#13351f;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:9px 14px;font-size:.92rem}
+button:active{background:#1c5a30}
+.x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
+.x:active{color:#ff5544}
+.add,.filter{display:flex;gap:8px;margin:10px 0 4px}
+input{flex:1;min-width:0;background:#0d1b10;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:11px;font-size:1rem}
+#msg{min-height:1.2rem;font-size:.85rem;margin:6px 0}
+.ok{color:#3fd07d}.err{color:#ff5544}.muted{color:#6a9a7c}
+</style></head><body>
+<h1>&#9646; WATCHLIST &mdash; manage <span class="n" id="count"></span></h1>
+<div class="add">
+<input id="sym" placeholder="+ ticker เช่น CRCL (ผ่าน Actions ~1 นาที)" autocomplete="off" autocapitalize="characters">
+<button id="add">add</button></div>
+<div class="filter"><input id="q" placeholder="&#128269; ค้นหา..." autocomplete="off" autocapitalize="characters"></div>
+<div id="msg" class="muted"></div>
+<div id="list" class="muted">กำลังโหลด...</div>
+<script>
+var TOKEN=new URLSearchParams(location.search).get('token');
+var list=[];
+var $=function(id){return document.getElementById(id)};
+function render(){
+var q=$('q').value.trim().toUpperCase();
+var rows=list.filter(function(d){return !q||d.symbol.indexOf(q)>=0});
+$('count').textContent=list.length+' ตัว';
+$('list').innerHTML=rows.map(function(d){
+return '<div class="row"><span class="lbl">'+d.symbol+(d.enabled?'':' <span class="off">(off)</span>')+'</span>'+
+'<span class="src">'+d.exchange+'</span><button class="x" data-sym="'+d.symbol+'">&#10005;</button></div>';
+}).join('')||'<p class="muted">'+(q?'ไม่พบ':'ว่าง')+'</p>';
+}
+function setMsg(t,c){var m=$('msg');m.textContent=t;m.className=c||'muted';}
+function load(){
+fetch('/wl?token='+encodeURIComponent(TOKEN)).then(function(r){return r.json()}).then(function(d){
+if(d.ok){list=d.tickers;render();}else setMsg('\\u26a0\\ufe0f '+(d.error||'โหลดไม่ได้'),'err');
+}).catch(function(e){setMsg('\\u26a0\\ufe0f '+e,'err')});
+}
+function mutate(action,symbol){
+setMsg((action==='add'?'ส่งเข้า Actions ':'กำลังลบ ')+symbol+'...','muted');
+fetch('/wl?token='+encodeURIComponent(TOKEN)+'&action='+action+'&symbol='+encodeURIComponent(symbol),{method:'POST'})
+.then(function(r){return r.json()}).then(function(d){
+if(d.ok&&action==='remove'){setMsg('\\u2705 ลบ '+d.removed,'ok');load();}
+else if(d.ok){setMsg('\\u23F3 '+d.queued+' เข้าคิวแล้ว \\u2014 Actions หา levels ~1 นาที แล้วกดค้นหาซ้ำ','ok');$('sym').value='';}
+else setMsg('\\u26a0\\ufe0f '+(d.error||'ล้มเหลว'),'err');
+}).catch(function(e){setMsg('\\u26a0\\ufe0f '+e,'err')});
+}
+$('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
+$('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
+$('q').addEventListener('input',render);
+$('list').addEventListener('click',function(e){var b=e.target.closest('[data-sym]');
+if(b&&confirm('ลบ '+b.dataset.sym+' ออกจาก watchlist?'))mutate('remove',b.dataset.sym)});
+load();
+</script></body></html>`;
+}
+
 // หน้าเว็บเล็ก ๆ จัดการ div watch จาก remote (มือถือ) — token ใน URL, เรียก /divwatch ของ worker เอง
 async function handleDivManage(env: Env, url: URL): Promise<Response> {
   const htmlHeaders = { "content-type": "text/html; charset=utf-8" };
@@ -892,6 +1055,74 @@ async function sendFlipAlert(
     `Low 1: $${divFmt(lows[p1])} · RSI ${rsi[p1].toFixed(1)} · ${divTs(times[p1])}\n` +
     `Low 2: $${divFmt(lows[p2])} · RSI ${rsi[p2].toFixed(1)} · ${divTs(times[p2])} ⬅️ ราคาต่ำกว่า RSI สูงกว่า`;
   return sendTelegram(env, `flip ${symbol}`, text);
+}
+
+// ---- main watchlist (watchlist.json ใน repo) จัดการผ่าน GitHub Contents API ----
+// add ใช้เส้นทาง repository_dispatch เดิม (ปุ่ม ➕) เพราะต้อง suggest levels บน Actions;
+// remove แก้ไฟล์ตรง = เห็นผลทันที. format: JSON.parse/stringify รักษาลำดับ key ตรง save_config
+// (sort_keys=False) และ refresh-levels.yml เขียนทับทุกเช้าอยู่แล้ว — drift เรื่อง float repr self-heal
+type WatchlistFile = { settings?: Record<string, unknown>; tickers?: Record<string, { exchange?: string; enabled?: boolean }> };
+
+function ghHeaders(env: Env): Record<string, string> {
+  return {
+    authorization: `Bearer ${env.GITHUB_TOKEN}`,
+    accept: "application/vnd.github+json",
+    "content-type": "application/json",
+    "user-agent": "crypto-rsi-webhook",
+  };
+}
+
+function b64decodeUtf8(b64: string): string {
+  const bin = atob(b64.replace(/\n/g, ""));
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+function b64encodeUtf8(text: string): string {
+  const bytes = new TextEncoder().encode(text);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 8192) bin += String.fromCharCode(...bytes.subarray(i, i + 8192));
+  return btoa(bin);
+}
+
+async function ghFetchWatchlist(env: Env): Promise<{ data: WatchlistFile; sha: string } | { error: string }> {
+  const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/contents/watchlist.json?ref=main`, {
+    headers: ghHeaders(env),
+  });
+  if (!r.ok) return { error: `github read ${r.status}` };
+  const j = (await r.json()) as { content: string; sha: string };
+  try {
+    return { data: JSON.parse(b64decodeUtf8(j.content)) as WatchlistFile, sha: j.sha };
+  } catch {
+    return { error: "watchlist.json parse failed" };
+  }
+}
+
+// ลบ ticker ออกจาก watchlist.json บน main โดยตรง — optimistic lock ด้วย sha, retry กัน race กับ Actions
+async function ghRemoveTicker(env: Env, base: string): Promise<{ ok: true; removed: string } | { ok: false; error: string }> {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const cur = await ghFetchWatchlist(env);
+    if ("error" in cur) return { ok: false, error: cur.error };
+    const tickers = cur.data.tickers ?? {};
+    const key = Object.keys(tickers).find((k) => k.replace(/_?USDT$/, "") === base);
+    if (!key) return { ok: false, error: `${base} ไม่อยู่ใน watchlist` };
+    delete tickers[key];
+    const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/contents/watchlist.json`, {
+      method: "PUT",
+      headers: ghHeaders(env),
+      body: JSON.stringify({
+        message: `watchlist: remove ${key} via mobile`,
+        content: b64encodeUtf8(JSON.stringify(cur.data, null, 2) + "\n"),
+        sha: cur.sha,
+        branch: "main",
+      }),
+    });
+    if (r.ok) return { ok: true, removed: key };
+    if (r.status !== 409 && r.status !== 422) return { ok: false, error: `github write ${r.status}` };
+    // sha ชน (มี commit แทรก) → วนอ่านใหม่
+  }
+  return { ok: false, error: "sha conflict 3 รอบ — ลองใหม่อีกครั้ง" };
 }
 
 async function dispatchAddTicker(env: Env, symbol: string): Promise<void> {
