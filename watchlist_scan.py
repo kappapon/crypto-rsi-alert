@@ -291,10 +291,15 @@ def main() -> None:
         flip_alerts = ["<b>⚠️ DIRECTION FLIP</b>", *flip_alerts]
     all_alerts = total_alerts + (["\n".join(flip_alerts)] if flip_alerts else [])
     if all_alerts:
-        send_telegram("\n\n".join(all_alerts))
+        # trigger journal (n=312, 2026-07-02) พิสูจน์แล้วว่า trigger ทุก type ติดลบเป็นสัญญาณเข้า
+        # → ปิดเสียง Telegram (journal ยังเก็บต่อผ่าน append_trigger_log ด้านบน); เปิดกลับ: TRIGGER_ALERTS=1
+        if os.environ.get("TRIGGER_ALERTS") == "1":
+            send_telegram("\n\n".join(all_alerts))
+        else:
+            print(f"  alerts muted (journal-only): suppressed {len(all_alerts)} message(s)")
 
     save_state(state)
-    print(f"Done. Tickers: {len(config['tickers'])}, alerts sent: {len(total_alerts)}")
+    print(f"Done. Tickers: {len(config['tickers'])}, alerts fired: {len(total_alerts)}")
 
 
 if __name__ == "__main__":
