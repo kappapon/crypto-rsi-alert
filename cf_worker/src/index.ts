@@ -93,6 +93,10 @@ const CROSS_MA_PERIOD = 14;
 const CROSS_MA_MIN = 60;
 const CROSS_MINUTE = 2; // เช็คที่ tick :02 — แท่ง 1h/2h เพิ่งปิด (แท่ง 2h ปิดชั่วโมงคู่ dedupe จัดการเอง)
 const CROSS_DEDUPE_TTL = 24 * 3600; // ครั้งเดียวต่อจุดตัด (คีย์ด้วย ts แท่งที่ตัด)
+// confluence: bearish div (15m) เกิดภายใน N → 2h cross อัปเกรดเป็น 🎯 CONFIRMED (div ทดแทน zone filter ได้
+// เพราะ div คือหลักฐาน "ยอดร้อน" ตรงกว่า MA≥60 ที่เป็นแค่ proxy กัน spam)
+const CROSS_CONFIRM_TF = "2h";
+const LASTDIV_TTL = 24 * 3600; // marker `lastdiv:{symbol}` อายุเท่า flip-watch — เก่ากว่านี้ถือว่าคนละรอบ
 // CF Worker edge ดึง data-api.binance.vision / api.binance.com ไม่ได้ (403 bot-protect, probe 2026-06-23)
 // api-gcp.binance.com เข้าได้จาก edge แต่ต้องใช้ browser UA
 const KLINES_BASE = "https://api-gcp.binance.com";
@@ -395,19 +399,26 @@ async function runRsiMaCrossWatch(env: Env): Promise<void> {
         const maNow = smaAt(rsi, i, CROSS_MA_PERIOD);
         if ([rsi[i - 1], rsi[i], maPrev, maNow].some(Number.isNaN)) continue;
         const crossedDown = rsi[i - 1] >= maPrev && rsi[i] < maNow;
-        if (!crossedDown || maPrev < CROSS_MA_MIN) {
+        if (!crossedDown) {
           console.log(`rsicross ${item.label} ${tf}: quiet rsi=${rsi[i].toFixed(1)} ma=${maNow.toFixed(1)}`);
+          continue;
+        }
+        // confluence: 2h cross + bearish div (15m) ภายใน 24 ชม. → 🎯 CONFIRMED; div ทดแทน zone filter
+        const lastDiv = tf === CROSS_CONFIRM_TF ? await env.DEDUPE.get(`lastdiv:${item.symbol}`) : null;
+        if (!lastDiv && maPrev < CROSS_MA_MIN) {
+          console.log(`rsicross ${item.label} ${tf}: cross below zone (ma=${maPrev.toFixed(1)})`);
           continue;
         }
         const key = `rsicross:${item.symbol}:${tf}:${times[i]}`;
         if (await env.DEDUPE.get(key)) continue;
-        const sent = await sendTelegram(
-          env,
-          `rsicross ${item.label} ${tf}`,
-          `📉 <b>${item.label}</b> ${tf.toUpperCase()} — RSI ตัดลงใต้เส้น MA\n` +
-            `RSI ${rsi[i].toFixed(1)} ↓ MA ${maNow.toFixed(1)} · ราคา ${divFmt(closes[i])}\n` +
-            `โมเมนตัมอ่อนหลังโซนร้อน (MA เดิม ≥ ${CROSS_MA_MIN})`,
-        );
+        const stats = `RSI ${rsi[i].toFixed(1)} ↓ MA ${maNow.toFixed(1)} · ราคา ${divFmt(closes[i])}`;
+        const text = lastDiv
+          ? `🎯 <b>${item.label}</b> — CONFIRMED SHORT SETUP\n` +
+            `🐻 bearish div 15m (${((Date.now() - Number(lastDiv)) / 3600000).toFixed(1)} ชม.ก่อน) + 📉 RSI ตัดลง MA (2H)\n` +
+            stats
+          : `📉 <b>${item.label}</b> ${tf.toUpperCase()} — RSI ตัดลงใต้เส้น MA\n` +
+            stats + `\nโมเมนตัมอ่อนหลังโซนร้อน (MA เดิม ≥ ${CROSS_MA_MIN})`;
+        const sent = await sendTelegram(env, `rsicross ${item.label} ${tf}`, text);
         if (sent) await env.DEDUPE.put(key, "1", { expirationTtl: CROSS_DEDUPE_TTL });
       } catch (e) {
         console.log(`rsicross ${item.label} ${tf} error: ${e}`);
@@ -704,6 +715,8 @@ async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, u
     await env.DEDUPE.put(`confirm:${item.symbol}`,
       JSON.stringify({ armedHigh: highs[p2], peakHigh: highs[p2], swept: false, ts: Date.now() }),
       { expirationTtl: CONFIRM_WATCH_TTL });
+    // marker ให้ RSI×MA cross watcher อัปเกรดเป็น 🎯 CONFIRMED เมื่อ 2h ตัดลงตามใน 24 ชม.
+    await env.DEDUPE.put(`lastdiv:${item.symbol}`, String(Date.now()), { expirationTtl: LASTDIV_TTL });
   }
   return { ...diag, status: sent ? "armed" : "send_failed" };
 }
