@@ -120,15 +120,18 @@ async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
 // แก้ list ผ่านปุ่ม add/remove (POST /api/divwatch → worker). FALLBACK ใช้เมื่อไม่มี token/health
 // (ต้องตั้ง WEBHOOK_SECRET ฝั่ง dashboard ถึงจะได้ list สดจาก worker + add/remove ได้)
 const DIV_WATCH_FALLBACK = [
-  { symbol: "SYN_USDT", exchange: "gateio_futures", label: "SYN" },
-  { symbol: "BEL_USDT", exchange: "gateio_futures", label: "BEL" },
-  { symbol: "MMT_USDT", exchange: "gateio_futures", label: "MMT" },
   { symbol: "DEXE_USDT", exchange: "gateio_futures", label: "DEXE" },
-  { symbol: "AWE_USDT", exchange: "gateio_futures", label: "AWE" },
-  { symbol: "G_USDT", exchange: "gateio_futures", label: "G" },
-  { symbol: "FOLKS_USDT", exchange: "gateio_futures", label: "FOLKS" },
-  { symbol: "BAS_USDT", exchange: "gateio_futures", label: "BAS" },
-  { symbol: "TAC_USDT", exchange: "gateio_futures", label: "TAC" },
+  { symbol: "VELVET_USDT", exchange: "gateio_futures", label: "VELVET" },
+  { symbol: "SYRUP_USDT", exchange: "gateio_futures", label: "SYRUP" },
+  { symbol: "ACT_USDT", exchange: "gateio_futures", label: "ACT" },
+  { symbol: "CAP_USDT", exchange: "gateio_futures", label: "CAP" },
+  { symbol: "H_USDT", exchange: "gateio_futures", label: "H" },
+  { symbol: "RIF_USDT", exchange: "gateio_futures", label: "RIF" },
+  { symbol: "LAB_USDT", exchange: "gateio_futures", label: "LAB" },
+  { symbol: "NFP_USDT", exchange: "gateio_futures", label: "NFP" },
+  { symbol: "TAIKO_USDT", exchange: "gateio_futures", label: "TAIKO" },
+  { symbol: "TLM_USDT", exchange: "gateio_futures", label: "TLM" },
+  { symbol: "SYN_USDT", exchange: "gateio_spot", label: "SYN" },
 ];
 const DIV_PIVOT_K = 2, DIV_LOOKBACK = 48, DIV_RSI_MIN = 65, DIV_FRESH = 4;
 
@@ -188,6 +191,13 @@ async function fetchOHLC15(symbol, exchange) {
     rows = rows.slice(0, -1);
     return { highs: rows.map(r => +r.h), closes: rows.map(r => +r.c) };
   }
+  if (exchange === "gateio_spot") {
+    // spot format = array: [t, quote_vol, close, high, low, open, ...] (เหรียญที่ futures delisted เช่น SYN)
+    rows = await fetch(px(`https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${symbol}&interval=15m&limit=150`)).then(r => r.json());
+    if (!Array.isArray(rows)) return null;
+    rows = rows.slice(0, -1);
+    return { highs: rows.map(r => +r[3]), closes: rows.map(r => +r[2]) };
+  }
   return null;
 }
 
@@ -209,13 +219,39 @@ async function computeDiv(d) {
 }
 const srcToExchange = (source) => (source === "gate" ? "gateio_futures" : source === "gate_spot" ? "gateio_spot" : "binance_spot");
 
+// RSI(14) vs RSI-based MA (SMA14 ของ RSI — เส้นเหลือง TradingView) บน 1h/2h แท่งปิด — ตรง worker cross watcher
+const crossCache = {}; // cache 2 นาที เท่า divWatchCache
+async function computeCross(d) {
+  const hit = crossCache[d.symbol];
+  if (hit && Date.now() - hit.ts < 2 * 60 * 1000) return hit.res;
+  const res = {};
+  await Promise.all(["1h", "2h"].map(async tf => {
+    try {
+      const all = await fetchKlines(d.symbol, d.exchange, 100, tf);
+      const closes = Array.isArray(all) ? all.slice(0, -1) : []; // closed only ตรง worker
+      if (closes.length < 30) return;
+      const rsi = wilderRSISeries(closes, 14);
+      const sma = i => { let t = 0; for (let j = i - 13; j <= i; j++) { if (Number.isNaN(rsi[j])) return NaN; t += rsi[j]; } return t / 14; };
+      const i = rsi.length - 1;
+      const ma = sma(i), maPrev = sma(i - 1);
+      if ([rsi[i], rsi[i - 1], ma, maPrev].some(Number.isNaN)) return;
+      res[tf] = { rsi: rsi[i], ma, crossed: rsi[i - 1] >= maPrev && rsi[i] < ma, below: rsi[i] < ma, hot: maPrev >= 60 };
+    } catch (e) { console.warn(`cross ${d.label} ${tf}:`, e); }
+  }));
+  crossCache[d.symbol] = { ts: Date.now(), res };
+  return res;
+}
+
 // list สดจาก worker (health.divwatch) → compute div ทุกตัว → render. ไม่มี token = fallback list
 async function refreshDivWatch() {
   const health = await loadDivHealth();
   const list = (health && Array.isArray(health.divwatch) && health.divwatch.length)
     ? health.divwatch.map(d => ({ symbol: d.symbol, exchange: srcToExchange(d.source), label: d.label }))
     : DIV_WATCH_FALLBACK;
-  const rows = await Promise.all(list.map(computeDiv));
+  const rows = await Promise.all(list.map(async d => {
+    const [base, cross] = await Promise.all([computeDiv(d), computeCross(d)]);
+    return { ...base, cross };
+  }));
   renderDivWatch(rows, health);
   populateDivWatchDatalist();
 }
@@ -272,7 +308,20 @@ function renderDivWatch(rows, health) {
       else if (d.rsi >= DIV_RSI_MIN) badge = `<span class="dw-status rsi-hot">RSI hot</span>`;
       else badge = `<span class="dw-status faint">quiet</span>`;
       const rCls = d.rsi >= DIV_RSI_MIN ? "rsi-hot" : "rsi-cool";
-      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}</div>`;
+      // RSI×MA cross chips (1h/2h) + confluence กับ bearish div ล่าสุด (mirror 🎯 confirmed tier ของ worker)
+      const chip = (tf, c) => {
+        if (!c) return `<span class="dw-tf faint">${tf.toUpperCase()} –</span>`;
+        const arrow = c.crossed ? "✂️" : (c.below ? "↓" : "↑");
+        const cls = c.crossed && c.hot ? "pct-down" : (c.below ? "dw-below" : "faint");
+        return `<span class="dw-tf ${cls}" title="RSI ${c.rsi.toFixed(1)} / MA ${c.ma.toFixed(1)}${c.hot ? " · โซนร้อน" : ""}">${tf.toUpperCase()} ${arrow}${c.rsi.toFixed(0)}/${c.ma.toFixed(0)}</span>`;
+      };
+      const ldMin = health && health.lastdiv ? health.lastdiv[d.symbol] : null;
+      const c2 = d.cross && d.cross["2h"];
+      let confl = "";
+      if (ldMin != null && c2 && (c2.crossed || c2.below)) confl = `<span class="dw-tf dw-confl">🎯 div ${(ldMin / 60).toFixed(1)}ชม.+2H</span>`;
+      else if (ldMin != null) confl = `<span class="dw-tf faint">🐻 div ${(ldMin / 60).toFixed(1)}ชม.</span>`;
+      const crossRow = d.cross ? `<div class="dw-cross">${chip("1h", d.cross["1h"])}${chip("2h", d.cross["2h"])}${confl}</div>` : "";
+      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}${crossRow}</div>`;
     }).join("");
   }
   const hEl = document.getElementById("dw-health");

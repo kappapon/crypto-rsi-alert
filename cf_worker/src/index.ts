@@ -169,9 +169,15 @@ export default {
         const h = await readDivHealth(env);
         const list = await getDivWatch(env);
         const confirm = await readConfirmStates(env, list); // lifecycle armed/swept/confirmed ต่อเหรียญ — ให้ dashboard โชว์
+        // อายุ (นาที) ของ bearish div ล่าสุดต่อเหรียญ — dashboard ใช้โชว์ confluence กับ 2h cross
+        const lastdiv: Record<string, number> = {};
+        for (const item of list) {
+          const v = await env.DEDUPE.get(`lastdiv:${item.symbol}`);
+          if (v) lastdiv[item.symbol] = Math.round((Date.now() - Number(v)) / 60000);
+        }
         const body = h
-          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000), divwatch: list, confirm }
-          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)", divwatch: list, confirm };
+          ? { ...h, iso: new Date(h.ts).toISOString(), ageMinutes: Math.round((Date.now() - h.ts) / 60000), divwatch: list, confirm, lastdiv }
+          : { error: "no health record — watcher ไม่ได้ tick ภายใน TTL (อาจตายทั้งตัว)", divwatch: list, confirm, lastdiv };
         return new Response(JSON.stringify(body, null, 2), {
           status: 200,
           headers: { "content-type": "application/json" },

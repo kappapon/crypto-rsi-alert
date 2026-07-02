@@ -458,6 +458,10 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .dw-sym { color: var(--text); font-weight: 600; }
 .dw-rsi { text-align: right; }
 .dw-status { text-align: right; white-space: nowrap; }
+.dw-cross { grid-column: 1 / -1; display: flex; gap: 10px; font-size: 10.5px; padding: 1px 0 3px 2px; }
+.dw-tf { white-space: nowrap; }
+.dw-below { color: var(--yellow); }
+.dw-confl { color: var(--red); font-weight: 600; }
 .rsi-hot { color: var(--yellow); }
 /* 2-stage entry lifecycle */
 .dw-armed { color: var(--text-dim); }
