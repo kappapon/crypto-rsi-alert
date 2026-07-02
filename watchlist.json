@@ -1126,23 +1126,6 @@
         "funding_high": 0.1
       }
     },
-    "IN_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.2697,
-        "resistance": 0.2658,
-        "rejection_below": 0.056,
-        "support_strong": 0.0678,
-        "support_extreme": 0.0839
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "CGNX_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
