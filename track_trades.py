@@ -22,6 +22,7 @@ from scan import DRY_RUN, send_telegram
 PAPER_FILE = Path(__file__).parent / "paper_trades.json"
 HOLD_SEC = HORIZON * 86400
 BAR = 14400  # 4h
+FEE_PCT_ROUNDTRIP = 0.003  # ต้องตรง backtest.py — taker 2 ขา + slippage, สัดส่วนของ notional
 
 
 def fetch_4h(symbol: str, exchange: str, start_sec: int):
@@ -52,13 +53,17 @@ def resolve_trade(t: dict, now_sec: int) -> dict | None:
             last_close = b["close"]
             continue
         closed_at = int(b["open_time"]) + BAR
+        r = (t["entry"] - exit_p) / risk
         return {"status": f"closed_{outcome}", "exit": exit_p,
                 "closed_at": dt.datetime.fromtimestamp(closed_at, dt.timezone.utc).isoformat(timespec="seconds"),
-                "r": round((t["entry"] - exit_p) / risk, 3)}
+                "r": round(r, 3),
+                "r_net": round(r - FEE_PCT_ROUNDTRIP * t["entry"] / risk, 3)}
     if now_sec >= expiry and last_close is not None:
+        r = (t["entry"] - float(last_close)) / risk
         return {"status": "closed_expiry", "exit": float(last_close),
                 "closed_at": dt.datetime.fromtimestamp(expiry, dt.timezone.utc).isoformat(timespec="seconds"),
-                "r": round((t["entry"] - float(last_close)) / risk, 3)}
+                "r": round(r, 3),
+                "r_net": round(r - FEE_PCT_ROUNDTRIP * t["entry"] / risk, 3)}
     return None
 
 
@@ -88,6 +93,7 @@ def main() -> None:
 
     closed = [t for t in trades if t["status"] != "open"]
     sum_r = sum(t.get("r", 0) for t in closed)
+    sum_r_net = sum(t.get("r_net", t.get("r", 0)) for t in closed)
     hits = sum(1 for t in closed if t.get("r", 0) > 0)
 
     if newly_closed:
@@ -95,12 +101,12 @@ def main() -> None:
         for t in newly_closed:
             emoji = {"closed_tp": "✅", "closed_sl": "❌", "closed_expiry": "⏰"}[t["status"]]
             lines.append(f"{emoji} <code>{t['symbol']}</code>  {t['status'].removeprefix('closed_').upper()}  "
-                         f"r {t['r']:+.2f}  (เข้า {t['entry']:g} → ออก {t['exit']:g})")
+                         f"r {t['r']:+.2f} (net {t['r_net']:+.2f})  (เข้า {t['entry']:g} → ออก {t['exit']:g})")
         lines.append("")
-        lines.append(f"สะสม: {len(closed)} ไม้ปิด · hit {hits}/{len(closed)} · รวม {sum_r:+.2f}R · เปิดอยู่ {len(open_trades) - len(newly_closed)}")
+        lines.append(f"สะสม: {len(closed)} ไม้ปิด · hit {hits}/{len(closed)} · รวม {sum_r:+.2f}R (net {sum_r_net:+.2f}R) · เปิดอยู่ {len(open_trades) - len(newly_closed)}")
         send_telegram("\n".join(lines))
 
-    print(f"summary: closed {len(closed)} (hit {hits}) sum {sum_r:+.2f}R, open {len(open_trades) - len(newly_closed)}")
+    print(f"summary: closed {len(closed)} (hit {hits}) sum {sum_r:+.2f}R net {sum_r_net:+.2f}R, open {len(open_trades) - len(newly_closed)}")
     if not DRY_RUN:
         PAPER_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
     print("done")
