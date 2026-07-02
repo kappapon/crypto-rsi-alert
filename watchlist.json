@@ -667,23 +667,6 @@
         "funding_high": 0.1
       }
     },
-    "BICOUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0678,
-        "resistance": 0.0668,
-        "rejection_below": 0.0141,
-        "support_strong": 0.0153,
-        "support_extreme": 0.0162
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ALICEUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
