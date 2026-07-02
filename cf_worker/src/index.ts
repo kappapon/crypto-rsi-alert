@@ -86,6 +86,13 @@ const CONFIRM_DEDUPE_TTL = 6 * 3600; // entry alert ต่อ 1 setup ครั�
 const CONFIRM_STOP_ATR = 0.5; // stop = peakHigh + 0.5×ATR(15m) — เหนือ wick กระชาก
 const CONFIRM_PEAK_BARS = 4; // อัปเดต peak/sweep จาก N แท่งล่าสุด (กัน tick หายแล้วพลาดยอด)
 const CONFIRM_RECENT_TTL = 2 * 3600; // โชว์ "confirmed" บน dashboard นาน N หลังเข้า (lastconfirm marker)
+// ---- RSI×MA cross watcher: RSI ตัดลงใต้ RSI-based MA (SMA14 ของ RSI, ตรง default TradingView) บน 1h/2h ----
+// ส่งเฉพาะตัดลงจากโซนสูง (MA ≥ CROSS_MA_MIN) — จุดตัดใน sideways เกิดถี่มาก ไม่กรอง = spam
+const CROSS_TFS = ["1h", "2h"] as const;
+const CROSS_MA_PERIOD = 14;
+const CROSS_MA_MIN = 60;
+const CROSS_MINUTE = 2; // เช็คที่ tick :02 — แท่ง 1h/2h เพิ่งปิด (แท่ง 2h ปิดชั่วโมงคู่ dedupe จัดการเอง)
+const CROSS_DEDUPE_TTL = 24 * 3600; // ครั้งเดียวต่อจุดตัด (คีย์ด้วย ts แท่งที่ตัด)
 // CF Worker edge ดึง data-api.binance.vision / api.binance.com ไม่ได้ (403 bot-protect, probe 2026-06-23)
 // api-gcp.binance.com เข้าได้จาก edge แต่ต้องใช้ browser UA
 const KLINES_BASE = "https://api-gcp.binance.com";
@@ -136,8 +143,12 @@ export default {
     const files = workflowsForTick(event.scheduledTime);
     console.log(`cron tick ${event.cron} @ ${new Date(event.scheduledTime).toISOString()} -> ${files.join(", ") || "(no mapping)"}`);
     const tasks: Promise<void>[] = files.map((f) => dispatchWorkflow(env, f));
-    if (DIV_MINUTES.includes(new Date(event.scheduledTime).getUTCMinutes())) {
+    const minute = new Date(event.scheduledTime).getUTCMinutes();
+    if (DIV_MINUTES.includes(minute)) {
       tasks.push(runDivergenceWatch(env));
+    }
+    if (minute === CROSS_MINUTE) {
+      tasks.push(runRsiMaCrossWatch(env));
     }
     ctx.waitUntil(Promise.all(tasks));
   },
@@ -355,6 +366,56 @@ async function runDivergenceWatch(env: Env): Promise<void> {
   await maybeHeartbeat(env, symbols);
 }
 
+// SMA ของ series ณ index i (NaN ถ้าค่าใน window ยังไม่ครบ/ไม่ valid)
+function smaAt(vals: number[], i: number, period: number): number {
+  if (i + 1 < period) return NaN;
+  let s = 0;
+  for (let j = i - period + 1; j <= i; j++) {
+    if (Number.isNaN(vals[j])) return NaN;
+    s += vals[j];
+  }
+  return s / period;
+}
+
+// RSI ตัดลงใต้ RSI-based MA จากโซนสูง บนแท่งปิดล่าสุด — เช็คเฉพาะแท่งล่าสุด = fresh เสมอ
+async function runRsiMaCrossWatch(env: Env): Promise<void> {
+  const list = await getDivWatch(env);
+  for (const item of list) {
+    for (const tf of CROSS_TFS) {
+      try {
+        const kl = await fetchKlines(item, tf);
+        if ("error" in kl) {
+          console.log(`rsicross ${item.label} ${tf}: ${kl.error}${kl.code ? ` ${kl.code}` : ""}`);
+          continue;
+        }
+        const { closes, times } = kl;
+        const i = closes.length - 1;
+        const rsi = wilderRSI(closes, 14);
+        const maPrev = smaAt(rsi, i - 1, CROSS_MA_PERIOD);
+        const maNow = smaAt(rsi, i, CROSS_MA_PERIOD);
+        if ([rsi[i - 1], rsi[i], maPrev, maNow].some(Number.isNaN)) continue;
+        const crossedDown = rsi[i - 1] >= maPrev && rsi[i] < maNow;
+        if (!crossedDown || maPrev < CROSS_MA_MIN) {
+          console.log(`rsicross ${item.label} ${tf}: quiet rsi=${rsi[i].toFixed(1)} ma=${maNow.toFixed(1)}`);
+          continue;
+        }
+        const key = `rsicross:${item.symbol}:${tf}:${times[i]}`;
+        if (await env.DEDUPE.get(key)) continue;
+        const sent = await sendTelegram(
+          env,
+          `rsicross ${item.label} ${tf}`,
+          `📉 <b>${item.label}</b> ${tf.toUpperCase()} — RSI ตัดลงใต้เส้น MA\n` +
+            `RSI ${rsi[i].toFixed(1)} ↓ MA ${maNow.toFixed(1)} · ราคา ${divFmt(closes[i])}\n` +
+            `โมเมนตัมอ่อนหลังโซนร้อน (MA เดิม ≥ ${CROSS_MA_MIN})`,
+        );
+        if (sent) await env.DEDUPE.put(key, "1", { expirationTtl: CROSS_DEDUPE_TTL });
+      } catch (e) {
+        console.log(`rsicross ${item.label} ${tf} error: ${e}`);
+      }
+    }
+  }
+}
+
 async function readDivHealth(env: Env): Promise<DivHealth | null> {
   const raw = await env.DEDUPE.get(DIV_HEALTH_KEY);
   if (!raw) return null;
@@ -502,11 +563,11 @@ async function maybeHeartbeat(env: Env, symbols: DivHealth["symbols"]): Promise<
 // ดึง klines → normalize เป็น {highs, closes, times(ms)} จาก 2 format:
 // binance spot (array ของ array, t=ms) | gate futures (array ของ object {h,c,t}, t=วินาที)
 type Klines = { highs: number[]; lows: number[]; closes: number[]; times: number[] };
-async function fetchKlines(item: DivSym): Promise<Klines | { error: string; code?: number }> {
+async function fetchKlines(item: DivSym, interval = "15m", limit = 150): Promise<Klines | { error: string; code?: number }> {
   const url =
     item.source === "gate"
-      ? `https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${item.symbol}&interval=15m&limit=150`
-      : `${KLINES_BASE}/api/v3/klines?symbol=${item.symbol}&interval=15m&limit=150`;
+      ? `https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${item.symbol}&interval=${interval}&limit=${limit}`
+      : `${KLINES_BASE}/api/v3/klines?symbol=${item.symbol}&interval=${interval}&limit=${limit}`;
   const res = await fetch(url, { headers: { "user-agent": KLINES_UA } });
   if (!res.ok) return { error: "klines_http_error", code: res.status };
   const raw = (await res.json()) as unknown[];
