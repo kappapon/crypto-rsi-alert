@@ -7337,8 +7337,8 @@
       "funding": -1.2121,
       "id": "IN_USDT:rejection:2026-06-30T20:24:11.633348+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-01T20:24:19.394889+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-02T12:24:26.584513+00:00"
     },
     {
       "symbol": "AMAT_USDT",
@@ -7462,8 +7462,8 @@
       "funding": -0.4544,
       "id": "GWEI_USDT:funding:2026-07-01T08:23:35.372517+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-02T08:23:31.324863+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-02T12:23:59.410039+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -7937,8 +7937,8 @@
       "funding": -0.7573,
       "id": "TAIKO_USDT:funding:2026-07-02T04:24:20.002998+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-02T08:24:17.497127+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-02T12:24:30.228017+00:00"
     },
     {
       "symbol": "SNDK_USDT",
@@ -8009,6 +8009,90 @@
       "price": 0.219,
       "funding": -1.2643,
       "id": "TAIKO_USDT:rejection:2026-07-02T08:24:17.497127+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIFUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:00.483541+00:00",
+      "price": 0.0964,
+      "funding": 0.0,
+      "id": "RIFUSDT:rejection:2026-07-02T12:24:00.483541+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIFUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:00.483541+00:00",
+      "price": 0.0964,
+      "funding": 0.0,
+      "id": "RIFUSDT:support_break:2026-07-02T12:24:00.483541+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SLX_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:22.101940+00:00",
+      "price": 0.45584,
+      "funding": -0.0336,
+      "id": "SLX_USDT:rejection:2026-07-02T12:24:22.101940+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:26.131006+00:00",
+      "price": 0.5719,
+      "funding": 0.0,
+      "id": "KAITOUSDT:rejection:2026-07-02T12:24:26.131006+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:26.131006+00:00",
+      "price": 0.5719,
+      "funding": 0.0,
+      "id": "KAITOUSDT:support_break:2026-07-02T12:24:26.131006+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DDOG_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:27.927537+00:00",
+      "price": 262.79,
+      "funding": 0.01,
+      "id": "DDOG_USDT:support_break:2026-07-02T12:24:27.927537+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAIKO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-02T12:24:30.228017+00:00",
+      "price": 0.1498,
+      "funding": -0.661,
+      "id": "TAIKO_USDT:support_break:2026-07-02T12:24:30.228017+00:00",
       "status": "pending",
       "repeats": 1
     }
