@@ -22,7 +22,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-from build_features import EXIT_WINDOW, RSI_ENTRY, WARMUP, build_symbol_features, wilder_rsi
+from build_features import EXIT_WINDOW, HORIZON, RSI_ENTRY, WARMUP, build_symbol_features, wilder_rsi
 from fetch_data import BINANCE_BASE, GATE_BASE, fetch_binance_klines, fetch_gate_futures_candles
 from scan import DRY_RUN, _build_keyboard, fetch_usdt_symbols, send_telegram
 from train_model import SL_ATR, TP_ATR, tsa1_proba
@@ -32,10 +32,12 @@ MODEL_FILE = ROOT / "models" / "model.pkl"
 STATE_FILE = ROOT / "reversal_state.json"
 WATCHLIST_FILE = ROOT / "watchlist.json"
 PAPER_FILE = ROOT / "paper_trades.json"  # Phase G — สมุดไม้จำลอง (track โดย track_trades.py)
+BLOCKED_FILE = ROOT / "blocked_trades.json"  # Rule C — ไม้ที่ cooldown บล็อก (เก็บวัด counterfactual)
 
 SCREEN_BARS = 100          # cheap 1-request screening window
 HISTORY_YEARS = 3.0        # must match fetch_data default used for training
 H4_YEARS = 0.3             # rsi_4h EWM is converged long before this
+COOLDOWN_SEC = HORIZON * 86400  # Rule C: ห้าม re-short เหรียญเดิมภายใน 1 horizon หลังโดน stop-out
 
 
 def screen_klines_binance(symbol: str) -> pd.DataFrame:
@@ -85,24 +87,58 @@ def fetch_live_price(symbol: str, exchange: str) -> float | None:
         return None
 
 
-def record_paper_trades(hits: list[dict]) -> None:
-    """Phase G: บันทึกทุก hit เป็นไม้จำลอง — ใช้วัดว่า edge มีจริงไหมก่อนใช้เงิน."""
-    book = {"trades": []}
-    if PAPER_FILE.exists():
+def load_json_book(path: Path) -> dict:
+    if path.exists():
         try:
-            book = json.loads(PAPER_FILE.read_text())
+            return json.loads(path.read_text())
         except json.JSONDecodeError:
             pass
+    return {"trades": []}
+
+
+def recent_stopout(symbol: str, now_sec: int, book: dict) -> dict | None:
+    """Rule C: stop-out ล่าสุดของเหรียญนี้ที่ยังอยู่ในช่วง cooldown (มี = ห้าม re-short)."""
+    best = None
+    for t in book.get("trades", []):
+        if t.get("symbol") != symbol or t.get("status") != "closed_sl":
+            continue
+        try:
+            closed_sec = dt.datetime.fromisoformat(t["closed_at"]).timestamp()
+        except (KeyError, ValueError):
+            continue
+        if now_sec - closed_sec < COOLDOWN_SEC and (best is None or closed_sec > best[0]):
+            best = (closed_sec, t)
+    return best[1] if best else None
+
+
+def record_paper_trades(hits: list[dict], breadth: int) -> None:
+    """Phase G: บันทึกทุก hit เป็นไม้จำลอง — ใช้วัดว่า edge มีจริงไหมก่อนใช้เงิน."""
+    book = load_json_book(PAPER_FILE)
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     for h in hits:
         book["trades"].append({
             "symbol": h["symbol"], "exchange": h["exchange"], "status": "open",
             "opened_at": now_iso, "entry": h["entry"], "sl": h["sl"], "tp": h["tp"],
             "atr": h["atr"], "prob": round(h["prob"], 3), "entry_is_live": h["live"],
-            "breadth": len(hits),
+            "breadth": breadth,
         })
     PAPER_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
     print(f"paper journal: recorded {len(hits)} trade(s)")
+
+
+def record_blocked(blocked: list[dict], breadth: int) -> None:
+    """Rule C: log ไม้ที่ถูก cooldown บล็อก พร้อม entry/sl/tp เพื่อวัด counterfactual ภายหลัง."""
+    log = load_json_book(BLOCKED_FILE)
+    now_iso = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    for h in blocked:
+        log["trades"].append({
+            "symbol": h["symbol"], "exchange": h["exchange"], "status": "blocked",
+            "blocked_at": now_iso, "blocked_by": h["blocked_by"],
+            "entry": h["entry"], "sl": h["sl"], "tp": h["tp"], "atr": h["atr"],
+            "prob": round(h["prob"], 3), "entry_is_live": h["live"], "breadth": breadth,
+        })
+    BLOCKED_FILE.write_text(json.dumps(log, indent=2, sort_keys=True) + "\n")
+    print(f"blocked journal: recorded {len(blocked)} blocked signal(s)")
 
 
 def load_state(today: str) -> dict:
@@ -186,22 +222,46 @@ def main() -> None:
             h["sl"] = h["entry"] + SL_ATR * h["atr"]
             h["tp"] = h["entry"] - TP_ATR * h["atr"]
 
-        # breadth = จำนวนสัญญาณวันนี้ — backtest ชี้ว่าวันฝูงใหญ่ (≥5-8) คือวันที่ fade ได้จริง
+        # breadth = จำนวนสัญญาณวันนี้ (ก่อนกรอง cooldown) — วัดสภาพตลาด ไม่ใช่จำนวนไม้ที่เข้าจริง
         breadth = len(hits)
-        breadth_tag = " 🔥 วันฝูงใหญ่" if breadth >= 5 else ""
-        lines = ["<b>🎯 Reversal watch — fade the top</b>",
-                 f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)",
-                 f"สัญญาณวันนี้: {breadth} ตัว{breadth_tag}", ""]
+
+        # Rule C: cooldown หลัง stop-out — กัน re-short เหรียญที่เพิ่งเขี่ยเราออก (leak: SYN โดน 6 วันติด −6R)
+        book = load_json_book(PAPER_FILE)
+        now_sec = int(time.time())
+        taken, blocked = [], []
         for h in hits:
-            lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}")
-            price_part = f"ราคาล่าสุด {h['entry']:g}" if h["live"] else f"ราคาปิดแท่ง {h['entry']:g} (ดึงราคาสดไม่ได้)"
-            lines.append(f"   {price_part} · SL {h['sl']:g} · TP {h['tp']:g}")
-        lines.append("")
-        lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist")
-        send_telegram("\n".join(lines), reply_markup=_build_keyboard([h["symbol"] for h in hits]))
+            so = recent_stopout(h["symbol"], now_sec, book)
+            if so is not None:
+                h["blocked_by"] = so["closed_at"]
+                blocked.append(h)
+            else:
+                taken.append(h)
+        if blocked:
+            print("cooldown blocked: " + ", ".join(f"{h['symbol']}(SL {h['blocked_by'][:10]})" for h in blocked))
+            if not DRY_RUN:
+                record_blocked(blocked, breadth)
+
         state["alerted"].extend(h["symbol"] for h in hits)
-        if not DRY_RUN:
-            record_paper_trades(hits)
+
+        if taken:
+            breadth_tag = " 🔥 วันฝูงใหญ่" if breadth >= 5 else ""
+            lines = ["<b>🎯 Reversal watch — fade the top</b>",
+                     f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)",
+                     f"สัญญาณวันนี้: {breadth} ตัว{breadth_tag}", ""]
+            for h in taken:
+                lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}")
+                price_part = f"ราคาล่าสุด {h['entry']:g}" if h["live"] else f"ราคาปิดแท่ง {h['entry']:g} (ดึงราคาสดไม่ได้)"
+                lines.append(f"   {price_part} · SL {h['sl']:g} · TP {h['tp']:g}")
+            if blocked:
+                lines.append("")
+                lines.append(f"🚫 ข้าม {len(blocked)} ตัว (cooldown หลัง SL): " + ", ".join(h["symbol"] for h in blocked))
+            lines.append("")
+            lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist")
+            send_telegram("\n".join(lines), reply_markup=_build_keyboard([h["symbol"] for h in taken]))
+            if not DRY_RUN:
+                record_paper_trades(taken, breadth)
+        else:
+            print("all hits blocked by cooldown — no alert sent")
 
     if not DRY_RUN:
         STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n")
