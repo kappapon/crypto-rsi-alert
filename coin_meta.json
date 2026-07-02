@@ -1187,5 +1187,80 @@
       "Dog-Themed",
       "The Boy’s Club"
     ]
+  },
+  "GEV": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102172496/small/gevon_160x160.png?1773507349",
+    "cg_id": "ge-vernova-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "XLK": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102174157/small/0x15cd20759ce7f3285c29a319de2d1a2e098c6f43.png?1782444689",
+    "cg_id": "state-street-technology-select-sector-spdr-etf-robinhood-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "Tokenized Stock",
+      "Real World Assets (RWA)",
+      "Robinhood Chain Stocks Ecosystem",
+      "Robinhood Ecosystem"
+    ]
+  },
+  "EEM": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/30376/small/Hg4_Lhbg_400x400.jpg?1696529270",
+    "cg_id": "cheems-token",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Meme"
+    ]
+  },
+  "DYDX": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/32594/small/dydx.png?1698673495",
+    "cg_id": "dydx-chain",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Smart Contract Platform",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "Cosmos Ecosystem",
+      "Perpetuals",
+      "Layer 1 (L1)",
+      "Osmosis Ecosystem",
+      "Appchains",
+      "DragonFly Capital Portfolio",
+      "DeFiance Capital Portfolio",
+      "Andreessen Horowitz (a16z) Portfolio",
+      "GMCI DeFi Index",
+      "Delphi Ventures Portfolio",
+      "GMCI Index",
+      "Polychain Capital Portfolio",
+      "Made in USA",
+      "Governance"
+    ]
+  },
+  "TAIKO": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/38058/small/icon.png?1717626867",
+    "cg_id": "taiko",
+    "categories": [
+      "Smart Contract Platform",
+      "BNB Chain Ecosystem",
+      "Ethereum Ecosystem",
+      "Layer 2 (L2)",
+      "Zero Knowledge (ZK)",
+      "Rollup",
+      "OKX Ventures Portfolio",
+      "Binance Alpha Spotlight"
+    ]
   }
 }
