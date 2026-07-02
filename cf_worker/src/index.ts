@@ -641,12 +641,26 @@ async function handleChatCommand(env: Env, cmd: string, arg: string): Promise<vo
 async function handleWl(env: Env, url: URL, method: "GET" | "POST"): Promise<Response> {
   if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
   if (method === "GET") {
-    const cur = await ghFetchWatchlist(env);
+    const [cur, snapR, dw] = await Promise.all([
+      ghFetchWatchlist(env),
+      ghFetchJson(env, "rsi_snapshot.json"), // RSI(D) สดจาก scan.py ทุก 4 ชม. — key binance = SYM, gate = SYM.GATEIO
+      getDivWatch(env),
+    ]);
     if ("error" in cur) return jsonResp({ ok: false, error: cur.error });
-    const tickers = Object.entries(cur.data.tickers ?? {}).map(([symbol, cfg]) => ({
-      symbol, exchange: cfg.exchange ?? "?", enabled: cfg.enabled !== false,
-    }));
-    return jsonResp({ ok: true, count: tickers.length, tickers });
+    const snap = "error" in snapR ? null : (snapR.data as { date?: string; rsi?: Record<string, number> });
+    const rsiMap = snap?.rsi ?? {};
+    const inDiv = new Set(dw.map((d) => d.symbol.replace(/_?USDT$/, "")));
+    const tickers = Object.entries(cur.data.tickers ?? {}).map(([symbol, cfg]) => {
+      const ex = cfg.exchange ?? "?";
+      const rsiKey = ex === "gateio_futures" ? `${symbol}.GATEIO` : symbol;
+      const rsi = rsiMap[rsiKey];
+      return {
+        symbol, exchange: ex, enabled: cfg.enabled !== false,
+        rsi_d: typeof rsi === "number" ? rsi : null,
+        in_div: inDiv.has(symbol.replace(/_?USDT$/, "")),
+      };
+    });
+    return jsonResp({ ok: true, count: tickers.length, tickers, snapshot_date: snap?.date ?? null });
   }
   const action = url.searchParams.get("action");
   const raw = (url.searchParams.get("symbol") || "").trim().toUpperCase();
@@ -691,7 +705,14 @@ button:active{background:#1c5a30}
 .x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
 .x:active{color:#ff5544}
 .add,.filter{display:flex;gap:8px;margin:10px 0 4px}
-input{flex:1;min-width:0;background:#0d1b10;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:11px;font-size:1rem}
+input,select{background:#0d1b10;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:11px;font-size:1rem}
+input{flex:1;min-width:0}
+select{flex:0 0 auto;font-size:.85rem;padding:8px}
+.rsi{font-variant-numeric:tabular-nums;min-width:38px;text-align:right}
+.rsi.hot{color:#ff5544;font-weight:600}.rsi.warm{color:#ffb04d}.rsi.dim{color:#6a9a7c}
+.dv{background:none;border:1px solid #1c5a30;border-radius:6px;color:#6a9a7c;font-size:.72rem;padding:5px 8px}
+.dv:active{background:#13351f}
+.dv.on{color:#3fd07d;border-color:#3fd07d}
 #msg{min-height:1.2rem;font-size:.85rem;margin:6px 0}
 .ok{color:#3fd07d}.err{color:#ff5544}.muted{color:#6a9a7c}
 </style></head><body>
@@ -699,20 +720,32 @@ input{flex:1;min-width:0;background:#0d1b10;color:#cfe4d6;border:1px solid #1c5a
 <div class="add">
 <input id="sym" placeholder="+ ticker เช่น CRCL (ผ่าน Actions ~1 นาที)" autocomplete="off" autocapitalize="characters">
 <button id="add">add</button></div>
-<div class="filter"><input id="q" placeholder="&#128269; ค้นหา..." autocomplete="off" autocapitalize="characters"></div>
+<div class="filter"><input id="q" placeholder="&#128269; ค้นหา..." autocomplete="off" autocapitalize="characters">
+<select id="sort"><option value="rsi_desc">RSI &darr;</option><option value="rsi_asc">RSI &uarr;</option><option value="name">A-Z</option></select></div>
 <div id="msg" class="muted"></div>
 <div id="list" class="muted">กำลังโหลด...</div>
 <script>
 var TOKEN=new URLSearchParams(location.search).get('token');
 var list=[];
 var $=function(id){return document.getElementById(id)};
+function rsiCls(v){return v==null?'dim':(v>=70?'hot':(v>=60?'warm':'dim'))}
 function render(){
 var q=$('q').value.trim().toUpperCase();
-var rows=list.filter(function(d){return !q||d.symbol.indexOf(q)>=0});
+var mode=$('sort').value;
+var rows=list.filter(function(d){return !q||d.symbol.indexOf(q)>=0}).slice();
+rows.sort(function(a,b){
+if(mode==='name')return a.symbol<b.symbol?-1:1;
+var av=a.rsi_d==null?-1:a.rsi_d, bv=b.rsi_d==null?-1:b.rsi_d;
+return mode==='rsi_asc'?((av<0?999:av)-(bv<0?999:bv)):(bv-av);
+});
 $('count').textContent=list.length+' ตัว';
 $('list').innerHTML=rows.map(function(d){
+var r=d.rsi_d==null?'&ndash;':d.rsi_d.toFixed(0);
+var dv=d.in_div?'<button class="dv on" disabled>&#10003;div</button>':'<button class="dv" data-adddiv="'+d.symbol+'">+div</button>';
 return '<div class="row"><span class="lbl">'+d.symbol+(d.enabled?'':' <span class="off">(off)</span>')+'</span>'+
-'<span class="src">'+d.exchange+'</span><button class="x" data-sym="'+d.symbol+'">&#10005;</button></div>';
+'<span class="rsi '+rsiCls(d.rsi_d)+'">'+r+'</span>'+
+'<span class="src">'+d.exchange.replace('gateio_futures','gate').replace('binance_spot','binance')+'</span>'+dv+
+'<button class="x" data-sym="'+d.symbol+'">&#10005;</button></div>';
 }).join('')||'<p class="muted">'+(q?'ไม่พบ':'ว่าง')+'</p>';
 }
 function setMsg(t,c){var m=$('msg');m.textContent=t;m.className=c||'muted';}
@@ -733,7 +766,21 @@ else setMsg('\\u26a0\\ufe0f '+(d.error||'ล้มเหลว'),'err');
 $('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
 $('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
 $('q').addEventListener('input',render);
-$('list').addEventListener('click',function(e){var b=e.target.closest('[data-sym]');
+$('sort').addEventListener('change',render);
+function addDiv(symbol){
+var base=symbol.replace(/_?USDT$/,'');
+setMsg('เพิ่ม '+base+' เข้า div watch...','muted');
+fetch('/divwatch?token='+encodeURIComponent(TOKEN)+'&action=add&symbol='+encodeURIComponent(base),{method:'POST'})
+.then(function(r){return r.json()}).then(function(d){
+if(d.ok){setMsg('\u2705 '+(d.added&&d.added.label)+' เข้า div watch แล้ว ('+(d.added&&d.added.source)+')','ok');
+list.forEach(function(t){if(t.symbol===symbol)t.in_div=true});render();}
+else setMsg('\u26a0\ufe0f '+(d.error||'ล้มเหลว'),'err');
+}).catch(function(e){setMsg('\u26a0\ufe0f '+e,'err')});
+}
+$('list').addEventListener('click',function(e){
+var a=e.target.closest('[data-adddiv]');
+if(a){addDiv(a.dataset.adddiv);return;}
+var b=e.target.closest('[data-sym]');
 if(b&&confirm('ลบ '+b.dataset.sym+' ออกจาก watchlist?'))mutate('remove',b.dataset.sym)});
 load();
 </script></body></html>`;
@@ -1106,17 +1153,22 @@ function b64encodeUtf8(text: string): string {
   return btoa(bin);
 }
 
-async function ghFetchWatchlist(env: Env): Promise<{ data: WatchlistFile; sha: string } | { error: string }> {
-  const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/contents/watchlist.json?ref=main`, {
+async function ghFetchJson(env: Env, path: string): Promise<{ data: unknown; sha: string } | { error: string }> {
+  const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/contents/${path}?ref=main`, {
     headers: ghHeaders(env),
   });
   if (!r.ok) return { error: `github read ${r.status}` };
   const j = (await r.json()) as { content: string; sha: string };
   try {
-    return { data: JSON.parse(b64decodeUtf8(j.content)) as WatchlistFile, sha: j.sha };
+    return { data: JSON.parse(b64decodeUtf8(j.content)), sha: j.sha };
   } catch {
-    return { error: "watchlist.json parse failed" };
+    return { error: `${path} parse failed` };
   }
+}
+
+async function ghFetchWatchlist(env: Env): Promise<{ data: WatchlistFile; sha: string } | { error: string }> {
+  const r = await ghFetchJson(env, "watchlist.json");
+  return "error" in r ? r : { data: r.data as WatchlistFile, sha: r.sha };
 }
 
 // ลบ ticker ออกจาก watchlist.json บน main โดยตรง — optimistic lock ด้วย sha, retry กัน race กับ Actions
