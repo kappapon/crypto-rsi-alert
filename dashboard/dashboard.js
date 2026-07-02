@@ -105,6 +105,11 @@ async function fetchKlines(symbol, exchange, limit = 24, interval = "1h") {
       const rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
       return rows.map(r => parseFloat(r.c));
     }
+    if (exchange === "gateio_spot") {
+      // spot format = array: [t, quote_vol, close, high, low, open, ...] (เหรียญที่ futures delisted เช่น SYN)
+      const rows = await fetch(px(`https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
+      return rows.map(r => parseFloat(r[2]));
+    }
   } catch (e) {
     console.warn(`fetchKlines ${symbol}@${exchange}:`, e);
     return [];
@@ -202,7 +207,7 @@ async function computeDiv(d) {
   divWatchCache[d.symbol] = { ts: Date.now(), res };
   return res;
 }
-const srcToExchange = (source) => (source === "gate" ? "gateio_futures" : "binance_spot");
+const srcToExchange = (source) => (source === "gate" ? "gateio_futures" : source === "gate_spot" ? "gateio_spot" : "binance_spot");
 
 // list สดจาก worker (health.divwatch) → compute div ทุกตัว → render. ไม่มี token = fallback list
 async function refreshDivWatch() {

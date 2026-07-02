@@ -47,7 +47,8 @@ const SYMBOL_RE = /^[A-Z0-9_]{2,20}$/;
 // source: ทุกตัวใช้ gate futures (api.gateio.ws) — api-gcp.binance.com โดน 451 จาก CF edge แล้ว
 // (2026-06-26: binance ทั้ง 6 ตัวโดน geo-block ผ่าน api-gcp ซ้ำรอย 403/451 → ย้ายมา gate ที่ edge ดึงได้ชัวร์)
 // code ยังรองรับ source "binance" ไว้ (fetchKlines) เผื่อกลับมาใช้ได้ภายหลัง
-type DivSym = { symbol: string; source: "binance" | "gate"; label: string };
+// source: gate = futures (มี funding, ใช้เป็นหลัก) | gate_spot = spot (เหรียญที่ futures delisted เช่น SYN) | binance = สำรอง (edge 451 อยู่)
+type DivSym = { symbol: string; source: "binance" | "gate" | "gate_spot"; label: string };
 const DIVWATCH_KEY = "divwatch:list"; // single source of truth ใน KV — แก้ผ่าน dashboard (POST /divwatch); default = seed ครั้งแรก
 const DIV_WATCH_DEFAULT: DivSym[] = [
   { symbol: "SYN_USDT", source: "gate", label: "SYN" },
@@ -482,14 +483,19 @@ async function handleDivWatchMutate(env: Env, url: URL): Promise<Response> {
   }
   if (action === "add") {
     if (list.some(has)) return jsonResp({ ok: false, error: `${base} อยู่ใน div watch แล้ว` });
+    // liveness: futures ที่ delisted ยังคืนแท่งแบน (ราคาเดิมทุกแท่ง) ผ่านเช็ค ≥41 ได้ — เคส SYN 2026-07-02
+    const isLive = (kl: Klines | { error: string; code?: number }) =>
+      !("error" in kl) && new Set(kl.closes.slice(-20)).size > 1;
     let chosen: DivSym | null = null;
-    const gate = await fetchKlines({ symbol: `${base}_USDT`, source: "gate", label: base });
-    if (!("error" in gate)) chosen = { symbol: `${base}_USDT`, source: "gate", label: base };
-    else {
-      const bin = await fetchKlines({ symbol: `${base}USDT`, source: "binance", label: base });
-      if (!("error" in bin)) chosen = { symbol: `${base}USDT`, source: "binance", label: base };
+    const candidates: DivSym[] = [
+      { symbol: `${base}_USDT`, source: "gate", label: base },
+      { symbol: `${base}_USDT`, source: "gate_spot", label: base },
+      { symbol: `${base}USDT`, source: "binance", label: base },
+    ];
+    for (const c of candidates) {
+      if (isLive(await fetchKlines(c))) { chosen = c; break; }
     }
-    if (!chosen) return jsonResp({ ok: false, error: `${base} ดึงข้อมูลไม่ได้ (ไม่มีบน Gate และ Binance edge 451) หรือแท่งไม่พอ` });
+    if (!chosen) return jsonResp({ ok: false, error: `${base} ดึงข้อมูลไม่ได้/ตลาดตาย (gate futures+spot, binance edge 451) หรือแท่งไม่พอ` });
     const next = [...list, chosen];
     await env.DEDUPE.put(DIVWATCH_KEY, JSON.stringify(next));
     return jsonResp({ ok: true, added: chosen, divwatch: next });
@@ -578,7 +584,9 @@ async function fetchKlines(item: DivSym, interval = "15m", limit = 150): Promise
   const url =
     item.source === "gate"
       ? `https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${item.symbol}&interval=${interval}&limit=${limit}`
-      : `${KLINES_BASE}/api/v3/klines?symbol=${item.symbol}&interval=${interval}&limit=${limit}`;
+      : item.source === "gate_spot"
+        ? `https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${item.symbol}&interval=${interval}&limit=${limit}`
+        : `${KLINES_BASE}/api/v3/klines?symbol=${item.symbol}&interval=${interval}&limit=${limit}`;
   const res = await fetch(url, { headers: { "user-agent": KLINES_UA } });
   if (!res.ok) return { error: "klines_http_error", code: res.status };
   const raw = (await res.json()) as unknown[];
@@ -589,6 +597,14 @@ async function fetchKlines(item: DivSym, interval = "15m", limit = 150): Promise
     return {
       highs: a.map((r) => parseFloat(r.h)), lows: a.map((r) => parseFloat(r.l)),
       closes: a.map((r) => parseFloat(r.c)), times: a.map((r) => r.t * 1000),
+    };
+  }
+  if (item.source === "gate_spot") {
+    // spot format: [t(วินาที str), quote_vol, close, high, low, open, base_amount, closed_flag]
+    const a = k as string[][];
+    return {
+      highs: a.map((r) => parseFloat(r[3])), lows: a.map((r) => parseFloat(r[4])),
+      closes: a.map((r) => parseFloat(r[2])), times: a.map((r) => Number(r[0]) * 1000),
     };
   }
   const a = k as string[][];
