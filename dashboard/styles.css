@@ -468,6 +468,34 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .tm-neg { background: var(--red); }
 .tm-pct { font-size: 0.73rem; text-align: right; font-weight: 600; }
 
+/* ===== Theme Heatmap (E2) ===== */
+.tm-heat-head {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+}
+.th-row {
+  display: grid;
+  grid-template-columns: 62px repeat(4, 1fr);
+  gap: 3px;
+  align-items: center;
+  padding: 2px 0;
+}
+.th-head span { color: var(--text-faint); text-align: center; font-size: 0.66rem; letter-spacing: 1px; }
+.th-cell {
+  text-align: center;
+  padding: 2px 3px;
+  border: 1px solid var(--row-line);
+  font-size: 0.7rem;
+  color: var(--text);
+}
+.th-empty { border-color: transparent; color: var(--text-faint); }
+
 /* ===== Pattern badge colors + CSS tooltip (D3) ===== */
 .pat-parabolic { border-color: #ffd23b; color: #ffd23b; }
 .pat-breakout  { border-color: var(--green); color: var(--green); }

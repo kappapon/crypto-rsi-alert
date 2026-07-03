@@ -25,15 +25,15 @@
 - **Verify:** panel หายเกลี้ยง / ไม่มี console error / side panels ที่เหลือ render ปกติ / mobile stack ปกติ
 - **ไม่แตะ:** server, workflows, Python
 
-## Phase E2 — Theme history snapshot + Heatmap (ทำที่สองเพื่อเดินนาฬิกาข้อมูลทันที)
-- [ ] `theme_snapshot.py` ใหม่ (โมเดลจาก pattern_scan.py): CoinGecko `/coins/categories` 1 call → map theme ชุดเดียวกับ `cgCategoryToTheme` → เขียน `theme_history.json` prune >35 วัน + `DRY_RUN` guard + เขียนทับ entry ของวันนี้ (update-in-place ต่อวัน UTC — rsi-alert รันทุก 4 ชม. แต่เก็บวันละค่า)
+## ✅ Phase E2 — Theme history snapshot + Heatmap (เสร็จ 2026-07-03 — นาฬิกาข้อมูลเริ่มเดินแล้ว)
+- [x] `theme_snapshot.py` ใหม่ (โมเดลจาก pattern_scan.py): CoinGecko `/coins/categories` 1 call → map theme ชุดเดียวกับ `cgCategoryToTheme` → เขียน `theme_history.json` prune >35 วัน + `DRY_RUN` guard + เขียนทับ entry ของวันนี้ (update-in-place ต่อวัน UTC — rsi-alert รันทุก 4 ชม. แต่เก็บวันละค่า)
   ```json
   { "updated": "...", "days": { "2026-07-03": { "AI": 1234567890, "Meme": 987654321 } } }
   ```
   เก็บ **market_cap ดิบ** ต่อ theme ต่อวัน (ไม่เก็บ %) — ทุก horizon คำนวณฝั่ง client ได้ และเพิ่ม horizon ใหม่ทีหลังไม่ต้องสะสมใหม่ / ~10 themes × 35 วัน ≈ 7KB
-- [ ] `rsi-alert.yml`: เพิ่ม step `python theme_snapshot.py` + เพิ่ม `theme_history.json` เข้า `git add`
-- [ ] `dashboard.js`: `loadThemeHistory()` (fetch `../theme_history.json`) → คำนวณ % ต่อ horizon → `renderThemeHeatmap()` — ช่องที่ยังไม่มีข้อมูล = `·` จาง ๆ (ห้ามโชว์ 0%/NaN) + caption countdown เช่น `1W ใน 5 วัน · 1M ใน 28 วัน` ให้ความว่างอ่านเป็น "กำลังสะสม" ไม่ใช่ "พัง"
-- [ ] `index.html` + `styles.css`: heatmap ใต้ bar เดิม (**เก็บ bar 24H ไว้** — ใช้ได้ตั้งแต่วันแรก) — rows=themes+icon, cols=1D/2D/1W/1M, cell เขียว `rgba(0,230,83,α)` / แดง `rgba(255,85,68,α)` โดย α ∝ |%|/maxAbs (normalize แบบเดียวกับ renderThemeMoverContent)
+- [x] `rsi-alert.yml`: เพิ่ม step `python theme_snapshot.py` (`continue-on-error: true` — CoinGecko ล่มไม่พา alert ล้ม) + เพิ่ม `theme_history.json` เข้า `git add`
+- [x] `dashboard.js`: `loadThemeHistory()` (fetch `../theme_history.json`) → คำนวณ % ต่อ horizon → `renderThemeHeatmap()` — ช่องที่ยังไม่มีข้อมูล = `·` จาง ๆ (ห้ามโชว์ 0%/NaN) + caption countdown เช่น `1W ใน 5 วัน · 1M ใน 28 วัน` ให้ความว่างอ่านเป็น "กำลังสะสม" ไม่ใช่ "พัง"
+- [x] `index.html` + `styles.css`: heatmap ใต้ bar เดิม (**เก็บ bar 24H ไว้** — ใช้ได้ตั้งแต่วันแรก) — rows=themes+icon, cols=1D/2D/1W/1M, cell เขียว `rgba(0,230,83,α)` / แดง `rgba(255,85,68,α)` โดย α ∝ |%|/maxAbs (normalize แบบเดียวกับ renderThemeMoverContent)
 - **Verify:** `DRY_RUN=1 python3 theme_snapshot.py` print market cap ต่อ theme สมเหตุผล / ไฟล์ ≤10KB / วันแรก heatmap โชว์ `·` + countdown ไม่ดูพัง / เทียบ 1D% ธีมหนึ่งกับ coingecko.com/en/categories
 - **ทรัพยากร:** +1 CoinGecko call/วัน (ฝั่ง Actions — ไม่ติด geo-block) / browser อ่านไฟล์ local ไม่เพิ่ม call
 
@@ -64,3 +64,4 @@
 **บันทึกความคืบหน้า:** (เติมทุกครั้งที่จบเฟส)
 - 2026-07-03: สร้างแผน — ออกแบบผ่าน orchestration workflow (Opus วิเคราะห์ codebase + ผู้ใช้ยืนยัน 3 ข้อตัดสินใจ) — ต่อไป: E1
 - 2026-07-03: ✅ E1 เสร็จ — panel/JS/CSS ของ trigger journal ออกหมด, verify ใน preview: panel หาย, ไม่มี console error, 3 panels ที่เหลือ render, mobile stack ปกติ, pipeline หลังบ้านไม่แตะ — ต่อไป: E2 (theme history — เริ่มเดินนาฬิกาข้อมูล!)
+- 2026-07-03: ✅ E2 เสร็จ — theme_snapshot.py (7 themes, DRY_RUN verified) + rsi-alert.yml step + heatmap UI; verify ด้วย history สังเคราะห์ 8 วัน (เซลล์ +/− สี intensity ถูก, เลขตรงคำนวณมือ, 1M โชว์ `·` + countdown 23 วัน) แล้ว seed ข้อมูลจริงวันแรก 2026-07-03 (ทุกเซลล์ `·` + countdown ครบ — อ่านเป็น "กำลังสะสม" ตามแผน) — ต่อไป: E3 (div journey timeline)

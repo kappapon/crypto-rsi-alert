@@ -790,6 +790,62 @@ async function refreshThemeMover() {
   }
 }
 
+// ============ Theme Heatmap (E2) — % หลายช่วงเวลาจาก theme_history.json ที่ Actions สะสมรายวัน ============
+const HEAT_HORIZONS = [["1D", 1], ["2D", 2], ["1W", 7], ["1M", 30]];
+
+async function loadThemeHistory() {
+  try {
+    const r = await fetch("../theme_history.json?_=" + Date.now());
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+function renderThemeHeatmap(hist) {
+  const el = document.getElementById("theme-heatmap-body");
+  if (!el) return;
+  const days = hist?.days ? Object.keys(hist.days).sort() : [];
+  if (!days.length) { el.innerHTML = `<p class="faint">รอ snapshot แรกจาก Actions_</p>`; return; }
+
+  const latest = days[days.length - 1];
+  const latestCaps = hist.days[latest];
+  const DAY = 86400000;
+  const dateAt = n => new Date(Date.parse(latest) - n * DAY).toISOString().slice(0, 10);
+
+  // % ต่อ theme ต่อ horizon — ไม่มีข้อมูลย้อนหลังพอ = null (ห้ามโชว์ 0/NaN)
+  const themes = Object.keys(latestCaps).sort();
+  const cells = {};
+  let maxAbs = 0.1;
+  for (const t of themes) {
+    cells[t] = HEAT_HORIZONS.map(([, n]) => {
+      const past = hist.days[dateAt(n)]?.[t];
+      if (!past) return null;
+      const pct = (latestCaps[t] - past) / past * 100;
+      maxAbs = Math.max(maxAbs, Math.abs(pct));
+      return pct;
+    });
+  }
+
+  const head = `<div class="th-row th-head"><span></span>${HEAT_HORIZONS.map(([h]) => `<span>${h}</span>`).join("")}</div>`;
+  const rows = themes.map(t => {
+    const icon = THEME_ICONS[t] || "❔";
+    const tds = cells[t].map(p => {
+      if (p == null) return `<span class="th-cell th-empty">·</span>`;
+      const a = (Math.min(Math.abs(p) / maxAbs, 1) * 0.5 + 0.08).toFixed(2);
+      const bg = p >= 0 ? `rgba(0,230,83,${a})` : `rgba(255,85,68,${a})`;
+      return `<span class="th-cell" style="background:${bg}">${p >= 0 ? "+" : ""}${p.toFixed(1)}</span>`;
+    }).join("");
+    return `<div class="th-row"><span class="tm-label">${icon} ${t}</span>${tds}</div>`;
+  }).join("");
+  el.innerHTML = head + rows;
+
+  // countdown horizon ที่ยังไม่ครบ — ให้ความว่างอ่านเป็น "กำลังสะสม" ไม่ใช่พัง
+  const spanDays = Math.round((Date.parse(latest) - Date.parse(days[0])) / DAY);
+  const waiting = HEAT_HORIZONS.filter(([, n]) => n > spanDays).map(([h, n]) => `${h} ใน ${n - spanDays} วัน`);
+  const note = document.getElementById("th-note");
+  if (note) note.textContent = waiting.length ? waiting.join(" · ") : "";
+}
+
 // ============ Top RSI Mover (D5) ============
 async function loadRsiSnapshot() {
   try {
@@ -1011,6 +1067,7 @@ async function refresh() {
   statusEl.className = "status ok";
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
   refreshThemeMover(); // sidebar — fire and forget
+  loadThemeHistory().then(renderThemeHeatmap);
   loadRsiSnapshot().then(renderRsiMover);
   refreshDivWatch();
 }
