@@ -1244,6 +1244,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "CVS_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 110.5538,
+        "resistance": 108.92,
+        "rejection_below": 99.5885,
+        "support_strong": 104.6703,
+        "support_extreme": 104.4831
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
