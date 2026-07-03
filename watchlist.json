@@ -956,23 +956,6 @@
         "funding_high": 0.1
       }
     },
-    "CIEN_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 503.1355,
-        "resistance": 495.7,
-        "rejection_below": 402.515,
-        "support_strong": 437.3043,
-        "support_extreme": 453.9972
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "KAITOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
@@ -1198,11 +1181,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
+        "breakout_above": 0,
+        "resistance": 0,
+        "rejection_below": 0,
+        "support_strong": 0,
+        "support_extreme": 0
       },
       "alerts": {
         "price_breakout": true,
@@ -1233,7 +1216,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 549.115,
-        "resistance": 541.0,
+        "resistance": 541,
         "rejection_below": 498.56,
         "support_strong": 521.1374,
         "support_extreme": 515.8929
