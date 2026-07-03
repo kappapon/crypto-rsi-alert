@@ -531,23 +531,6 @@
         "funding_high": 0.1
       }
     },
-    "ZHIPU_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 376.1387,
-        "resistance": 370.58,
-        "rejection_below": 198.303,
-        "support_strong": 217.111,
-        "support_extreme": 231.6312
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "APH_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
