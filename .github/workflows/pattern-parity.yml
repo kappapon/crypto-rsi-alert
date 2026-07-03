@@ -1,0 +1,27 @@
+name: Pattern Parity
+
+# กัน classifyPattern (dashboard.js) กับ classify (pattern_scan.py) ดริฟท์ออกจากกัน
+# รันเฉพาะตอน push ที่แตะไฟล์เกี่ยวข้อง — drift เกิดจากการแก้โค้ดเท่านั้น
+on:
+  push:
+    paths:
+      - dashboard/dashboard.js
+      - pattern_scan.py
+      - test_pattern_parity.py
+  workflow_dispatch:
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Parity test (python vs node)
+        run: python test_pattern_parity.py
