@@ -1262,5 +1262,85 @@
       "OKX Ventures Portfolio",
       "Binance Alpha Spotlight"
     ]
+  },
+  "RE": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173708/small/RE-Token.png?1781031591",
+    "cg_id": "re",
+    "categories": [
+      "Insurance",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Stablecoin Issuer",
+      "RWA Protocol",
+      "Governance"
+    ]
+  },
+  "LIT": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71121/small/lighter.png?1765888098",
+    "cg_id": "lighter",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Decentralized Finance (DeFi)",
+      "Derivatives",
+      "Perpetuals",
+      "Ethereum Ecosystem",
+      "Made in USA"
+    ]
+  },
+  "TLM": {
+    "theme": "Gaming",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/14676/small/kY-C4o7RThfWrDQsLCAG4q4clZhBDDfJQVhWUEKxXAzyQYMj4Jmq1zmFwpRqxhAJFPOa0AsW_PTSshoPuMnXNwq3rU7Imp15QimXTjlXMx0nC088mt1rIwRs75GnLLugWjSllxgzvQ9YrP4tBgclK4_rb17hjnusGj_c0u2fx0AvVokjSNB-v2poTj0xT9BZRCbzRE3-lF1.jpg?1696514350",
+    "cg_id": "alien-worlds",
+    "categories": [
+      "Gaming (GameFi)",
+      "NFT",
+      "BNB Chain Ecosystem",
+      "Binance Launchpool",
+      "Play To Earn",
+      "Ethereum Ecosystem",
+      "Animoca Brands Portfolio",
+      "Card Games",
+      "Gaming Governance Token",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "Wax Ecosystem",
+      "MMO"
+    ]
+  },
+  "GPS": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/53686/small/Separate_logo%EF%BC%88green%EF%BC%89.png?1737033911",
+    "cg_id": "goplus-security",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Base Ecosystem",
+      "Cybersecurity",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "OKX Ventures Portfolio",
+      "Binance HODLer Airdrops",
+      "Binance Alpha Spotlight",
+      "Base Native"
+    ]
+  },
+  "V": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/17980/small/Gram_Circular_Badge.png?1781524778",
+    "cg_id": "the-open-network",
+    "categories": [
+      "Smart Contract Platform",
+      "BNB Chain Ecosystem",
+      "Layer 1 (L1)",
+      "Ethereum Ecosystem",
+      "Animoca Brands Portfolio",
+      "Alleged SEC Securities",
+      "DWF Labs Portfolio",
+      "TON Ecosystem",
+      "Proof of Stake (PoS)",
+      "Pantera Capital Portfolio",
+      "GMCI Layer 1 Index",
+      "GMCI 30 Index",
+      "GMCI Index"
+    ]
   }
 }
