@@ -6,6 +6,12 @@
       "runtimeExecutable": ".venv/bin/python3",
       "runtimeArgs": ["dashboard_server.py"],
       "port": 8765
+    },
+    {
+      "name": "dashboard-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8899"],
+      "port": 8899
     }
   ]
 }
