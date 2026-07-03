@@ -4166,8 +4166,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:rejection:2026-06-24T04:23:44.581637+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-06-27T20:23:43.537110+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-07-03T00:24:15.283035+00:00"
     },
     {
       "symbol": "DRAM_USDT",
@@ -4745,8 +4745,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-06-25T12:23:48.245760+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-01T08:23:44.602969+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-03T00:24:16.037903+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -5047,8 +5047,8 @@
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-06-25T20:24:07.836064+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-01T20:24:06.772997+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-03T00:24:30.808118+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -6150,8 +6150,8 @@
       "funding": 0.0,
       "id": "QUICKUSDT:support_break:2026-06-28T04:24:05.365178+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-02T08:24:04.535306+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-03T00:24:33.667626+00:00"
     },
     {
       "symbol": "UNH_USDT",
@@ -6293,8 +6293,8 @@
       "funding": 0.0,
       "id": "AAVEUSDT:support_break:2026-06-28T08:24:08.424577+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-01T08:24:03.328331+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-03T00:24:38.064023+00:00"
     },
     {
       "symbol": "ASTS_USDT",
@@ -7464,8 +7464,8 @@
       "funding": -0.4544,
       "id": "GWEI_USDT:funding:2026-07-01T08:23:35.372517+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-02T20:24:08.118326+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-03T00:24:04.855717+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -7606,7 +7606,8 @@
       "funding": 0.0,
       "id": "ATMUSDT:support_break:2026-07-01T12:23:40.678848+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-03T00:24:13.835450+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -7971,7 +7972,8 @@
       "funding": 0.005,
       "id": "BP_USDT:support_break:2026-07-02T08:23:32.032823+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-03T00:24:05.613673+00:00"
     },
     {
       "symbol": "JELLYJELLY_USDT",
@@ -8080,7 +8082,8 @@
       "funding": 0.0,
       "id": "KAITOUSDT:support_break:2026-07-02T12:24:26.131006+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-03T00:24:40.812250+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -8247,6 +8250,42 @@
       "price": 0.0108,
       "funding": 0.0,
       "id": "GPSUSDT:resistance_test:2026-07-02T20:24:44.333791+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "METUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-03T00:24:26.045571+00:00",
+      "price": 0.1745,
+      "funding": 0.0,
+      "id": "METUSDT:support_break:2026-07-03T00:24:26.045571+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SLX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-03T00:24:34.351415+00:00",
+      "price": 0.47543,
+      "funding": -0.3377,
+      "id": "SLX_USDT:support_break:2026-07-03T00:24:34.351415+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SLX_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-07-03T00:24:34.351415+00:00",
+      "price": 0.47543,
+      "funding": -0.3377,
+      "id": "SLX_USDT:funding:2026-07-03T00:24:34.351415+00:00",
       "status": "pending",
       "repeats": 1
     }
