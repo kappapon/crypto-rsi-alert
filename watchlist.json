@@ -599,23 +599,6 @@
         "funding_high": 0.1
       }
     },
-    "TNSRUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0565,
-        "resistance": 0.0557,
-        "rejection_below": 0.032,
-        "support_strong": 0.0339,
-        "support_extreme": 0.0341
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "MMTUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
