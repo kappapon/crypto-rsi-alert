@@ -293,23 +293,6 @@
         "funding_high": 0.1
       }
     },
-    "ATMUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 2.5375,
-        "resistance": 2.5,
-        "rejection_below": 2.299,
-        "support_strong": 2.4315,
-        "support_extreme": 2.4013
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "AERO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
