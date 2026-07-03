@@ -225,23 +225,6 @@
         "funding_high": 0.1
       }
     },
-    "ASML_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 2040.0485,
-        "resistance": 2009.9,
-        "rejection_below": 1697.498,
-        "support_strong": 1808.7695,
-        "support_extreme": 1847.6429
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "INFQ_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
