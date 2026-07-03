@@ -3988,8 +3988,8 @@
       "funding": 0.005,
       "id": "AERO_USDT:rejection:2026-06-23T16:23:44.416110+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-01T20:23:49.004376+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-03T04:24:17.039417+00:00"
     },
     {
       "symbol": "VELODROMEUSDT",
@@ -4039,8 +4039,8 @@
       "funding": 0.005,
       "id": "ZEST_USDT:support_break:2026-06-23T20:24:16.077911+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-02T20:24:03.994480+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-03T04:24:03.847503+00:00"
     },
     {
       "symbol": "FOLKS_USDT",
@@ -5844,8 +5844,8 @@
       "funding": 0.005,
       "id": "BLESS_USDT:rejection:2026-06-27T04:24:01.012753+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-01T16:23:52.777360+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-03T04:24:29.773319+00:00"
     },
     {
       "symbol": "RIVN_USDT",
@@ -7382,8 +7382,8 @@
       "funding": 0.01,
       "id": "HD_USDT:resistance_test:2026-06-30T16:23:31.983449+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-02T20:24:07.527802+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-03T04:24:07.988430+00:00"
     },
     {
       "symbol": "ASML_USDT",
@@ -8502,6 +8502,67 @@
       "price": 0.47543,
       "funding": -0.3377,
       "id": "SLX_USDT:funding:2026-07-03T00:24:34.351415+00:00",
+      "status": "pending",
+      "repeats": 2,
+      "last_repeat": "2026-07-03T04:24:33.088135+00:00"
+    },
+    {
+      "symbol": "FOLKS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-03T04:24:04.547173+00:00",
+      "price": 1.961,
+      "funding": 0.01,
+      "id": "FOLKS_USDT:rejection:2026-07-03T04:24:04.547173+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BX_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-03T04:24:28.456469+00:00",
+      "price": 122.07,
+      "funding": 0.01,
+      "id": "BX_USDT:rejection:2026-07-03T04:24:28.456469+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SMH_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-07-03T04:24:39.839117+00:00",
+      "price": 604.0,
+      "funding": 0.2329,
+      "id": "SMH_USDT:funding:2026-07-03T04:24:39.839117+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TLMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-03T04:24:45.561123+00:00",
+      "price": 0.001489,
+      "funding": 0.0,
+      "id": "TLMUSDT:rejection:2026-07-03T04:24:45.561123+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TLMUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-03T04:24:45.561123+00:00",
+      "price": 0.001489,
+      "funding": 0.0,
+      "id": "TLMUSDT:support_break:2026-07-03T04:24:45.561123+00:00",
       "status": "pending",
       "repeats": 1
     }
