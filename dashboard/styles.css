@@ -131,6 +131,11 @@ button.primary:hover { background: #35ff7e; }
   .badge { font-size: 0.58rem; padding: 1px 4px; }
   .coin-logo { width: 14px; height: 14px; }
   .coin-ava { width: 14px; height: 14px; font-size: 8px; line-height: 14px; }
+
+  /* Div journey rail: จุดใหญ่ขึ้นให้แตะได้ (tap → tip ใน dw-msg) — rail อยู่บรรทัดใต้ symbol อยู่แล้ว */
+  .dw-cp { min-width: 22px; padding: 2px 0; }
+  .dw-dot { font-size: 13px; }
+  .dw-cp-tf { font-size: 9px; }
 }
 
 .panel {
@@ -441,7 +446,17 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .dw-sym { color: var(--text); font-weight: 600; }
 .dw-rsi { text-align: right; }
 .dw-status { text-align: right; white-space: nowrap; }
-.dw-cross { grid-column: 1 / -1; display: flex; gap: 10px; font-size: 10.5px; padding: 1px 0 3px 2px; }
+/* E3 journey rail: ●─○─· checkpoint 15m→4h ปิดท้าย cross chips */
+.dw-rail { grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; font-size: 10.5px; padding: 1px 0 3px 2px; }
+.dw-cps { display: inline-flex; align-items: flex-start; line-height: 1.1; }
+.dw-cp { display: inline-flex; flex-direction: column; align-items: center; min-width: 16px; cursor: default; }
+.dw-dot { font-size: 11px; line-height: 1.1; }
+.dw-cp-tf { font-size: 8px; color: var(--text-faint); letter-spacing: 0; }
+.dw-cp-fresh .dw-dot { color: var(--red); text-shadow: 0 0 5px rgba(255, 85, 68, 0.6); }
+.dw-cp-old .dw-dot { color: var(--text-dim); }
+.dw-cp-none .dw-dot { color: var(--text-faint); }
+.dw-link { color: var(--text-faint); font-size: 11px; line-height: 1.1; letter-spacing: -1px; }
+.dw-rail .dw-tf { padding-top: 1px; }
 .dw-tf { white-space: nowrap; }
 .dw-below { color: var(--yellow); }
 .dw-confl { color: var(--red); font-weight: 600; }

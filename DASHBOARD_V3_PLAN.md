@@ -37,15 +37,16 @@
 - **Verify:** `DRY_RUN=1 python3 theme_snapshot.py` print market cap ต่อ theme สมเหตุผล / ไฟล์ ≤10KB / วันแรก heatmap โชว์ `·` + countdown ไม่ดูพัง / เทียบ 1D% ธีมหนึ่งกับ coingecko.com/en/categories
 - **ทรัพยากร:** +1 CoinGecko call/วัน (ฝั่ง Actions — ไม่ติด geo-block) / browser อ่านไฟล์ local ไม่เพิ่ม call
 
-## Phase E3 — Div journey timeline หลาย TF (dashboard-only)
-- [ ] `dashboard.js`: generalize `fetchOHLC15` → `fetchOHLC(symbol, exchange, interval)` / เพิ่ม `computeDivMulti` วน 15m/1h/2h/4h ผ่าน `bearishDivClient` เดิม / cache ต่อ (symbol,TF): 15m=2 นาทีเดิม, 1h/2h=5 นาที, 4h=15 นาที (แท่งปิดช้า fetch ถี่ไปก็เปลือง)
-- [ ] `renderDivRail(divByTf, cross)` ใน `renderDivWatch`: rail แนวนอนต่อ symbol
+## ✅ Phase E3 — Div journey timeline หลาย TF (dashboard-only) (เสร็จ 2026-07-03)
+- [x] `dashboard.js`: generalize `fetchOHLC15` → `fetchOHLC(symbol, exchange, interval)` / เพิ่ม `computeDivMulti` วน 15m/1h/2h/4h ผ่าน `bearishDivClient` เดิม / cache ต่อ (symbol,TF): 15m=2 นาทีเดิม, 1h/2h=5 นาที, 4h=15 นาที (แท่งปิดช้า fetch ถี่ไปก็เปลือง)
+- [x] `renderDivRail(divByTf, cross)` ใน `renderDivWatch`: rail แนวนอนต่อ symbol
   ```
   DEXE  RSI 71  ●───●───●───○──┤ ✂1h ↓2h  🎯 confirmed
                15m   1h   2h   4h    cross chips เดิม
   ```
   `●` = fresh div / `○` = div เก่า (hover/แตะ = อายุกี่แท่ง) / `·` = ไม่มี — จุด confirm สุดท้ายคือ RSI×MA cross chips 1h/2h ที่มีอยู่แล้ว (ตรง confluence 🎯 ของ worker)
-- [ ] `styles.css`: จุด + เส้นเชื่อม Matrix theme / mobile: rail ตัดบรรทัดใต้ symbol, จุดยังแตะได้
+- [x] `styles.css`: จุด + เส้นเชื่อม Matrix theme / mobile: rail ตัดบรรทัดใต้ symbol, จุดยังแตะได้ (แตะ = โชว์อายุใน `#dw-msg` เพราะมือถือไม่มี hover)
+- [x] (เพิ่มเติม) `index.html`: rename หัว panel `▮ 15m DIV WATCH` → `▮ DIV WATCH 15m→4h` ให้ตรงขอบเขตใหม่
 - **Verify:** จุด 15m ตรงกับ badge เดิมทุกเหรียญ / เทียบ divergence 1h/4h กับ TradingView ด้วยตา ≥3 เหรียญ / นับ kline calls ต่อ refresh ใน console — cold ~4×N, warm ~0 / มือถืออ่านรู้เรื่อง
 - **ไม่แตะ:** cf_worker (ยังไม่มี alert TF สูง — ตัดสินใจแล้ว 2026-07-03)
 
@@ -65,3 +66,4 @@
 - 2026-07-03: สร้างแผน — ออกแบบผ่าน orchestration workflow (Opus วิเคราะห์ codebase + ผู้ใช้ยืนยัน 3 ข้อตัดสินใจ) — ต่อไป: E1
 - 2026-07-03: ✅ E1 เสร็จ — panel/JS/CSS ของ trigger journal ออกหมด, verify ใน preview: panel หาย, ไม่มี console error, 3 panels ที่เหลือ render, mobile stack ปกติ, pipeline หลังบ้านไม่แตะ — ต่อไป: E2 (theme history — เริ่มเดินนาฬิกาข้อมูล!)
 - 2026-07-03: ✅ E2 เสร็จ — theme_snapshot.py (7 themes, DRY_RUN verified) + rsi-alert.yml step + heatmap UI; verify ด้วย history สังเคราะห์ 8 วัน (เซลล์ +/− สี intensity ถูก, เลขตรงคำนวณมือ, 1M โชว์ `·` + countdown 23 วัน) แล้ว seed ข้อมูลจริงวันแรก 2026-07-03 (ทุกเซลล์ `·` + countdown ครบ — อ่านเป็น "กำลังสะสม" ตามแผน) — ต่อไป: E3 (div journey timeline)
+- 2026-07-03: ✅ E3 เสร็จ — fetchOHLC generalize ทุก TF + computeDivMulti (cache แยก symbol,TF ตาม TTL แผน) + renderDivRail `●─○─·─┤` + cross chips ต่อท้าย rail เดิม + แตะจุดบนมือถือโชว์อายุใน dw-msg; verify: kline calls cold = 15m:12 / 1h:24 / 2h:24 / 4h:12 (= 4×N div ใหม่ + 2×N cross เดิม), warm = 0 ✓ / ยิงแท่งสังเคราะห์ผ่าน pipeline จริง (route intercept): fresh age2 = ● แดง, old age10 = ○, ไม่มี div = `·`, badge 15m ตรงกับจุด 15m ครบ 11/11 แถว, ไม่มี console error / screenshot desktop+mobile 375px อ่านรู้เรื่อง rail ตัดบรรทัดใต้ symbol ✓ — ⚠️ ค้าง 1 ข้อ verify: เทียบ div 1h/4h กับ TradingView ด้วยตา ≥3 เหรียญ ต้องทำบนเครื่องจริง (sandbox บล็อก gate.io/binance ทั้งคู่) — ต่อไป: E4 (gate 14 วัน — เริ่มทำได้ ~2026-07-17)
