@@ -174,23 +174,6 @@
         "funding_high": 0.1
       }
     },
-    "JELLYJELLY_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0952,
-        "resistance": 0.0938,
-        "rejection_below": 0.0593,
-        "support_strong": 0.0592,
-        "support_extreme": 0.059
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "EVAA_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
