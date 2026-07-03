@@ -17,10 +17,11 @@
 
 ---
 
-## Phase E1 — ถอด Trigger Journal (UI เท่านั้น)
-- [ ] `index.html`: ลบ panel `#trigger-journal` (~บรรทัด 80-86)
-- [ ] `dashboard.js`: ลบ `loadTriggerStats` + `renderTriggerStats` (~839-873) + จุดเรียกใน init (~1051)
-- [ ] **คง** track_triggers.py / trigger_stats.json ไว้ทั้งหมด (orphan โดยตั้งใจ — จะเลิก generate stats เป็น cleanup แยกทีหลัง เพราะต้องแก้ reversal-alert.yml)
+## ✅ Phase E1 — ถอด Trigger Journal (UI เท่านั้น) (เสร็จ 2026-07-03)
+- [x] `index.html`: ลบ panel `#trigger-journal` (~บรรทัด 80-86)
+- [x] `dashboard.js`: ลบ `loadTriggerStats` + `renderTriggerStats` (~839-873) + จุดเรียกใน init (~1051)
+- [x] **คง** track_triggers.py / trigger_stats.json ไว้ทั้งหมด (orphan โดยตั้งใจ — จะเลิก generate stats เป็น cleanup แยกทีหลัง เพราะต้องแก้ reversal-alert.yml)
+- [x] (เพิ่มเติม) `styles.css`: ลบ `.tj-*` rules ที่ orphan จากการถอด panel
 - **Verify:** panel หายเกลี้ยง / ไม่มี console error / side panels ที่เหลือ render ปกติ / mobile stack ปกติ
 - **ไม่แตะ:** server, workflows, Python
 
@@ -62,3 +63,4 @@
 ---
 **บันทึกความคืบหน้า:** (เติมทุกครั้งที่จบเฟส)
 - 2026-07-03: สร้างแผน — ออกแบบผ่าน orchestration workflow (Opus วิเคราะห์ codebase + ผู้ใช้ยืนยัน 3 ข้อตัดสินใจ) — ต่อไป: E1
+- 2026-07-03: ✅ E1 เสร็จ — panel/JS/CSS ของ trigger journal ออกหมด, verify ใน preview: panel หาย, ไม่มี console error, 3 panels ที่เหลือ render, mobile stack ปกติ, pipeline หลังบ้านไม่แตะ — ต่อไป: E2 (theme history — เริ่มเดินนาฬิกาข้อมูล!)

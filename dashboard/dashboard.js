@@ -836,42 +836,6 @@ function renderRsiMover(snap) {
   if (upEl && snap.date) upEl.textContent = snap.date.slice(11, 16) + " UTC";
 }
 
-async function loadTriggerStats() {
-  try {
-    const r = await fetch("../trigger_stats.json?_=" + Date.now());
-    if (!r.ok) return null;
-    return await r.json();
-  } catch { return null; }
-}
-
-function renderTriggerStats(stats) {
-  const el = document.getElementById("trigger-journal-body");
-  if (!el) return;
-  if (!stats?.per_type || !Object.keys(stats.per_type).length) {
-    el.innerHTML = `<p class="faint">รอ sample จาก Actions_</p>`;
-    return;
-  }
-  const o = stats.overall || {};
-  const rows = Object.entries(stats.per_type)
-    .sort((a, b) => b[1].avg_r - a[1].avg_r)
-    .map(([t, s]) => {
-      const rCls = s.avg_r > 0 ? "pct-up" : s.avg_r < 0 ? "pct-down" : "faint";
-      const r = `${s.avg_r >= 0 ? "+" : ""}${s.avg_r.toFixed(2)}R`;
-      return `<div class="tj-row" title="tp ${s.tp} / sl ${s.sl} / exp ${s.expiry}">
-        <span class="tj-type">${t.replace(/_/g, " ")}</span>
-        <span class="tj-n faint">n${s.n}</span>
-        <span class="tj-hit">${Math.round(s.hit_rate * 100)}%</span>
-        <span class="tj-r ${rCls}">${r}</span>
-      </div>`;
-    }).join("");
-  el.innerHTML = rows +
-    `<div class="tj-foot faint">รวม ${o.n || 0} ปิด · hit ${Math.round((o.hit_rate || 0) * 100)}% · ` +
-    `avg ${(o.avg_r >= 0 ? "+" : "")}${(o.avg_r || 0).toFixed(2)}R · ${o.pending || 0} pending</div>`;
-
-  const upEl = document.getElementById("tj-updated");
-  if (upEl && stats.updated) upEl.textContent = stats.updated.slice(11, 16) + " UTC";
-}
-
 // ============ Main loop ============
 let cache = { watchlist: null, analysis: {}, tickerData: {}, lastFetch: 0, rows: [] };
 
@@ -1048,7 +1012,6 @@ async function refresh() {
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
   refreshThemeMover(); // sidebar — fire and forget
   loadRsiSnapshot().then(renderRsiMover);
-  loadTriggerStats().then(renderTriggerStats);
   refreshDivWatch();
 }
 
