@@ -1045,11 +1045,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 368.5465,
-        "resistance": 363.1,
-        "rejection_below": 344.09,
-        "support_strong": 358.4923,
-        "support_extreme": 353.2232
+        "breakout_above": 369.257,
+        "resistance": 363.8,
+        "rejection_below": 343.9,
+        "support_strong": 360.6625,
+        "support_extreme": 356.0913
       },
       "alerts": {
         "price_breakout": true,
