@@ -5364,8 +5364,8 @@
       "funding": -0.0232,
       "id": "BLESS_USDT:support_break:2026-06-26T04:23:59.491240+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-06-30T08:23:58.826269+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-04T00:24:13.275405+00:00"
     },
     {
       "symbol": "AWEUSDT",
@@ -6201,8 +6201,8 @@
       "funding": 0.0,
       "id": "JTOUSDT:support_break:2026-06-28T04:23:38.196104+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-02T16:24:19.034269+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-04T00:24:03.094666+00:00"
     },
     {
       "symbol": "HIMS_USDT",
@@ -7589,7 +7589,8 @@
       "funding": 0.02,
       "id": "TLT_USDT:support_break:2026-07-01T04:23:50.267677+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-04T00:24:09.451371+00:00"
     },
     {
       "symbol": "SLX_USDT",
@@ -7632,8 +7633,8 @@
       "funding": 0.01,
       "id": "BEAT_USDT:support_break:2026-07-01T08:23:30.328988+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-03T08:24:10.689443+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-04T00:23:57.126244+00:00"
     },
     {
       "symbol": "GWEI_USDT",
@@ -7980,8 +7981,8 @@
       "funding": 0.01,
       "id": "APH_USDT:support_break:2026-07-01T20:23:56.343169+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-02T08:23:49.608933+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-04T00:24:09.019324+00:00"
     },
     {
       "symbol": "BAS_USDT",
@@ -8031,7 +8032,8 @@
       "funding": 0.01,
       "id": "GEV_USDT:support_break:2026-07-01T20:24:22.086606+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-04T00:24:21.059931+00:00"
     },
     {
       "symbol": "DYDXUSDT",
@@ -8267,7 +8269,8 @@
       "funding": 0.0,
       "id": "RIFUSDT:support_break:2026-07-02T12:24:00.483541+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-04T00:24:01.244427+00:00"
     },
     {
       "symbol": "SLX_USDT",
@@ -8402,8 +8405,8 @@
       "funding": 0.01,
       "id": "PANW_USDT:support_break:2026-07-02T20:24:33.847129+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-03T16:24:20.635089+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-04T00:24:16.870690+00:00"
     },
     {
       "symbol": "UNH_USDT",
@@ -8451,8 +8454,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:support_break:2026-07-02T20:24:43.172094+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-03T08:24:36.701663+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-04T00:24:23.216345+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -8512,8 +8515,8 @@
       "funding": -0.3377,
       "id": "SLX_USDT:funding:2026-07-03T00:24:34.351415+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-03T20:24:26.610304+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-04T00:24:15.443075+00:00"
     },
     {
       "symbol": "FOLKS_USDT",
@@ -8851,6 +8854,30 @@
       "price": 360.4,
       "funding": 0.01,
       "id": "V_USDT:support_break:2026-07-03T20:24:41.334355+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-04T00:24:05.538395+00:00",
+      "price": 3.212,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-07-04T00:24:05.538395+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "CVS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-04T00:24:25.380263+00:00",
+      "price": 104.67,
+      "funding": 0.01,
+      "id": "CVS_USDT:support_break:2026-07-04T00:24:25.380263+00:00",
       "status": "pending",
       "repeats": 1
     }
