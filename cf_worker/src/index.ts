@@ -558,26 +558,37 @@ async function handleDivWatchMutate(env: Env, url: URL): Promise<Response> {
   return jsonResp({ ok: false, error: "action ต้องเป็น add หรือ remove" });
 }
 
-// สถานะเต็มต่อเหรียญสำหรับหน้า /divmanage — RSI 15m + div + cross 1h/2h + lifecycle (3 fetch + KV ไม่กี่ op ต่อ call)
+// สถานะเต็มต่อเหรียญสำหรับหน้า /divmanage — RSI 15m + div ทุก TF (15m→4h ตรง rail ของ dashboard E3)
+// + cross 1h/2h + lifecycle (4 fetch + KV ไม่กี่ op ต่อ call)
+type DivTfStatus = { ok: boolean; rsi: number | null; div: { age: number; fresh: boolean } | null };
+function divStatusAt(kl: Klines | { error: string; code?: number }): DivTfStatus {
+  if ("error" in kl || kl.closes.length < 20) return { ok: false, rsi: null, div: null };
+  const rsi = wilderRSI(kl.closes, 14);
+  const last = rsi[rsi.length - 1];
+  const bear = detectDiv(kl.highs, rsi, swingHighs(kl.highs, DIV_PIVOT_K), "bearish");
+  const age = bear ? kl.closes.length - 1 - bear.p2 : null;
+  return {
+    ok: true,
+    rsi: Number.isNaN(last) ? null : +last.toFixed(1),
+    div: age === null ? null : { age, fresh: age <= DIV_FRESH_BARS },
+  };
+}
+
 async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
   if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
   const sym = (url.searchParams.get("symbol") || "").trim().toUpperCase();
   const list = await getDivWatch(env);
   const item = list.find((d) => d.symbol === sym || d.label === sym);
   if (!item) return jsonResp({ ok: false, error: "ไม่อยู่ใน div watch" });
-  const [k15, k1, k2] = await Promise.all([fetchKlines(item), fetchKlines(item, "1h"), fetchKlines(item, "2h")]);
-  let rsi15: number | null = null;
-  let div: { age: number; fresh: boolean } | null = null;
-  if (!("error" in k15)) {
-    const rsi = wilderRSI(k15.closes, 14);
-    const last = rsi[rsi.length - 1];
-    rsi15 = Number.isNaN(last) ? null : +last.toFixed(1);
-    const bear = detectDiv(k15.highs, rsi, swingHighs(k15.highs, DIV_PIVOT_K), "bearish");
-    if (bear) {
-      const age = k15.closes.length - 1 - bear.p2;
-      div = { age, fresh: age <= DIV_FRESH_BARS };
-    }
-  }
+  const [k15, k1, k2, k4] = await Promise.all([
+    fetchKlines(item), fetchKlines(item, "1h"), fetchKlines(item, "2h"), fetchKlines(item, "4h"),
+  ]);
+  // 1h/2h ใช้ candles ชุดเดียวทั้ง div และ cross — divTf["15m"] คือแหล่งเดียวกับ rsi15/div เดิม (badge ตรงกันเสมอ)
+  const divTf: Record<string, DivTfStatus> = {
+    "15m": divStatusAt(k15), "1h": divStatusAt(k1), "2h": divStatusAt(k2), "4h": divStatusAt(k4),
+  };
+  const rsi15 = divTf["15m"].rsi;
+  const div = divTf["15m"].div;
   const cross: Record<string, ReturnType<typeof crossState>> = {};
   if (!("error" in k1)) cross["1h"] = crossState(k1.closes);
   if (!("error" in k2)) cross["2h"] = crossState(k2.closes);
@@ -591,7 +602,7 @@ async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
     { parabolic_seen?: Record<string, string> } | null;
   const paraSeen = patSnap?.parabolic_seen?.[item.label.replace(/_/g, "").replace(/USDT$/, "")] ?? null;
   return jsonResp({
-    ok: true, label: item.label, source: item.source, rsi15, div, cross,
+    ok: true, label: item.label, source: item.source, rsi15, div, divTf, cross,
     lastdivMin: ld ? Math.round((Date.now() - Number(ld)) / 60000) : null, confirm,
     para_seen: paraSeen,
   });
@@ -829,9 +840,18 @@ h1 .rf{margin-left:auto}
 .rsi.hot{color:#ffb04d}.rsi.cool{color:#6a9a7c}
 .bdg{font-size:.78rem;white-space:nowrap}
 .bdg.red{color:#ff5544;font-weight:600}.bdg.amb{color:#ffb04d}.bdg.dim{color:#6a9a7c}
-.sub{display:flex;gap:12px;font-size:.74rem;padding:3px 0 0 2px;min-height:1em}
-.tf{white-space:nowrap;color:#6a9a7c}
+.sub{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px 12px;font-size:.74rem;padding:3px 0 0 2px;min-height:1em}
+.tf{white-space:nowrap;color:#6a9a7c;padding-top:2px}
 .tf.red{color:#ff5544;font-weight:600}.tf.yel{color:#ffb04d}
+/* journey rail 15m→4h (ตรง dashboard E3): ● fresh / ○ เก่า / · ไม่มี — แตะจุด = โชว์อายุใน msg */
+.cps{display:inline-flex;align-items:flex-start;line-height:1.1}
+.cp{display:inline-flex;flex-direction:column;align-items:center;min-width:26px;padding:2px 0}
+.cp .dot{font-size:14px;line-height:1.1}
+.cp .tfl{font-size:9px;color:#4a7a5c}
+.cp.fresh .dot{color:#ff5544;text-shadow:0 0 5px rgba(255,85,68,.6)}
+.cp.old .dot{color:#9fc4ad}
+.cp.none .dot{color:#33523f}
+.lnk{color:#33523f;font-size:14px;line-height:1.1;letter-spacing:-1px;padding-top:2px}
 button{background:#13351f;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:9px 14px;font-size:.92rem}
 button:active{background:#1c5a30}
 .x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
@@ -842,7 +862,7 @@ button:active{background:#1c5a30}
 #msg{min-height:1.2rem;font-size:.85rem;margin:6px 0}
 .ok{color:#3fd07d}.err{color:#ff5544}.muted{color:#6a9a7c}
 </style></head><body>
-<h1>&#9646; 15m DIV WATCH &mdash; manage <button class="rf" id="rf">&#8635; refresh</button></h1>
+<h1>&#9646; DIV WATCH 15m&rarr;4h &mdash; manage <button class="rf" id="rf">&#8635; refresh</button></h1>
 <div class="add">
 <input id="sym" placeholder="+ ticker เช่น TAC" autocomplete="off" autocapitalize="characters">
 <button id="add">add</button></div>
@@ -858,8 +878,19 @@ return '<div class="row"><div class="main"><span class="lbl">'+d.label+'</span>'
 '<span class="rsi cool" id="rsi-'+d.label+'">&ndash;</span>'+
 '<span class="bdg dim" id="bdg-'+d.label+'">&hellip;</span>'+
 '<button class="x" data-sym="'+d.label+'">&#10005;</button></div>'+
-'<div class="sub" id="sub-'+d.label+'"></div></div>';
+'<div class="sub" id="sub-'+d.label+'">'+rail(null)+'</div></div>';
 }).join('')||'<p class="muted">ว่าง</p>';
+}
+// rail 15m→4h ตรง dashboard E3 — divTf จาก /coinstatus; null = ยังโหลดอยู่/ไม่มีข้อมูล
+function railCp(tf,r){
+var dot='\\u00b7',cls='none',tip=tf+': ไม่มี div';
+if(!r||!r.ok)tip=tf+': ไม่มีข้อมูล';
+else if(r.div&&r.div.fresh){dot='\\u25cf';cls='fresh';tip=tf+': bearish div สด ('+r.div.age+' แท่งก่อน)';}
+else if(r.div){dot='\\u25cb';cls='old';tip=tf+': div เก่า '+r.div.age+' แท่ง';}
+return '<span class="cp '+cls+'" data-tip="'+tip+'"><span class="dot">'+dot+'</span><span class="tfl">'+tf+'</span></span>';
+}
+function rail(divTf){
+return '<span class="cps">'+['15m','1h','2h','4h'].map(function(tf){return railCp(tf,divTf&&divTf[tf])}).join('<span class="lnk">\\u2500\\u2500</span>')+'<span class="lnk">\\u2500\\u2524</span></span>';
 }
 function chip(tf,c){
 if(!c)return '<span class="tf">'+tf.toUpperCase()+' &ndash;</span>';
@@ -886,7 +917,7 @@ if(!r)return;
 r.textContent=s.rsi15!=null?s.rsi15.toFixed(1):'?';
 r.className='rsi '+(s.rsi15!=null&&s.rsi15>=65?'hot':'cool');
 var bd=badge(s);b.innerHTML=bd[0];b.className='bdg '+bd[1];
-var h='';
+var h=rail(s.divTf);
 h+=chip('1h',s.cross&&s.cross['1h']);
 h+=chip('2h',s.cross&&s.cross['2h']);
 var c2=s.cross&&s.cross['2h'];
@@ -908,7 +939,10 @@ else setMsg('\\u26a0\\ufe0f '+(d.error||'ล้มเหลว'),'err');
 }
 $('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
 $('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
-$('list').addEventListener('click',function(e){var b=e.target.closest('[data-sym]');if(b)mutate('remove',b.dataset.sym)});
+$('list').addEventListener('click',function(e){
+var b=e.target.closest('[data-sym]');if(b){mutate('remove',b.dataset.sym);return;}
+var c=e.target.closest('.cp[data-tip]');if(c)setMsg(c.dataset.tip,'muted');
+});
 $('rf').onclick=loadStatus;
 render();loadStatus();
 </script></body></html>`;

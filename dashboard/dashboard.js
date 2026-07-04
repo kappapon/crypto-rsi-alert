@@ -177,23 +177,24 @@ function bearishDivClient(highs, rsi) {
   return { age, fresh: age <= DIV_FRESH };
 }
 
-async function fetchOHLC15(symbol, exchange) {
+// OHLC (highs+closes, แท่งปิดเท่านั้น) — generalize จาก fetchOHLC15 เดิม ใช้ได้ทุก TF (E3)
+async function fetchOHLC(symbol, exchange, interval = "15m") {
   let rows;
   if (exchange === "binance_spot") {
-    rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=15m&limit=150`).then(r => r.json());
+    rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=150`).then(r => r.json());
     if (!Array.isArray(rows)) return null;
     rows = rows.slice(0, -1); // ตัดแท่งกำลังก่อตัว (closed only) ตรงกับ worker
     return { highs: rows.map(r => +r[2]), closes: rows.map(r => +r[4]) };
   }
   if (exchange === "gateio_futures") {
-    rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=15m&limit=150`)).then(r => r.json());
+    rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=${interval}&limit=150`)).then(r => r.json());
     if (!Array.isArray(rows)) return null;
     rows = rows.slice(0, -1);
     return { highs: rows.map(r => +r.h), closes: rows.map(r => +r.c) };
   }
   if (exchange === "gateio_spot") {
     // spot format = array: [t, quote_vol, close, high, low, open, ...] (เหรียญที่ futures delisted เช่น SYN)
-    rows = await fetch(px(`https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${symbol}&interval=15m&limit=150`)).then(r => r.json());
+    rows = await fetch(px(`https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${symbol}&interval=${interval}&limit=150`)).then(r => r.json());
     if (!Array.isArray(rows)) return null;
     rows = rows.slice(0, -1);
     return { highs: rows.map(r => +r[3]), closes: rows.map(r => +r[2]) };
@@ -201,21 +202,33 @@ async function fetchOHLC15(symbol, exchange) {
   return null;
 }
 
-const divWatchCache = {}; // 15m แท่งปิดทุก 15 นาที — cache 2 นาที ลด kline calls
-async function computeDiv(d) {
-  const hit = divWatchCache[d.symbol];
-  if (hit && Date.now() - hit.ts < 2 * 60 * 1000) return hit.res;
+// E3 journey timeline: div ต่อ TF — cache แยก (symbol,TF), TTL ตามจังหวะแท่งปิด (แท่งช้า fetch ถี่ไปก็เปลือง)
+const DIV_TFS = ["15m", "1h", "2h", "4h"];
+const DIV_TF_TTL_MS = { "15m": 2 * 60 * 1000, "1h": 5 * 60 * 1000, "2h": 5 * 60 * 1000, "4h": 15 * 60 * 1000 };
+const divTfCache = {};
+async function computeDivTf(d, tf) {
+  const key = `${d.symbol}|${tf}`;
+  const hit = divTfCache[key];
+  if (hit && Date.now() - hit.ts < DIV_TF_TTL_MS[tf]) return hit.res;
   let res;
   try {
-    const kl = await fetchOHLC15(d.symbol, d.exchange);
-    if (!kl || kl.closes.length < 20) res = { ...d, ok: false };
+    const kl = await fetchOHLC(d.symbol, d.exchange, tf);
+    if (!kl || kl.closes.length < 20) res = { ok: false };
     else {
       const rsi = wilderRSISeries(kl.closes, 14);
-      res = { ...d, ok: true, rsi: rsi[rsi.length - 1], div: bearishDivClient(kl.highs, rsi) };
+      res = { ok: true, rsi: rsi[rsi.length - 1], div: bearishDivClient(kl.highs, rsi) };
     }
-  } catch { res = { ...d, ok: false }; }
-  divWatchCache[d.symbol] = { ts: Date.now(), res };
+  } catch { res = { ok: false }; }
+  divTfCache[key] = { ts: Date.now(), res };
   return res;
+}
+
+// รวมทุก TF — ok/rsi/div ระดับแถวยังมาจาก 15m ล้วน (badge เดิมความหมายไม่เปลี่ยน)
+async function computeDivMulti(d) {
+  const divByTf = {};
+  await Promise.all(DIV_TFS.map(async tf => { divByTf[tf] = await computeDivTf(d, tf); }));
+  const m15 = divByTf["15m"];
+  return { ...d, ok: m15.ok, rsi: m15.rsi, div: m15.div, divByTf };
 }
 const srcToExchange = (source) => (source === "gate" ? "gateio_futures" : source === "gate_spot" ? "gateio_spot" : "binance_spot");
 
@@ -249,7 +262,7 @@ async function refreshDivWatch() {
     ? health.divwatch.map(d => ({ symbol: d.symbol, exchange: srcToExchange(d.source), label: d.label }))
     : DIV_WATCH_FALLBACK;
   const rows = await Promise.all(list.map(async d => {
-    const [base, cross] = await Promise.all([computeDiv(d), computeCross(d)]);
+    const [base, cross] = await Promise.all([computeDivMulti(d), computeCross(d)]);
     return { ...base, cross };
   }));
   renderDivWatch(rows, health);
@@ -289,6 +302,21 @@ async function loadDivHealth() {
   } catch { return null; }
 }
 
+// E3: rail แนวนอนต่อ symbol — checkpoint div 15m→1h→2h→4h (live ตาม lookback, stateless เหมือน badge เดิม)
+// ปิดท้ายด้วย cross chips 1h/2h ที่มีอยู่แล้ว = จุด confirm สุดท้ายของ journey
+function renderDivRail(divByTf, chipsHtml) {
+  const cp = (tf) => {
+    const r = divByTf ? divByTf[tf] : null;
+    let dot = "·", cls = "dw-cp-none", tip = `${tf}: ไม่มี div`;
+    if (!r || !r.ok) tip = `${tf}: ไม่มีข้อมูล`;
+    else if (r.div && r.div.fresh) { dot = "●"; cls = "dw-cp-fresh"; tip = `${tf}: bearish div สด (${r.div.age} แท่งก่อน)`; }
+    else if (r.div) { dot = "○"; cls = "dw-cp-old"; tip = `${tf}: div เก่า ${r.div.age} แท่ง`; }
+    return `<span class="dw-cp ${cls}" title="${tip}" data-tip="${tip}"><span class="dw-dot">${dot}</span><span class="dw-cp-tf">${tf}</span></span>`;
+  };
+  const link = `<span class="dw-link">──</span>`;
+  return `<div class="dw-rail"><span class="dw-cps">${DIV_TFS.map(cp).join(link)}<span class="dw-link">─┤</span></span>${chipsHtml}</div>`;
+}
+
 const DIV_ERR_STATUS = new Set(["klines_http_error", "too_few_klines", "exception"]);
 function renderDivWatch(rows, health) {
   const el = document.getElementById("div-watch-body");
@@ -320,8 +348,9 @@ function renderDivWatch(rows, health) {
       let confl = "";
       if (ldMin != null && c2 && (c2.crossed || c2.below)) confl = `<span class="dw-tf dw-confl">🎯 div ${(ldMin / 60).toFixed(1)}ชม.+2H</span>`;
       else if (ldMin != null) confl = `<span class="dw-tf faint">🐻 div ${(ldMin / 60).toFixed(1)}ชม.</span>`;
-      const crossRow = d.cross ? `<div class="dw-cross">${chip("1h", d.cross["1h"])}${chip("2h", d.cross["2h"])}${confl}</div>` : "";
-      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}${crossRow}</div>`;
+      const chipsHtml = d.cross ? `${chip("1h", d.cross["1h"])}${chip("2h", d.cross["2h"])}${confl}` : confl;
+      const railRow = renderDivRail(d.divByTf, chipsHtml);
+      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}${railRow}</div>`;
     }).join("");
   }
   const hEl = document.getElementById("dw-health");
@@ -1109,7 +1138,10 @@ document.getElementById("dw-add-btn")?.addEventListener("click", dwAddSubmit);
 dwAddInput?.addEventListener("keydown", (e) => { if (e.key === "Enter") dwAddSubmit(); });
 document.getElementById("div-watch-body")?.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-divremove]");
-  if (btn) divWatchMutate("remove", btn.dataset.divremove);
+  if (btn) { divWatchMutate("remove", btn.dataset.divremove); return; }
+  // แตะจุด checkpoint บนมือถือ (ไม่มี hover) → โชว์อายุ div ใน dw-msg
+  const cp = e.target.closest(".dw-cp[data-tip]");
+  if (cp) { const msg = document.getElementById("dw-msg"); if (msg) { msg.textContent = cp.dataset.tip; msg.style.color = ""; } }
 });
 
 document.getElementById("add-btn").addEventListener("click", () => {

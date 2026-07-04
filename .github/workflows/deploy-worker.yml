@@ -1,0 +1,32 @@
+# Deploy Cloudflare Worker จาก Actions — ให้ deploy ได้จากมือถือ (ไม่ต้องมีเครื่องที่ลง wrangler)
+# ต้องตั้ง secret CLOUDFLARE_API_TOKEN ก่อน (Cloudflare dash → My Profile → API Tokens →
+# template "Edit Cloudflare Workers") ไม่ตั้ง = workflow fail เฉย ๆ ไม่กระทบตัว worker ที่รันอยู่
+name: Deploy Worker
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ["cf_worker/**"]
+
+concurrency:
+  group: deploy-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Typecheck
+        working-directory: cf_worker
+        run: |
+          npm ci
+          npx tsc --noEmit
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: cf_worker
