@@ -1176,6 +1176,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "MAVIA_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0353,
+        "resistance": 0.0348,
+        "rejection_below": 0.0327,
+        "support_strong": 0.0333,
+        "support_extreme": 0.0329
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
