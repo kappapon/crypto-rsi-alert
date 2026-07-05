@@ -1497,5 +1497,60 @@
       "Privacy Infrastructure",
       "Privacy"
     ]
+  },
+  "ROKU": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "MAVIA": {
+    "theme": "Gaming",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/33895/small/2023-12-20_21.21.41_%281%29.jpg?1703230771",
+    "cg_id": "heroes-of-mavia",
+    "categories": [
+      "Gaming (GameFi)",
+      "NFT",
+      "BNB Chain Ecosystem",
+      "Ethereum Ecosystem",
+      "Animoca Brands Portfolio",
+      "Base Ecosystem",
+      "Gaming Governance Token",
+      "Strategy Games",
+      "Alameda Research Portfolio",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "Delphi Ventures Portfolio",
+      "Action Games",
+      "Base Native"
+    ]
+  },
+  "GNS": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/19737/small/logo.png?1696519161",
+    "cg_id": "gains-network",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Derivatives",
+      "Perpetuals",
+      "Polygon Ecosystem",
+      "Arbitrum Ecosystem",
+      "Base Ecosystem",
+      "ApeChain Ecosystem",
+      "MegaETH Ecosystem",
+      "Base Native"
+    ]
+  },
+  "VANRY": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/33466/small/apple-touch-icon.png?1701942541",
+    "cg_id": "vanar-chain",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "Polygon Ecosystem",
+      "Ethereum Ecosystem",
+      "Vanar Chain Ecosystem"
+    ]
   }
 }
