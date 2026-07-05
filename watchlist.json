@@ -21,23 +21,6 @@
         "funding_high": 0.1
       }
     },
-    "ZEST_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.3301,
-        "resistance": 0.3252,
-        "rejection_below": 0.2122,
-        "support_strong": 0.2243,
-        "support_extreme": 0.2265
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "KO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
