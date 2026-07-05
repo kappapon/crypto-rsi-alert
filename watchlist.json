@@ -1227,6 +1227,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "RPLUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 2.7303,
+        "resistance": 2.69,
+        "rejection_below": 2.3275,
+        "support_strong": 1.9948,
+        "support_extreme": 1.8126
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
