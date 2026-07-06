@@ -63,6 +63,7 @@
 
 ---
 **บันทึกความคืบหน้า:** (เติมทุกครั้งที่จบเฟส)
+- 2026-07-06: ✅ ปิดข้อ verify ที่ค้างของ E3 — ผู้ใช้เทียบ rail 1h/4h กับ TradingView แล้ว**ยืนยันถูกต้อง → E3 สมบูรณ์** / ระหว่างทาง: แก้ list ยาวเกินจอ (`#div-watch-body` 48vh + scroll, merge แล้ว) และพบบทเรียน ops สำคัญ: **free plan Workers ชนเพดาน 50 subrequests ที่ tick :02 (div+cross รันพร้อมกัน) เมื่อ div watch >14 เหรียญ** — อาการ: เหรียญท้าย list ขึ้น `exception` fails พร้อมกัน / ทางแก้: จำกัด ≤14 (ใช้อยู่) หรือ Workers Paid $5 หรือแยก cron — ต่อไป: E4 (รอ theme_history ครบ 14 วัน ~2026-07-17)
 - 2026-07-03: สร้างแผน — ออกแบบผ่าน orchestration workflow (Opus วิเคราะห์ codebase + ผู้ใช้ยืนยัน 3 ข้อตัดสินใจ) — ต่อไป: E1
 - 2026-07-03: ✅ E1 เสร็จ — panel/JS/CSS ของ trigger journal ออกหมด, verify ใน preview: panel หาย, ไม่มี console error, 3 panels ที่เหลือ render, mobile stack ปกติ, pipeline หลังบ้านไม่แตะ — ต่อไป: E2 (theme history — เริ่มเดินนาฬิกาข้อมูล!)
 - 2026-07-03: ✅ E2 เสร็จ — theme_snapshot.py (7 themes, DRY_RUN verified) + rsi-alert.yml step + heatmap UI; verify ด้วย history สังเคราะห์ 8 วัน (เซลล์ +/− สี intensity ถูก, เลขตรงคำนวณมือ, 1M โชว์ `·` + countdown 23 วัน) แล้ว seed ข้อมูลจริงวันแรก 2026-07-03 (ทุกเซลล์ `·` + countdown ครบ — อ่านเป็น "กำลังสะสม" ตามแผน) — ต่อไป: E3 (div journey timeline)
