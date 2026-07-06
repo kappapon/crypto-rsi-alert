@@ -1552,5 +1552,67 @@
       "Ethereum Ecosystem",
       "Vanar Chain Ecosystem"
     ]
+  },
+  "TMO": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68583/small/tmon_160x160.png?1756129775",
+    "cg_id": "toyota-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "RPL": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/2090/small/rocket_pool_%28RPL%29.png?1696503058",
+    "cg_id": "rocket-pool",
+    "categories": [
+      "Infrastructure",
+      "Smart Contract Platform",
+      "Decentralized Finance (DeFi)",
+      "Polygon Ecosystem",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Liquid Staking Governance Tokens",
+      "Coinbase Ventures Portfolio",
+      "Proof of Stake (PoS)",
+      "Index Coop Defi Index",
+      "Consensys Portfolio",
+      "Liquid Staking",
+      "Governance"
+    ]
+  },
+  "BSV": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/6799/small/BSV.png?1696507128",
+    "cg_id": "bitcoin-cash-sv",
+    "categories": [
+      "Smart Contract Platform",
+      "Bitcoin Fork",
+      "Proof of Work (PoW)"
+    ]
+  },
+  "TRB": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/9644/small/TRB-New_Logo.png?1737722143",
+    "cg_id": "tellor",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Oracle",
+      "Polygon Ecosystem",
+      "Gnosis Chain Ecosystem",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Optimism Ecosystem",
+      "Manta Network Ecosystem",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "Lisk Ecosystem",
+      "Made in USA"
+    ]
   }
 }
