@@ -431,6 +431,8 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 #dw-add input:focus { outline: none; border-color: var(--green); }
 #dw-add button { padding: 4px 10px; font-size: 0.72rem; }
 #dw-msg { font-size: 0.7rem; min-height: 0.85rem; margin-bottom: 4px; }
+/* rail ทำแถวสูงขึ้น list ยาวเกินจอ → จำกัดสูง + scroll ในตัว (แบบเดียวกับ #table-wrap) */
+#div-watch-body { max-height: 48vh; overflow-y: auto; overscroll-behavior: contain; padding-right: 2px; }
 .dw-x { background: none; border: none; color: var(--text-faint); cursor: pointer; padding: 0; font-size: 0.72rem; }
 .dw-x:hover { color: var(--red); background: none; }
 .dw-row {
