@@ -1614,5 +1614,66 @@
       "Lisk Ecosystem",
       "Made in USA"
     ]
+  },
+  "AMGN": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71402/small/amgnon_160x160.png?1767875106",
+    "cg_id": "amgen-ondo-tokenized-stocks",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "SCHW": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71030/small/Ticker_SCHFx__Company_Name_Schwab_International_Equity__size_200x200.png?1765377495",
+    "cg_id": "schwab-international-equity-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Tokenized Exchange-Traded Funds (ETFs)",
+      "BackedFi xStocks Ecosystem",
+      "Tokenized Exchange-Traded Product (ETPs)"
+    ]
+  },
+  "BKNG": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/69660/small/Ticker_BKNGx__Company_Name_Booking__size_200x200.png?1759233846",
+    "cg_id": "booking-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "BackedFi xStocks Ecosystem"
+    ]
+  },
+  "ADSK": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "CAT": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/39765/small/Dv9GheV0_400x400.jpg?1756951559",
+    "cg_id": "simon-s-cat",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Meme",
+      "Cat-Themed",
+      "TokenFi Launchpad",
+      "Binance HODLer Airdrops",
+      "IP Meme"
+    ]
   }
 }
