@@ -1295,6 +1295,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "MELI_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 1839.8905,
+        "resistance": 1812.7,
+        "rejection_below": 1714.655,
+        "support_strong": 1796.6515,
+        "support_extreme": 1784.4054
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
