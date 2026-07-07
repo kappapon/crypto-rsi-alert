@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-07T04:34:06Z",
+  "date": "2026-07-07T08:35:04Z",
   "parabolic_seen": {
     "AERO": "2026-07-07",
     "ARPA": "2026-07-05",
@@ -21,7 +21,8 @@
     "TLM": "2026-07-06",
     "TRB": "2026-07-07",
     "VANRY": "2026-07-07",
-    "VELODROME": "2026-07-05"
+    "VELODROME": "2026-07-05",
+    "YFI": "2026-07-07"
   },
   "patterns": {
     "AAVEUSDT": "Range",
@@ -73,6 +74,7 @@
     "VELODROMEUSDT": "Pullback",
     "V_USDT": "Pullback",
     "WINUSDT": "Pullback",
+    "YFIUSDT": "Parabolic",
     "ZEREBRO_USDT": "Range"
   }
 }
