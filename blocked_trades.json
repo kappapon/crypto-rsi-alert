@@ -1,0 +1,18 @@
+{
+  "trades": [
+    {
+      "atr": 5.365568860849792,
+      "blocked_at": "2026-07-07T00:28:02+00:00",
+      "blocked_by": "2026-07-01T16:00:00+00:00",
+      "breadth": 1,
+      "entry": 117.69,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "prob": 0.532,
+      "sl": 123.05556886084979,
+      "status": "blocked",
+      "symbol": "HOODX_USDT",
+      "tp": 106.95886227830042
+    }
+  ]
+}
