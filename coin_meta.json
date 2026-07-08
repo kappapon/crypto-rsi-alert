@@ -1675,5 +1675,48 @@
       "Binance HODLer Airdrops",
       "IP Meme"
     ]
+  },
+  "MELI": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68652/small/melion_160x160.png?1756156305",
+    "cg_id": "mercadolibre-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "YFI": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/11849/small/yearn.jpg?1696511720",
+    "cg_id": "yearn-finance",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Yield Farming",
+      "Yield Aggregator",
+      "Yearn Ecosystem",
+      "Avalanche Ecosystem",
+      "Polygon Ecosystem",
+      "Near Protocol Ecosystem",
+      "Gnosis Chain Ecosystem",
+      "Fantom Ecosystem",
+      "Harmony Ecosystem",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Optimism Ecosystem",
+      "Base Ecosystem",
+      "Index Coop Defi Index",
+      "Alameda Research Portfolio",
+      "Energi Ecosystem",
+      "Sora Ecosystem",
+      "Huobi ECO Chain Ecosystem",
+      "Blockchain Capital Portfolio",
+      "Governance",
+      "Base Native"
+    ]
   }
 }
