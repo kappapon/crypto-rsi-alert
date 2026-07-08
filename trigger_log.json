@@ -9111,8 +9111,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-07-03T12:24:18.218802+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-04T12:24:11.435319+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-08T16:24:33.522346+00:00"
     },
     {
       "symbol": "BX_USDT",
@@ -9694,8 +9694,8 @@
       "funding": 0.01,
       "id": "EBAY_USDT:support_break:2026-07-04T20:24:07.697633+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-06T08:24:07.054617+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-08T16:24:38.939369+00:00"
     },
     {
       "symbol": "JNJ_USDT",
@@ -9787,8 +9787,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:rejection:2026-07-05T04:24:12.416188+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-05T12:24:20.481748+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-08T16:24:56.587472+00:00"
     },
     {
       "symbol": "ARPAUSDT",
@@ -10104,8 +10104,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-07-06T00:24:10.001834+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-06T16:24:19.811848+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-08T16:24:56.587472+00:00"
     },
     {
       "symbol": "HOODX_USDT",
@@ -10161,7 +10161,8 @@
       "funding": 0.0,
       "id": "KAITOUSDT:rejection:2026-07-06T04:24:05.069242+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-08T16:24:46.123728+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -10173,8 +10174,8 @@
       "funding": 0.0,
       "id": "KAITOUSDT:support_break:2026-07-06T04:24:05.069242+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-07T12:24:14.893382+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-08T16:24:46.123728+00:00"
     },
     {
       "symbol": "XLK_USDT",
@@ -10832,7 +10833,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-07-07T16:24:16.224985+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-08T16:24:41.011138+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -10892,7 +10894,8 @@
       "funding": 0.01,
       "id": "LIN_USDT:support_break:2026-07-07T16:24:32.589744+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-08T16:24:57.259707+00:00"
     },
     {
       "symbol": "GRASS_USDT",
@@ -11067,7 +11070,8 @@
       "funding": 0.01,
       "id": "RTX_USDT:support_break:2026-07-08T08:24:28.569599+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-08T16:24:30.817223+00:00"
     },
     {
       "symbol": "EBAY_USDT",
