@@ -700,13 +700,17 @@
     {
       "atr": 6.332585000611694,
       "breadth": 4,
+      "closed_at": "2026-07-07T00:27:29+00:00",
       "entry": 95.33,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 91.82,
       "opened_at": "2026-06-27T00:27:29+00:00",
       "prob": 0.391,
+      "r": 0.554,
+      "r_net": 0.509,
       "sl": 101.6625850006117,
-      "status": "open",
+      "status": "closed_expiry",
       "symbol": "AAVEUSDT",
       "tp": 82.66482999877661
     },

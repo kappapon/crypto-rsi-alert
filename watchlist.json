@@ -55,23 +55,6 @@
         "funding_high": 0.1
       }
     },
-    "AMAT_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 752.0135,
-        "resistance": 740.9,
-        "rejection_below": 526.585,
-        "support_strong": 559.1605,
-        "support_extreme": 580.4761
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "HD_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
