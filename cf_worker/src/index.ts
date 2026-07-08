@@ -96,8 +96,12 @@ const CONFIRM_RECENT_TTL = 2 * 3600; // โชว์ "confirmed" บน dashboar
 const CROSS_TFS = ["1h", "2h"] as const;
 const CROSS_MA_PERIOD = 14;
 const CROSS_MA_MIN = 60;
-const CROSS_MINUTE = 2; // เช็คที่ tick :02 — แท่ง 1h/2h เพิ่งปิด (แท่ง 2h ปิดชั่วโมงคู่ dedupe จัดการเอง)
+const CROSS_MINUTE = 2; // ยืนยันบนแท่งปิดที่ tick :02 — แท่ง 1h/2h เพิ่งปิด (แท่ง 2h ปิดชั่วโมงคู่ dedupe จัดการเอง)
 const CROSS_DEDUPE_TTL = 24 * 3600; // ครั้งเดียวต่อจุดตัด (คีย์ด้วย ts แท่งที่ตัด)
+// early warning: 2h เช็คแท่งกำลังก่อตัวทุก 15-min tick — RSI (รวมราคาสด) หลุดใต้ MA ก่อนแท่งปิด
+// ส่ง ⚠️ ล่วงหน้าแล้วรอ confirm ตอนปิดแท่ง (สัญญาณ near real-time สูงสุดช้า ~15 นาทีแทนเกือบ 2 ชม.)
+const CROSS_EARLY_TF = "2h";
+const CROSS_EARLY_DEDUPE_TTL = 3 * 3600; // เตือนล่วงหน้า 1 ครั้ง/แท่ง (คีย์ด้วย ts แท่งก่อตัว, อายุคลุมทั้งแท่ง 2 ชม.)
 // confluence: bearish div (15m) เกิดภายใน N → 2h cross อัปเกรดเป็น 🎯 CONFIRMED (div ทดแทน zone filter ได้
 // เพราะ div คือหลักฐาน "ยอดร้อน" ตรงกว่า MA≥60 ที่เป็นแค่ proxy กัน spam)
 const CROSS_CONFIRM_TF = "2h";
@@ -155,9 +159,7 @@ export default {
     const minute = new Date(event.scheduledTime).getUTCMinutes();
     if (DIV_MINUTES.includes(minute)) {
       tasks.push(runDivergenceWatch(env));
-    }
-    if (minute === CROSS_MINUTE) {
-      tasks.push(runRsiMaCrossWatch(env));
+      tasks.push(runRsiMaCrossWatch(env, minute)); // ตัวฟังก์ชันเลือกเอง: confirm เฉพาะ :02, early 2h ทุก tick
     }
     ctx.waitUntil(Promise.all(tasks));
   },
@@ -440,47 +442,87 @@ function crossState(closes: number[]): { rsi: number; ma: number; crossed: boole
   };
 }
 
-// RSI ตัดลงใต้ RSI-based MA จากโซนสูง บนแท่งปิดล่าสุด — เช็คเฉพาะแท่งล่าสุด = fresh เสมอ
-async function runRsiMaCrossWatch(env: Env): Promise<void> {
+// RSI ตัดลงใต้ RSI-based MA จากโซนสูง — 1h/2h ยืนยันบนแท่งปิดที่ tick :02 (CROSS_MINUTE);
+// 2h เพิ่ม early warning จากแท่งกำลังก่อตัวทุก 15-min tick (fetch ชุดเดียวใช้ทั้ง confirm+early)
+async function runRsiMaCrossWatch(env: Env, minute: number): Promise<void> {
+  const confirmTick = minute === CROSS_MINUTE;
   const list = await getDivWatch(env);
   for (const item of list) {
     for (const tf of CROSS_TFS) {
+      const early = tf === CROSS_EARLY_TF;
+      if (!confirmTick && !early) continue; // 1h เช็คเฉพาะ tick :02 เหมือนเดิม
       try {
-        const kl = await fetchKlines(item, tf);
+        const kl = await fetchKlines(item, tf, 150, early);
         if ("error" in kl) {
           console.log(`rsicross ${item.label} ${tf}: ${kl.error}${kl.code ? ` ${kl.code}` : ""}`);
           continue;
         }
-        const { closes, times } = kl;
-        const i = closes.length - 1;
-        const st = crossState(closes);
-        if (!st) continue;
-        if (!st.crossed) {
-          console.log(`rsicross ${item.label} ${tf}: quiet rsi=${st.rsi.toFixed(1)} ma=${st.ma.toFixed(1)}`);
-          continue;
+        if (confirmTick) {
+          const closed: Klines = early
+            ? { highs: kl.highs.slice(0, -1), lows: kl.lows.slice(0, -1), closes: kl.closes.slice(0, -1), times: kl.times.slice(0, -1) }
+            : kl;
+          await checkCrossConfirmed(env, item, tf, closed);
         }
-        // confluence: 2h cross + bearish div (15m) ภายใน 24 ชม. → 🎯 CONFIRMED; div ทดแทน zone filter
-        const lastDiv = tf === CROSS_CONFIRM_TF ? await env.DEDUPE.get(`lastdiv:${item.symbol}`) : null;
-        if (!lastDiv && !st.hot) {
-          console.log(`rsicross ${item.label} ${tf}: cross below zone (ma=${st.ma.toFixed(1)})`);
-          continue;
-        }
-        const key = `rsicross:${item.symbol}:${tf}:${times[i]}`;
-        if (await env.DEDUPE.get(key)) continue;
-        const stats = `RSI ${st.rsi.toFixed(1)} ↓ MA ${st.ma.toFixed(1)} · ราคา ${divFmt(closes[i])}`;
-        const text = lastDiv
-          ? `🎯 <b>${item.label}</b> — CONFIRMED SHORT SETUP\n` +
-            `🐻 bearish div 15m (${((Date.now() - Number(lastDiv)) / 3600000).toFixed(1)} ชม.ก่อน) + 📉 RSI ตัดลง MA (2H)\n` +
-            stats
-          : `📉 <b>${item.label}</b> ${tf.toUpperCase()} — RSI ตัดลงใต้เส้น MA\n` +
-            stats + `\nโมเมนตัมอ่อนหลังโซนร้อน (MA เดิม ≥ ${CROSS_MA_MIN})`;
-        const sent = await sendTelegram(env, `rsicross ${item.label} ${tf}`, text);
-        if (sent) await env.DEDUPE.put(key, "1", { expirationTtl: CROSS_DEDUPE_TTL });
+        if (early) await checkCrossEarly(env, item, kl);
       } catch (e) {
         console.log(`rsicross ${item.label} ${tf} error: ${e}`);
       }
     }
   }
+}
+
+// แท่งปิดตัดลงจริง — ยิง 📉/🎯 ครั้งเดียวต่อจุดตัด (dedupe ด้วย ts แท่งที่ตัด)
+async function checkCrossConfirmed(env: Env, item: DivSym, tf: string, kl: Klines): Promise<void> {
+  const { closes, times } = kl;
+  const i = closes.length - 1;
+  const st = crossState(closes);
+  if (!st) return;
+  if (!st.crossed) {
+    console.log(`rsicross ${item.label} ${tf}: quiet rsi=${st.rsi.toFixed(1)} ma=${st.ma.toFixed(1)}`);
+    return;
+  }
+  // confluence: 2h cross + bearish div (15m) ภายใน 24 ชม. → 🎯 CONFIRMED; div ทดแทน zone filter
+  const lastDiv = tf === CROSS_CONFIRM_TF ? await env.DEDUPE.get(`lastdiv:${item.symbol}`) : null;
+  if (!lastDiv && !st.hot) {
+    console.log(`rsicross ${item.label} ${tf}: cross below zone (ma=${st.ma.toFixed(1)})`);
+    return;
+  }
+  const key = `rsicross:${item.symbol}:${tf}:${times[i]}`;
+  if (await env.DEDUPE.get(key)) return;
+  const stats = `RSI ${st.rsi.toFixed(1)} ↓ MA ${st.ma.toFixed(1)} · ราคา ${divFmt(closes[i])}`;
+  const text = lastDiv
+    ? `🎯 <b>${item.label}</b> — CONFIRMED SHORT SETUP\n` +
+      `🐻 bearish div 15m (${((Date.now() - Number(lastDiv)) / 3600000).toFixed(1)} ชม.ก่อน) + 📉 RSI ตัดลง MA (2H)\n` +
+      stats
+    : `📉 <b>${item.label}</b> ${tf.toUpperCase()} — RSI ตัดลงใต้เส้น MA\n` +
+      stats + `\nโมเมนตัมอ่อนหลังโซนร้อน (MA เดิม ≥ ${CROSS_MA_MIN})`;
+  const sent = await sendTelegram(env, `rsicross ${item.label} ${tf}`, text);
+  if (sent) await env.DEDUPE.put(key, "1", { expirationTtl: CROSS_DEDUPE_TTL });
+}
+
+// แท่ง 2h ยังไม่ปิดแต่ RSI (รวมราคาสด) หลุดใต้ MA แล้ว — ⚠️ เตือนล่วงหน้า 1 ครั้ง/แท่ง แล้วรอ confirm ตอนปิด
+// kl ต้องรวมแท่งก่อตัวเป็นตัวสุดท้าย (fetchKlines keepForming=true); ใช้ filter เดียวกับ confirm กัน spam
+async function checkCrossEarly(env: Env, item: DivSym, kl: Klines): Promise<void> {
+  const { closes, times } = kl;
+  const i = closes.length - 1;
+  const st = crossState(closes);
+  if (!st || !st.crossed) return;
+  const lastDiv = await env.DEDUPE.get(`lastdiv:${item.symbol}`);
+  if (!lastDiv && !st.hot) {
+    console.log(`rsicross-early ${item.label}: cross below zone (ma=${st.ma.toFixed(1)})`);
+    return;
+  }
+  const key = `rsicross-early:${item.symbol}:${CROSS_EARLY_TF}:${times[i]}`;
+  if (await env.DEDUPE.get(key)) return;
+  const closeMs = times[i] + 2 * 3600 * 1000;
+  const minsLeft = Math.max(0, Math.round((closeMs - Date.now()) / 60000));
+  const text =
+    `⚠️ <b>${item.label}</b> ${CROSS_EARLY_TF.toUpperCase()} — RSI กำลังตัดลงใต้เส้น MA (แท่งยังไม่ปิด)\n` +
+    `RSI ${st.rsi.toFixed(1)} ↓ MA ${st.ma.toFixed(1)} · ราคา ${divFmt(closes[i])}` +
+    (lastDiv ? `\n🐻 bearish div 15m (${((Date.now() - Number(lastDiv)) / 3600000).toFixed(1)} ชม.ก่อน) หนุนอยู่` : "") +
+    `\nปิดแท่ง ${divTs(closeMs)} (~${minsLeft} นาที) — ถ้าไม่มีข้อความยืนยันหลังปิด = สัญญาณไม่เกิดจริง`;
+  const sent = await sendTelegram(env, `rsicross-early ${item.label}`, text);
+  if (sent) await env.DEDUPE.put(key, "1", { expirationTtl: CROSS_EARLY_DEDUPE_TTL });
 }
 
 async function readDivHealth(env: Env): Promise<DivHealth | null> {
@@ -966,7 +1008,7 @@ async function maybeHeartbeat(env: Env, symbols: DivHealth["symbols"]): Promise<
 // ดึง klines → normalize เป็น {highs, closes, times(ms)} จาก 2 format:
 // binance spot (array ของ array, t=ms) | gate futures (array ของ object {h,c,t}, t=วินาที)
 type Klines = { highs: number[]; lows: number[]; closes: number[]; times: number[] };
-async function fetchKlines(item: DivSym, interval = "15m", limit = 150): Promise<Klines | { error: string; code?: number }> {
+async function fetchKlines(item: DivSym, interval = "15m", limit = 150, keepForming = false): Promise<Klines | { error: string; code?: number }> {
   const url =
     item.source === "gate"
       ? `https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${item.symbol}&interval=${interval}&limit=${limit}`
@@ -977,7 +1019,7 @@ async function fetchKlines(item: DivSym, interval = "15m", limit = 150): Promise
   if (!res.ok) return { error: "klines_http_error", code: res.status };
   const raw = (await res.json()) as unknown[];
   if (!Array.isArray(raw) || raw.length < 41) return { error: "too_few_klines" };
-  const k = raw.slice(0, -1); // ตัดแท่งกำลังก่อตัวทิ้ง → closed only (กัน whipsaw, gotcha #9)
+  const k = keepForming ? raw : raw.slice(0, -1); // ปกติตัดแท่งกำลังก่อตัวทิ้ง → closed only (กัน whipsaw, gotcha #9); early watcher ขอเก็บไว้
   if (item.source === "gate") {
     const a = k as { h: string; l: string; c: string; t: number }[];
     return {
