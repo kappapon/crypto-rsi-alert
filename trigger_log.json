@@ -6470,8 +6470,8 @@
       "funding": 0.01,
       "id": "UNH_USDT:support_break:2026-06-28T04:24:10.157625+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-06T12:24:12.041037+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-08T20:24:39.160860+00:00"
     },
     {
       "symbol": "AIO_USDT",
@@ -6975,8 +6975,8 @@
       "funding": 0.01,
       "id": "LLY_USDT:support_break:2026-06-29T08:23:57.763543+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-06T16:24:08.408017+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-07-08T20:24:38.153781+00:00"
     },
     {
       "symbol": "POWRUSDT",
@@ -8780,8 +8780,8 @@
       "funding": 0.01,
       "id": "UNH_USDT:rejection:2026-07-02T20:24:35.609012+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-05T20:24:03.843898+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-08T20:24:39.160860+00:00"
     },
     {
       "symbol": "DYDXUSDT",
@@ -10549,8 +10549,8 @@
       "funding": 0.01,
       "id": "AMGN_USDT:support_break:2026-07-06T16:24:27.571724+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-08T08:24:51.734356+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-08T20:24:54.647598+00:00"
     },
     {
       "symbol": "SCHW_USDT",
@@ -10846,7 +10846,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-07-07T16:24:16.915727+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-08T20:24:37.283756+00:00"
     },
     {
       "symbol": "PANW_USDT",
@@ -11178,6 +11179,30 @@
       "price": 2.301,
       "funding": 0.005,
       "id": "LIT_USDT:rejection:2026-07-08T12:24:43.277676+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-08T20:24:21.225700+00:00",
+      "price": 83.62,
+      "funding": 0.01,
+      "id": "KO_USDT:support_break:2026-07-08T20:24:21.225700+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JNJ_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-08T20:24:21.665594+00:00",
+      "price": 263.31,
+      "funding": 0.01,
+      "id": "JNJ_USDT:support_break:2026-07-08T20:24:21.665594+00:00",
       "status": "pending",
       "repeats": 1
     }
