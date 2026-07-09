@@ -1227,6 +1227,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "DEXEUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 30.3282,
+        "resistance": 29.88,
+        "rejection_below": 27.379,
+        "support_strong": 28.8012,
+        "support_extreme": 28.3243
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
