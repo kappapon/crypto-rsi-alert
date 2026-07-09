@@ -9155,8 +9155,8 @@
       "funding": -0.0063,
       "id": "TAIKO_USDT:rejection:2026-07-03T08:24:35.818943+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-08T04:24:54.230326+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-09T08:34:50.666489+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -9181,8 +9181,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-07-03T08:24:36.261821+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-06T20:24:13.499136+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-09T08:34:51.426105+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -11534,6 +11534,30 @@
       "price": 2145.0,
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-07-09T04:25:04.759173+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DDOG_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-09T08:34:48.025981+00:00",
+      "price": 257.81,
+      "funding": 0.01,
+      "id": "DDOG_USDT:rejection:2026-07-09T08:34:48.025981+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAIKO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-09T08:34:50.666489+00:00",
+      "price": 0.0815,
+      "funding": 0.005,
+      "id": "TAIKO_USDT:support_break:2026-07-09T08:34:50.666489+00:00",
       "status": "pending",
       "repeats": 1
     }
