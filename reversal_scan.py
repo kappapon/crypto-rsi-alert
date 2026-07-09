@@ -32,7 +32,7 @@ MODEL_FILE = ROOT / "models" / "model.pkl"
 STATE_FILE = ROOT / "reversal_state.json"
 WATCHLIST_FILE = ROOT / "watchlist.json"
 PAPER_FILE = ROOT / "paper_trades.json"  # Phase G — สมุดไม้จำลอง (track โดย track_trades.py)
-BLOCKED_FILE = ROOT / "blocked_trades.json"  # Rule C — ไม้ที่ cooldown บล็อก (เก็บวัด counterfactual)
+BLOCKED_FILE = ROOT / "blocked_trades.json"  # ไม้ที่กติกา entry บล็อก (rule: cooldown/concurrent — เก็บวัด counterfactual)
 
 SCREEN_BARS = 100          # cheap 1-request screening window
 HISTORY_YEARS = 3.0        # must match fetch_data default used for training
@@ -111,6 +111,33 @@ def recent_stopout(symbol: str, now_sec: int, book: dict) -> dict | None:
     return best[1] if best else None
 
 
+def open_trade(symbol: str, book: dict) -> dict | None:
+    """NC guard: ไม้ของเหรียญนี้ที่ยังเปิดอยู่ (มี = ห้ามเปิดซ้อน — กัน pyramid แบบ WIN 5 ไม้ −5.4R)."""
+    for t in book.get("trades", []):
+        if t.get("symbol") == symbol and t.get("status") == "open":
+            return t
+    return None
+
+
+def apply_entry_rules(hits: list[dict], book: dict, now_sec: int) -> tuple[list[dict], list[dict]]:
+    """แยก hits เป็น (taken, blocked) — NC ก่อน (ไม้เดิมยังเปิด) แล้วค่อย Rule C (cooldown หลัง SL).
+    blocked_by = timestamp ของสิ่งที่ทำให้บล็อก (opened_at ของไม้ที่เปิดอยู่ / closed_at ของ stop-out)"""
+    taken, blocked = [], []
+    for h in hits:
+        ot = open_trade(h["symbol"], book)
+        if ot is not None:
+            h["rule"], h["blocked_by"] = "concurrent", ot["opened_at"]
+            blocked.append(h)
+            continue
+        so = recent_stopout(h["symbol"], now_sec, book)
+        if so is not None:
+            h["rule"], h["blocked_by"] = "cooldown", so["closed_at"]
+            blocked.append(h)
+            continue
+        taken.append(h)
+    return taken, blocked
+
+
 def record_paper_trades(hits: list[dict], breadth: int) -> None:
     """Phase G: บันทึกทุก hit เป็นไม้จำลอง — ใช้วัดว่า edge มีจริงไหมก่อนใช้เงิน."""
     book = load_json_book(PAPER_FILE)
@@ -127,13 +154,13 @@ def record_paper_trades(hits: list[dict], breadth: int) -> None:
 
 
 def record_blocked(blocked: list[dict], breadth: int) -> None:
-    """Rule C: log ไม้ที่ถูก cooldown บล็อก พร้อม entry/sl/tp เพื่อวัด counterfactual ภายหลัง."""
+    """log ไม้ที่กติกา entry บล็อก (rule: cooldown/concurrent) พร้อม entry/sl/tp เพื่อวัด counterfactual ภายหลัง."""
     log = load_json_book(BLOCKED_FILE)
     now_iso = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     for h in blocked:
         log["trades"].append({
             "symbol": h["symbol"], "exchange": h["exchange"], "status": "blocked",
-            "blocked_at": now_iso, "blocked_by": h["blocked_by"],
+            "blocked_at": now_iso, "blocked_by": h["blocked_by"], "rule": h["rule"],
             "entry": h["entry"], "sl": h["sl"], "tp": h["tp"], "atr": h["atr"],
             "prob": round(h["prob"], 3), "entry_is_live": h["live"], "breadth": breadth,
         })
@@ -225,19 +252,14 @@ def main() -> None:
         # breadth = จำนวนสัญญาณวันนี้ (ก่อนกรอง cooldown) — วัดสภาพตลาด ไม่ใช่จำนวนไม้ที่เข้าจริง
         breadth = len(hits)
 
-        # Rule C: cooldown หลัง stop-out — กัน re-short เหรียญที่เพิ่งเขี่ยเราออก (leak: SYN โดน 6 วันติด −6R)
+        # กติกา entry: NC (ห้ามเปิดซ้อนขณะไม้เดิมยังเปิด — leak: WIN pyramid 5 ไม้ −5.4R)
+        # + Rule C (cooldown หลัง stop-out — leak: SYN โดน re-short 6 วันติด −6R)
         book = load_json_book(PAPER_FILE)
         now_sec = int(time.time())
-        taken, blocked = [], []
-        for h in hits:
-            so = recent_stopout(h["symbol"], now_sec, book)
-            if so is not None:
-                h["blocked_by"] = so["closed_at"]
-                blocked.append(h)
-            else:
-                taken.append(h)
+        taken, blocked = apply_entry_rules(hits, book, now_sec)
         if blocked:
-            print("cooldown blocked: " + ", ".join(f"{h['symbol']}(SL {h['blocked_by'][:10]})" for h in blocked))
+            tag = {"concurrent": "เปิดอยู่", "cooldown": "SL"}
+            print("entry rules blocked: " + ", ".join(f"{h['symbol']}({tag[h['rule']]} {h['blocked_by'][:10]})" for h in blocked))
             if not DRY_RUN:
                 record_blocked(blocked, breadth)
 
@@ -253,15 +275,16 @@ def main() -> None:
                 price_part = f"ราคาล่าสุด {h['entry']:g}" if h["live"] else f"ราคาปิดแท่ง {h['entry']:g} (ดึงราคาสดไม่ได้)"
                 lines.append(f"   {price_part} · SL {h['sl']:g} · TP {h['tp']:g}")
             if blocked:
+                reason = {"concurrent": "ไม้เดิมยังเปิด", "cooldown": "cooldown หลัง SL"}
                 lines.append("")
-                lines.append(f"🚫 ข้าม {len(blocked)} ตัว (cooldown หลัง SL): " + ", ".join(h["symbol"] for h in blocked))
+                lines.append(f"🚫 ข้าม {len(blocked)} ตัว: " + ", ".join(f"{h['symbol']} ({reason[h['rule']]})" for h in blocked))
             lines.append("")
             lines.append("👇 กด ➕ เพื่อเพิ่มเข้า watchlist")
             send_telegram("\n".join(lines), reply_markup=_build_keyboard([h["symbol"] for h in taken]))
             if not DRY_RUN:
                 record_paper_trades(taken, breadth)
         else:
-            print("all hits blocked by cooldown — no alert sent")
+            print("all hits blocked by entry rules — no alert sent")
 
     if not DRY_RUN:
         STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n")

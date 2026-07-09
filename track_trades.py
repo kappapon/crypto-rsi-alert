@@ -72,7 +72,8 @@ def resolve_trade(t: dict, now_sec: int) -> dict | None:
 
 
 def track_blocked(now_sec: int) -> None:
-    """Rule C counterfactual: resolve blocked signals ด้วยกลไกเดียวกับไม้จริง (เงียบ ไม่ส่ง Telegram).
+    """counterfactual ของกติกา entry (rule: cooldown/concurrent): resolve blocked signals
+    ด้วยกลไกเดียวกับไม้จริง (เงียบ ไม่ส่ง Telegram).
     status: blocked -> cf_sl / cf_tp / cf_expiry (คนละ prefix กับไม้จริง — กันโดนนับปนใน journal อื่น)"""
     if not BLOCKED_FILE.exists():
         return
@@ -97,7 +98,12 @@ def track_blocked(now_sec: int) -> None:
     if done:
         saved = -sum(t.get("r_net", t.get("r", 0)) for t in done)
         would_sl = sum(1 for t in done if t["status"] == "cf_sl")
-        print(f"counterfactual: {len(done)} resolved ({would_sl} would-SL) — Rule C saved {saved:+.2f}R net")
+        per_rule = {}
+        for t in done:
+            rule = t.get("rule", "cooldown")  # record ก่อน 2026-07-10 ไม่มี field rule = Rule C ทั้งหมด
+            per_rule[rule] = per_rule.get(rule, 0.0) - t.get("r_net", t.get("r", 0))
+        detail = ", ".join(f"{k} {v:+.2f}R" for k, v in sorted(per_rule.items()))
+        print(f"counterfactual: {len(done)} resolved ({would_sl} would-SL) — blocking saved {saved:+.2f}R net ({detail})")
     if changed and not DRY_RUN:
         BLOCKED_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
 
