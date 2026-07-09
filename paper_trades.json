@@ -751,13 +751,17 @@
     {
       "atr": 6.360257500568001,
       "breadth": 3,
+      "closed_at": "2026-07-08T00:26:57+00:00",
       "entry": 93.81,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 88.04,
       "opened_at": "2026-06-28T00:26:57+00:00",
       "prob": 0.437,
+      "r": 0.907,
+      "r_net": 0.863,
       "sl": 100.170257500568,
-      "status": "open",
+      "status": "closed_expiry",
       "symbol": "AAVEUSDT",
       "tp": 81.089484998864
     },
@@ -811,6 +815,19 @@
       "status": "closed_sl",
       "symbol": "KAITOUSDT",
       "tp": 0.4953750629579732
+    },
+    {
+      "atr": 0.6101372573141407,
+      "breadth": 1,
+      "entry": 10.33,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-07-09T00:26:33+00:00",
+      "prob": 0.578,
+      "sl": 10.940137257314142,
+      "status": "open",
+      "symbol": "NMRUSDT",
+      "tp": 9.109725485371719
     }
   ]
 }

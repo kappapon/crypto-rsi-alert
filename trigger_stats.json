@@ -1,56 +1,56 @@
 {
-  "updated": "2026-07-08T00:40:32+00:00",
+  "updated": "2026-07-09T00:33:18+00:00",
   "overall": {
-    "n": 492,
-    "hit_rate": 0.313,
-    "avg_r": -0.164,
-    "pending": 150
+    "n": 528,
+    "hit_rate": 0.331,
+    "avg_r": -0.105,
+    "pending": 128
   },
   "per_type": {
     "breakout": {
-      "n": 55,
-      "hit_rate": 0.291,
-      "avg_r": -0.181,
-      "sum_r": -9.96,
+      "n": 57,
+      "hit_rate": 0.281,
+      "avg_r": -0.21,
+      "sum_r": -11.96,
       "tp": 14,
-      "sl": 39,
+      "sl": 41,
       "expiry": 2
     },
     "funding": {
-      "n": 33,
-      "hit_rate": 0.394,
-      "avg_r": 0.041,
-      "sum_r": 1.35,
+      "n": 35,
+      "hit_rate": 0.371,
+      "avg_r": -0.019,
+      "sum_r": -0.65,
       "tp": 8,
-      "sl": 20,
+      "sl": 22,
       "expiry": 5
     },
     "rejection": {
-      "n": 158,
-      "hit_rate": 0.316,
-      "avg_r": -0.185,
-      "sum_r": -29.25,
-      "tp": 32,
-      "sl": 106,
-      "expiry": 20
+      "n": 168,
+      "hit_rate": 0.327,
+      "avg_r": -0.137,
+      "sum_r": -23.08,
+      "tp": 37,
+      "sl": 109,
+      "expiry": 22
     },
     "resistance_test": {
-      "n": 72,
-      "hit_rate": 0.306,
-      "avg_r": -0.119,
-      "sum_r": -8.56,
-      "tp": 20,
-      "sl": 49,
+      "n": 78,
+      "hit_rate": 0.346,
+      "avg_r": 0.006,
+      "sum_r": 0.44,
+      "tp": 25,
+      "sl": 50,
       "expiry": 3
     },
     "support_break": {
-      "n": 174,
-      "hit_rate": 0.305,
-      "avg_r": -0.196,
-      "sum_r": -34.15,
-      "tp": 34,
-      "sl": 115,
-      "expiry": 25
+      "n": 190,
+      "hit_rate": 0.337,
+      "avg_r": -0.105,
+      "sum_r": -19.94,
+      "tp": 41,
+      "sl": 118,
+      "expiry": 31
     }
   }
 }

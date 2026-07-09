@@ -55,23 +55,6 @@
         "funding_high": 0.1
       }
     },
-    "HD_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 364.4865,
-        "resistance": 359.1,
-        "rejection_below": 319.485,
-        "support_strong": 338.5978,
-        "support_extreme": 343.2856
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BP_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -166,23 +149,6 @@
         "rejection_below": 0.6038,
         "support_strong": 0.6491,
         "support_extreme": 0.686
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "GE_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 388.2679,
-        "resistance": 382.53,
-        "rejection_below": 338.3995,
-        "support_strong": 358.8414,
-        "support_extreme": 364.51
       },
       "alerts": {
         "price_breakout": true,
@@ -905,23 +871,6 @@
         "funding_high": 0.1
       }
     },
-    "WINUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "V_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -982,23 +931,6 @@
         "rejection_below": 501.98,
         "support_strong": 531.6126,
         "support_extreme": 535.6935
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "GRASS_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.6091,
-        "resistance": 0.6001,
-        "rejection_below": 0.3607,
-        "support_strong": 0.3854,
-        "support_extreme": 0.4222
       },
       "alerts": {
         "price_breakout": true,
