@@ -64,7 +64,7 @@ jobs:
           #   - ไฟล์ shared (trigger_log/stats จาก track_triggers เงียบ, watchlist จาก auto_evict) = re-derive idempotent บน tip ใหม่
           tmp=$(mktemp -d)
           cp paper_trades.json reversal_state.json "$tmp"/
-          [ -f blocked_trades.json ] && cp blocked_trades.json "$tmp"/   # Rule C log — reversal_scan เขียนคนเดียว
+          [ -f blocked_trades.json ] && cp blocked_trades.json "$tmp"/   # Rule C log — เขียนเฉพาะ workflow นี้ (track_trades cf-resolve + reversal_scan append)
           for attempt in 1 2 3 4 5 6; do
             git fetch origin main
             git reset --hard origin/main

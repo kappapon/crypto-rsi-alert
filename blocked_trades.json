@@ -5,12 +5,16 @@
       "blocked_at": "2026-07-07T00:28:02+00:00",
       "blocked_by": "2026-07-01T16:00:00+00:00",
       "breadth": 1,
+      "closed_at": "2026-07-08T12:00:00+00:00",
       "entry": 117.69,
       "entry_is_live": true,
       "exchange": "gateio_futures",
+      "exit": 106.95886227830042,
       "prob": 0.532,
+      "r": 2.0,
+      "r_net": 1.934,
       "sl": 123.05556886084979,
-      "status": "blocked",
+      "status": "cf_tp",
       "symbol": "HOODX_USDT",
       "tp": 106.95886227830042
     }
