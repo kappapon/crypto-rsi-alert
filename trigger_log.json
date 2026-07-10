@@ -9243,8 +9243,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-07-03T12:24:18.218802+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-08T16:24:33.522346+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-10T20:24:29.719048+00:00"
     },
     {
       "symbol": "BX_USDT",
@@ -10117,8 +10117,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-05T12:24:27.210536+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-10T00:24:46.755312+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-10T20:24:48.733956+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -10284,8 +10284,8 @@
       "funding": 0.005,
       "id": "SPX_USDT:support_break:2026-07-06T00:23:49.098873+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-09T16:24:28.902097+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-10T20:24:24.575484+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -11364,8 +11364,8 @@
       "funding": 0.0,
       "id": "HMSTRUSDT:rejection:2026-07-08T08:24:48.080464+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-09T16:24:55.618861+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-10T20:24:46.562424+00:00"
     },
     {
       "symbol": "MELI_USDT",
@@ -11506,8 +11506,8 @@
       "funding": 0.0,
       "id": "HMSTRUSDT:support_break:2026-07-09T00:24:50.298246+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-09T16:24:55.618861+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-10T20:24:46.562424+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -12073,6 +12073,30 @@
       "price": 0.00535,
       "funding": 0.0,
       "id": "SKLUSDT:rejection:2026-07-10T16:24:50.919237+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIVN_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-10T20:24:33.787958+00:00",
+      "price": 17.526,
+      "funding": 0.01,
+      "id": "RIVN_USDT:rejection:2026-07-10T20:24:33.787958+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIVN_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-10T20:24:33.787958+00:00",
+      "price": 17.526,
+      "funding": 0.01,
+      "id": "RIVN_USDT:support_break:2026-07-10T20:24:33.787958+00:00",
       "status": "pending",
       "repeats": 1
     }
