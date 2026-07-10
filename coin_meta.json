@@ -1718,5 +1718,63 @@
       "Governance",
       "Base Native"
     ]
+  },
+  "DEXE": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/12713/small/DEXE_token_logo.png?1696512514",
+    "cg_id": "dexe",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "BNB Chain Ecosystem",
+      "Ethereum Ecosystem"
+    ]
+  },
+  "LDO": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/13573/small/Lido_DAO.png?1696513326",
+    "cg_id": "lido-dao",
+    "categories": [
+      "Infrastructure",
+      "Decentralized Finance (DeFi)",
+      "Polygon Ecosystem",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Optimism Ecosystem",
+      "Liquid Staking Governance Tokens",
+      "eGirl Capital Portfolio",
+      "Paradigm Portfolio",
+      "Coinbase Ventures Portfolio",
+      "Multicoin Capital Portfolio",
+      "Index Coop Defi Index",
+      "Alameda Research Portfolio",
+      "DragonFly Capital Portfolio",
+      "Andreessen Horowitz (a16z) Portfolio",
+      "GMCI DeFi Index",
+      "Delphi Ventures Portfolio",
+      "Liquid Staking",
+      "GMCI Index",
+      "Coinbase 50 Index",
+      "Governance"
+    ]
+  },
+  "SAFE": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/27032/small/Artboard_1_copy_8circle-1.png?1696526084",
+    "cg_id": "safe",
+    "categories": [
+      "Infrastructure",
+      "Wallets",
+      "Gnosis Chain Ecosystem",
+      "Ethereum Ecosystem"
+    ]
+  },
+  "MUBARAK": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/54857/small/DKjv3dc6_400x400.jpg?1742107486",
+    "cg_id": "mubarak",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Meme"
+    ]
   }
 }
