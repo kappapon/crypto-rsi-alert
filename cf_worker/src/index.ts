@@ -76,6 +76,12 @@ async function getDivWatch(env: Env): Promise<DivSym[]> {
   return DIV_WATCH_DEFAULT;
 }
 const DIV_MINUTES = [2, 17, 32, 47];
+// Gate ตอบ 429 เมื่อ klines ยิง burst จาก edge (เจอ 2026-07-10 หลัง divwatch โต 14 ตัว — limit เป็นของ shared egress IP)
+// → watcher เว้นจังหวะระหว่าง fetch + retry-on-429 แบบมีเพดานต่อ tick (กันทะลุ 50 subrequests/invocation ของ free plan)
+const FETCH_PACE_MS = 250;
+const RETRY_429_BUDGET = 4;
+type FetchBudget = { retries: number };
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const DIV_PIVOT_K = 2; // แท่งซ้าย/ขวาที่ต้องต่ำกว่า ถึงนับเป็น swing high (ยืนยันแล้ว = closed)
 const DIV_LOOKBACK_BARS = 48; // 12 ชม. — เทียบนิวไฮกับยอดสูงสุดใน window นี้ (ไม่ใช่แค่ยอดติดกัน)
 const DIV_RSI_MIN = 65; // swing high ก่อนหน้าต้อง RSI สูงพอ — กรองให้เป็น fade-the-top context
@@ -158,8 +164,12 @@ export default {
     const tasks: Promise<void>[] = files.map((f) => dispatchWorkflow(env, f));
     const minute = new Date(event.scheduledTime).getUTCMinutes();
     if (DIV_MINUTES.includes(minute)) {
-      tasks.push(runDivergenceWatch(env));
-      tasks.push(runRsiMaCrossWatch(env, minute)); // ตัวฟังก์ชันเลือกเอง: confirm เฉพาะ :02, early 2h ทุก tick
+      // รันเรียงกัน div ก่อน cross (เคย Promise.all คู่กัน = สองลูปยิง Gate แข่งกันจนชน 429) + แชร์ retry budget ต่อ tick
+      const budget: FetchBudget = { retries: RETRY_429_BUDGET };
+      tasks.push((async () => {
+        await runDivergenceWatch(env, budget);
+        await runRsiMaCrossWatch(env, minute, budget); // ตัวฟังก์ชันเลือกเอง: confirm เฉพาะ :02, early 2h ทุก tick
+      })());
     }
     ctx.waitUntil(Promise.all(tasks));
   },
@@ -373,7 +383,7 @@ function swingHighs(highs: number[], k: number): number[] {
   return out;
 }
 
-async function runDivergenceWatch(env: Env): Promise<void> {
+async function runDivergenceWatch(env: Env, budget?: FetchBudget): Promise<void> {
   const prev = await readDivHealth(env);
   const list = await getDivWatch(env);
   const symbols: DivHealth["symbols"] = {};
@@ -383,7 +393,8 @@ async function runDivergenceWatch(env: Env): Promise<void> {
     let status = "ok";
     let code: number | undefined;
     try {
-      const r = await checkDivergence(env, item);
+      await sleep(FETCH_PACE_MS); // เว้นจังหวะยิง Gate กัน 429
+      const r = await checkDivergence(env, item, budget);
       status = String(r.status ?? "ok");
       if (typeof r.code === "number") code = r.code;
       console.log(`divergence ${item.label}: ${JSON.stringify(r)}`);
@@ -444,7 +455,7 @@ function crossState(closes: number[]): { rsi: number; ma: number; crossed: boole
 
 // RSI ตัดลงใต้ RSI-based MA จากโซนสูง — 1h/2h ยืนยันบนแท่งปิดที่ tick :02 (CROSS_MINUTE);
 // 2h เพิ่ม early warning จากแท่งกำลังก่อตัวทุก 15-min tick (fetch ชุดเดียวใช้ทั้ง confirm+early)
-async function runRsiMaCrossWatch(env: Env, minute: number): Promise<void> {
+async function runRsiMaCrossWatch(env: Env, minute: number, budget?: FetchBudget): Promise<void> {
   const confirmTick = minute === CROSS_MINUTE;
   const list = await getDivWatch(env);
   for (const item of list) {
@@ -452,7 +463,8 @@ async function runRsiMaCrossWatch(env: Env, minute: number): Promise<void> {
       const early = tf === CROSS_EARLY_TF;
       if (!confirmTick && !early) continue; // 1h เช็คเฉพาะ tick :02 เหมือนเดิม
       try {
-        const kl = await fetchKlines(item, tf, 150, early);
+        await sleep(FETCH_PACE_MS); // เว้นจังหวะยิง Gate กัน 429
+        const kl = await fetchKlines(item, tf, 150, early, budget);
         if ("error" in kl) {
           console.log(`rsicross ${item.label} ${tf}: ${kl.error}${kl.code ? ` ${kl.code}` : ""}`);
           continue;
@@ -1008,14 +1020,21 @@ async function maybeHeartbeat(env: Env, symbols: DivHealth["symbols"]): Promise<
 // ดึง klines → normalize เป็น {highs, closes, times(ms)} จาก 2 format:
 // binance spot (array ของ array, t=ms) | gate futures (array ของ object {h,c,t}, t=วินาที)
 type Klines = { highs: number[]; lows: number[]; closes: number[]; times: number[] };
-async function fetchKlines(item: DivSym, interval = "15m", limit = 150, keepForming = false): Promise<Klines | { error: string; code?: number }> {
+async function fetchKlines(item: DivSym, interval = "15m", limit = 150, keepForming = false, budget?: FetchBudget): Promise<Klines | { error: string; code?: number }> {
   const url =
     item.source === "gate"
       ? `https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${item.symbol}&interval=${interval}&limit=${limit}`
       : item.source === "gate_spot"
         ? `https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${item.symbol}&interval=${interval}&limit=${limit}`
         : `${KLINES_BASE}/api/v3/klines?symbol=${item.symbol}&interval=${interval}&limit=${limit}`;
-  const res = await fetch(url, { headers: { "user-agent": KLINES_UA } });
+  let res = await fetch(url, { headers: { "user-agent": KLINES_UA } });
+  // 429 = rate limit ชั่วคราว → retry 1 ครั้งถ้า budget ของ tick ยังเหลือ (เคารพ Retry-After, เพดาน 2s)
+  if (res.status === 429 && budget && budget.retries > 0) {
+    budget.retries--;
+    const ra = Number(res.headers.get("retry-after"));
+    await sleep(Math.min(Number.isFinite(ra) && ra > 0 ? ra * 1000 : 1200, 2000));
+    res = await fetch(url, { headers: { "user-agent": KLINES_UA } });
+  }
   if (!res.ok) return { error: "klines_http_error", code: res.status };
   const raw = (await res.json()) as unknown[];
   if (!Array.isArray(raw) || raw.length < 41) return { error: "too_few_klines" };
@@ -1084,9 +1103,9 @@ function atr14(highs: number[], lows: number[], closes: number[], period = 14): 
   return sum / period;
 }
 
-async function checkDivergence(env: Env, item: DivSym): Promise<Record<string, unknown>> {
+async function checkDivergence(env: Env, item: DivSym, budget?: FetchBudget): Promise<Record<string, unknown>> {
   const symbol = item.label;
-  const kl = await fetchKlines(item);
+  const kl = await fetchKlines(item, "15m", 150, false, budget);
   if ("error" in kl) return kl.code ? { symbol, status: kl.error, code: kl.code } : { symbol, status: kl.error };
   const { highs, lows, closes, times } = kl;
   const rsi = wilderRSI(closes, 14);
