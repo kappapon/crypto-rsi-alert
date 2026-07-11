@@ -11407,8 +11407,8 @@
       "funding": 0.01,
       "id": "RTX_USDT:support_break:2026-07-08T08:24:28.569599+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-11T04:24:25.676265+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-11T20:24:06.574769+00:00"
     },
     {
       "symbol": "EBAY_USDT",
@@ -11574,7 +11574,8 @@
       "funding": 0.01,
       "id": "JNJ_USDT:support_break:2026-07-08T20:24:21.665594+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-11T20:23:59.472933+00:00"
     },
     {
       "symbol": "HMSTRUSDT",
@@ -12003,7 +12004,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:breakout:2026-07-10T08:24:23.796787+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-11T20:24:03.997532+00:00"
     },
     {
       "symbol": "SAFE_USDT",
@@ -12400,6 +12402,42 @@
       "price": 0.01016,
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-07-11T16:24:20.222292+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EWZ_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-11T20:24:12.687682+00:00",
+      "price": 36.88,
+      "funding": 0.01,
+      "id": "EWZ_USDT:breakout:2026-07-11T20:24:12.687682+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AAVEUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-11T20:24:15.297133+00:00",
+      "price": 101.76,
+      "funding": 0.0,
+      "id": "AAVEUSDT:breakout:2026-07-11T20:24:15.297133+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MUBARAKUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-11T20:24:31.782820+00:00",
+      "price": 0.01343,
+      "funding": 0.0,
+      "id": "MUBARAKUSDT:resistance_test:2026-07-11T20:24:31.782820+00:00",
       "status": "pending",
       "repeats": 1
     }
