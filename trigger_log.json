@@ -7926,8 +7926,8 @@
       "funding": 0.02,
       "id": "TLT_USDT:support_break:2026-07-01T04:23:50.267677+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-09T00:24:29.639313+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-11T16:24:06.440154+00:00"
     },
     {
       "symbol": "SLX_USDT",
@@ -7976,8 +7976,8 @@
       "funding": 0.01,
       "id": "BEAT_USDT:support_break:2026-07-01T08:23:30.328988+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-07-10T08:24:15.085388+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-07-11T16:23:57.422734+00:00"
     },
     {
       "symbol": "GWEI_USDT",
@@ -8480,8 +8480,8 @@
       "funding": 0.05330000000000001,
       "id": "BTW_USDT:rejection:2026-07-02T04:23:46.379346+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-06T04:23:53.516907+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-11T16:24:04.188659+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -8561,8 +8561,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-07-02T04:23:53.316381+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-10T12:24:28.099588+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-11T16:24:06.888817+00:00"
     },
     {
       "symbol": "METUSDT",
@@ -8892,8 +8892,8 @@
       "funding": 0.01,
       "id": "CGNX_USDT:rejection:2026-07-02T16:24:50.103586+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-11T00:24:35.225807+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-11T16:24:15.719713+00:00"
     },
     {
       "symbol": "PANW_USDT",
@@ -9152,8 +9152,8 @@
       "funding": -0.041100000000000005,
       "id": "BEAT_USDT:rejection:2026-07-03T08:24:10.689443+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-10T08:24:15.085388+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-07-11T16:23:57.422734+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -10823,8 +10823,8 @@
       "funding": 0.01,
       "id": "AMGN_USDT:support_break:2026-07-06T16:24:27.571724+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-11T00:24:46.063107+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-07-11T16:24:27.213207+00:00"
     },
     {
       "symbol": "SCHW_USDT",
@@ -11133,8 +11133,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-07-07T16:24:16.224985+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-10T16:24:31.477402+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-11T16:24:11.811450+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -11653,8 +11653,8 @@
       "funding": 0.01,
       "id": "SMH_USDT:rejection:2026-07-09T04:24:45.018499+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-11T08:24:34.970318+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-11T16:24:16.166118+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -11741,8 +11741,8 @@
       "funding": 0.005,
       "id": "TAIKO_USDT:support_break:2026-07-09T08:34:50.666489+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-11T04:24:45.639264+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-11T16:24:18.410957+00:00"
     },
     {
       "symbol": "RIFUSDT",
@@ -12364,6 +12364,42 @@
       "price": 0.00477,
       "funding": 0.0,
       "id": "SKLUSDT:support_break:2026-07-11T12:24:47.636077+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-11T16:24:02.840206+00:00",
+      "price": 3.726,
+      "funding": 0.0,
+      "id": "UNIUSDT:resistance_test:2026-07-11T16:24:02.840206+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AAVEUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-11T16:24:13.927607+00:00",
+      "price": 100.03,
+      "funding": 0.0,
+      "id": "AAVEUSDT:resistance_test:2026-07-11T16:24:13.927607+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-11T16:24:20.222292+00:00",
+      "price": 0.01016,
+      "funding": 0.0,
+      "id": "GPSUSDT:support_break:2026-07-11T16:24:20.222292+00:00",
       "status": "pending",
       "repeats": 1
     }
