@@ -8493,8 +8493,8 @@
       "funding": 0.05330000000000001,
       "id": "BTW_USDT:support_break:2026-07-02T04:23:46.379346+00:00",
       "status": "pending",
-      "repeats": 11,
-      "last_repeat": "2026-07-11T00:24:24.201533+00:00"
+      "repeats": 12,
+      "last_repeat": "2026-07-11T12:24:05.265996+00:00"
     },
     {
       "symbol": "TAC_USDT",
@@ -10540,8 +10540,8 @@
       "funding": 0.0,
       "id": "ALICEUSDT:support_break:2026-07-06T08:24:02.605748+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-10T00:24:28.585402+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-11T12:24:10.376631+00:00"
     },
     {
       "symbol": "HMSTRUSDT",
@@ -11684,7 +11684,8 @@
       "funding": 0.0,
       "id": "ARPAUSDT:support_break:2026-07-09T04:24:54.290042+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-11T12:24:32.844730+00:00"
     },
     {
       "symbol": "MAVIA_USDT",
@@ -11753,8 +11754,8 @@
       "funding": 0.0,
       "id": "RIFUSDT:rejection:2026-07-09T12:24:18.862832+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-10T08:24:18.148817+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-11T12:23:57.415659+00:00"
     },
     {
       "symbol": "METUSDT",
@@ -11815,8 +11816,8 @@
       "funding": 0.0,
       "id": "VANRYUSDT:rejection:2026-07-09T20:24:48.505391+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-11T04:24:55.500847+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-11T12:24:36.438624+00:00"
     },
     {
       "symbol": "VANRYUSDT",
@@ -11888,8 +11889,8 @@
       "funding": 0.0,
       "id": "JTOUSDT:support_break:2026-07-10T00:24:22.179877+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-10T16:24:21.002126+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-11T12:24:00.511830+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -11940,8 +11941,8 @@
       "funding": 0.0,
       "id": "MUBARAKUSDT:support_break:2026-07-10T00:24:52.354951+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-11T00:24:49.948057+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-11T12:24:46.296275+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -11971,7 +11972,8 @@
       "funding": 0.0,
       "id": "DEXEUSDT:breakout:2026-07-10T04:25:02.939941+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-11T12:24:44.215665+00:00"
     },
     {
       "symbol": "DEXEUSDT",
@@ -12194,7 +12196,8 @@
       "funding": 0.0,
       "id": "SKLUSDT:rejection:2026-07-10T16:24:50.919237+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-11T12:24:47.636077+00:00"
     },
     {
       "symbol": "RIVN_USDT",
@@ -12313,6 +12316,54 @@
       "price": 0.1017,
       "funding": 0.0,
       "id": "JSTUSDT:support_break:2026-07-11T08:24:49.666602+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-07-11T12:24:05.265996+00:00",
+      "price": 0.062857,
+      "funding": 0.10640000000000001,
+      "id": "BTW_USDT:funding:2026-07-11T12:24:05.265996+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TLT_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-11T12:24:08.740481+00:00",
+      "price": 87.83,
+      "funding": 0.01,
+      "id": "TLT_USDT:rejection:2026-07-11T12:24:08.740481+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DEXEUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-11T12:24:44.215665+00:00",
+      "price": 38.021,
+      "funding": 0.0,
+      "id": "DEXEUSDT:resistance_test:2026-07-11T12:24:44.215665+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SKLUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-11T12:24:47.636077+00:00",
+      "price": 0.00477,
+      "funding": 0.0,
+      "id": "SKLUSDT:support_break:2026-07-11T12:24:47.636077+00:00",
       "status": "pending",
       "repeats": 1
     }
