@@ -828,6 +828,19 @@
       "status": "open",
       "symbol": "NMRUSDT",
       "tp": 9.109725485371719
+    },
+    {
+      "atr": 0.2187792495518521,
+      "breadth": 1,
+      "entry": 3.492,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-07-11T00:28:45+00:00",
+      "prob": 0.557,
+      "sl": 3.710779249551852,
+      "status": "open",
+      "symbol": "UNIUSDT",
+      "tp": 3.0544415008962957
     }
   ]
 }
