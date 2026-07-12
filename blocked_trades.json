@@ -18,6 +18,21 @@
       "status": "cf_tp",
       "symbol": "HOODX_USDT",
       "tp": 106.95886227830042
+    },
+    {
+      "atr": 0.23093787458386267,
+      "blocked_at": "2026-07-12T00:26:01+00:00",
+      "blocked_by": "2026-07-11T16:00:00+00:00",
+      "breadth": 2,
+      "entry": 3.655,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.628,
+      "rule": "cooldown",
+      "sl": 3.8859378745838624,
+      "status": "blocked",
+      "symbol": "UNIUSDT",
+      "tp": 3.1931242508322746
     }
   ]
 }

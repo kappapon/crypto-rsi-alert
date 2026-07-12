@@ -832,15 +832,32 @@
     {
       "atr": 0.2187792495518521,
       "breadth": 1,
+      "closed_at": "2026-07-11T16:00:00+00:00",
       "entry": 3.492,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 3.710779249551852,
       "opened_at": "2026-07-11T00:28:45+00:00",
       "prob": 0.557,
+      "r": -1.0,
+      "r_net": -1.048,
       "sl": 3.710779249551852,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "UNIUSDT",
       "tp": 3.0544415008962957
+    },
+    {
+      "atr": 0.0008704240184091512,
+      "breadth": 2,
+      "entry": 0.01343,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-07-12T00:26:02+00:00",
+      "prob": 0.545,
+      "sl": 0.01430042401840915,
+      "status": "open",
+      "symbol": "MUBARAKUSDT",
+      "tp": 0.011689151963181696
     }
   ]
 }
