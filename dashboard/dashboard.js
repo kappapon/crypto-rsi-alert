@@ -678,15 +678,20 @@ function snapBarTime(candles, tSec) {
 }
 
 // overlay จาก journal ของเหรียญนี้: ไม้เปิด = เส้น entry/SL/TP, ไม้ปิด = จุดเข้า/ออก+R, โดน block = 🚫, armed/sweep จาก worker
+// จับคู่ด้วย base (shortName) ไม่ใช่ symbol ตรงตัว — ไม้ NMRUSDT (binance) โชว์บนกราฟ NMR_USDT (gate) ได้;
+// ราคา USDT pair ข้าม exchange ต่างกันระดับ bps พอสำหรับ overlay, ป้าย exchange ติดที่เส้น entry เมื่อเป็นไม้ข้ามตลาด
+const EX_TAG = { binance_spot: "bn", binance_futures: "bn·f", gateio_futures: "gate", gateio_spot: "gate·s" };
 function tradeOverlays(candles, symbol) {
   const green = cssVar("--green"), red = cssVar("--red"), orange = "#ff9a3b", gray = "#8fa89a";
   const toSec = (iso) => Math.floor(Date.parse(iso) / 1000);
+  const base = shortName(symbol);
   const markers = [], lines = [];
-  for (const t of journalCache.paper.filter(t => t.symbol === symbol)) {
+  for (const t of journalCache.paper.filter(t => shortName(t.symbol) === base)) {
+    const tag = t.symbol === symbol ? "" : ` ·${EX_TAG[t.exchange] || t.exchange}`;
     const ot = snapBarTime(candles, toSec(t.opened_at));
     if (t.status === "open") {
-      lines.push({ price: t.entry, color: "#d8e8dc", title: "entry" }, { price: t.sl, color: red, title: "SL" }, { price: t.tp, color: green, title: "TP" });
-      if (ot) markers.push({ time: ot, position: "aboveBar", color: "#d8e8dc", shape: "arrowDown", text: `short ${t.prob ?? ""}` });
+      lines.push({ price: t.entry, color: "#d8e8dc", title: `entry${tag}` }, { price: t.sl, color: red, title: "SL" }, { price: t.tp, color: green, title: "TP" });
+      if (ot) markers.push({ time: ot, position: "aboveBar", color: "#d8e8dc", shape: "arrowDown", text: `short ${t.prob ?? ""}${tag}` });
     } else {
       const r = t.r_net ?? t.r ?? 0;
       const ct = t.closed_at ? snapBarTime(candles, toSec(t.closed_at)) : null;
@@ -694,11 +699,12 @@ function tradeOverlays(candles, symbol) {
       if (ct) markers.push({ time: ct, position: "belowBar", color: r > 0 ? green : red, shape: "circle", text: `${r >= 0 ? "+" : ""}${r.toFixed(2)}R` });
     }
   }
-  for (const b of journalCache.blocked.filter(b => b.symbol === symbol)) {
+  for (const b of journalCache.blocked.filter(b => shortName(b.symbol) === base)) {
     const bt = snapBarTime(candles, toSec(b.blocked_at));
     if (bt) markers.push({ time: bt, position: "aboveBar", color: orange, shape: "square", text: b.rule === "concurrent" ? "🚫NC" : "🚫C" });
   }
-  const cw = lastDivHealth?.confirm?.[symbol];
+  const cwKey = Object.keys(lastDivHealth?.confirm || {}).find(k => shortName(k) === base);
+  const cw = cwKey ? lastDivHealth.confirm[cwKey] : null;
   if (cw && (cw.state === "armed" || cw.state === "swept") && cw.armedHigh) {
     lines.push({ price: cw.armedHigh, color: orange, title: `🔫 ${cw.state}` });
     if (cw.peakHigh && cw.peakHigh > cw.armedHigh) lines.push({ price: cw.peakHigh, color: red, title: "sweep peak" });
