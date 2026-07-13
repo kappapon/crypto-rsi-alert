@@ -135,7 +135,7 @@ function workflowsForTick(scheduledTime: number): string[] {
   const h = d.getUTCHours();
   if (m === 30 && h === 0 && d.getUTCDay() === 1) return ["weekly-summary.yml"];
   if (m === 10 && h === 0) return ["refresh-levels.yml"];
-  if (m === 20 && h === 0) return ["reversal-alert.yml"];
+  if (m === 20 && h === 0) return ["reversal-alert.yml", "div-journal.yml"]; // div-journal.yml เข้าใจ workflow_dispatch = สั่ง score รอบ (repository_dispatch แยกสำหรับ append เรียลไทม์)
   if (m === 23 && h % 4 === 0) return ["rsi-alert.yml", "watchlist.yml"];
   return [];
 }
@@ -1122,6 +1122,11 @@ async function checkDivergence(env: Env, item: DivSym, budget?: FetchBudget): Pr
     if (sent) {
       await env.DEDUPE.put(fkey, "1", { expirationTtl: DIV_DEDUPE_TTL });
       await env.DEDUPE.delete(`flip:${item.symbol}`); // ปิด flip-watch หลังแจ้ง flip แล้ว
+      await dispatchDivJournal(env, {
+        stage: "flip", symbol: item.symbol, source: item.source, label: symbol,
+        ts: new Date(times[bull.p2]).toISOString(),
+        p1_low: lows[bull.p1], p1_rsi: rsi[bull.p1], p2_low: lows[bull.p2], p2_rsi: rsi[bull.p2],
+      });
     }
     return { ...diag, status: sent ? "flip_sent" : "flip_send_failed" };
   }
@@ -1150,6 +1155,11 @@ async function checkDivergence(env: Env, item: DivSym, budget?: FetchBudget): Pr
           await env.DEDUPE.put(ckey, "1", { expirationTtl: CONFIRM_DEDUPE_TTL });
           await env.DEDUPE.put(`lastconfirm:${item.symbol}`, String(Date.now()), { expirationTtl: CONFIRM_RECENT_TTL }); // ให้ dashboard โชว์ "confirmed"
           await env.DEDUPE.delete(`confirm:${item.symbol}`);
+          await dispatchDivJournal(env, {
+            stage: "confirmed", symbol: item.symbol, source: item.source, label: symbol,
+            armed_ts: new Date(cw.ts).toISOString(), ts: new Date().toISOString(),
+            entry: lastClose, armed_high: cw.armedHigh, peak_high: peakHigh, stop,
+          });
         }
         return { symbol, status: sent ? "confirm_entry_sent" : "confirm_send_failed", entry: lastClose, stop };
       }
@@ -1180,6 +1190,11 @@ async function checkDivergence(env: Env, item: DivSym, budget?: FetchBudget): Pr
       { expirationTtl: CONFIRM_WATCH_TTL });
     // marker ให้ RSI×MA cross watcher อัปเกรดเป็น 🎯 CONFIRMED เมื่อ 2h ตัดลงตามใน 24 ชม.
     await env.DEDUPE.put(`lastdiv:${item.symbol}`, String(Date.now()), { expirationTtl: LASTDIV_TTL });
+    await dispatchDivJournal(env, {
+      stage: "armed", symbol: item.symbol, source: item.source, label: symbol,
+      ts: new Date(times[p2]).toISOString(),
+      p1_high: highs[p1], p1_rsi: rsi[p1], p2_high: highs[p2], p2_rsi: rsi[p2],
+    });
   }
   return { ...diag, status: sent ? "armed" : "send_failed" };
 }
@@ -1337,4 +1352,22 @@ async function dispatchAddTicker(env: Env, symbol: string): Promise<void> {
       client_payload: { symbol },
     }),
   });
+}
+
+// div-watch journal: ส่ง event (armed/confirmed/flip) เข้า div-journal.yml ให้บันทึกลง divwatch_log.json
+// swallow error เสมอ — journal พังต้องไม่กระทบการส่ง Telegram alert ที่ทำไปแล้ว
+async function dispatchDivJournal(env: Env, payload: Record<string, unknown>): Promise<void> {
+  await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/dispatches`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      accept: "application/vnd.github+json",
+      "content-type": "application/json",
+      "user-agent": "crypto-rsi-webhook",
+    },
+    body: JSON.stringify({
+      event_type: "div_journal",
+      client_payload: payload,
+    }),
+  }).catch(() => {});
 }

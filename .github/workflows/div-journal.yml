@@ -1,0 +1,84 @@
+name: Div Watch Journal
+# repository_dispatch (div_journal) = Worker ยิงเรียลไทม์ทุกครั้งที่ armed/confirmed/flip -> append
+# workflow_dispatch = Worker cron ยิงวันละครั้ง (tick 00:20 UTC เดียวกับ reversal-alert.yml) -> score
+on:
+  repository_dispatch:
+    types: [div_journal]
+  workflow_dispatch:
+
+concurrency:
+  group: div-journal
+  cancel-in-progress: false
+
+jobs:
+  append:
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Append event and commit (retry on push race)
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git fetch origin main
+            git reset --hard origin/main
+            python divwatch_journal.py
+            git add divwatch_log.json
+            if git diff --staged --quiet; then
+              echo "No changes."
+              exit 0
+            fi
+            git commit -m "divwatch: journal event $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            if git push; then
+              exit 0
+            fi
+            sleep $((RANDOM % 5 + 1))
+            echo "push rejected (attempt $attempt) — retrying on fresh tip"
+          done
+          echo "::error::push failed after 8 attempts"
+          exit 1
+
+  score:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements-ml.txt
+
+      - name: Score confirmed entries and commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git fetch origin main
+            git reset --hard origin/main
+            python track_divwatch.py
+            git add divwatch_log.json divwatch_stats.json
+            if git diff --staged --quiet; then
+              echo "No changes."
+              exit 0
+            fi
+            git commit -m "divwatch: score journal $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            if git push; then
+              exit 0
+            fi
+            sleep $((RANDOM % 5 + 1))
+            echo "push rejected (attempt $attempt) — retrying on fresh tip"
+          done
+          echo "::error::push failed after 8 attempts"
+          exit 1
