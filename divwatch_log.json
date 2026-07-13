@@ -38,6 +38,20 @@
       "ts": "2026-07-13T08:45:00.000Z",
       "id": "armed:VELVET_USDT:gate:2026-07-13T08:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.63796,
+      "armed_ts": "2026-07-13T09:47:27.364Z",
+      "entry": 0.61144,
+      "label": "VELVET",
+      "peak_high": 0.64443,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.655400357142857,
+      "symbol": "VELVET_USDT",
+      "ts": "2026-07-13T12:47:25.897Z",
+      "id": "confirmed:VELVET_USDT:gate:2026-07-13T09:47:27.364Z",
+      "status": "pending"
     }
   ]
 }
