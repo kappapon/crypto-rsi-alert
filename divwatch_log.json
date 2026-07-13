@@ -91,6 +91,19 @@
       "ts": "2026-07-13T19:00:00.000Z",
       "id": "flip:SAFE_USDT:gate:2026-07-13T19:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "RIF",
+      "p1_high": 0.13148,
+      "p1_rsi": 75.4547395198556,
+      "p2_high": 0.13275,
+      "p2_rsi": 65.9865937010843,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-13T19:30:00.000Z",
+      "id": "armed:RIF_USDT:gate:2026-07-13T19:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
