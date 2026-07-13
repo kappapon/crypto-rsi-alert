@@ -1278,6 +1278,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ARBUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.1028,
+        "resistance": 0.1013,
+        "rejection_below": 0.0879,
+        "support_strong": 0.093,
+        "support_extreme": 0.0935
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
