@@ -33,6 +33,21 @@
       "status": "blocked",
       "symbol": "UNIUSDT",
       "tp": 3.1931242508322746
+    },
+    {
+      "atr": 0.0008703937313799263,
+      "blocked_at": "2026-07-13T00:25:22+00:00",
+      "blocked_by": "2026-07-12T00:26:02+00:00",
+      "breadth": 1,
+      "entry": 0.01268,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.517,
+      "rule": "concurrent",
+      "sl": 0.013550393731379926,
+      "status": "blocked",
+      "symbol": "MUBARAKUSDT",
+      "tp": 0.010939212537240148
     }
   ]
 }

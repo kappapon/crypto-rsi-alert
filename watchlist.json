@@ -89,23 +89,6 @@
         "funding_high": 0.1
       }
     },
-    "EVAA_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 3.9346,
-        "resistance": 3.8765,
-        "rejection_below": 1.0992,
-        "support_strong": 1.2487,
-        "support_extreme": 1.4919
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "INFQ_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -1067,23 +1050,6 @@
         "rejection_below": 12.6825,
         "support_strong": 13.4017,
         "support_extreme": 13.4492
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "TRBUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 19.2342,
-        "resistance": 18.95,
-        "rejection_below": 14.478,
-        "support_strong": 15.1275,
-        "support_extreme": 15.2866
       },
       "alerts": {
         "price_breakout": true,
