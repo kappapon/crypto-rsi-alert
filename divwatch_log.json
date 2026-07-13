@@ -52,6 +52,19 @@
       "ts": "2026-07-13T12:47:25.897Z",
       "id": "confirmed:VELVET_USDT:gate:2026-07-13T09:47:27.364Z",
       "status": "pending"
+    },
+    {
+      "label": "VELVET",
+      "p1_high": 0.63796,
+      "p1_rsi": 66.2698448199575,
+      "p2_high": 0.64443,
+      "p2_rsi": 56.2793389485437,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "VELVET_USDT",
+      "ts": "2026-07-13T12:30:00.000Z",
+      "id": "armed:VELVET_USDT:gate:2026-07-13T12:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
