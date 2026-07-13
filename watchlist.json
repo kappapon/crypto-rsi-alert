@@ -378,23 +378,6 @@
         "funding_high": 0.1
       }
     },
-    "METUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.2048,
-        "resistance": 0.2018,
-        "rejection_below": 0.1429,
-        "support_strong": 0.1507,
-        "support_extreme": 0.1531
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BX_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
