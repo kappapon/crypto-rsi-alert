@@ -25,6 +25,19 @@
       "ts": "2026-07-13T08:00:00.000Z",
       "id": "armed:SAFE_USDT:gate:2026-07-13T08:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "VELVET",
+      "p1_high": 0.58988,
+      "p1_rsi": 70.5284805731692,
+      "p2_high": 0.63796,
+      "p2_rsi": 66.2695576512991,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "VELVET_USDT",
+      "ts": "2026-07-13T08:45:00.000Z",
+      "id": "armed:VELVET_USDT:gate:2026-07-13T08:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
