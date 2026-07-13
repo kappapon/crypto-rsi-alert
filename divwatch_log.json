@@ -65,6 +65,19 @@
       "ts": "2026-07-13T12:30:00.000Z",
       "id": "armed:VELVET_USDT:gate:2026-07-13T12:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "DEXE",
+      "p1_low": 43.632,
+      "p1_rsi": 29.3452915202499,
+      "p2_low": 43.107,
+      "p2_rsi": 34.1750095643987,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "DEXE_USDT",
+      "ts": "2026-07-13T13:00:00.000Z",
+      "id": "flip:DEXE_USDT:gate:2026-07-13T13:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
