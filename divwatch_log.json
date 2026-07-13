@@ -12,6 +12,19 @@
       "ts": "2026-07-13T06:30:00.000Z",
       "id": "flip:VANRY_USDT:gate:2026-07-13T06:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "SAFE",
+      "p1_high": 0.11808,
+      "p1_rsi": 67.1709700059209,
+      "p2_high": 0.11888,
+      "p2_rsi": 66.3099325630528,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "SAFE_USDT",
+      "ts": "2026-07-13T08:00:00.000Z",
+      "id": "armed:SAFE_USDT:gate:2026-07-13T08:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
