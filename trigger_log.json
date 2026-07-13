@@ -10055,8 +10055,8 @@
       "funding": 0.01,
       "id": "EBAY_USDT:support_break:2026-07-04T20:24:07.697633+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-13T08:23:49.239906+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-13T16:23:48.343000+00:00"
     },
     {
       "symbol": "JNJ_USDT",
@@ -10457,8 +10457,8 @@
       "funding": 0.01,
       "id": "INFQ_USDT:support_break:2026-07-06T00:23:47.192142+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-10T16:24:20.555863+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-13T16:23:38.679201+00:00"
     },
     {
       "symbol": "SPX_USDT",
@@ -11037,8 +11037,8 @@
       "funding": 0.01,
       "id": "BKNG_USDT:support_break:2026-07-06T16:24:28.761550+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-13T00:24:06.171087+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-13T16:24:04.910699+00:00"
     },
     {
       "symbol": "RIVN_USDT",
@@ -11302,8 +11302,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-07-07T16:24:16.224985+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-11T16:24:11.811450+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-13T16:23:49.682207+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -11354,8 +11354,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:rejection:2026-07-07T16:24:28.276376+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-10T08:24:49.315822+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-13T16:23:57.765526+00:00"
     },
     {
       "symbol": "LIN_USDT",
@@ -11544,8 +11544,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:support_break:2026-07-08T00:24:30.409973+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-11T08:24:24.576011+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-13T16:23:43.836009+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -12080,8 +12080,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:rejection:2026-07-10T00:24:26.834367+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-11T04:24:26.413309+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-13T16:23:43.836009+00:00"
     },
     {
       "symbol": "METUSDT",
@@ -12558,8 +12558,8 @@
       "funding": 0.01,
       "id": "BX_USDT:support_break:2026-07-11T08:24:27.609167+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-13T04:23:44.676200+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-13T16:23:46.558718+00:00"
     },
     {
       "symbol": "JSTUSDT",
@@ -13033,7 +13033,8 @@
       "funding": 0.0,
       "id": "DEXEUSDT:rejection:2026-07-13T08:24:13.335414+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-13T16:24:06.693699+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -13056,6 +13057,66 @@
       "price": 256.0,
       "funding": 0.01,
       "id": "DDOG_USDT:support_break:2026-07-13T12:24:01.482302+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "CRDO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-13T16:23:47.004176+00:00",
+      "price": 239.42,
+      "funding": 0.01,
+      "id": "CRDO_USDT:rejection:2026-07-13T16:23:47.004176+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-13T16:23:49.682207+00:00",
+      "price": 245.93,
+      "funding": 0.01,
+      "id": "ABBV_USDT:rejection:2026-07-13T16:23:49.682207+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "CVS_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-13T16:23:59.115071+00:00",
+      "price": 106.15,
+      "funding": 0.01,
+      "id": "CVS_USDT:resistance_test:2026-07-13T16:23:59.115071+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SCHW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-13T16:24:04.464649+00:00",
+      "price": 102.46,
+      "funding": 0.01,
+      "id": "SCHW_USDT:support_break:2026-07-13T16:24:04.464649+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ELSA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-13T16:24:11.143173+00:00",
+      "price": 0.05382,
+      "funding": 0.005,
+      "id": "ELSA_USDT:support_break:2026-07-13T16:24:11.143173+00:00",
       "status": "pending",
       "repeats": 1
     }
