@@ -22,6 +22,23 @@ PORT = 8765
 ROOT = Path(__file__).parent
 ANALYSIS_LOG = ROOT / "analysis_log.json"
 
+
+def _load_dotenv(path: Path = ROOT / ".env") -> None:
+    # secrets ท้องถิ่น (DASH_TOKEN ฯลฯ) อยู่ใน .env ซึ่ง gitignore แล้ว — env จริงชนะ .env เสมอ
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, val = line.partition("=")
+        key, val = key.strip(), val.strip().strip("'\"")
+        if key and key not in os.environ:
+            os.environ[key] = val
+
+
+_load_dotenv()
+
 # 15m divergence watcher health — proxy worker /health server-side so the token stays off the client
 WORKER_HEALTH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/health"
 WORKER_DIVWATCH_URL = "https://crypto-rsi-webhook.kappaponpuesan.workers.dev/divwatch"
