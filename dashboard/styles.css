@@ -593,3 +593,17 @@ td.sym { cursor: pointer; }
 .dw-sym { cursor: pointer; }
 .dw-sym:hover, td.sym:hover { text-decoration: underline; }
 @media (max-width: 700px) { #chart-container { height: 340px; } }
+
+/* ===== 📒 Paper Journal panel ===== */
+.pj-head { margin-top: 18px; }
+#pj-open { display: flex; flex-direction: column; gap: 4px; margin: 8px 0; }
+.pj-pos { display: flex; gap: 14px; align-items: baseline; font-size: 0.82rem; cursor: pointer; padding: 4px 10px; background: var(--surface-2); border-radius: 4px; }
+.pj-pos:hover { outline: 1px solid var(--border); }
+.pj-sym { font-weight: 700; min-width: 72px; }
+#pj-guard { display: flex; flex-direction: column; gap: 2px; font-size: 0.78rem; margin-bottom: 8px; color: var(--text-dim); }
+.pj-grid { display: grid; grid-template-columns: minmax(215px, 38%) 1fr; gap: 14px; align-items: stretch; margin-top: 4px; }
+#pj-tiers { font-size: 0.8rem; display: flex; flex-direction: column; gap: 2px; }
+.pj-tr { display: grid; grid-template-columns: 2.6em 2.4em 1fr 1fr 2.8em; gap: 6px; padding: 2px 4px; }
+.pj-tr.pj-th { color: var(--text-faint); border-bottom: 1px solid var(--border); }
+#pj-equity { height: 150px; min-width: 0; }
+@media (max-width: 700px) { .pj-grid { grid-template-columns: 1fr; } #pj-equity { height: 120px; } }

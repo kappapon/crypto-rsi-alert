@@ -802,6 +802,139 @@ document.getElementById("chart-tfs").addEventListener("click", (e) => {
   drawChart();
 });
 
+// ============ 📒 Paper Journal panel — ไม้เปิด + tier stats + equity curve + rule guard ============
+// เกณฑ์อ่าน tier ตาม Phase H/G: เขียวเมื่อ avg ≥ +0.15R net (gate เข้า Phase I), แดงเมื่อติดลบ
+const PJ_TIERS = [["<5", b => b < 5], ["5-7", b => b >= 5 && b <= 7], ["≥8", b => b >= 8]];
+const PJ_GATE_R = 0.15;
+const HORIZON_DAYS = 10; // ตรง expiry ของ track_trades
+let pjChart = null, pjSeries = null;
+const pjPxCache = {};
+
+const rNet = (t) => t.r_net ?? t.r ?? 0;
+const fmtR = (v) => `${v >= 0 ? "+" : ""}${v.toFixed(2)}R`;
+
+async function pjLivePrice(symbol, exchange) {
+  const hit = pjPxCache[symbol];
+  if (hit && Date.now() - hit.ts < 60 * 1000) return hit.p;
+  let p = null;
+  try {
+    const c = await fetchCandles(symbol, exchange, "1m", 3);
+    if (c && c.length) p = c[c.length - 1].close; // แท่ง 1m ล่าสุด (live) ≈ ราคาปัจจุบัน
+  } catch {}
+  pjPxCache[symbol] = { p, ts: Date.now() };
+  return p;
+}
+
+async function pjOpenHtml(open) {
+  if (!open.length) return `<span class="faint">ไม่มีไม้เปิดค้าง</span>`;
+  const rows = await Promise.all(open.map(async (t) => {
+    const px = await pjLivePrice(t.symbol, t.exchange);
+    const risk = t.sl - t.entry; // short เสมอ: SL อยู่เหนือ entry
+    let rTxt = "-", cls = "faint", pctTxt = "";
+    if (px != null && risk > 0) {
+      const r = (t.entry - px) / risk - 0.003 * t.entry / risk; // net — สูตรเดียวกับ track_trades
+      rTxt = fmtR(r);
+      cls = r > 0 ? "pct-up" : r < 0 ? "pct-down" : "";
+      pctTxt = `${px >= t.entry ? "+" : ""}${((px / t.entry - 1) * 100).toFixed(1)}%`;
+    }
+    const daysLeft = Math.max(0, HORIZON_DAYS - (Date.now() - Date.parse(t.opened_at)) / 86400000);
+    return `<div class="pj-pos" data-chart="${t.symbol}" data-ex="${t.exchange}"
+      title="entry ${t.entry} · SL ${t.sl} · TP ${t.tp} — คลิกเปิด chart">
+      <span class="pj-sym">${shortName(t.symbol)}</span><span class="${cls}"><b>${rTxt}</b></span>
+      <span class="faint">${pctTxt}</span><span class="faint">⏳ ${daysLeft.toFixed(1)}d</span>
+      <span class="faint">prob ${t.prob ?? "-"} · b${t.breadth ?? "-"}</span></div>`;
+  }));
+  return rows.join("");
+}
+
+function pjTierHtml(resolved) {
+  const head = `<div class="pj-tr pj-th"><span>tier</span><span>n</span><span>avg</span><span>sum</span><span>hit</span></div>`;
+  const rows = PJ_TIERS.map(([label, fn]) => {
+    const g = resolved.filter(t => fn(t.breadth ?? 0));
+    if (!g.length) return `<div class="pj-tr"><span>${label}</span><span class="faint">0</span><span class="faint">-</span><span class="faint">-</span><span class="faint">-</span></div>`;
+    const sum = g.reduce((a, t) => a + rNet(t), 0);
+    const avg = sum / g.length;
+    const hit = g.filter(t => rNet(t) > 0).length / g.length * 100;
+    const cls = avg >= PJ_GATE_R ? "pct-up" : avg < 0 ? "pct-down" : "";
+    return `<div class="pj-tr"><span>${label}</span><span>${g.length}</span><span class="${cls}"><b>${fmtR(avg)}</b></span><span>${fmtR(sum)}</span><span>${hit.toFixed(0)}%</span></div>`;
+  }).join("");
+  return head + rows;
+}
+
+function pjGuardHtml(blocked) {
+  if (!blocked.length) return `<span class="faint">ยังไม่มีไม้ถูก block</span>`;
+  const RULES = [["cooldown", "Rule C (cooldown)"], ["concurrent", "NC (no-concurrent)"]];
+  return RULES.map(([key, label]) => {
+    const g = blocked.filter(b => (b.rule || "cooldown") === key);
+    if (!g.length) return "";
+    const resolved = g.filter(b => (b.status || "").startsWith("cf_"));
+    // saved = −(ผล cf รวม): บล็อกไม้ที่จะแพ้ = บวก (ช่วยไว้), บล็อกไม้ที่จะชนะ = ลบ (พลาด)
+    const saved = -resolved.reduce((a, b) => a + rNet(b), 0);
+    const savedTxt = resolved.length
+      ? `saved <b class="${saved > 0 ? "pct-up" : saved < 0 ? "pct-down" : ""}">${fmtR(saved)}</b> net (cf ${resolved.length}/${g.length})`
+      : `<span class="faint">รอ counterfactual ${g.length} ไม้</span>`;
+    const detail = g.map(b => `${shortName(b.symbol)} ${(b.status || "").startsWith("cf_") ? `${b.status.slice(3)} ${fmtR(rNet(b))}` : "pending"}`).join(", ");
+    return `<div title="${detail}">🚫 ${label}: บล็อก ${g.length} · ${savedTxt}</div>`;
+  }).filter(Boolean).join("");
+}
+
+function pjEquity(resolved) {
+  const el = document.getElementById("pj-equity");
+  if (!el || typeof LightweightCharts === "undefined") return;
+  const pts = [];
+  let cum = 0;
+  for (const t of [...resolved].filter(t => t.closed_at).sort((a, b) => a.closed_at.localeCompare(b.closed_at))) {
+    cum += rNet(t);
+    const time = Math.floor(Date.parse(t.closed_at) / 1000);
+    if (pts.length && pts[pts.length - 1].time === time) pts[pts.length - 1].value = cum; // ปิดชนแท่งเดียวกัน → จุดเดียว
+    else pts.push({ time, value: cum });
+  }
+  if (pts.length < 2) { el.innerHTML = `<span class="faint">รอไม้ปิดสะสม ≥2</span>`; return; }
+  const endCol = cum >= 0 ? cssVar("--green") : cssVar("--red");
+  if (!pjChart) {
+    pjChart = LightweightCharts.createChart(el, {
+      autoSize: true,
+      layout: { background: { type: "solid", color: "transparent" }, textColor: cssVar("--text-faint") },
+      grid: { vertLines: { visible: false }, horzLines: { color: cssVar("--surface-2") } },
+      timeScale: { borderColor: cssVar("--border") },
+      rightPriceScale: { borderColor: cssVar("--border") },
+      handleScroll: false, handleScale: false,
+    });
+    pjSeries = pjChart.addSeries(LightweightCharts.AreaSeries, {
+      lineWidth: 2, priceFormat: { type: "price", precision: 2, minMove: 0.01 },
+      priceLineVisible: false,
+    });
+    pjSeries.createPriceLine({ price: 0, color: cssVar("--text-faint"), lineWidth: 1, lineStyle: LightweightCharts.LineStyle.Dashed, axisLabelVisible: false, title: "" });
+  }
+  pjSeries.applyOptions({ lineColor: endCol, topColor: cum >= 0 ? "rgba(0,230,83,0.20)" : "rgba(255,85,68,0.20)", bottomColor: "rgba(0,0,0,0)" });
+  pjSeries.setData(pts);
+  pjChart.timeScale().fitContent();
+}
+
+async function refreshJournalPanel() {
+  const meta = document.getElementById("pj-meta");
+  if (!meta) return;
+  try {
+    await loadJournals();
+    const resolved = journalCache.paper.filter(t => t.status !== "open");
+    const open = journalCache.paper.filter(t => t.status === "open");
+    const net = resolved.reduce((a, t) => a + rNet(t), 0);
+    meta.textContent = `resolved ${resolved.length} · net ${fmtR(net)} (avg ${fmtR(net / (resolved.length || 1))}) · เปิดค้าง ${open.length}`;
+    document.getElementById("pj-tiers").innerHTML = pjTierHtml(resolved);
+    document.getElementById("pj-guard").innerHTML = pjGuardHtml(journalCache.blocked);
+    pjEquity(resolved);
+    document.getElementById("pj-open").innerHTML = await pjOpenHtml(open); // ท้ายสุด — ต้องรอราคา live
+  } catch (e) {
+    console.warn("journal panel:", e);
+    meta.textContent = "⚠️ โหลด journal ไม่ได้";
+  }
+}
+
+document.getElementById("pj-open")?.addEventListener("click", (e) => {
+  const el = e.target.closest("[data-chart]");
+  if (el) openChartModal(el.dataset.chart, el.dataset.ex, "1d");
+});
+
 // ============ Position Calculator ============
 function renderCalcModal(symbol, cfg, data) {
   const { levels } = cfg;
@@ -1278,6 +1411,7 @@ async function refresh() {
   loadThemeHistory().then(renderThemeHeatmap);
   loadRsiSnapshot().then(renderRsiMover);
   refreshDivWatch();
+  refreshJournalPanel();
 }
 
 function startCountdown() {
