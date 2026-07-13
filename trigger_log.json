@@ -10929,8 +10929,8 @@
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-07-06T16:24:04.227076+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-12T12:24:12.940662+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-13T12:23:52.035057+00:00"
     },
     {
       "symbol": "MAGMA_USDT",
@@ -10986,8 +10986,8 @@
       "funding": 0.01,
       "id": "AMGN_USDT:support_break:2026-07-06T16:24:27.571724+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-13T00:24:04.768539+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-13T12:24:15.575377+00:00"
     },
     {
       "symbol": "SCHW_USDT",
@@ -11011,8 +11011,8 @@
       "funding": 0.01,
       "id": "SCHW_USDT:resistance_test:2026-07-06T16:24:28.167803+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-09T16:25:00.694231+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-13T12:24:16.222280+00:00"
     },
     {
       "symbol": "BKNG_USDT",
@@ -11601,8 +11601,8 @@
       "funding": 0.0,
       "id": "HMSTRUSDT:rejection:2026-07-08T08:24:48.080464+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-10T20:24:46.562424+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-13T12:24:11.506090+00:00"
     },
     {
       "symbol": "MELI_USDT",
@@ -11682,7 +11682,8 @@
       "funding": -0.0201,
       "id": "AERO_USDT:rejection:2026-07-08T12:24:25.943223+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-13T12:23:41.212924+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -11743,8 +11744,8 @@
       "funding": 0.01,
       "id": "JNJ_USDT:support_break:2026-07-08T20:24:21.665594+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-13T00:23:23.044465+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-13T12:23:36.410341+00:00"
     },
     {
       "symbol": "HMSTRUSDT",
@@ -11756,8 +11757,8 @@
       "funding": 0.0,
       "id": "HMSTRUSDT:support_break:2026-07-09T00:24:50.298246+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-10T20:24:46.562424+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-13T12:24:11.506090+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -11986,8 +11987,8 @@
       "funding": 0.0,
       "id": "VANRYUSDT:rejection:2026-07-09T20:24:48.505391+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-11T12:24:36.438624+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-13T12:24:12.809622+00:00"
     },
     {
       "symbol": "VANRYUSDT",
@@ -12453,8 +12454,8 @@
       "funding": 0.01,
       "id": "RIVN_USDT:support_break:2026-07-10T20:24:33.787958+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-12T00:24:14.837450+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-13T12:23:53.432140+00:00"
     },
     {
       "symbol": "AAVEUSDT",
@@ -12863,7 +12864,8 @@
       "funding": 0.01,
       "id": "BEAT_USDT:support_break:2026-07-13T00:23:21.681310+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-13T12:23:35.044285+00:00"
     },
     {
       "symbol": "TLT_USDT",
@@ -13030,6 +13032,30 @@
       "price": 45.482,
       "funding": 0.0,
       "id": "DEXEUSDT:rejection:2026-07-13T08:24:13.335414+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "HEIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-13T12:23:55.413933+00:00",
+      "price": 0.0982,
+      "funding": 0.0,
+      "id": "HEIUSDT:rejection:2026-07-13T12:23:55.413933+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DDOG_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-13T12:24:01.482302+00:00",
+      "price": 256.0,
+      "funding": 0.01,
+      "id": "DDOG_USDT:support_break:2026-07-13T12:24:01.482302+00:00",
       "status": "pending",
       "repeats": 1
     }
