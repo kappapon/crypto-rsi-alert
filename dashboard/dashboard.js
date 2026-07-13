@@ -174,7 +174,7 @@ function bearishDivClient(highs, rsi) {
   if (Number.isNaN(rsi[p1]) || Number.isNaN(rsi[p2])) return null;
   if (!(highs[p2] > highs[p1] && rsi[p2] < rsi[p1] && rsi[p1] >= DIV_RSI_MIN)) return null;
   const age = (highs.length - 1) - p2;
-  return { age, fresh: age <= DIV_FRESH };
+  return { age, fresh: age <= DIV_FRESH, p1, p2 };
 }
 
 // OHLC (highs+closes, แท่งปิดเท่านั้น) — generalize จาก fetchOHLC15 เดิม ใช้ได้ทุก TF (E3)
@@ -256,8 +256,10 @@ async function computeCross(d) {
 }
 
 // list สดจาก worker (health.divwatch) → compute div ทุกตัว → render. ไม่มี token = fallback list
+let lastDivHealth = null; // health ล่าสุด — chart modal ใช้วาดเส้น armed/sweep
 async function refreshDivWatch() {
   const health = await loadDivHealth();
+  lastDivHealth = health;
   const list = (health && Array.isArray(health.divwatch) && health.divwatch.length)
     ? health.divwatch.map(d => ({ symbol: d.symbol, exchange: srcToExchange(d.source), label: d.label }))
     : DIV_WATCH_FALLBACK;
@@ -323,7 +325,8 @@ function renderDivWatch(rows, health) {
   if (el) {
     el.innerHTML = rows.map(d => {
       const xBtn = `<button class="dw-x" data-divremove="${d.label}" title="remove ${d.label}">✕</button>`;
-      if (!d.ok) return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span></span><span class="dw-status faint">⚠️ fetch</span>${xBtn}</div>`;
+      const symSpan = `<span class="dw-sym" data-chart="${d.symbol}" data-ex="${d.exchange}" title="📈 chart">${d.label}</span>`;
+      if (!d.ok) return `<div class="dw-row">${symSpan}<span></span><span class="dw-status faint">⚠️ fetch</span>${xBtn}</div>`;
       const rsiTxt = (d.rsi == null || Number.isNaN(d.rsi)) ? "-" : d.rsi.toFixed(1);
       // worker lifecycle (armed/swept/confirmed) มาก่อน client-side div — เป็น state ของ 2-stage จริง
       const cw = health && health.confirm ? health.confirm[d.symbol] : null;
@@ -350,7 +353,7 @@ function renderDivWatch(rows, health) {
       else if (ldMin != null) confl = `<span class="dw-tf faint">🐻 div ${(ldMin / 60).toFixed(1)}ชม.</span>`;
       const chipsHtml = d.cross ? `${chip("1h", d.cross["1h"])}${chip("2h", d.cross["2h"])}${confl}` : confl;
       const railRow = renderDivRail(d.divByTf, chipsHtml);
-      return `<div class="dw-row"><span class="dw-sym">${d.label}</span><span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}${railRow}</div>`;
+      return `<div class="dw-row">${symSpan}<span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}${railRow}</div>`;
     }).join("");
   }
   const hEl = document.getElementById("dw-health");
@@ -602,6 +605,7 @@ function renderDetail(symbol, cfg, data) {
     ${alertsHtml}
     ${renderAnalysis(symbol)}
     <div class="card-actions">
+      <button data-action="chart" data-symbol="${symbol}">📈 Chart</button>
       <button data-action="analyze" data-symbol="${symbol}">📝 Analyze</button>
       <button data-action="calc" data-symbol="${symbol}">💰 Position Calc</button>
       <button data-action="ohlcv" data-symbol="${symbol}">📥 OHLCV + Retrain</button>
@@ -622,6 +626,175 @@ function openDetail(symbol) {
     if (slot && kl.length) slot.innerHTML = renderSparkline(kl, data.change24h);
   });
 }
+
+// ============ Chart Modal — lightweight-charts v5 + overlay สถานะบอท ============
+// แท่งบน chart รวมแท่งกำลังก่อตัว (นี่คือ chart ไม่ใช่ signal); RSI pane + div ใช้แท่งปิดเท่านั้น = มุมมองเดียวกับ watcher
+const CHART_TFS = ["15m", "1h", "4h", "1d"];
+const CHART_BARS = 300;
+const chartState = { chart: null, symbol: null, exchange: null, tf: "1d", seq: 0 };
+let journalCache = { ts: 0, paper: [], blocked: [] };
+
+const cssVar = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+async function loadJournals() {
+  if (Date.now() - journalCache.ts < 60 * 1000) return journalCache;
+  const [p, b] = await Promise.all([
+    fetch("/paper_trades.json?_=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+    fetch("/blocked_trades.json?_=" + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null),
+  ]);
+  journalCache = { ts: Date.now(), paper: p?.trades || [], blocked: b?.trades || [] };
+  return journalCache;
+}
+
+// OHLC เรียงเก่า→ใหม่, time = unix วินาที — format ต่อ exchange ตามแบบ fetchOHLC
+async function fetchCandles(symbol, exchange, interval, limit = CHART_BARS) {
+  try {
+    if (exchange === "binance_spot" || exchange === "binance_futures") {
+      const host = exchange === "binance_spot" ? "https://data-api.binance.vision/api/v3" : "https://fapi.binance.com/fapi/v1";
+      const rows = await fetch(`${host}/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`).then(r => r.json());
+      if (!Array.isArray(rows)) return null;
+      return rows.map(r => ({ time: Math.floor(r[0] / 1000), open: +r[1], high: +r[2], low: +r[3], close: +r[4] }));
+    }
+    if (exchange === "gateio_futures") {
+      const rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
+      if (!Array.isArray(rows)) return null;
+      return rows.map(r => ({ time: +r.t, open: +r.o, high: +r.h, low: +r.l, close: +r.c }));
+    }
+    if (exchange === "gateio_spot") {
+      // spot format = [t, quote_vol, close, high, low, open, ...] — t วินาที
+      const rows = await fetch(px(`https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
+      if (!Array.isArray(rows)) return null;
+      return rows.map(r => ({ time: +r[0], open: +r[5], high: +r[3], low: +r[4], close: +r[2] }));
+    }
+  } catch (e) { console.warn(`fetchCandles ${symbol}@${exchange}:`, e); }
+  return null;
+}
+
+// marker ต้องชี้ time ของแท่งที่มีจริง — snap ลงแท่งสุดท้ายที่เปิดก่อน/พอดี ts
+function snapBarTime(candles, tSec) {
+  if (!candles.length || tSec < candles[0].time) return null;
+  for (let i = candles.length - 1; i >= 0; i--) if (candles[i].time <= tSec) return candles[i].time;
+  return null;
+}
+
+// overlay จาก journal ของเหรียญนี้: ไม้เปิด = เส้น entry/SL/TP, ไม้ปิด = จุดเข้า/ออก+R, โดน block = 🚫, armed/sweep จาก worker
+function tradeOverlays(candles, symbol) {
+  const green = cssVar("--green"), red = cssVar("--red"), orange = "#ff9a3b", gray = "#8fa89a";
+  const toSec = (iso) => Math.floor(Date.parse(iso) / 1000);
+  const markers = [], lines = [];
+  for (const t of journalCache.paper.filter(t => t.symbol === symbol)) {
+    const ot = snapBarTime(candles, toSec(t.opened_at));
+    if (t.status === "open") {
+      lines.push({ price: t.entry, color: "#d8e8dc", title: "entry" }, { price: t.sl, color: red, title: "SL" }, { price: t.tp, color: green, title: "TP" });
+      if (ot) markers.push({ time: ot, position: "aboveBar", color: "#d8e8dc", shape: "arrowDown", text: `short ${t.prob ?? ""}` });
+    } else {
+      const r = t.r_net ?? t.r ?? 0;
+      const ct = t.closed_at ? snapBarTime(candles, toSec(t.closed_at)) : null;
+      if (ot) markers.push({ time: ot, position: "aboveBar", color: gray, shape: "arrowDown", text: "S" });
+      if (ct) markers.push({ time: ct, position: "belowBar", color: r > 0 ? green : red, shape: "circle", text: `${r >= 0 ? "+" : ""}${r.toFixed(2)}R` });
+    }
+  }
+  for (const b of journalCache.blocked.filter(b => b.symbol === symbol)) {
+    const bt = snapBarTime(candles, toSec(b.blocked_at));
+    if (bt) markers.push({ time: bt, position: "aboveBar", color: orange, shape: "square", text: b.rule === "concurrent" ? "🚫NC" : "🚫C" });
+  }
+  const cw = lastDivHealth?.confirm?.[symbol];
+  if (cw && (cw.state === "armed" || cw.state === "swept") && cw.armedHigh) {
+    lines.push({ price: cw.armedHigh, color: orange, title: `🔫 ${cw.state}` });
+    if (cw.peakHigh && cw.peakHigh > cw.armedHigh) lines.push({ price: cw.peakHigh, color: red, title: "sweep peak" });
+  }
+  return { markers: markers.sort((a, b) => a.time - b.time), lines };
+}
+
+function openChartModal(symbol, exchange, tf) {
+  chartState.symbol = symbol;
+  chartState.exchange = exchange;
+  if (tf) chartState.tf = tf;
+  document.getElementById("chart-symbol").textContent = `${symbol} · ${exchange}`;
+  document.getElementById("chart-tfs").innerHTML = CHART_TFS.map(t =>
+    `<button data-tf="${t}" class="${t === chartState.tf ? "active" : ""}">${t}</button>`).join("");
+  document.getElementById("modal-chart").classList.remove("hidden");
+  drawChart();
+}
+
+async function drawChart() {
+  const note = document.getElementById("chart-note");
+  const legend = document.getElementById("chart-legend");
+  const el = document.getElementById("chart-container");
+  if (typeof LightweightCharts === "undefined") { note.textContent = "⚠️ โหลด vendor/lightweight-charts ไม่ได้"; return; }
+  const seq = ++chartState.seq;
+  note.textContent = "⏳ loading...";
+  legend.textContent = "";
+  const { symbol, exchange, tf } = chartState;
+  const [candles] = await Promise.all([fetchCandles(symbol, exchange, tf), loadJournals()]);
+  if (seq !== chartState.seq) return; // มี draw ใหม่กว่าแซงแล้ว
+  if (!candles || candles.length < 20) { note.textContent = `⚠️ ดึงแท่ง ${tf} ไม่ได้`; return; }
+
+  if (chartState.chart) { chartState.chart.remove(); chartState.chart = null; }
+  const green = cssVar("--green"), red = cssVar("--red"), yellow = cssVar("--yellow");
+  const last = candles[candles.length - 1].close;
+  const precision = last >= 1000 ? 1 : last >= 10 ? 2 : last >= 0.1 ? 4 : last >= 0.001 ? 6 : 8;
+
+  const chart = LightweightCharts.createChart(el, {
+    autoSize: true,
+    layout: { background: { type: "solid", color: cssVar("--surface") }, textColor: cssVar("--text-dim"),
+              panes: { separatorColor: cssVar("--border"), enableResize: false } },
+    grid: { vertLines: { color: cssVar("--surface-2") }, horzLines: { color: cssVar("--surface-2") } },
+    timeScale: { timeVisible: tf !== "1d", secondsVisible: false, borderColor: cssVar("--border"), rightOffset: 3 },
+    rightPriceScale: { borderColor: cssVar("--border") },
+  });
+  chartState.chart = chart;
+
+  const candleSeries = chart.addSeries(LightweightCharts.CandlestickSeries, {
+    upColor: green, downColor: red, borderUpColor: green, borderDownColor: red, wickUpColor: green, wickDownColor: red,
+    priceFormat: { type: "price", precision, minMove: Number((10 ** -precision).toFixed(precision)) },
+  });
+  candleSeries.setData(candles);
+
+  // RSI pane (แท่งปิดเท่านั้น — ตรง watcher)
+  const closed = candles.slice(0, -1);
+  const rsi = wilderRSISeries(closed.map(c => c.close));
+  const rsiSeries = chart.addSeries(LightweightCharts.LineSeries, {
+    color: yellow, lineWidth: 1, priceLineVisible: false, lastValueVisible: true,
+    priceFormat: { type: "price", precision: 1, minMove: 0.1 },
+  }, 1);
+  rsiSeries.setData(closed.map((c, i) => ({ time: c.time, value: rsi[i] })).filter(d => !Number.isNaN(d.value)));
+  rsiSeries.createPriceLine({ price: 70, color: red, lineWidth: 1, lineStyle: LightweightCharts.LineStyle.Dashed, axisLabelVisible: false, title: "" });
+  rsiSeries.createPriceLine({ price: 50, color: cssVar("--text-faint"), lineWidth: 1, lineStyle: LightweightCharts.LineStyle.SparseDotted, axisLabelVisible: false, title: "" });
+  chart.panes()[1].setHeight(105);
+
+  // divergence p1→p2 (TF ปัจจุบัน กติกาเดียวกับ badge) — เส้นเชื่อมทั้งบนราคาและบน RSI
+  const div = bearishDivClient(closed.map(c => c.high), rsi);
+  if (div) {
+    const mag = "#e864e8";
+    const seg = (pane, v1, v2) => {
+      const s = chart.addSeries(LightweightCharts.LineSeries, { color: mag, lineWidth: 1, lineStyle: LightweightCharts.LineStyle.Dashed,
+        priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false }, pane);
+      s.setData([{ time: closed[div.p1].time, value: v1 }, { time: closed[div.p2].time, value: v2 }]);
+    };
+    seg(0, closed[div.p1].high, closed[div.p2].high);
+    seg(1, rsi[div.p1], rsi[div.p2]);
+  }
+
+  const ov = tradeOverlays(candles, symbol);
+  for (const l of ov.lines) candleSeries.createPriceLine({ price: l.price, color: l.color, lineWidth: 1, lineStyle: LightweightCharts.LineStyle.Dashed, axisLabelVisible: true, title: l.title });
+  if (ov.markers.length) LightweightCharts.createSeriesMarkers(candleSeries, ov.markers);
+
+  note.textContent = "";
+  const parts = ["เหลือง = RSI14 (แท่งปิด)"];
+  if (div) parts.push(`ม่วง = bearish div (${div.age}b ก่อน)`);
+  if (ov.lines.length) parts.push("เส้นประ = entry/SL/TP · armed/sweep");
+  if (ov.markers.length) parts.push("S/R = ไม้ journal · 🚫 = โดน rule block");
+  legend.textContent = parts.join("  ·  ");
+}
+
+document.getElementById("chart-tfs").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-tf]");
+  if (!b) return;
+  chartState.tf = b.dataset.tf;
+  document.querySelectorAll("#chart-tfs button").forEach(x => x.classList.toggle("active", x === b));
+  drawChart();
+});
 
 // ============ Position Calculator ============
 function renderCalcModal(symbol, cfg, data) {
@@ -1139,6 +1312,8 @@ dwAddInput?.addEventListener("keydown", (e) => { if (e.key === "Enter") dwAddSub
 document.getElementById("div-watch-body")?.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-divremove]");
   if (btn) { divWatchMutate("remove", btn.dataset.divremove); return; }
+  const ds = e.target.closest(".dw-sym[data-chart]");
+  if (ds) { openChartModal(ds.dataset.chart, ds.dataset.ex, "15m"); return; }
   // แตะจุด checkpoint บนมือถือ (ไม่มี hover) → โชว์อายุ div ใน dw-msg
   const cp = e.target.closest(".dw-cp[data-tip]");
   if (cp) { const msg = document.getElementById("dw-msg"); if (msg) { msg.textContent = cp.dataset.tip; msg.style.color = ""; } }
@@ -1221,7 +1396,13 @@ document.getElementById("wl-body").addEventListener("click", (e) => {
     return;
   }
   const tr = e.target.closest("tr[data-symbol]");
-  if (tr) openDetail(tr.dataset.symbol);
+  if (!tr) return;
+  // คลิกช่อง symbol = เปิด chart ตรง; ที่เหลือของแถว = detail เดิม
+  if (e.target.closest("td.sym")) {
+    const cfg = cache.watchlist?.tickers?.[tr.dataset.symbol];
+    if (cfg) { openChartModal(tr.dataset.symbol, cfg.exchange, "1d"); return; }
+  }
+  openDetail(tr.dataset.symbol);
 });
 
 // ปุ่ม action ใน detail modal
@@ -1238,6 +1419,8 @@ document.getElementById("detail-body").addEventListener("click", (e) => {
     if (confirm(`ดึงข้อมูล ${sym} แล้ว retrain model ทั้งชุด (~10 นาที)?`)) mlStart("fetch_retrain", sym);
   } else if (btn.dataset.action === "analyze") {
     openAnalysisModal(sym);
+  } else if (btn.dataset.action === "chart") {
+    openChartModal(sym, cfg.exchange, "1d");
   }
 });
 

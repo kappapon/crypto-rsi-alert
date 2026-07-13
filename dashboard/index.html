@@ -47,7 +47,7 @@
           </tbody>
         </table>
       </div>
-      <p class="faint" style="margin-top:8px">> click row → levels / analyze / position calc_</p>
+      <p class="faint" style="margin-top:8px">> click symbol → 📈 chart · click row → levels / analyze / position calc_</p>
     </section>
     <aside id="side-panel">
       <div class="panel" id="div-watch">
@@ -178,6 +178,22 @@
     </div>
   </div>
 
+  <!-- Chart Modal (lightweight-charts) -->
+  <div id="modal-chart" class="modal hidden">
+    <div class="modal-content chart-wide">
+      <header id="chart-header">
+        <h2>📈 <span id="chart-symbol"></span></h2>
+        <div id="chart-tfs"></div>
+        <button class="close" data-close="modal-chart">×</button>
+      </header>
+      <div class="modal-body">
+        <div id="chart-note" class="faint"></div>
+        <div id="chart-container"></div>
+        <div id="chart-legend" class="faint"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ML Pipeline Modal -->
   <div id="modal-ml" class="modal hidden">
     <div class="modal-content">
@@ -196,6 +212,7 @@
     </div>
   </div>
 
+  <script src="vendor/lightweight-charts.standalone.production.js"></script>
   <script src="dashboard.js"></script>
 </body>
 </html>
