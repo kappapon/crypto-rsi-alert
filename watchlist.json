@@ -1227,6 +1227,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "NMR_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 10.6748,
+        "resistance": 10.517,
+        "rejection_below": 9.0335,
+        "support_strong": 9.5553,
+        "support_extreme": 9.6785
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
