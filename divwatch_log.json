@@ -78,6 +78,19 @@
       "ts": "2026-07-13T13:00:00.000Z",
       "id": "flip:DEXE_USDT:gate:2026-07-13T13:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "SAFE",
+      "p1_low": 0.11262,
+      "p1_rsi": 31.9454651044485,
+      "p2_low": 0.11168,
+      "p2_rsi": 33.2066143120544,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "SAFE_USDT",
+      "ts": "2026-07-13T19:00:00.000Z",
+      "id": "flip:SAFE_USDT:gate:2026-07-13T19:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
