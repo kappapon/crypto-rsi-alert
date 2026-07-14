@@ -1,22 +1,18 @@
 {
-  "date": "2026-07-13",
+  "date": "2026-07-14",
   "levels": {
     "ADSK_USDT.GATEIO": 70,
-    "AMGN_USDT.GATEIO": 70,
+    "ATMUSDT": 70,
     "COP_USDT.GATEIO": 70,
-    "DCRUSDT": 70,
-    "DEXEUSDT": 80,
-    "DODOUSDT": 70,
-    "EBAY_USDT.GATEIO": 70,
-    "EWYBUSDT": 70,
-    "EWZ_USDT.GATEIO": 70,
+    "DEXEUSDT": 70,
     "INTU_USDT.GATEIO": 70,
     "JSTUSDT": 70,
     "MELI_USDT.GATEIO": 80,
-    "METAX_USDT.GATEIO": 70,
+    "METABUSDT": 80,
+    "MSFTBUSDT": 80,
     "NEE_USDT.GATEIO": 70,
     "O_USDT.GATEIO": 70,
-    "PYTHUSDT": 70,
+    "PLTRBUSDT": 80,
     "REUSDT": 70,
     "SAFE_USDT.GATEIO": 70,
     "SCHW_USDT.GATEIO": 80,
@@ -25,9 +21,6 @@
     "SYK_USDT.GATEIO": 70,
     "TMO_USDT.GATEIO": 70,
     "TMUS_USDT.GATEIO": 70,
-    "TUSDT": 80,
-    "UNIUSDT": 70,
-    "XECUSDT": 70,
-    "XPIN_USDT.GATEIO": 70
+    "XECUSDT": 70
   }
 }
