@@ -11075,8 +11075,8 @@
       "funding": 0.01,
       "id": "V_USDT:rejection:2026-07-06T16:24:18.636176+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-11T00:24:39.981849+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-14T04:23:58.204708+00:00"
     },
     {
       "symbol": "AMGN_USDT",
@@ -11716,8 +11716,8 @@
       "funding": 0.0,
       "id": "HMSTRUSDT:rejection:2026-07-08T08:24:48.080464+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-13T12:24:11.506090+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-14T04:24:01.902776+00:00"
     },
     {
       "symbol": "MELI_USDT",
@@ -11872,8 +11872,8 @@
       "funding": 0.0,
       "id": "HMSTRUSDT:support_break:2026-07-09T00:24:50.298246+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-13T12:24:11.506090+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-14T04:24:01.902776+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -12182,8 +12182,8 @@
       "funding": 0.0,
       "id": "JTOUSDT:support_break:2026-07-10T00:24:22.179877+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-12T00:24:05.087404+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-14T04:23:34.190500+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -12481,8 +12481,8 @@
       "funding": 0.01,
       "id": "UNH_USDT:support_break:2026-07-10T16:24:33.663075+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-13T00:23:46.124390+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-14T04:23:49.929441+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -12934,8 +12934,8 @@
       "funding": 0.005,
       "id": "SAFE_USDT:support_break:2026-07-12T04:24:45.885445+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-13T20:24:06.333586+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-14T04:24:09.598546+00:00"
     },
     {
       "symbol": "MUBARAKUSDT",
@@ -13088,7 +13088,8 @@
       "funding": 0.01,
       "id": "HIMS_USDT:support_break:2026-07-13T04:23:34.659057+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-14T04:23:34.744330+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -13185,8 +13186,8 @@
       "funding": 0.0,
       "id": "DEXEUSDT:rejection:2026-07-13T08:24:13.335414+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-13T16:24:06.693699+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-14T04:24:08.481661+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -13306,6 +13307,54 @@
       "price": 0.5055,
       "funding": 0.005,
       "id": "O_USDT:support_break:2026-07-13T20:24:08.927133+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-14T04:23:31.181003+00:00",
+      "price": 2.6071,
+      "funding": 0.01,
+      "id": "BEAT_USDT:rejection:2026-07-14T04:23:31.181003+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JTOUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-14T04:23:34.190500+00:00",
+      "price": 0.6346,
+      "funding": 0.0,
+      "id": "JTOUSDT:rejection:2026-07-14T04:23:34.190500+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-14T04:23:38.410602+00:00",
+      "price": 0.060112,
+      "funding": 0.0171,
+      "id": "BTW_USDT:rejection:2026-07-14T04:23:38.410602+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-14T04:24:11.967254+00:00",
+      "price": 0.00477,
+      "funding": 0.0,
+      "id": "TUSDT:support_break:2026-07-14T04:24:11.967254+00:00",
       "status": "pending",
       "repeats": 1
     }
