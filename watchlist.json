@@ -89,23 +89,6 @@
         "funding_high": 0.1
       }
     },
-    "INFQ_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 16.7982,
-        "resistance": 16.55,
-        "rejection_below": 9.614,
-        "support_strong": 10.5231,
-        "support_extreme": 10.8237
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "JTOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
