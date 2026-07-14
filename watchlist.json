@@ -310,23 +310,6 @@
         "funding_high": 0.1
       }
     },
-    "TLT_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 93.9382,
-        "resistance": 92.55,
-        "rejection_below": 82.6215,
-        "support_strong": 87.1337,
-        "support_extreme": 87.3516
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ZEREBRO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
