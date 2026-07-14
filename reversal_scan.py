@@ -39,6 +39,12 @@ HISTORY_YEARS = 3.0        # must match fetch_data default used for training
 H4_YEARS = 0.3             # rsi_4h EWM is converged long before this
 COOLDOWN_SEC = HORIZON * 86400  # Rule C: ห้าม re-short เหรียญเดิมภายใน 1 horizon หลังโดน stop-out
 
+# Dump-stage instrumentation (retro 2026-07-14 บน 50 ไม้: เข้า "หลัง 0.236 แตก" avg +0.61R vs "ก่อนแตก" −0.05R)
+# เก็บ label ลง record ทุกไม้เพื่อรอ forward proof — ไม่กรอง/ไม่เปลี่ยนพฤติกรรมเข้าไม้
+STAGE_HIGH_LB = 45     # แท่งปิดท้ายสุดที่ใช้หา swing high ของขา pump
+STAGE_LOW_LB = 60      # แท่งย้อนจาก swing high ที่ใช้หา swing low (ฐานก่อน pump)
+STAGE_MIN_PUMP = 0.25  # (high−low)/low ต่ำกว่านี้ = ไม่มีโครง pump ให้วัด → "nopump"
+
 
 def screen_klines_binance(symbol: str) -> pd.DataFrame:
     """One-request daily history for event screening (closed candles only)."""
@@ -85,6 +91,37 @@ def fetch_live_price(symbol: str, exchange: str) -> float | None:
         return float(r.json()["price"])
     except Exception:
         return None
+
+
+def swing_anchors(daily: pd.DataFrame) -> tuple[float, float] | None:
+    """Swing ของขา pump ล่าสุดจากแท่งปิดล้วน (no lookahead — นิยามเดียวกับ stage_retro 2026-07-14):
+    high = max ใน STAGE_HIGH_LB แท่งท้าย, low = min ใน STAGE_LOW_LB แท่งย้อนจากแท่ง high (รวมตัวมันเอง)."""
+    if len(daily) < 15:
+        return None
+    highs = daily["high"].to_numpy()
+    lows = daily["low"].to_numpy()
+    base = max(0, len(highs) - STAGE_HIGH_LB)
+    hi_pos = base + int(highs[base:].argmax())
+    hi = float(highs[hi_pos])
+    lo = float(lows[max(0, hi_pos - STAGE_LOW_LB): hi_pos + 1].min())
+    return (hi, lo) if hi > lo > 0 else None
+
+
+def dump_stage(anchors: tuple[float, float] | None, entry: float) -> dict:
+    """ตำแหน่ง entry บน fib ladder ของ swing — instrumentation อย่างเดียว ไม่ใช้กรองไม้.
+    stage_frac = (high−entry)/(high−low): <0.236 = pre (ใกล้ยอด), ≥0.236 = โครงสร้างแรกแตกแล้ว."""
+    if anchors is None:
+        return {"stage": None, "stage_frac": None, "pump_pct": None}
+    hi, lo = anchors
+    pump = round((hi - lo) / lo, 4)
+    frac = round((hi - entry) / (hi - lo), 4)
+    if pump < STAGE_MIN_PUMP:
+        stage = "nopump"
+    else:
+        stage = next(name for cut, name in [(0.236, "pre"), (0.382, "early"), (0.5, "mid"),
+                                            (0.618, "deep"), (0.786, "late"), (float("inf"), "post")]
+                     if frac < cut)
+    return {"stage": stage, "stage_frac": frac, "pump_pct": pump}
 
 
 def load_json_book(path: Path) -> dict:
@@ -148,6 +185,7 @@ def record_paper_trades(hits: list[dict], breadth: int) -> None:
             "opened_at": now_iso, "entry": h["entry"], "sl": h["sl"], "tp": h["tp"],
             "atr": h["atr"], "prob": round(h["prob"], 3), "entry_is_live": h["live"],
             "breadth": breadth,
+            "stage": h.get("stage"), "stage_frac": h.get("stage_frac"), "pump_pct": h.get("pump_pct"),
         })
     PAPER_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
     print(f"paper journal: recorded {len(hits)} trade(s)")
@@ -163,6 +201,7 @@ def record_blocked(blocked: list[dict], breadth: int) -> None:
             "blocked_at": now_iso, "blocked_by": h["blocked_by"], "rule": h["rule"],
             "entry": h["entry"], "sl": h["sl"], "tp": h["tp"], "atr": h["atr"],
             "prob": round(h["prob"], 3), "entry_is_live": h["live"], "breadth": breadth,
+            "stage": h.get("stage"), "stage_frac": h.get("stage_frac"), "pump_pct": h.get("pump_pct"),
         })
     BLOCKED_FILE.write_text(json.dumps(log, indent=2, sort_keys=True) + "\n")
     print(f"blocked journal: recorded {len(blocked)} blocked signal(s)")
@@ -233,7 +272,8 @@ def main() -> None:
             print(f"  {sym}: prob={prob:.3f} rsi={row['rsi']:.1f}")
             if prob >= tau and sym not in state["alerted"]:
                 hits.append({"symbol": sym, "exchange": ex, "prob": prob, "rsi": row["rsi"],
-                             "close": row["close"], "atr": row["atr"]})
+                             "close": row["close"], "atr": row["atr"],
+                             "anchors": swing_anchors(daily)})
         except Exception as e:
             errors += 1
             print(f"  score {sym}: {e}", file=sys.stderr)
@@ -248,6 +288,11 @@ def main() -> None:
             h["live"] = live is not None
             h["sl"] = h["entry"] + SL_ATR * h["atr"]
             h["tp"] = h["entry"] - TP_ATR * h["atr"]
+            h.update(dump_stage(h.pop("anchors"), h["entry"]))
+        print("stage: " + ", ".join(
+            f"{h['symbol']} {h['stage'] or '?'}" +
+            (f"({h['stage_frac']:+.0%})" if h["stage_frac"] is not None else "")
+            for h in hits))
 
         # breadth = จำนวนสัญญาณวันนี้ (ก่อนกรอง cooldown) — วัดสภาพตลาด ไม่ใช่จำนวนไม้ที่เข้าจริง
         breadth = len(hits)
@@ -271,7 +316,9 @@ def main() -> None:
                      f"model prob ≥ {tau} (เข้า short แท่งถัดไป, SL +{SL_ATR}×ATR / TP −{TP_ATR}×ATR)",
                      f"สัญญาณวันนี้: {breadth} ตัว{breadth_tag}", ""]
             for h in taken:
-                lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}")
+                stage_tag = (f" · {h['stage']} {h['stage_frac']:+.0%}"
+                             if h.get("stage") and h["stage_frac"] is not None else "")
+                lines.append(f"<code>{h['symbol']}</code>  prob {h['prob']:.0%} · RSI {h['rsi']:.0f}{stage_tag}")
                 price_part = f"ราคาล่าสุด {h['entry']:g}" if h["live"] else f"ราคาปิดแท่ง {h['entry']:g} (ดึงราคาสดไม่ได้)"
                 lines.append(f"   {price_part} · SL {h['sl']:g} · TP {h['tp']:g}")
             if blocked:
