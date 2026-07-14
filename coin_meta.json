@@ -1807,5 +1807,96 @@
       "Made in USA",
       "x402 Ecosystem"
     ]
+  },
+  "NMR": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/752/small/numeraire.png?1696501906",
+    "cg_id": "numeraire",
+    "categories": [
+      "Decentralized Finance (DeFi)",
+      "Analytics",
+      "Ethereum Ecosystem",
+      "Paradigm Portfolio",
+      "DragonFly Capital Portfolio",
+      "Energi Ecosystem"
+    ]
+  },
+  "T": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/1/small/bitcoin.png?1696501400",
+    "cg_id": "bitcoin",
+    "categories": [
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "FTX Holdings",
+      "Proof of Work (PoW)",
+      "Bitcoin Ecosystem",
+      "GMCI 30 Index",
+      "GMCI Index",
+      "Coinbase 50 Index"
+    ]
+  },
+  "O": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/1/small/bitcoin.png?1696501400",
+    "cg_id": "bitcoin",
+    "categories": [
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "FTX Holdings",
+      "Proof of Work (PoW)",
+      "Bitcoin Ecosystem",
+      "GMCI 30 Index",
+      "GMCI Index",
+      "Coinbase 50 Index"
+    ]
+  },
+  "ARB": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/16547/small/arb.jpg?1721358242",
+    "cg_id": "arbitrum",
+    "categories": [
+      "Smart Contract Platform",
+      "Arbitrum Ecosystem",
+      "Ethereum Ecosystem",
+      "Arbitrum Nova Ecosystem",
+      "Layer 2 (L2)",
+      "eGirl Capital Portfolio",
+      "Rollup",
+      "Alameda Research Portfolio",
+      "Pantera Capital Portfolio",
+      "GMCI Layer 2 Index",
+      "GMCI 30 Index",
+      "GMCI Index",
+      "Polychain Capital Portfolio",
+      "Made in USA",
+      "Governance"
+    ]
+  },
+  "ELSA": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71623/small/Red_circle_white_logo_512x512_%281%29.png?1768570174",
+    "cg_id": "elsa",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Mantle Ecosystem",
+      "Base Ecosystem",
+      "AI Agents",
+      "Binance Alpha Spotlight",
+      "DeFAI",
+      "x402 Ecosystem",
+      "Base Native"
+    ]
+  },
+  "XEC": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/16646/small/Logo_final-22.png?1696516207",
+    "cg_id": "ecash",
+    "categories": [
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "Bitcoin Fork",
+      "Proof of Work (PoW)"
+    ]
   }
 }
