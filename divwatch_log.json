@@ -157,6 +157,19 @@
       "ts": "2026-07-14T14:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-07-14T14:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "VANRY",
+      "p1_high": 0.005796,
+      "p1_rsi": 76.4073715478569,
+      "p2_high": 0.006023,
+      "p2_rsi": 74.1651728429335,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "VANRY_USDT",
+      "ts": "2026-07-14T16:00:00.000Z",
+      "id": "armed:VANRY_USDT:gate:2026-07-14T16:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
