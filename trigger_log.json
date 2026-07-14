@@ -10064,8 +10064,8 @@
       "funding": 0.01,
       "id": "ROKU_USDT:support_break:2026-07-04T16:24:24.862206+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-13T08:24:05.280957+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-07-14T20:23:58.759483+00:00"
     },
     {
       "symbol": "GNSUSDT",
@@ -11075,8 +11075,8 @@
       "funding": 0.01,
       "id": "V_USDT:rejection:2026-07-06T16:24:18.636176+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-14T04:23:58.204708+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-14T20:23:55.421881+00:00"
     },
     {
       "symbol": "AMGN_USDT",
@@ -11582,8 +11582,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-07-07T20:24:00.853289+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-13T00:23:29.996712+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-14T20:23:30.134942+00:00"
     },
     {
       "symbol": "PANW_USDT",
@@ -11640,8 +11640,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:rejection:2026-07-07T20:24:42.223415+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-14T08:24:18.276618+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-14T20:24:07.134929+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -11685,8 +11685,8 @@
       "funding": 0.01,
       "id": "RTX_USDT:support_break:2026-07-08T08:24:28.569599+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-07-13T00:23:32.747326+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-07-14T20:23:32.913071+00:00"
     },
     {
       "symbol": "EBAY_USDT",
@@ -11846,8 +11846,8 @@
       "funding": 0.01,
       "id": "KO_USDT:support_break:2026-07-08T20:24:21.225700+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-11T08:24:17.203064+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-14T20:23:23.699071+00:00"
     },
     {
       "symbol": "JNJ_USDT",
@@ -11996,8 +11996,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-07-09T04:25:04.759173+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-14T08:24:18.276618+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-14T20:24:07.134929+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -12115,8 +12115,8 @@
       "funding": 0.0,
       "id": "VANRYUSDT:support_break:2026-07-09T20:24:48.505391+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-13T00:24:01.397467+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-14T20:24:00.856444+00:00"
     },
     {
       "symbol": "DEXEUSDT",
@@ -13016,8 +13016,8 @@
       "funding": 0.01,
       "id": "BEAT_USDT:support_break:2026-07-13T00:23:21.681310+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-14T12:23:32.633329+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-14T20:23:23.040310+00:00"
     },
     {
       "symbol": "TLT_USDT",
@@ -13274,7 +13274,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-07-13T16:24:11.143173+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-14T20:24:14.690875+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -13478,6 +13479,42 @@
       "price": 0.03984,
       "funding": 0.005,
       "id": "BILL_USDT:support_break:2026-07-14T16:24:08.632824+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "REUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-14T20:23:52.473423+00:00",
+      "price": 0.5289,
+      "funding": 0.0,
+      "id": "REUSDT:support_break:2026-07-14T20:23:52.473423+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-14T20:24:01.515710+00:00",
+      "price": 535.0,
+      "funding": 0.01,
+      "id": "TMO_USDT:resistance_test:2026-07-14T20:24:01.515710+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-14T20:24:14.029658+00:00",
+      "price": 0.0909,
+      "funding": 0.0,
+      "id": "ARBUSDT:support_break:2026-07-14T20:24:14.029658+00:00",
       "status": "pending",
       "repeats": 1
     }
