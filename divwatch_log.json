@@ -184,6 +184,19 @@
       "ts": "2026-07-14T17:02:13.606Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-14T16:47:17.138Z",
       "status": "pending"
+    },
+    {
+      "label": "SPELL",
+      "p1_high": 8.91e-05,
+      "p1_rsi": 65.4655870339648,
+      "p2_high": 8.92e-05,
+      "p2_rsi": 64.4939951126975,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "SPELL_USDT",
+      "ts": "2026-07-14T16:15:00.000Z",
+      "id": "armed:SPELL_USDT:gate:2026-07-14T16:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
