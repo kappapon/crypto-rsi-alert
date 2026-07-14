@@ -104,6 +104,20 @@
       "ts": "2026-07-13T19:30:00.000Z",
       "id": "armed:RIF_USDT:gate:2026-07-13T19:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.13275,
+      "armed_ts": "2026-07-13T20:17:15.807Z",
+      "entry": 0.13218,
+      "label": "RIF",
+      "peak_high": 0.13689,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.137620714285714,
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-14T04:17:16.528Z",
+      "id": "confirmed:RIF_USDT:gate:2026-07-13T20:17:15.807Z",
+      "status": "pending"
     }
   ]
 }
