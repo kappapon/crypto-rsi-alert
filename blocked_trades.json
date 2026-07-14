@@ -39,13 +39,17 @@
       "blocked_at": "2026-07-13T00:25:22+00:00",
       "blocked_by": "2026-07-12T00:26:02+00:00",
       "breadth": 1,
+      "closed_at": "2026-07-13T20:00:00+00:00",
       "entry": 0.01268,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.013550393731379926,
       "prob": 0.517,
+      "r": -1.0,
+      "r_net": -1.044,
       "rule": "concurrent",
       "sl": 0.013550393731379926,
-      "status": "blocked",
+      "status": "cf_sl",
       "symbol": "MUBARAKUSDT",
       "tp": 0.010939212537240148
     }

@@ -849,13 +849,17 @@
     {
       "atr": 0.0008704240184091512,
       "breadth": 2,
+      "closed_at": "2026-07-13T12:00:00+00:00",
       "entry": 0.01343,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.011689151963181696,
       "opened_at": "2026-07-12T00:26:02+00:00",
       "prob": 0.545,
+      "r": 2.0,
+      "r_net": 1.954,
       "sl": 0.01430042401840915,
-      "status": "open",
+      "status": "closed_tp",
       "symbol": "MUBARAKUSDT",
       "tp": 0.011689151963181696
     }
