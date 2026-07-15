@@ -51,7 +51,15 @@
       "symbol": "VELVET_USDT",
       "ts": "2026-07-13T12:47:25.897Z",
       "id": "confirmed:VELVET_USDT:gate:2026-07-13T09:47:27.364Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.673,
+      "stopped": true,
+      "stop_ts": "2026-07-14T06:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.655400357142857,
+      "closed_at": "2026-07-14T06:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "VELVET",
