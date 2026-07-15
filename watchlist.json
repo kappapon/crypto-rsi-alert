@@ -1143,23 +1143,6 @@
         "funding_high": 0.1
       }
     },
-    "SKLUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0065,
-        "resistance": 0.0064,
-        "rejection_below": 0.0038,
-        "support_strong": 0.0042,
-        "support_extreme": 0.0043
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "TUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
