@@ -14,6 +14,7 @@ Usage:
 """
 import datetime as dt
 import json
+import os
 import pickle
 import sys
 import time
@@ -183,8 +184,8 @@ def record_paper_trades(hits: list[dict], breadth: int) -> None:
         book["trades"].append({
             "symbol": h["symbol"], "exchange": h["exchange"], "status": "open",
             "opened_at": now_iso, "entry": h["entry"], "sl": h["sl"], "tp": h["tp"],
-            "atr": h["atr"], "prob": round(h["prob"], 3), "entry_is_live": h["live"],
-            "breadth": breadth,
+            "atr": h["atr"], "prob": round(h["prob"], 3), "tau": h["tau"],
+            "entry_is_live": h["live"], "breadth": breadth,
             "stage": h.get("stage"), "stage_frac": h.get("stage_frac"), "pump_pct": h.get("pump_pct"),
         })
     PAPER_FILE.write_text(json.dumps(book, indent=2, sort_keys=True) + "\n")
@@ -200,7 +201,7 @@ def record_blocked(blocked: list[dict], breadth: int) -> None:
             "symbol": h["symbol"], "exchange": h["exchange"], "status": "blocked",
             "blocked_at": now_iso, "blocked_by": h["blocked_by"], "rule": h["rule"],
             "entry": h["entry"], "sl": h["sl"], "tp": h["tp"], "atr": h["atr"],
-            "prob": round(h["prob"], 3), "entry_is_live": h["live"], "breadth": breadth,
+            "prob": round(h["prob"], 3), "tau": h["tau"], "entry_is_live": h["live"], "breadth": breadth,
             "stage": h.get("stage"), "stage_frac": h.get("stage_frac"), "pump_pct": h.get("pump_pct"),
         })
     BLOCKED_FILE.write_text(json.dumps(log, indent=2, sort_keys=True) + "\n")
@@ -223,8 +224,10 @@ def main() -> None:
     print(f"[{today}] reversal scan start")
     with open(MODEL_FILE, "rb") as f:
         model = pickle.load(f)
-    tau = model["tau"]
-    print(f"model tau={tau}, features={len(model['features'])}")
+    # env TAU (ตั้งใน reversal-alert.yml) override tau ของ model — คงค่าที่เลือกไว้ข้าม retrain
+    # (OPTPREC เลือก tau แบบ precision-optimal ซึ่งไม่ตรง R-optimal — ดู tau cf sim 2026-07-15)
+    tau = float(os.environ.get("TAU") or model["tau"])
+    print(f"model tau={model['tau']}, effective tau={tau}, features={len(model['features'])}")
 
     state = load_state(today)
 
@@ -271,8 +274,8 @@ def main() -> None:
             row = feat.iloc[-1]
             print(f"  {sym}: prob={prob:.3f} rsi={row['rsi']:.1f}")
             if prob >= tau and sym not in state["alerted"]:
-                hits.append({"symbol": sym, "exchange": ex, "prob": prob, "rsi": row["rsi"],
-                             "close": row["close"], "atr": row["atr"],
+                hits.append({"symbol": sym, "exchange": ex, "prob": prob, "tau": tau,
+                             "rsi": row["rsi"], "close": row["close"], "atr": row["atr"],
                              "anchors": swing_anchors(daily)})
         except Exception as e:
             errors += 1

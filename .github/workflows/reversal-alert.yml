@@ -35,6 +35,9 @@ jobs:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '' }}
+          # override tau ของ model (OPTPREC=0.5 เทรดแห้ง 2 สัปดาห์ — tau cf sim 2026-07-15: R อยู่ในแถบ .35-.43)
+          # ลบบรรทัดนี้ = กลับไปใช้ tau จาก model
+          TAU: '0.35'
         run: python reversal_scan.py
       - name: Score watchlist triggers (reliability journal)
         env:
