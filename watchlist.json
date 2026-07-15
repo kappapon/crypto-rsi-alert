@@ -1244,6 +1244,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "SOXS_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 42.6198,
+        "resistance": 41.99,
+        "rejection_below": 39.8905,
+        "support_strong": 23.2198,
+        "support_extreme": 13.4536
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
