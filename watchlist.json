@@ -837,23 +837,6 @@
         "funding_high": 0.1
       }
     },
-    "ARPAUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0136,
-        "resistance": 0.0134,
-        "rejection_below": 0.0082,
-        "support_strong": 0.0087,
-        "support_extreme": 0.0087
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ROKU_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
