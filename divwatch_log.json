@@ -272,6 +272,19 @@
       "ts": "2026-07-15T16:02:11.095Z",
       "id": "confirmed:RIF_USDT:gate:2026-07-15T09:02:09.937Z",
       "status": "pending"
+    },
+    {
+      "label": "RIF",
+      "p1_low": 0.12749,
+      "p1_rsi": 24.6960667364651,
+      "p2_low": 0.12532,
+      "p2_rsi": 27.7165721270984,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-15T21:45:00.000Z",
+      "id": "flip:RIF_USDT:gate:2026-07-15T21:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
