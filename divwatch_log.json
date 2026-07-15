@@ -245,6 +245,19 @@
       "ts": "2026-07-15T08:15:00.000Z",
       "id": "armed:RIF_USDT:gate:2026-07-15T08:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 0.8156,
+      "p1_rsi": 71.2167781023762,
+      "p2_high": 0.8158,
+      "p2_rsi": 53.5237349310917,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-07-15T12:00:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-07-15T12:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
