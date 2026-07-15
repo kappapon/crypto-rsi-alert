@@ -9976,8 +9976,8 @@
       "funding": 0.005,
       "id": "BLESS_USDT:support_break:2026-07-04T08:24:07.757907+00:00",
       "status": "pending",
-      "repeats": 10,
-      "last_repeat": "2026-07-13T04:23:45.977340+00:00"
+      "repeats": 11,
+      "last_repeat": "2026-07-15T00:23:35.422355+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -10805,8 +10805,8 @@
       "funding": 0.0,
       "id": "ALICEUSDT:support_break:2026-07-06T08:24:02.605748+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-07-14T08:23:44.524520+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-07-15T00:23:32.767352+00:00"
     },
     {
       "symbol": "HMSTRUSDT",
@@ -13016,8 +13016,8 @@
       "funding": 0.01,
       "id": "BEAT_USDT:support_break:2026-07-13T00:23:21.681310+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-14T20:23:23.040310+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-15T00:23:20.884493+00:00"
     },
     {
       "symbol": "TLT_USDT",
@@ -13102,8 +13102,8 @@
       "funding": 0.06620000000000001,
       "id": "BTW_USDT:support_break:2026-07-13T04:23:38.684876+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-14T12:23:38.348205+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-15T00:23:28.814327+00:00"
     },
     {
       "symbol": "EEM_USDT",
@@ -13515,6 +13515,30 @@
       "price": 0.0909,
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-07-14T20:24:14.029658+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DEXEUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-15T00:24:02.824869+00:00",
+      "price": 41.043,
+      "funding": 0.0,
+      "id": "DEXEUSDT:support_break:2026-07-15T00:24:02.824869+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EGLDUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-15T00:24:11.211370+00:00",
+      "price": 3.39,
+      "funding": 0.0,
+      "id": "EGLDUSDT:support_break:2026-07-15T00:24:11.211370+00:00",
       "status": "pending",
       "repeats": 1
     }
