@@ -232,6 +232,19 @@
       "ts": "2026-07-14T22:17:13.694Z",
       "id": "confirmed:SPELL_USDT:gate:2026-07-14T17:02:18.602Z",
       "status": "pending"
+    },
+    {
+      "label": "RIF",
+      "p1_high": 0.13313,
+      "p1_rsi": 72.8812917850082,
+      "p2_high": 0.134,
+      "p2_rsi": 72.6054446145552,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-15T08:15:00.000Z",
+      "id": "armed:RIF_USDT:gate:2026-07-15T08:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
