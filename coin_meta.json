@@ -1898,5 +1898,40 @@
       "Bitcoin Fork",
       "Proof of Work (PoW)"
     ]
+  },
+  "BILL": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68464/small/billions.png?1755828007",
+    "cg_id": "billions-network",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Decentralized Identifier (DID)",
+      "Mantle Ecosystem",
+      "Coinbase Ventures Portfolio",
+      "Quest-to-Earn",
+      "Polychain Capital Portfolio",
+      "Binance Alpha Spotlight"
+    ]
+  },
+  "EGLD": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/12335/small/egld-token-logo.png?1696512162",
+    "cg_id": "elrond-erd-2",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "MultiversX Ecosystem",
+      "Binance Launchpad",
+      "DWF Labs Portfolio",
+      "Proof of Stake (PoS)",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "GMCI Layer 1 Index",
+      "GMCI Index",
+      "AI Framework",
+      "Coinbase 50 Index"
+    ]
   }
 }
