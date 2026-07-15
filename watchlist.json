@@ -247,7 +247,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 208.075,
-        "resistance": 205.0,
+        "resistance": 205,
         "rejection_below": 184.9935,
         "support_strong": 195.9771,
         "support_extreme": 196.3905
@@ -656,7 +656,7 @@
       "levels": {
         "breakout_above": 1213.6355,
         "resistance": 1195.7,
-        "rejection_below": 1069.0,
+        "rejection_below": 1069,
         "support_strong": 1063.5256,
         "support_extreme": 1064.6006
       },
@@ -1080,7 +1080,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 2890.72,
-        "resistance": 2848.0,
+        "resistance": 2848,
         "rejection_below": 1999.75,
         "support_strong": 2113.9907,
         "support_extreme": 2116.0974
@@ -1266,28 +1266,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "BILL_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0694,
-        "resistance": 0.0684,
-        "rejection_below": 0.0393,
-        "support_strong": 0.0479,
-        "support_extreme": 0.0507
+        "breakout_above": 0,
+        "resistance": 0,
+        "rejection_below": 0,
+        "support_strong": 0,
+        "support_extreme": 0
       },
       "alerts": {
         "price_breakout": true,
