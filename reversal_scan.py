@@ -134,11 +134,22 @@ def load_json_book(path: Path) -> dict:
     return {"trades": []}
 
 
+def base_symbol(symbol: str) -> str:
+    """base ของเหรียญข้าม exchange: NMRUSDT (binance) ↔ NMR_USDT (gate) = เหรียญเดียวกัน —
+    mirror shortName() ใน dashboard.js; guard ที่เทียบ symbol ตรงตัวปล่อย pyramid ข้าม exchange ได้ (เจอ 2026-07-14)."""
+    s = (symbol or "").upper()
+    for suf in ("_USDT", "USDT"):
+        if s.endswith(suf):
+            return s[:-len(suf)]
+    return s
+
+
 def recent_stopout(symbol: str, now_sec: int, book: dict) -> dict | None:
     """Rule C: stop-out ล่าสุดของเหรียญนี้ที่ยังอยู่ในช่วง cooldown (มี = ห้าม re-short)."""
+    base = base_symbol(symbol)
     best = None
     for t in book.get("trades", []):
-        if t.get("symbol") != symbol or t.get("status") != "closed_sl":
+        if base_symbol(t.get("symbol")) != base or t.get("status") != "closed_sl":
             continue
         try:
             closed_sec = dt.datetime.fromisoformat(t["closed_at"]).timestamp()
@@ -151,8 +162,9 @@ def recent_stopout(symbol: str, now_sec: int, book: dict) -> dict | None:
 
 def open_trade(symbol: str, book: dict) -> dict | None:
     """NC guard: ไม้ของเหรียญนี้ที่ยังเปิดอยู่ (มี = ห้ามเปิดซ้อน — กัน pyramid แบบ WIN 5 ไม้ −5.4R)."""
+    base = base_symbol(symbol)
     for t in book.get("trades", []):
-        if t.get("symbol") == symbol and t.get("status") == "open":
+        if base_symbol(t.get("symbol")) == base and t.get("status") == "open":
             return t
     return None
 
@@ -161,6 +173,9 @@ def apply_entry_rules(hits: list[dict], book: dict, now_sec: int) -> tuple[list[
     """แยก hits เป็น (taken, blocked) — NC ก่อน (ไม้เดิมยังเปิด) แล้วค่อย Rule C (cooldown หลัง SL).
     blocked_by = timestamp ของสิ่งที่ทำให้บล็อก (opened_at ของไม้ที่เปิดอยู่ / closed_at ของ stop-out)"""
     taken, blocked = [], []
+    # dual-listing ใน batch เดียวกัน (NMRUSDT + NMR_USDT ผ่าน tau วันเดียวกัน — เกิดจริง 07-14):
+    # book ยังไม่มีไม้ใหม่ระหว่าง loop → ต้องกันเองด้วย base ที่เพิ่งรับ (hits เรียง prob มาก→น้อย = เก็บตัว prob สูงสุด)
+    taken_base: dict[str, str] = {}
     for h in hits:
         ot = open_trade(h["symbol"], book)
         if ot is not None:
@@ -172,6 +187,12 @@ def apply_entry_rules(hits: list[dict], book: dict, now_sec: int) -> tuple[list[
             h["rule"], h["blocked_by"] = "cooldown", so["closed_at"]
             blocked.append(h)
             continue
+        base = base_symbol(h["symbol"])
+        if base in taken_base:
+            h["rule"], h["blocked_by"] = "concurrent", taken_base[base]
+            blocked.append(h)
+            continue
+        taken_base[base] = dt.datetime.fromtimestamp(now_sec, dt.timezone.utc).isoformat(timespec="seconds")
         taken.append(h)
     return taken, blocked
 
