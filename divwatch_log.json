@@ -258,6 +258,20 @@
       "ts": "2026-07-15T12:00:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-07-15T12:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.134,
+      "armed_ts": "2026-07-15T09:02:09.937Z",
+      "entry": 0.13307,
+      "label": "RIF",
+      "peak_high": 0.14158,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.142565714285714,
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-15T16:02:11.095Z",
+      "id": "confirmed:RIF_USDT:gate:2026-07-15T09:02:09.937Z",
+      "status": "pending"
     }
   ]
 }
