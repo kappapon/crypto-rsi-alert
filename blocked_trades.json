@@ -52,6 +52,25 @@
       "status": "cf_sl",
       "symbol": "MUBARAKUSDT",
       "tp": 0.010939212537240148
+    },
+    {
+      "atr": 0.21780663358990274,
+      "blocked_at": "2026-07-16T00:27:43+00:00",
+      "blocked_by": "2026-07-11T16:00:00+00:00",
+      "breadth": 9,
+      "entry": 3.629,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.523,
+      "pump_pct": 0.6611,
+      "rule": "cooldown",
+      "sl": 3.8468066335899027,
+      "stage": "pre",
+      "stage_frac": 0.1424,
+      "status": "blocked",
+      "symbol": "UNIUSDT",
+      "tau": 0.35,
+      "tp": 3.1933867328201946
     }
   ]
 }
