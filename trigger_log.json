@@ -10608,8 +10608,8 @@
       "funding": 0.005,
       "id": "SPX_USDT:support_break:2026-07-06T00:23:49.098873+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-13T04:23:35.378634+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-16T00:23:30.576013+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -10920,8 +10920,8 @@
       "funding": 0.01,
       "id": "ADSK_USDT:support_break:2026-07-06T08:24:28.214508+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-14T16:24:02.137707+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-16T00:24:02.027178+00:00"
     },
     {
       "symbol": "BLESS_USDT",
@@ -11261,8 +11261,8 @@
       "funding": -0.0034999999999999996,
       "id": "SPX_USDT:rejection:2026-07-07T04:23:59.939765+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-15T12:23:29.497248+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-16T00:23:30.576013+00:00"
     },
     {
       "symbol": "VELODROMEUSDT",
@@ -11467,8 +11467,8 @@
       "funding": 0.01,
       "id": "PANW_USDT:support_break:2026-07-07T16:24:17.660734+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-14T00:23:50.602030+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-16T00:23:43.634412+00:00"
     },
     {
       "symbol": "GEV_USDT",
@@ -12777,8 +12777,8 @@
       "funding": 0.0,
       "id": "JSTUSDT:support_break:2026-07-11T08:24:49.666602+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-15T20:23:54.672287+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-16T00:24:06.694003+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -13108,8 +13108,8 @@
       "funding": 0.01,
       "id": "BEAT_USDT:support_break:2026-07-13T00:23:21.681310+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-15T00:23:20.884493+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-16T00:23:25.945789+00:00"
     },
     {
       "symbol": "TLT_USDT",
@@ -13133,8 +13133,8 @@
       "funding": 0.01,
       "id": "EWZ_USDT:support_break:2026-07-13T00:23:42.225141+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-15T16:23:38.887930+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-16T00:23:41.942351+00:00"
     },
     {
       "symbol": "GEV_USDT",
@@ -13197,8 +13197,8 @@
       "funding": 0.06620000000000001,
       "id": "BTW_USDT:support_break:2026-07-13T04:23:38.684876+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-15T00:23:28.814327+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-16T00:23:33.712389+00:00"
     },
     {
       "symbol": "EEM_USDT",
@@ -13431,7 +13431,8 @@
       "funding": 0.005,
       "id": "O_USDT:support_break:2026-07-13T20:24:08.927133+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-16T00:24:07.814278+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -13919,6 +13920,42 @@
       "price": 0.3524,
       "funding": 0.0,
       "id": "LDOUSDT:resistance_test:2026-07-15T20:23:53.289589+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "VELODROMEUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-16T00:23:37.979377+00:00",
+      "price": 0.02124,
+      "funding": 0.0,
+      "id": "VELODROMEUSDT:support_break:2026-07-16T00:23:37.979377+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BLESS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-16T00:23:39.707504+00:00",
+      "price": 0.007991,
+      "funding": 0.005,
+      "id": "BLESS_USDT:support_break:2026-07-16T00:23:39.707504+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MUBARAKUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-16T00:24:06.140499+00:00",
+      "price": 0.01236,
+      "funding": 0.0,
+      "id": "MUBARAKUSDT:support_break:2026-07-16T00:24:06.140499+00:00",
       "status": "pending",
       "repeats": 1
     }
