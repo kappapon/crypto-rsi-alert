@@ -132,10 +132,8 @@ button.primary:hover { background: #35ff7e; }
   .coin-logo { width: 14px; height: 14px; }
   .coin-ava { width: 14px; height: 14px; font-size: 8px; line-height: 14px; }
 
-  /* Div journey rail: จุดใหญ่ขึ้นให้แตะได้ (tap → tip ใน dw-msg) — rail อยู่บรรทัดใต้ symbol อยู่แล้ว */
-  .dw-cp { min-width: 22px; padding: 2px 0; }
-  .dw-dot { font-size: 13px; }
-  .dw-cp-tf { font-size: 9px; }
+  /* Checklist strip: ช่องใหญ่ขึ้นให้แตะได้ (tap → tip ใน dw-msg) — strip อยู่บรรทัดใต้ symbol อยู่แล้ว */
+  .ck-chip { width: 18px; height: 18px; font-size: 10px; }
 }
 
 .panel {
@@ -448,16 +446,19 @@ code { background: var(--surface-2); padding: 2px 6px; border-radius: 3px; }
 .dw-sym { color: var(--text); font-weight: 600; }
 .dw-rsi { text-align: right; }
 .dw-status { text-align: right; white-space: nowrap; }
-/* E3 journey rail: ●─○─· checkpoint 15m→4h ปิดท้าย cross chips */
-.dw-rail { grid-column: 1 / -1; display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; font-size: 10.5px; padding: 1px 0 3px 2px; }
-.dw-cps { display: inline-flex; align-items: flex-start; line-height: 1.1; }
-.dw-cp { display: inline-flex; flex-direction: column; align-items: center; min-width: 16px; cursor: default; }
-.dw-dot { font-size: 11px; line-height: 1.1; }
-.dw-cp-tf { font-size: 8px; color: var(--text-faint); letter-spacing: 0; }
-.dw-cp-fresh .dw-dot { color: var(--red); text-shadow: 0 0 5px rgba(255, 85, 68, 0.6); }
-.dw-cp-old .dw-dot { color: var(--text-dim); }
-.dw-cp-none .dw-dot { color: var(--text-faint); }
-.dw-link { color: var(--text-faint); font-size: 11px; line-height: 1.1; letter-spacing: -1px; }
+/* Checklist strip (แทน rail div-TF): ช่อง 1-6 เขียว/แดง/จาง ปิดท้าย cross chips เดิม */
+.dw-rail { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 10.5px; padding: 1px 0 3px 2px; }
+.ck-strip { display: inline-flex; align-items: center; gap: 3px; }
+.ck-chip {
+  display: inline-flex; justify-content: center; align-items: center;
+  width: 15px; height: 15px; border-radius: 3px; font-size: 9px; cursor: default;
+  border: 1px solid var(--border); color: var(--text-faint); background: var(--surface-2);
+}
+.ck-chip.ck-pass { border-color: var(--green); color: #032008; background: var(--green); font-weight: 700; }
+.ck-chip.ck-fail { border-color: rgba(255, 85, 68, 0.55); color: var(--red); background: rgba(255, 85, 68, 0.08); }
+.ck-sum { margin-left: 3px; color: var(--text-faint); font-size: 9.5px; }
+.ck-sum-hot { color: var(--green); font-weight: 700; }
+.ck-strip-open { background: none; border: none; padding: 0 2px 0 0; font-size: 11px; cursor: pointer; line-height: 1; }
 .dw-rail .dw-tf { padding-top: 1px; }
 .dw-tf { white-space: nowrap; }
 .dw-below { color: var(--yellow); }
@@ -627,3 +628,11 @@ td.sym { cursor: pointer; }
 #ck-verdict.ok { color: var(--green); }
 #ck-verdict.wait { color: var(--yellow); }
 #ck-reset { margin-left: auto; padding: 3px 10px; font-size: 0.7rem; }
+/* โหมด per-coin: ข้อที่ประเมินอัตโนมัติ (ค่าที่วัดได้แสดงใน .ck-val) */
+.ck-step label { flex-wrap: wrap; }
+.ck-step label .ck-txt { flex: 1; min-width: 0; }
+.ck-val { flex-basis: 100%; padding-left: 20px; font-size: 0.66rem; color: var(--text-faint); }
+label.ck-auto-pass .ck-txt { color: var(--green); }
+label.ck-auto-pass .ck-val { color: var(--text-dim); }
+label.ck-auto-fail .ck-txt { color: var(--red); opacity: 0.85; }
+label.ck-auto-na .ck-val { color: var(--yellow); opacity: 0.8; }

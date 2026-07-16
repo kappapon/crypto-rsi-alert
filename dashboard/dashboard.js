@@ -177,6 +177,58 @@ function bearishDivClient(highs, rsi) {
   return { age, fresh: age <= DIV_FRESH, p1, p2 };
 }
 
+// ---------- indicators สำหรับ short checklist (คำนวณบนแท่งปิดเท่านั้น) ----------
+function emaSeriesCk(values, period) {
+  const k = 2 / (period + 1), out = new Array(values.length);
+  out[0] = values[0];
+  for (let i = 1; i < values.length; i++) out[i] = values[i] * k + out[i - 1] * (1 - k);
+  return out;
+}
+function macdLast(closes) {
+  if (closes.length < 40) return null;
+  const e12 = emaSeriesCk(closes, 12), e26 = emaSeriesCk(closes, 26);
+  const line = closes.map((_, i) => e12[i] - e26[i]);
+  const sig = emaSeriesCk(line, 9);
+  const i = closes.length - 1;
+  return { hist: line[i] - sig[i], crossedDown: line[i] < sig[i] && line[i - 1] >= sig[i - 1] };
+}
+// Wilder ADX14 + DI (smoothing แบบ ewm alpha=1/p seed ค่าแรก — convention เดียว wilderRSISeries)
+function adxLast(highs, lows, closes, period = 14) {
+  const n = highs.length;
+  if (n < period * 2 + 2) return null;
+  const a = 1 / period;
+  let sTR = NaN, sP = NaN, sM = NaN, adx = NaN;
+  for (let i = 1; i < n; i++) {
+    const tr = Math.max(highs[i] - lows[i], Math.abs(highs[i] - closes[i - 1]), Math.abs(lows[i] - closes[i - 1]));
+    const up = highs[i] - highs[i - 1], dn = lows[i - 1] - lows[i];
+    const pdm = up > dn && up > 0 ? up : 0, mdm = dn > up && dn > 0 ? dn : 0;
+    if (Number.isNaN(sTR)) { sTR = tr; sP = pdm; sM = mdm; continue; }
+    sTR = (1 - a) * sTR + a * tr; sP = (1 - a) * sP + a * pdm; sM = (1 - a) * sM + a * mdm;
+    if (i < period) continue;
+    const pdi = sTR ? 100 * sP / sTR : 0, mdi = sTR ? 100 * sM / sTR : 0;
+    const dx = (pdi + mdi) ? 100 * Math.abs(pdi - mdi) / (pdi + mdi) : 0;
+    adx = Number.isNaN(adx) ? dx : (1 - a) * adx + a * dx;
+    if (i === n - 1) return { adx, pdi, mdi };
+  }
+  return null;
+}
+function swingLowsIdx(lows, k) {
+  const out = [];
+  for (let i = k; i < lows.length - k; i++) {
+    let ok = true;
+    for (let j = 1; j <= k; j++) if (lows[i] >= lows[i - j] || lows[i] >= lows[i + j]) { ok = false; break; }
+    if (ok) out.push(i);
+  }
+  return out;
+}
+function bbUpperLast(closes, period = 20, mult = 2) {
+  if (closes.length < period) return null;
+  const win = closes.slice(-period);
+  const mean = win.reduce((t, v) => t + v, 0) / period;
+  const sd = Math.sqrt(win.reduce((t, v) => t + (v - mean) ** 2, 0) / period);
+  return mean + mult * sd;
+}
+
 // OHLC (highs+closes, แท่งปิดเท่านั้น) — generalize จาก fetchOHLC15 เดิม ใช้ได้ทุก TF (E3)
 async function fetchOHLC(symbol, exchange, interval = "15m") {
   let rows;
@@ -202,8 +254,31 @@ async function fetchOHLC(symbol, exchange, interval = "15m") {
   return null;
 }
 
-// E3 journey timeline: div ต่อ TF — cache แยก (symbol,TF), TTL ตามจังหวะแท่งปิด (แท่งช้า fetch ถี่ไปก็เปลือง)
-const DIV_TFS = ["15m", "1h", "2h", "4h"];
+// OHLCV เต็มแท่ง (o/h/l/c/v, closed only) — checklist evaluator ต้องใช้ low/open/volume ด้วย
+async function fetchOHLCV(symbol, exchange, interval, limit) {
+  let rows;
+  if (exchange === "binance_spot") {
+    rows = await fetch(`https://data-api.binance.vision/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`).then(r => r.json());
+    if (!Array.isArray(rows)) return null;
+    rows = rows.slice(0, -1);
+    return { opens: rows.map(r => +r[1]), highs: rows.map(r => +r[2]), lows: rows.map(r => +r[3]), closes: rows.map(r => +r[4]), vols: rows.map(r => +r[5]) };
+  }
+  if (exchange === "gateio_futures") {
+    rows = await fetch(px(`https://api.gateio.ws/api/v4/futures/usdt/candlesticks?contract=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
+    if (!Array.isArray(rows)) return null;
+    rows = rows.slice(0, -1);
+    return { opens: rows.map(r => +r.o), highs: rows.map(r => +r.h), lows: rows.map(r => +r.l), closes: rows.map(r => +r.c), vols: rows.map(r => +(r.v ?? 0)) };
+  }
+  if (exchange === "gateio_spot") {
+    rows = await fetch(px(`https://api.gateio.ws/api/v4/spot/candlesticks?currency_pair=${symbol}&interval=${interval}&limit=${limit}`)).then(r => r.json());
+    if (!Array.isArray(rows)) return null;
+    rows = rows.slice(0, -1);
+    return { opens: rows.map(r => +r[5]), highs: rows.map(r => +r[3]), lows: rows.map(r => +r[4]), closes: rows.map(r => +r[2]), vols: rows.map(r => +r[1]) };
+  }
+  return null;
+}
+
+// div ต่อ TF — cache แยก (symbol,TF), TTL ตามจังหวะแท่งปิด (ตอนนี้ใช้เฉพาะ 15m หลัง rail ถูกแทนด้วย checklist strip)
 const DIV_TF_TTL_MS = { "15m": 2 * 60 * 1000, "1h": 5 * 60 * 1000, "2h": 5 * 60 * 1000, "4h": 15 * 60 * 1000 };
 const divTfCache = {};
 async function computeDivTf(d, tf) {
@@ -223,12 +298,142 @@ async function computeDivTf(d, tf) {
   return res;
 }
 
-// รวมทุก TF — ok/rsi/div ระดับแถวยังมาจาก 15m ล้วน (badge เดิมความหมายไม่เปลี่ยน)
-async function computeDivMulti(d) {
-  const divByTf = {};
-  await Promise.all(DIV_TFS.map(async tf => { divByTf[tf] = await computeDivTf(d, tf); }));
-  const m15 = divByTf["15m"];
-  return { ...d, ok: m15.ok, rsi: m15.rsi, div: m15.div, divByTf };
+// ok/rsi/div ระดับแถวมาจาก 15m (badge เดิมความหมายไม่เปลี่ยน) — rail multi-TF ถูกแทนด้วย checklist strip แล้ว
+async function computeDiv15(d) {
+  const m15 = await computeDivTf(d, "15m");
+  return { ...d, ok: m15.ok, rsi: m15.rsi, div: m15.div };
+}
+
+// ---------- SHORT CHECKLIST auto-evaluator (1D โครงสร้าง/confluence + 4H ADX/trigger) ----------
+// เกณฑ์ mirror modal 📋: ผ่าน = เขียว, ไม่ผ่าน = แดง, null = ตัดสินไม่ได้ (ข้อมูลไม่พอ/manual)
+const CK_TTL_MS = 15 * 60 * 1000;
+const ckEvalCache = {}; // key = symbol → {ts, items, steps, meta}
+function ckStructure(k1d) {
+  const W = 120; // มองย้อน ~4 เดือนพอสำหรับ swing รอบปัจจุบัน
+  const hi = k1d.highs.slice(-W), lo = k1d.lows.slice(-W), cl = k1d.closes.slice(-W);
+  const n = hi.length;
+  let peak = 0;
+  for (let i = 1; i < n; i++) if (hi[i] > hi[peak]) peak = i;
+  const sh = swingHighsIdx(hi, 2), sl = swingLowsIdx(lo, 2);
+  const shAfter = sh.filter(i => i > peak);
+  const peakAge = n - 1 - peak;
+  const lastSHv = sh.length ? hi[sh[sh.length - 1]] : null;
+  // เด้งกลับจนยืนเหนือ LH ล่าสุด = โครงสร้างขาลงถูก reclaim (เคส AKE +400% เหนือ SH เก่า 3 เท่า) — ไม่นับว่าผ่านพีค
+  const reclaim = lastSHv != null && cl[n - 1] > lastSHv;
+  const a = reclaim
+    ? { pass: false, txt: `ราคายืนเหนือ SH ล่าสุด +${((cl[n - 1] / lastSHv - 1) * 100).toFixed(1)}% = reclaim/ไล่ HH` }
+    : { pass: shAfter.length > 0, txt: `พีค ${peakAge}d ก่อน · SH หลังพีค ${shAfter.length} ยอด${shAfter.length ? "" : " (ยังไล่ HH อยู่)"}` };
+  const baseSLs = sl.filter(i => i <= peak);
+  let b;
+  if (!baseSLs.length) b = { pass: null, txt: "ไม่พบ swing low ก่อนพีค" };
+  else {
+    const ref = lo[baseSLs[baseSLs.length - 1]];
+    const minAfter = Math.min(...cl.slice(peak));
+    b = { pass: minAfter < ref, txt: `ปิดต่ำสุดหลังพีค ${minAfter.toPrecision(4)} vs SL ${ref.toPrecision(4)}` };
+  }
+  let c;
+  if (sh.length < 2 || sl.length < 2) c = { pass: null, txt: "swing ไม่พอ (SH " + sh.length + "/SL " + sl.length + ")" };
+  else {
+    const lh = hi[sh[sh.length - 1]] < hi[sh[sh.length - 2]], ll = lo[sl[sl.length - 1]] < lo[sl[sl.length - 2]];
+    c = { pass: lh && ll, txt: `SH ${lh ? "↓" : "↑"} · SL ${ll ? "↓" : "↑"}` };
+  }
+  return { a, b, c, lastSH: lastSHv };
+}
+async function evalShortChecklist(d) {
+  const hit = ckEvalCache[d.symbol];
+  if (hit && Date.now() - hit.ts < CK_TTL_MS) return hit;
+  const items = {}, meta = { label: d.label };
+  const put = (k, pass, txt) => { items[k] = { pass, txt }; };
+  try {
+    const [k1d, k4h] = await Promise.all([
+      fetchOHLCV(d.symbol, d.exchange, "1d", 260),
+      fetchOHLCV(d.symbol, d.exchange, "4h", 150),
+    ]);
+    // --- 1D: โครงสร้าง + confluence + โซน ---
+    if (!k1d || k1d.closes.length < 40) {
+      ["s1a", "s1b", "s1c", "s2ema", "s2mom", "s2vol", "s4zone"].forEach(k => put(k, null, `ข้อมูล 1D ไม่พอ (${k1d ? k1d.closes.length : 0} แท่ง)`));
+    } else {
+      const st = ckStructure(k1d);
+      put("s1a", st.a.pass, st.a.txt); put("s1b", st.b.pass, st.b.txt); put("s1c", st.c.pass, st.c.txt);
+      const cl = k1d.closes, last = cl[cl.length - 1];
+      if (cl.length >= 55) {
+        const e50 = emaSeriesCk(cl, 50)[cl.length - 1];
+        const e200 = cl.length >= 205 ? emaSeriesCk(cl, 200)[cl.length - 1] : null;
+        const dE = (last / e50 - 1) * 100;
+        put("s2ema", last < e50, `ราคา ${dE >= 0 ? "+" : ""}${dE.toFixed(1)}% vs EMA50${e200 != null ? ` · ${last < e200 ? "ใต้" : "เหนือ"} EMA200` : ""}`);
+      } else put("s2ema", null, `แท่งไม่พอคำนวณ EMA50 (${cl.length})`);
+      const rsiD = wilderRSISeries(cl, 14)[cl.length - 1];
+      const mac = macdLast(cl);
+      if (mac && !Number.isNaN(rsiD)) put("s2mom", rsiD < 50 && mac.hist < 0, `RSI(D) ${rsiD.toFixed(1)} · MACD hist ${mac.hist < 0 ? "ลบ" : "บวก"}`);
+      else put("s2mom", null, "คำนวณ RSI/MACD ไม่ได้");
+      const nv = Math.min(20, k1d.vols.length);
+      let rv = 0, rn = 0, gv = 0, gn = 0;
+      for (let i = k1d.vols.length - nv; i < k1d.vols.length; i++) {
+        if (k1d.closes[i] < k1d.opens[i]) { rv += k1d.vols[i]; rn++; } else { gv += k1d.vols[i]; gn++; }
+      }
+      if (rn && gn) { const ratio = (rv / rn) / (gv / gn); put("s2vol", ratio > 1, `vol แดง/เขียว ×${ratio.toFixed(2)} (${nv}d)`); }
+      else put("s2vol", null, `แท่งสีเดียวล้วนใน ${nv}d`);
+      const bbU = bbUpperLast(cl);
+      // "ทดสอบโซน supply" = อยู่ในแถบใกล้ SH (−3%..+5%) หรือชิด/เหนือ upper BB — เลย SH ไปไกล = price discovery ไม่ใช่โซน
+      const dSH = st.lastSH != null ? (last / st.lastSH - 1) * 100 : null;
+      const nearSH = dSH != null && dSH >= -3 && dSH <= 5;
+      const nearBB = bbU != null && last >= 0.97 * bbU;
+      const sign = (x) => `${x >= 0 ? "+" : ""}${x.toFixed(1)}%`;
+      put("s4zone", nearSH || nearBB,
+        nearSH ? `ในแถบ SH ล่าสุด (${sign(dSH)})`
+        : nearBB ? `ชิด/เหนือ upper BB(20,2)${dSH != null ? ` · SH ${sign(dSH)}` : ""}`
+        : dSH == null ? "ไม่มี SH อ้างอิง"
+        : dSH > 5 ? `เลย SH ไป ${sign(dSH)} = price discovery`
+        : `ยังห่าง SH ${sign(dSH)}`);
+    }
+    // --- 4H: ADX + triggers ---
+    if (!k4h || k4h.closes.length < 40) {
+      ["s3dir", "s3train", "s5candle", "s5div", "s5macd", "s5break"].forEach(k => put(k, null, `ข้อมูล 4H ไม่พอ (${k4h ? k4h.closes.length : 0} แท่ง)`));
+    } else {
+      const adx = adxLast(k4h.highs, k4h.lows, k4h.closes);
+      if (adx) {
+        meta.adx = adx;
+        const choppy = adx.adx < 20;
+        put("s3dir", adx.adx > 25 && adx.mdi > adx.pdi, `ADX(4H) ${adx.adx.toFixed(1)} · +DI ${adx.pdi.toFixed(0)}/−DI ${adx.mdi.toFixed(0)}${choppy ? " ⚠️ choppy — รับ whipsaw เองถ้าจะเข้า" : ""}`);
+        put("s3train", !(adx.adx > 40 && adx.pdi > adx.mdi), adx.adx > 40 && adx.pdi > adx.mdi ? `ADX ${adx.adx.toFixed(1)} ฝั่งขึ้น = รถไฟ ห้าม fade` : `ไม่ใช่เทรนด์ขึ้นแรง (ADX ${adx.adx.toFixed(1)})`);
+      } else { put("s3dir", null, "คำนวณ ADX ไม่ได้"); put("s3train", null, "คำนวณ ADX ไม่ได้"); }
+      const i = k4h.closes.length - 1;
+      const o = k4h.opens[i], h = k4h.highs[i], l = k4h.lows[i], c = k4h.closes[i];
+      const body = Math.abs(c - o), upW = h - Math.max(o, c), loW = Math.min(o, c) - l;
+      const pin = upW >= 2 * body && upW > loW;
+      const engulf = k4h.closes[i - 1] > k4h.opens[i - 1] && c < o && o >= k4h.closes[i - 1] && c <= k4h.opens[i - 1];
+      put("s5candle", pin || engulf, pin ? "pin bar (ไส้บน ≥2×ตัว)" : engulf ? "bearish engulfing" : "แท่งปิดล่าสุดไม่ใช่ pin/engulf");
+      const rsi4 = wilderRSISeries(k4h.closes, 14);
+      const div4 = bearishDivClient(k4h.highs, rsi4);
+      put("s5div", !!(div4 && div4.fresh), div4 ? `div 4H อายุ ${div4.age} แท่ง${div4.fresh ? " (สด)" : " (เก่า)"}` : "ไม่มี bearish div 4H");
+      const mac4 = macdLast(k4h.closes);
+      put("s5macd", !!(mac4 && mac4.crossedDown), mac4 ? (mac4.crossedDown ? "MACD ตัดลงแท่งล่าสุด" : `MACD hist ${mac4.hist < 0 ? "ลบ" : "บวก"} (ยังไม่ตัดลงสด)`) : "คำนวณไม่ได้");
+      const priorLow = Math.min(...k4h.lows.slice(-7, -1));
+      put("s5break", c < priorLow, c < priorLow ? "ปิดใต้ low 6 แท่งก่อน" : "ยังไม่หลุด low 6 แท่งก่อน");
+    }
+  } catch (e) {
+    console.warn(`ck eval ${d.label}:`, e);
+    ["s1a", "s1b", "s1c", "s2ema", "s2mom", "s2vol", "s3dir", "s3train", "s4zone", "s5candle", "s5div", "s5macd", "s5break"].forEach(k => { if (!items[k]) put(k, null, "fetch ล้มเหลว"); });
+  }
+  // สรุประดับขั้นสำหรับ strip (เฉพาะข้อ auto — ข้อ manual ไปติ๊กใน modal): เกณฑ์ need เดียวกับ modal
+  const agg = (keys, need) => {
+    const got = keys.map(k => items[k] ? items[k].pass : null);
+    if (got.every(p => p === null)) return null;
+    const passN = got.filter(p => p === true).length;
+    if (passN >= need) return true;
+    return got.filter(p => p !== null).length ? false : null;
+  };
+  const steps = {
+    1: agg(["s1a", "s1b", "s1c"], 3),
+    2: agg(["s2ema", "s2mom", "s2vol"], 2), // SMC = manual (ติ๊กเพิ่มใน modal ได้)
+    3: agg(["s3dir", "s3train"], 2),
+    4: agg(["s4zone"], 1), // วางแผนล่วงหน้า = manual
+    5: agg(["s5candle", "s5div", "s5macd", "s5break"], 1),
+    6: null, // วินัยล้วน — ติ๊กเองเท่านั้น
+  };
+  const res = { ts: Date.now(), items, steps, meta };
+  ckEvalCache[d.symbol] = res;
+  return res;
 }
 const srcToExchange = (source) => (source === "gate" ? "gateio_futures" : source === "gate_spot" ? "gateio_spot" : "binance_spot");
 
@@ -264,8 +469,8 @@ async function refreshDivWatch() {
     ? health.divwatch.map(d => ({ symbol: d.symbol, exchange: srcToExchange(d.source), label: d.label }))
     : DIV_WATCH_FALLBACK;
   const rows = await Promise.all(list.map(async d => {
-    const [base, cross] = await Promise.all([computeDivMulti(d), computeCross(d)]);
-    return { ...base, cross };
+    const [base, cross, ck] = await Promise.all([computeDiv15(d), computeCross(d), evalShortChecklist(d)]);
+    return { ...base, cross, ck };
   }));
   renderDivWatch(rows, health);
   populateDivWatchDatalist();
@@ -304,19 +509,24 @@ async function loadDivHealth() {
   } catch { return null; }
 }
 
-// E3: rail แนวนอนต่อ symbol — checkpoint div 15m→1h→2h→4h (live ตาม lookback, stateless เหมือน badge เดิม)
-// ปิดท้ายด้วย cross chips 1h/2h ที่มีอยู่แล้ว = จุด confirm สุดท้ายของ journey
-function renderDivRail(divByTf, chipsHtml) {
-  const cp = (tf) => {
-    const r = divByTf ? divByTf[tf] : null;
-    let dot = "·", cls = "dw-cp-none", tip = `${tf}: ไม่มี div`;
-    if (!r || !r.ok) tip = `${tf}: ไม่มีข้อมูล`;
-    else if (r.div && r.div.fresh) { dot = "●"; cls = "dw-cp-fresh"; tip = `${tf}: bearish div สด (${r.div.age} แท่งก่อน)`; }
-    else if (r.div) { dot = "○"; cls = "dw-cp-old"; tip = `${tf}: div เก่า ${r.div.age} แท่ง`; }
-    return `<span class="dw-cp ${cls}" title="${tip}" data-tip="${tip}"><span class="dw-dot">${dot}</span><span class="dw-cp-tf">${tf}</span></span>`;
+// checklist strip ต่อ symbol (แทน rail div-TF เดิม): 6 ช่อง = 6 ขั้นของ modal 📋
+// เขียว = เกณฑ์ auto ผ่าน, แดง = ไม่ผ่าน, จาง = ตัดสินไม่ได้ (ข้อมูลไม่พอ/ขั้น manual)
+const CK_STEP_NAMES = { 1: "โครงสร้าง 1D", 2: "confluence", 3: "ADX", 4: "โซน supply", 5: "trigger 4H", 6: "แผน+size (manual)" };
+function renderCkStrip(d, chipsHtml) {
+  const ck = d.ck;
+  const chip = (n) => {
+    const p = ck ? ck.steps[n] : null;
+    const cls = p === true ? "ck-pass" : p === false ? "ck-fail" : "ck-na";
+    const keys = { 1: ["s1a", "s1b", "s1c"], 2: ["s2ema", "s2mom", "s2vol"], 3: ["s3dir", "s3train"], 4: ["s4zone"], 5: ["s5candle", "s5div", "s5macd", "s5break"] }[n];
+    const detail = ck && keys ? keys.map(k => ck.items[k] ? `${ck.items[k].pass === true ? "✓" : ck.items[k].pass === false ? "✗" : "?"} ${ck.items[k].txt}` : "").filter(Boolean).join(" | ") : "";
+    const tip = `${n}. ${CK_STEP_NAMES[n]}${detail ? " — " + detail : n === 6 ? " — ติ๊กเองใน 📋" : ""}`;
+    return `<span class="ck-chip ${cls}" title="${tip}" data-tip="${tip}">${n}</span>`;
   };
-  const link = `<span class="dw-link">──</span>`;
-  return `<div class="dw-rail"><span class="dw-cps">${DIV_TFS.map(cp).join(link)}<span class="dw-link">─┤</span></span>${chipsHtml}</div>`;
+  const passN = ck ? Object.values(ck.steps).filter(p => p === true).length : 0;
+  const decidedN = ck ? Object.values(ck.steps).filter(p => p !== null).length : 0;
+  const sum = `<span class="ck-sum ${passN >= 5 ? "ck-sum-hot" : ""}" title="ขั้นที่ผ่าน / ขั้นที่ตัดสินอัตโนมัติได้">${passN}/${decidedN}</span>`;
+  const open = `<button class="ck-strip-open" data-ckopen="${d.symbol}" title="เปิด checklist ${d.label}">📋</button>`;
+  return `<div class="dw-rail">${open}<span class="ck-strip">${[1, 2, 3, 4, 5, 6].map(chip).join("")}${sum}</span>${chipsHtml}</div>`;
 }
 
 const DIV_ERR_STATUS = new Set(["klines_http_error", "too_few_klines", "exception"]);
@@ -352,7 +562,7 @@ function renderDivWatch(rows, health) {
       if (ldMin != null && c2 && (c2.crossed || c2.below)) confl = `<span class="dw-tf dw-confl">🎯 div ${(ldMin / 60).toFixed(1)}ชม.+2H</span>`;
       else if (ldMin != null) confl = `<span class="dw-tf faint">🐻 div ${(ldMin / 60).toFixed(1)}ชม.</span>`;
       const chipsHtml = d.cross ? `${chip("1h", d.cross["1h"])}${chip("2h", d.cross["2h"])}${confl}` : confl;
-      const railRow = renderDivRail(d.divByTf, chipsHtml);
+      const railRow = renderCkStrip(d, chipsHtml);
       return `<div class="dw-row">${symSpan}<span class="dw-rsi ${rCls}">${rsiTxt}</span>${badge}${xBtn}${railRow}</div>`;
     }).join("");
   }
@@ -1454,8 +1664,11 @@ document.getElementById("div-watch-body")?.addEventListener("click", (e) => {
   if (btn) { divWatchMutate("remove", btn.dataset.divremove); return; }
   const ds = e.target.closest(".dw-sym[data-chart]");
   if (ds) { openChartModal(ds.dataset.chart, ds.dataset.ex, "15m"); return; }
-  // แตะจุด checkpoint บนมือถือ (ไม่มี hover) → โชว์อายุ div ใน dw-msg
-  const cp = e.target.closest(".dw-cp[data-tip]");
+  // ปุ่ม 📋 บน strip → modal checklist โหมด per-coin (ข้อ auto เติมให้)
+  const co = e.target.closest("[data-ckopen]");
+  if (co) { ckOpenFor(co.dataset.ckopen); return; }
+  // แตะช่อง checklist บนมือถือ (ไม่มี hover) → โชว์รายละเอียดเกณฑ์ใน dw-msg
+  const cp = e.target.closest(".ck-chip[data-tip]");
   if (cp) { const msg = document.getElementById("dw-msg"); if (msg) { msg.textContent = cp.dataset.tip; msg.style.color = ""; } }
 });
 
@@ -1732,13 +1945,49 @@ function ckUpdate() {
   v.textContent = full ? "✅ ครบ — เข้าได้ตามแผน" : "⛔ รอ — ห้าม pre-empt";
   v.className = full ? "ok" : "wait";
 }
-document.getElementById("ck-open").addEventListener("click", () => {
+
+// สองโหมด: generic (📋 บนหัว panel — ติ๊กมือทั้งหมด) / per-coin (จาก strip — ข้อ auto ถูกเติมและล็อกให้)
+let ckModalSym = null;
+function ckClearDecor() {
+  document.querySelectorAll("#modal-checklist label[data-k]").forEach(lb => {
+    const c = lb.querySelector("input");
+    c.checked = false; c.disabled = false;
+    lb.classList.remove("ck-auto-pass", "ck-auto-fail", "ck-auto-na");
+    lb.querySelector(".ck-val")?.remove();
+  });
+  ckUpdate();
+}
+function ckOpenGeneric() {
+  if (ckModalSym !== null) { ckClearDecor(); ckModalSym = null; }
+  document.getElementById("ck-title").textContent = "📋 SHORT ENTRY CHECKLIST";
   document.getElementById("modal-checklist").classList.remove("hidden");
-});
+}
+function ckOpenFor(symbol) {
+  const ev = ckEvalCache[symbol];
+  if (!ev) { ckOpenGeneric(); return; }
+  if (ckModalSym !== symbol) ckClearDecor();
+  ckModalSym = symbol;
+  document.getElementById("ck-title").textContent = `📋 ${ev.meta.label || symbol} — SHORT CHECKLIST`;
+  document.querySelectorAll("#modal-checklist label[data-k]").forEach(lb => {
+    const it = ev.items[lb.dataset.k];
+    if (!it) return; // ข้อ manual — ปล่อยติ๊กมือ
+    const c = lb.querySelector("input");
+    let val = lb.querySelector(".ck-val");
+    if (!val) { val = document.createElement("span"); val.className = "ck-val"; lb.appendChild(val); }
+    val.textContent = it.txt;
+    lb.classList.remove("ck-auto-pass", "ck-auto-fail", "ck-auto-na");
+    // auto = เติมสถานะเริ่มต้น + สี แต่ไม่ล็อก — ผู้ใช้ติ๊กแก้ได้เสมอ (เครื่องเป็น signal ประกอบ ผู้ใช้ตัดสินใจเอง)
+    if (it.pass === null) lb.classList.add("ck-auto-na");
+    else { c.checked = it.pass; lb.classList.add(it.pass ? "ck-auto-pass" : "ck-auto-fail"); }
+  });
+  ckUpdate();
+  document.getElementById("modal-checklist").classList.remove("hidden");
+}
+document.getElementById("ck-open").addEventListener("click", ckOpenGeneric);
 document.querySelectorAll("#modal-checklist input[type=checkbox]").forEach(c => c.addEventListener("change", ckUpdate));
 document.getElementById("ck-reset").addEventListener("click", () => {
-  document.querySelectorAll("#modal-checklist input[type=checkbox]").forEach(c => { c.checked = false; });
-  ckUpdate();
+  ckClearDecor();
+  if (ckModalSym !== null) { const s = ckModalSym; ckModalSym = null; ckOpenFor(s); } // ล้างเฉพาะข้อ manual — ข้อ auto เติมกลับ
 });
 ckUpdate();
 

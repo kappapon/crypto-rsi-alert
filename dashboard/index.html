@@ -227,7 +227,7 @@
   <div id="modal-checklist" class="modal hidden">
     <div class="modal-content">
       <header>
-        <h2>📋 SHORT ENTRY CHECKLIST</h2>
+        <h2 id="ck-title">📋 SHORT ENTRY CHECKLIST</h2>
         <button class="close" data-close="modal-checklist">×</button>
       </header>
       <div class="modal-body">
@@ -235,47 +235,47 @@
 
         <div class="ck-step" data-need="3">
           <div class="ck-head"><span class="ck-num">1</span> โครงสร้าง 1D — ต้องผ่านจุดพีคก่อน <span class="ck-tag">ตัวตัดสิน · ครบทั้ง 3</span></div>
-          <label><input type="checkbox"> ผ่านจุดพีคแล้ว — มี HH สุดท้าย และไม่มี HH ใหม่อีก</label>
-          <label><input type="checkbox"> CHoCH — ปิดใต้ swing low ล่าสุด (โครงสร้างขาขึ้นเสีย)</label>
-          <label><input type="checkbox"> LH + LL ต่อเนื่อง ≥ 2 รอบ (BOS ขาลง) — downtrend ยืนยัน</label>
+          <label data-k="s1a"><input type="checkbox"> <span class="ck-txt">ผ่านจุดพีคแล้ว — มี HH สุดท้าย และไม่มี HH ใหม่อีก</span></label>
+          <label data-k="s1b"><input type="checkbox"> <span class="ck-txt">CHoCH — ปิดใต้ swing low ล่าสุด (โครงสร้างขาขึ้นเสีย)</span></label>
+          <label data-k="s1c"><input type="checkbox"> <span class="ck-txt">LH + LL ต่อเนื่อง ≥ 2 รอบ (BOS ขาลง) — downtrend ยืนยัน</span></label>
           <p class="ck-warn">⚠️ ไม่ครบ = ยังเป็น uptrend — จะ fade แบบ AKE ต้องมี exhaustion สุดขีด + rejection ชัดเท่านั้น และ size ครึ่งเดียว (ข้อ 6)</p>
         </div>
 
         <div class="ck-step" data-need="2">
           <div class="ck-head"><span class="ck-num">2</span> Bearish confluence — 1D หลัก · 4H ยืนยัน <span class="ck-tag">อย่างน้อย 2/4</span></div>
-          <label><input type="checkbox"> ราคา &lt; EMA50 (&lt; EMA200 = structural) และ slope MA ชี้ลง</label>
-          <label><input type="checkbox"> RSI &lt; 50 + MACD ใต้ signal (histogram ติดลบ)</label>
-          <label><input type="checkbox"> Volume ขยายตอนแท่งแดง (distribution) · หดตอนเด้ง (dead-cat)</label>
-          <label><input type="checkbox"> SMC: bearish OB unmitigated · FVG ล่างรอ fill · resistance flip</label>
+          <label data-k="s2ema"><input type="checkbox"> <span class="ck-txt">ราคา &lt; EMA50 (&lt; EMA200 = structural) และ slope MA ชี้ลง</span></label>
+          <label data-k="s2mom"><input type="checkbox"> <span class="ck-txt">RSI &lt; 50 + MACD ใต้ signal (histogram ติดลบ)</span></label>
+          <label data-k="s2vol"><input type="checkbox"> <span class="ck-txt">Volume ขยายตอนแท่งแดง (distribution) · หดตอนเด้ง (dead-cat)</span></label>
+          <label data-k="s2smc"><input type="checkbox"> <span class="ck-txt">SMC: bearish OB unmitigated · FVG ล่างรอ fill · resistance flip</span></label>
         </div>
 
         <div class="ck-step" data-need="2">
           <div class="ck-head"><span class="ck-num">3</span> ADX — แรงพอ และไม่ใช่รถไฟ <span class="ck-tag">ครบทั้ง 2</span></div>
-          <label><input type="checkbox"> ADX &gt; 25 + −DI เหนือ +DI (ขาลงมีแรง) — หรือถ้า choppy &lt; 20 (เคส RIF 11.7): ยอมรับ whipsaw risk แล้วเข้มข้อ 5 เป็นพิเศษ</label>
-          <label><input type="checkbox"> ไม่ได้สวนเทรนด์แรง — ADX ฝั่งขึ้นไม่เกิน 40 (เคส AKE 52.9 = ยืนขวางรถไฟ ห้าม fade)</label>
+          <label data-k="s3dir"><input type="checkbox"> <span class="ck-txt">ADX &gt; 25 + −DI เหนือ +DI (ขาลงมีแรง) — หรือถ้า choppy &lt; 20 (เคส RIF 11.7): ยอมรับ whipsaw risk แล้วเข้มข้อ 5 เป็นพิเศษ</span></label>
+          <label data-k="s3train"><input type="checkbox"> <span class="ck-txt">ไม่ได้สวนเทรนด์แรง — ADX ฝั่งขึ้นไม่เกิน 40 (เคส AKE 52.9 = ยืนขวางรถไฟ ห้าม fade)</span></label>
         </div>
 
         <div class="ck-step" data-need="2">
           <div class="ck-head"><span class="ck-num">4</span> โซนเข้า — supply ข้างบน <span class="ck-tag">วางแผนก่อน แล้วรอ</span></div>
-          <label><input type="checkbox"> ราคา pullback ขึ้นทดสอบโซนขาย: LH เดิม / แนวต้าน / bearish OB / upper BB</label>
-          <label><input type="checkbox"> กำหนดโซน entry + stop + targets ไว้ก่อนราคามาถึง — ไม่ไล่ราคา</label>
+          <label data-k="s4zone"><input type="checkbox"> <span class="ck-txt">ราคา pullback ขึ้นทดสอบโซนขาย: LH เดิม / แนวต้าน / bearish OB / upper BB</span></label>
+          <label data-k="s4plan"><input type="checkbox"> <span class="ck-txt">กำหนดโซน entry + stop + targets ไว้ก่อนราคามาถึง — ไม่ไล่ราคา</span></label>
         </div>
 
         <div class="ck-step" data-need="1">
           <div class="ck-head"><span class="ck-num">5</span> Entry trigger บน 4H <span class="ck-tag">อย่างน้อย 1 · ห้าม pre-empt</span></div>
-          <label><input type="checkbox"> Bearish pin bar / engulfing ปฏิเสธโซน</label>
-          <label><input type="checkbox"> Bearish divergence — ราคา HH + RSI LH</label>
-          <label><input type="checkbox"> MACD bearish cross บน 4H</label>
-          <label><input type="checkbox"> ปิด 4H หลุดระดับ momentum break</label>
+          <label data-k="s5candle"><input type="checkbox"> <span class="ck-txt">Bearish pin bar / engulfing ปฏิเสธโซน</span></label>
+          <label data-k="s5div"><input type="checkbox"> <span class="ck-txt">Bearish divergence — ราคา HH + RSI LH</span></label>
+          <label data-k="s5macd"><input type="checkbox"> <span class="ck-txt">MACD bearish cross บน 4H</span></label>
+          <label data-k="s5break"><input type="checkbox"> <span class="ck-txt">ปิด 4H หลุดระดับ momentum break</span></label>
           <p class="ck-note">🐻 divwatch จับ divergence 15m ให้อัตโนมัติ · 🎯 confirmed (sweep→reclaim) = trigger สำเร็จรูปของข้อนี้</p>
         </div>
 
         <div class="ck-step" data-need="4">
           <div class="ck-head"><span class="ck-num">6</span> แผน + ขนาด — ก่อนกดคำสั่ง <span class="ck-tag">ครบทั้ง 4</span></div>
-          <label><input type="checkbox"> Stop เหนือ peak/swing high ล่าสุด + buffer (~0.5×ATR) — invalidation ชัด</label>
-          <label><input type="checkbox"> R:R ≥ 3:1 (setup สวย 5:1+) · วาง T1/T2 ล่วงหน้า</label>
-          <label><input type="checkbox"> Size: ตามเทรนด์ 0.5–1% risk · สวนเทรนด์ 0.25–0.5% หรือข้ามไปเลย</label>
-          <label><input type="checkbox"> ปิด 4H เหนือ stop = ออกทันที — ไม่เถียง ไม่ขยับ stop</label>
+          <label data-k="s6stop"><input type="checkbox"> <span class="ck-txt">Stop เหนือ peak/swing high ล่าสุด + buffer (~0.5×ATR) — invalidation ชัด</span></label>
+          <label data-k="s6rr"><input type="checkbox"> <span class="ck-txt">R:R ≥ 3:1 (setup สวย 5:1+) · วาง T1/T2 ล่วงหน้า</span></label>
+          <label data-k="s6size"><input type="checkbox"> <span class="ck-txt">Size: ตามเทรนด์ 0.5–1% risk · สวนเทรนด์ 0.25–0.5% หรือข้ามไปเลย</span></label>
+          <label data-k="s6exit"><input type="checkbox"> <span class="ck-txt">ปิด 4H เหนือ stop = ออกทันที — ไม่เถียง ไม่ขยับ stop</span></label>
         </div>
 
         <div class="ck-foot">
