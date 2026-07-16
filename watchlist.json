@@ -1278,6 +1278,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "METABUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 696.158,
+        "resistance": 685.87,
+        "rejection_below": 646.2375,
+        "support_strong": 673.194,
+        "support_extreme": 667.0166
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
