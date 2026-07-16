@@ -1397,6 +1397,63 @@ function renderThemeHeatmap(hist) {
   if (note) note.textContent = waiting.length ? waiting.join(" · ") : "";
 }
 
+// ============ Theme Rotation (E4) — top theme (1D%) รายวัน → นับคู่ (top วันนี้ → top วันถัดไป) ============
+const ROT_MIN_DAYS = 14; // gate — น้อยกว่านี้ n เล็กเกินกว่าจะอ่านเป็น pattern
+const ROT_TOP_N = 6;
+
+// คืน { days, tops: {date→theme}, pairs: [{from,to,count} เรียง count มาก→น้อย], total }
+// 1D% เทียบวันปฏิทินก่อนหน้าเป๊ะ — วัน snapshot หาย = วันนั้นไม่มี top และไม่นับคู่ข้ามรู
+function computeRotation(hist, k = 1) {
+  const days = hist?.days ? Object.keys(hist.days).sort() : [];
+  const DAY = 86400000;
+  const shift = (d, n) => new Date(Date.parse(d) + n * DAY).toISOString().slice(0, 10);
+  const tops = {};
+  for (const d of days) {
+    const cur = hist.days[d], past = hist.days[shift(d, -1)];
+    if (!past) continue;
+    let top = null, best = -Infinity;
+    for (const t of Object.keys(cur).sort()) { // sort = tie-break คงที่
+      if (!past[t]) continue;
+      const pct = (cur[t] - past[t]) / past[t];
+      if (pct > best) { best = pct; top = t; }
+    }
+    if (top) tops[d] = top;
+  }
+  const counts = {};
+  let total = 0;
+  for (const d of Object.keys(tops)) {
+    const to = tops[shift(d, k)];
+    if (!to) continue;
+    const key = `${tops[d]}→${to}`;
+    counts[key] = (counts[key] || 0) + 1;
+    total++;
+  }
+  const pairs = Object.entries(counts)
+    .map(([key, count]) => { const [from, to] = key.split("→"); return { from, to, count }; })
+    .sort((a, b) => b.count - a.count || a.from.localeCompare(b.from) || a.to.localeCompare(b.to));
+  return { days: days.length, tops, pairs, total };
+}
+
+function renderRotation(rot) {
+  const el = document.getElementById("theme-rotation-body");
+  if (!el) return;
+  if (!rot || !rot.days) { el.innerHTML = `<p class="faint">รอ snapshot แรกจาก Actions_</p>`; return; }
+  if (rot.days < ROT_MIN_DAYS) { el.innerHTML = `<p class="faint">กำลังสะสม (${rot.days}/${ROT_MIN_DAYS} วัน)</p>`; return; }
+  if (!rot.pairs.length) { el.innerHTML = `<p class="faint">ยังไม่มีคู่ top→top ติดกันให้นับ</p>`; return; }
+  const top = rot.pairs.slice(0, ROT_TOP_N);
+  const maxC = top[0].count;
+  const rows = top.map(p => {
+    const w = Math.round(p.count / maxC * 100);
+    const label = `${THEME_ICONS[p.from] || "❔"} ${p.from} → ${THEME_ICONS[p.to] || "❔"} ${p.to}`;
+    return `<div class="tm-row rot-row">
+      <span class="tm-label" title="${label}">${label}</span>
+      <div class="tm-track"><div class="tm-bar rot-bar" style="width:${w}%"></div></div>
+      <span class="tm-pct">×${p.count}</span>
+    </div>`;
+  }).join("");
+  el.innerHTML = rows + `<p class="rot-caption faint">n=${rot.days} วัน · สัญญาณอ่อน ใช้ประกอบ ไม่ใช่ยืนยัน</p>`;
+}
+
 // ============ Top RSI Mover (D5) ============
 async function loadRsiSnapshot() {
   try {
@@ -1618,7 +1675,7 @@ async function refresh() {
   statusEl.className = "status ok";
   document.getElementById("last-update").textContent = new Date().toLocaleTimeString();
   refreshThemeMover(); // sidebar — fire and forget
-  loadThemeHistory().then(renderThemeHeatmap);
+  loadThemeHistory().then(h => { renderThemeHeatmap(h); renderRotation(computeRotation(h)); }); // fetch เดียว เลี้ยงสอง panel
   loadRsiSnapshot().then(renderRsiMover);
   refreshDivWatch();
   refreshJournalPanel();
