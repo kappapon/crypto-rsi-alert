@@ -1716,6 +1716,32 @@ document.querySelectorAll("[data-ml]").forEach(b => {
   b.addEventListener("click", () => mlStart(b.dataset.ml));
 });
 
+// ============ Short Entry Checklist ============
+// เกณฑ์ผ่านต่อขั้นอยู่ที่ data-need ของ .ck-step (เช่น confluence 2/4, trigger 1/4)
+function ckUpdate() {
+  const steps = document.querySelectorAll("#modal-checklist .ck-step");
+  let passed = 0;
+  steps.forEach(st => {
+    const ok = st.querySelectorAll("input:checked").length >= +st.dataset.need;
+    st.classList.toggle("done", ok);
+    if (ok) passed++;
+  });
+  document.getElementById("ck-progress").textContent = `ผ่าน ${passed}/${steps.length} ขั้น`;
+  const v = document.getElementById("ck-verdict");
+  const full = passed === steps.length;
+  v.textContent = full ? "✅ ครบ — เข้าได้ตามแผน" : "⛔ รอ — ห้าม pre-empt";
+  v.className = full ? "ok" : "wait";
+}
+document.getElementById("ck-open").addEventListener("click", () => {
+  document.getElementById("modal-checklist").classList.remove("hidden");
+});
+document.querySelectorAll("#modal-checklist input[type=checkbox]").forEach(c => c.addEventListener("change", ckUpdate));
+document.getElementById("ck-reset").addEventListener("click", () => {
+  document.querySelectorAll("#modal-checklist input[type=checkbox]").forEach(c => { c.checked = false; });
+  ckUpdate();
+});
+ckUpdate();
+
 // ============ Boot ============
 refresh();
 startCountdown();
