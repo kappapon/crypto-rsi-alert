@@ -10883,8 +10883,8 @@
       "funding": 0.0,
       "id": "ALICEUSDT:support_break:2026-07-06T08:24:02.605748+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-15T00:23:32.767352+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-16T12:24:23.300636+00:00"
     },
     {
       "symbol": "HMSTRUSDT",
@@ -13471,8 +13471,8 @@
       "funding": 0.01,
       "id": "CRDO_USDT:rejection:2026-07-13T16:23:47.004176+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-15T16:23:36.051012+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-16T12:24:24.706169+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -14144,6 +14144,126 @@
       "price": 36.774,
       "funding": 0.01,
       "id": "HIMS_USDT:rejection:2026-07-16T08:24:13.655028+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIVN_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:26.466043+00:00",
+      "price": 17.74,
+      "funding": 0.01,
+      "id": "RIVN_USDT:support_break:2026-07-16T12:24:26.466043+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNH_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-16T12:24:29.890398+00:00",
+      "price": 442.66,
+      "funding": 0.01,
+      "id": "UNH_USDT:breakout:2026-07-16T12:24:29.890398+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNH_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:29.890398+00:00",
+      "price": 442.66,
+      "funding": 0.01,
+      "id": "UNH_USDT:resistance_test:2026-07-16T12:24:29.890398+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:30.755332+00:00",
+      "price": 0.7055,
+      "funding": 0.0,
+      "id": "KAITOUSDT:rejection:2026-07-16T12:24:30.755332+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DEXEUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:43.099770+00:00",
+      "price": 34.683,
+      "funding": 0.0,
+      "id": "DEXEUSDT:rejection:2026-07-16T12:24:43.099770+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-16T12:24:48.016439+00:00",
+      "price": 50.57,
+      "funding": 0.01,
+      "id": "SOXS_USDT:breakout:2026-07-16T12:24:48.016439+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:48.016439+00:00",
+      "price": 50.57,
+      "funding": 0.01,
+      "id": "SOXS_USDT:resistance_test:2026-07-16T12:24:48.016439+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-16T12:24:48.449915+00:00",
+      "price": 0.0009537,
+      "funding": 0.005,
+      "id": "AKE_USDT:breakout:2026-07-16T12:24:48.449915+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:48.449915+00:00",
+      "price": 0.0009537,
+      "funding": 0.005,
+      "id": "AKE_USDT:resistance_test:2026-07-16T12:24:48.449915+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-16T12:24:49.800890+00:00",
+      "price": 400.14,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:resistance_test:2026-07-16T12:24:49.800890+00:00",
       "status": "pending",
       "repeats": 1
     }
