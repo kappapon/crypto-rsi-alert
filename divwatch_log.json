@@ -346,6 +346,20 @@
       "ts": "2026-07-16T09:00:00.000Z",
       "id": "armed:RE_USDT:gate:2026-07-16T09:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.50517,
+      "armed_ts": "2026-07-16T09:47:57.847Z",
+      "entry": 0.5031,
+      "label": "RE",
+      "peak_high": 0.52031,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.5237775,
+      "symbol": "RE_USDT",
+      "ts": "2026-07-16T12:17:58.269Z",
+      "id": "confirmed:RE_USDT:gate:2026-07-16T09:47:57.847Z",
+      "status": "pending"
     }
   ]
 }
