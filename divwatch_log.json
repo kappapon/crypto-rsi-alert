@@ -125,7 +125,15 @@
       "symbol": "RIF_USDT",
       "ts": "2026-07-14T04:17:16.528Z",
       "id": "confirmed:RIF_USDT:gate:2026-07-13T20:17:15.807Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.604,
+      "stopped": true,
+      "stop_ts": "2026-07-15T11:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.137620714285714,
+      "closed_at": "2026-07-15T11:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "RE",
