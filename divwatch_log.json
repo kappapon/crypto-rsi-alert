@@ -320,6 +320,19 @@
       "ts": "2026-07-16T07:03:04.996Z",
       "id": "confirmed:LDO_USDT:gate:2026-07-16T06:18:04.913Z",
       "status": "pending"
+    },
+    {
+      "label": "AKE",
+      "p1_high": 0.0008683,
+      "p1_rsi": 68.0442437390899,
+      "p2_high": 0.00095,
+      "p2_rsi": 62.5523440093775,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "AKE_USDT",
+      "ts": "2026-07-16T07:45:00.000Z",
+      "id": "armed:AKE_USDT:gate:2026-07-16T07:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
