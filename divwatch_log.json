@@ -360,6 +360,20 @@
       "ts": "2026-07-16T12:17:58.269Z",
       "id": "confirmed:RE_USDT:gate:2026-07-16T09:47:57.847Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.00095,
+      "armed_ts": "2026-07-16T08:33:06.245Z",
+      "entry": 0.0009227,
+      "label": "AKE",
+      "peak_high": 0.0009605,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.000983914285714286,
+      "symbol": "AKE_USDT",
+      "ts": "2026-07-16T12:18:03.017Z",
+      "id": "confirmed:AKE_USDT:gate:2026-07-16T08:33:06.245Z",
+      "status": "pending"
     }
   ]
 }
