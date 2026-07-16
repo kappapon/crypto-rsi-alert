@@ -1933,5 +1933,37 @@
       "AI Framework",
       "Coinbase 50 Index"
     ]
+  },
+  "SOXS": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173927/small/soxson_160x160.png?1781494489",
+    "cg_id": "direxion-daily-semi-bear-3x-etf-ondo-tokenized",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Tokenized Exchange-Traded Funds (ETFs)",
+      "Ondo Tokenized Assets",
+      "Tokenized Exchange-Traded Product (ETPs)"
+    ]
+  },
+  "AKE": {
+    "theme": "AI",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68410/small/akedo.png?1755678461",
+    "cg_id": "akedo",
+    "categories": [
+      "Artificial Intelligence (AI)",
+      "BNB Chain Ecosystem",
+      "AI Applications",
+      "Binance Wallet IDO"
+    ]
+  },
+  "DODOX": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
   }
 }
