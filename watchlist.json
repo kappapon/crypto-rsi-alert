@@ -1380,6 +1380,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "POPMART_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 22.2529,
+        "resistance": 21.924,
+        "rejection_below": 20.2911,
+        "support_strong": 20.8274,
+        "support_extreme": 20.3676
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
