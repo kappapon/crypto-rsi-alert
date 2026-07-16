@@ -1295,6 +1295,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "PLTRBUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 140.9936,
+        "resistance": 138.91,
+        "rejection_below": 126.9105,
+        "support_strong": 133.5899,
+        "support_extreme": 132.286
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
