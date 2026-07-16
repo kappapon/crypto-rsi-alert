@@ -1312,6 +1312,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "MSFTBUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 405.594,
+        "resistance": 399.6,
+        "rejection_below": 377.739,
+        "support_strong": 393.4719,
+        "support_extreme": 390.3554
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
