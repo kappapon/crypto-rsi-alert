@@ -1329,6 +1329,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "AAPLX_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 333.6711,
+        "resistance": 328.74,
+        "rejection_below": 311.448,
+        "support_strong": 324.2504,
+        "support_extreme": 320.3968
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
