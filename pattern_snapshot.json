@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-16T00:30:51Z",
+  "date": "2026-07-16T04:31:24Z",
   "parabolic_seen": {
     "AERO": "2026-07-07",
     "ARPA": "2026-07-05",
@@ -33,6 +33,7 @@
     "YFI": "2026-07-09"
   },
   "patterns": {
+    "AAPLX_USDT": "Breakout",
     "AAVEUSDT": "Pullback",
     "ABBV_USDT": "Pullback",
     "AERO_USDT": "Pullback",
