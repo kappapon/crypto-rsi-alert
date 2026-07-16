@@ -471,7 +471,7 @@ async function runRsiMaCrossWatch(env: Env, minute: number, budget?: FetchBudget
         }
         if (confirmTick) {
           const closed: Klines = early
-            ? { highs: kl.highs.slice(0, -1), lows: kl.lows.slice(0, -1), closes: kl.closes.slice(0, -1), times: kl.times.slice(0, -1) }
+            ? { opens: kl.opens.slice(0, -1), highs: kl.highs.slice(0, -1), lows: kl.lows.slice(0, -1), closes: kl.closes.slice(0, -1), vols: kl.vols.slice(0, -1), times: kl.times.slice(0, -1) }
             : kl;
           await checkCrossConfirmed(env, item, tf, closed);
         }
@@ -628,14 +628,178 @@ function divStatusAt(kl: Klines | { error: string; code?: number }): DivTfStatus
   };
 }
 
+// ---------- SHORT CHECKLIST evaluator (mirror dashboard.js evalShortChecklist — เลขต้องตรงกัน) ----------
+// 1D = โครงสร้าง/confluence/โซน, 4H = ADX/trigger; แท่งปิดเท่านั้น; pass null = ตัดสินไม่ได้ (ข้อมูลไม่พอ)
+type CkItem = { pass: boolean | null; txt: string };
+type CkResult = { steps: Record<number, boolean | null>; items: Record<string, CkItem> };
+function emaSeriesCk(values: number[], period: number): number[] {
+  const k = 2 / (period + 1), out = new Array<number>(values.length);
+  out[0] = values[0];
+  for (let i = 1; i < values.length; i++) out[i] = values[i] * k + out[i - 1] * (1 - k);
+  return out;
+}
+function macdLast(closes: number[]): { hist: number; crossedDown: boolean } | null {
+  if (closes.length < 40) return null;
+  const e12 = emaSeriesCk(closes, 12), e26 = emaSeriesCk(closes, 26);
+  const line = closes.map((_, i) => e12[i] - e26[i]);
+  const sig = emaSeriesCk(line, 9);
+  const i = closes.length - 1;
+  return { hist: line[i] - sig[i], crossedDown: line[i] < sig[i] && line[i - 1] >= sig[i - 1] };
+}
+// Wilder ADX14 + DI (smoothing ewm alpha=1/p seed ค่าแรก — convention เดียว wilderRSI)
+function adxLast(highs: number[], lows: number[], closes: number[], period = 14): { adx: number; pdi: number; mdi: number } | null {
+  const n = highs.length;
+  if (n < period * 2 + 2) return null;
+  const a = 1 / period;
+  let sTR = NaN, sP = NaN, sM = NaN, adx = NaN;
+  for (let i = 1; i < n; i++) {
+    const tr = Math.max(highs[i] - lows[i], Math.abs(highs[i] - closes[i - 1]), Math.abs(lows[i] - closes[i - 1]));
+    const up = highs[i] - highs[i - 1], dn = lows[i - 1] - lows[i];
+    const pdm = up > dn && up > 0 ? up : 0, mdm = dn > up && dn > 0 ? dn : 0;
+    if (Number.isNaN(sTR)) { sTR = tr; sP = pdm; sM = mdm; continue; }
+    sTR = (1 - a) * sTR + a * tr; sP = (1 - a) * sP + a * pdm; sM = (1 - a) * sM + a * mdm;
+    if (i < period) continue;
+    const pdi = sTR ? (100 * sP) / sTR : 0, mdi = sTR ? (100 * sM) / sTR : 0;
+    const dx = pdi + mdi ? (100 * Math.abs(pdi - mdi)) / (pdi + mdi) : 0;
+    adx = Number.isNaN(adx) ? dx : (1 - a) * adx + a * dx;
+    if (i === n - 1) return { adx, pdi, mdi };
+  }
+  return null;
+}
+function bbUpperLast(closes: number[], period = 20, mult = 2): number | null {
+  if (closes.length < period) return null;
+  const win = closes.slice(-period);
+  const mean = win.reduce((t, v) => t + v, 0) / period;
+  const sd = Math.sqrt(win.reduce((t, v) => t + (v - mean) ** 2, 0) / period);
+  return mean + mult * sd;
+}
+function ckStructure(k1d: Klines): { a: CkItem; b: CkItem; c: CkItem; lastSH: number | null } {
+  const W = 120; // มองย้อน ~4 เดือนพอสำหรับ swing รอบปัจจุบัน
+  const hi = k1d.highs.slice(-W), lo = k1d.lows.slice(-W), cl = k1d.closes.slice(-W);
+  const n = hi.length;
+  let peak = 0;
+  for (let i = 1; i < n; i++) if (hi[i] > hi[peak]) peak = i;
+  const sh = swingHighs(hi, 2), sl = swingLows(lo, 2);
+  const shAfter = sh.filter((i) => i > peak);
+  const peakAge = n - 1 - peak;
+  const lastSHv = sh.length ? hi[sh[sh.length - 1]] : null;
+  // เด้งกลับจนยืนเหนือ LH ล่าสุด = โครงสร้างขาลงถูก reclaim (เคส AKE) — ไม่นับว่าผ่านพีค
+  const reclaim = lastSHv != null && cl[n - 1] > lastSHv;
+  const a: CkItem = reclaim
+    ? { pass: false, txt: `ราคายืนเหนือ SH ล่าสุด +${(((cl[n - 1] as number) / (lastSHv as number) - 1) * 100).toFixed(1)}% = reclaim/ไล่ HH` }
+    : { pass: shAfter.length > 0, txt: `พีค ${peakAge}d ก่อน · SH หลังพีค ${shAfter.length} ยอด${shAfter.length ? "" : " (ยังไล่ HH อยู่)"}` };
+  const baseSLs = sl.filter((i) => i <= peak);
+  let b: CkItem;
+  if (!baseSLs.length) b = { pass: null, txt: "ไม่พบ swing low ก่อนพีค" };
+  else {
+    const ref = lo[baseSLs[baseSLs.length - 1]];
+    const minAfter = Math.min(...cl.slice(peak));
+    b = { pass: minAfter < ref, txt: `ปิดต่ำสุดหลังพีค ${minAfter.toPrecision(4)} vs SL ${ref.toPrecision(4)}` };
+  }
+  let c: CkItem;
+  if (sh.length < 2 || sl.length < 2) c = { pass: null, txt: `swing ไม่พอ (SH ${sh.length}/SL ${sl.length})` };
+  else {
+    const lh = hi[sh[sh.length - 1]] < hi[sh[sh.length - 2]], ll = lo[sl[sl.length - 1]] < lo[sl[sl.length - 2]];
+    c = { pass: lh && ll, txt: `SH ${lh ? "↓" : "↑"} · SL ${ll ? "↓" : "↑"}` };
+  }
+  return { a, b, c, lastSH: lastSHv };
+}
+function buildCk(k1d: Klines | { error: string; code?: number }, k4h: Klines | { error: string; code?: number }): CkResult {
+  const items: Record<string, CkItem> = {};
+  const put = (k: string, pass: boolean | null, txt: string): void => { items[k] = { pass, txt }; };
+  // --- 1D: โครงสร้าง + confluence + โซน ---
+  if ("error" in k1d || k1d.closes.length < 40) {
+    const n = "error" in k1d ? 0 : k1d.closes.length;
+    ["s1a", "s1b", "s1c", "s2ema", "s2mom", "s2vol", "s4zone"].forEach((k) => put(k, null, `ข้อมูล 1D ไม่พอ (${n} แท่ง)`));
+  } else {
+    const st = ckStructure(k1d);
+    put("s1a", st.a.pass, st.a.txt); put("s1b", st.b.pass, st.b.txt); put("s1c", st.c.pass, st.c.txt);
+    const cl = k1d.closes, last = cl[cl.length - 1];
+    if (cl.length >= 55) {
+      const e50 = emaSeriesCk(cl, 50)[cl.length - 1];
+      const e200 = cl.length >= 205 ? emaSeriesCk(cl, 200)[cl.length - 1] : null;
+      const dE = (last / e50 - 1) * 100;
+      put("s2ema", last < e50, `ราคา ${dE >= 0 ? "+" : ""}${dE.toFixed(1)}% vs EMA50${e200 != null ? ` · ${last < e200 ? "ใต้" : "เหนือ"} EMA200` : ""}`);
+    } else put("s2ema", null, `แท่งไม่พอคำนวณ EMA50 (${cl.length})`);
+    const rsiSeries = wilderRSI(cl, 14);
+    const rsiD = rsiSeries[rsiSeries.length - 1];
+    const mac = macdLast(cl);
+    if (mac && !Number.isNaN(rsiD)) put("s2mom", rsiD < 50 && mac.hist < 0, `RSI(D) ${rsiD.toFixed(1)} · MACD hist ${mac.hist < 0 ? "ลบ" : "บวก"}`);
+    else put("s2mom", null, "คำนวณ RSI/MACD ไม่ได้");
+    const nv = Math.min(20, k1d.vols.length);
+    let rv = 0, rn = 0, gv = 0, gn = 0;
+    for (let i = k1d.vols.length - nv; i < k1d.vols.length; i++) {
+      if (k1d.closes[i] < k1d.opens[i]) { rv += k1d.vols[i]; rn++; } else { gv += k1d.vols[i]; gn++; }
+    }
+    if (rn && gn) { const ratio = rv / rn / (gv / gn); put("s2vol", ratio > 1, `vol แดง/เขียว ×${ratio.toFixed(2)} (${nv}d)`); }
+    else put("s2vol", null, `แท่งสีเดียวล้วนใน ${nv}d`);
+    const bbU = bbUpperLast(cl);
+    // "ทดสอบโซน supply" = แถบใกล้ SH (−3%..+5%) หรือชิด/เหนือ upper BB — เลย SH ไปไกล = price discovery
+    const dSH = st.lastSH != null ? (last / st.lastSH - 1) * 100 : null;
+    const nearSH = dSH != null && dSH >= -3 && dSH <= 5;
+    const nearBB = bbU != null && last >= 0.97 * bbU;
+    const sign = (x: number): string => `${x >= 0 ? "+" : ""}${x.toFixed(1)}%`;
+    put("s4zone", nearSH || nearBB,
+      nearSH ? `ในแถบ SH ล่าสุด (${sign(dSH as number)})`
+      : nearBB ? `ชิด/เหนือ upper BB(20,2)${dSH != null ? ` · SH ${sign(dSH)}` : ""}`
+      : dSH == null ? "ไม่มี SH อ้างอิง"
+      : dSH > 5 ? `เลย SH ไป ${sign(dSH)} = price discovery`
+      : `ยังห่าง SH ${sign(dSH)}`);
+  }
+  // --- 4H: ADX + triggers ---
+  if ("error" in k4h || k4h.closes.length < 40) {
+    const n = "error" in k4h ? 0 : k4h.closes.length;
+    ["s3dir", "s3train", "s5candle", "s5div", "s5macd", "s5break"].forEach((k) => put(k, null, `ข้อมูล 4H ไม่พอ (${n} แท่ง)`));
+  } else {
+    const adx = adxLast(k4h.highs, k4h.lows, k4h.closes);
+    if (adx) {
+      const choppy = adx.adx < 20;
+      put("s3dir", adx.adx > 25 && adx.mdi > adx.pdi, `ADX(4H) ${adx.adx.toFixed(1)} · +DI ${adx.pdi.toFixed(0)}/−DI ${adx.mdi.toFixed(0)}${choppy ? " ⚠️ choppy — รับ whipsaw เองถ้าจะเข้า" : ""}`);
+      put("s3train", !(adx.adx > 40 && adx.pdi > adx.mdi), adx.adx > 40 && adx.pdi > adx.mdi ? `ADX ${adx.adx.toFixed(1)} ฝั่งขึ้น = รถไฟ ห้าม fade` : `ไม่ใช่เทรนด์ขึ้นแรง (ADX ${adx.adx.toFixed(1)})`);
+    } else { put("s3dir", null, "คำนวณ ADX ไม่ได้"); put("s3train", null, "คำนวณ ADX ไม่ได้"); }
+    const i = k4h.closes.length - 1;
+    const o = k4h.opens[i], h = k4h.highs[i], l = k4h.lows[i], c = k4h.closes[i];
+    const body = Math.abs(c - o), upW = h - Math.max(o, c), loW = Math.min(o, c) - l;
+    const pin = upW >= 2 * body && upW > loW;
+    const engulf = k4h.closes[i - 1] > k4h.opens[i - 1] && c < o && o >= k4h.closes[i - 1] && c <= k4h.opens[i - 1];
+    put("s5candle", pin || engulf, pin ? "pin bar (ไส้บน ≥2×ตัว)" : engulf ? "bearish engulfing" : "แท่งปิดล่าสุดไม่ใช่ pin/engulf");
+    const rsi4 = wilderRSI(k4h.closes, 14);
+    const div4 = detectDiv(k4h.highs, rsi4, swingHighs(k4h.highs, DIV_PIVOT_K), "bearish");
+    const age4 = div4 ? k4h.closes.length - 1 - div4.p2 : null;
+    put("s5div", age4 != null && age4 <= DIV_FRESH_BARS, age4 != null ? `div 4H อายุ ${age4} แท่ง${age4 <= DIV_FRESH_BARS ? " (สด)" : " (เก่า)"}` : "ไม่มี bearish div 4H");
+    const mac4 = macdLast(k4h.closes);
+    put("s5macd", !!(mac4 && mac4.crossedDown), mac4 ? (mac4.crossedDown ? "MACD ตัดลงแท่งล่าสุด" : `MACD hist ${mac4.hist < 0 ? "ลบ" : "บวก"} (ยังไม่ตัดลงสด)`) : "คำนวณไม่ได้");
+    const priorLow = Math.min(...k4h.lows.slice(-7, -1));
+    put("s5break", c < priorLow, c < priorLow ? "ปิดใต้ low 6 แท่งก่อน" : "ยังไม่หลุด low 6 แท่งก่อน");
+  }
+  // สรุประดับขั้น (เฉพาะข้อ auto — ข้อ manual ติ๊กบน dashboard): เกณฑ์ need ตรง modal
+  const agg = (keys: string[], need: number): boolean | null => {
+    const got = keys.map((k) => (items[k] ? items[k].pass : null));
+    if (got.every((p) => p === null)) return null;
+    const passN = got.filter((p) => p === true).length;
+    if (passN >= need) return true;
+    return got.filter((p) => p !== null).length ? false : null;
+  };
+  const steps: Record<number, boolean | null> = {
+    1: agg(["s1a", "s1b", "s1c"], 3),
+    2: agg(["s2ema", "s2mom", "s2vol"], 2),
+    3: agg(["s3dir", "s3train"], 2),
+    4: agg(["s4zone"], 1),
+    5: agg(["s5candle", "s5div", "s5macd", "s5break"], 1),
+    6: null, // วินัยล้วน
+  };
+  return { steps, items };
+}
+
 async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
   if (url.searchParams.get("token") !== env.DASH_TOKEN) return jsonResp({ ok: false, error: "forbidden" }, 403);
   const sym = (url.searchParams.get("symbol") || "").trim().toUpperCase();
   const list = await getDivWatch(env);
   const item = list.find((d) => d.symbol === sym || d.label === sym);
   if (!item) return jsonResp({ ok: false, error: "ไม่อยู่ใน div watch" });
-  const [k15, k1, k2, k4] = await Promise.all([
+  const [k15, k1, k2, k4, k1d] = await Promise.all([
     fetchKlines(item), fetchKlines(item, "1h"), fetchKlines(item, "2h"), fetchKlines(item, "4h"),
+    fetchKlines(item, "1d", 260), // checklist: โครงสร้าง/EMA200 ต้องการประวัติยาว
   ]);
   // 1h/2h ใช้ candles ชุดเดียวทั้ง div และ cross — divTf["15m"] คือแหล่งเดียวกับ rsi15/div เดิม (badge ตรงกันเสมอ)
   const divTf: Record<string, DivTfStatus> = {
@@ -658,7 +822,7 @@ async function handleCoinStatus(env: Env, url: URL): Promise<Response> {
   return jsonResp({
     ok: true, label: item.label, source: item.source, rsi15, div, divTf, cross,
     lastdivMin: ld ? Math.round((Date.now() - Number(ld)) / 60000) : null, confirm,
-    para_seen: paraSeen,
+    para_seen: paraSeen, ck: buildCk(k1d, k4),
   });
 }
 
@@ -897,15 +1061,13 @@ h1 .rf{margin-left:auto}
 .sub{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px 12px;font-size:.74rem;padding:3px 0 0 2px;min-height:1em}
 .tf{white-space:nowrap;color:#6a9a7c;padding-top:2px}
 .tf.red{color:#ff5544;font-weight:600}.tf.yel{color:#ffb04d}
-/* journey rail 15m→4h (ตรง dashboard E3): ● fresh / ○ เก่า / · ไม่มี — แตะจุด = โชว์อายุใน msg */
-.cps{display:inline-flex;align-items:flex-start;line-height:1.1}
-.cp{display:inline-flex;flex-direction:column;align-items:center;min-width:26px;padding:2px 0}
-.cp .dot{font-size:14px;line-height:1.1}
-.cp .tfl{font-size:9px;color:#4a7a5c}
-.cp.fresh .dot{color:#ff5544;text-shadow:0 0 5px rgba(255,85,68,.6)}
-.cp.old .dot{color:#9fc4ad}
-.cp.none .dot{color:#33523f}
-.lnk{color:#33523f;font-size:14px;line-height:1.1;letter-spacing:-1px;padding-top:2px}
+/* checklist strip 6 ขั้น (ตรง dashboard): เขียว=ผ่าน แดง=ไม่ผ่าน จาง=ตัดสินไม่ได้/manual — แตะช่อง = เหตุผลใน msg */
+.cks{display:inline-flex;align-items:center;gap:4px}
+.ck{display:inline-flex;justify-content:center;align-items:center;width:22px;height:22px;border-radius:4px;font-size:11px;border:1px solid #1c5a30;color:#4a7a5c;background:#0d1b10}
+.ck.pass{background:#3fd07d;border-color:#3fd07d;color:#06230f;font-weight:700}
+.ck.fail{border-color:rgba(255,85,68,.55);color:#ff5544;background:rgba(255,85,68,.08)}
+.cksum{margin-left:2px;font-size:10px;color:#4a7a5c}
+.cksum.hot{color:#3fd07d;font-weight:700}
 button{background:#13351f;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:9px 14px;font-size:.92rem}
 button:active{background:#1c5a30}
 .x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
@@ -932,19 +1094,23 @@ return '<div class="row"><div class="main"><span class="lbl">'+d.label+'</span>'
 '<span class="rsi cool" id="rsi-'+d.label+'">&ndash;</span>'+
 '<span class="bdg dim" id="bdg-'+d.label+'">&hellip;</span>'+
 '<button class="x" data-sym="'+d.label+'">&#10005;</button></div>'+
-'<div class="sub" id="sub-'+d.label+'">'+rail(null)+'</div></div>';
+'<div class="sub" id="sub-'+d.label+'">'+ckStrip(null)+'</div></div>';
 }).join('')||'<p class="muted">ว่าง</p>';
 }
-// rail 15m→4h ตรง dashboard E3 — divTf จาก /coinstatus; null = ยังโหลดอยู่/ไม่มีข้อมูล
-function railCp(tf,r){
-var dot='\\u00b7',cls='none',tip=tf+': ไม่มี div';
-if(!r||!r.ok)tip=tf+': ไม่มีข้อมูล';
-else if(r.div&&r.div.fresh){dot='\\u25cf';cls='fresh';tip=tf+': bearish div สด ('+r.div.age+' แท่งก่อน)';}
-else if(r.div){dot='\\u25cb';cls='old';tip=tf+': div เก่า '+r.div.age+' แท่ง';}
-return '<span class="cp '+cls+'" data-tip="'+tip+'"><span class="dot">'+dot+'</span><span class="tfl">'+tf+'</span></span>';
-}
-function rail(divTf){
-return '<span class="cps">'+['15m','1h','2h','4h'].map(function(tf){return railCp(tf,divTf&&divTf[tf])}).join('<span class="lnk">\\u2500\\u2500</span>')+'<span class="lnk">\\u2500\\u2524</span></span>';
+// checklist strip 6 ขั้นตรง dashboard — ck จาก /coinstatus (ประเมินบน edge); null = ยังโหลด/ตัดสินไม่ได้
+var CK_NAMES={1:'โครงสร้าง 1D',2:'confluence',3:'ADX',4:'โซน supply',5:'trigger 4H',6:'แผน+size (manual)'};
+var CK_KEYS={1:['s1a','s1b','s1c'],2:['s2ema','s2mom','s2vol'],3:['s3dir','s3train'],4:['s4zone'],5:['s5candle','s5div','s5macd','s5break']};
+function ckStrip(ck){
+var pass=0,dec=0;
+var chips=[1,2,3,4,5,6].map(function(n){
+var p=ck?ck.steps[n]:null;
+if(p!==null&&p!==undefined&&ck){dec++;if(p===true)pass++;}
+var cls=p===true?'ck pass':p===false?'ck fail':'ck na';
+var det=ck?(CK_KEYS[n]||[]).map(function(k){var it=ck.items[k];return it?((it.pass===true?'\\u2713':it.pass===false?'\\u2717':'?')+' '+it.txt):''}).filter(Boolean).join(' | '):'';
+var tip=n+'. '+CK_NAMES[n]+(det?' \\u2014 '+det:(n===6?' \\u2014 ติ๊กเองใน checklist บน dashboard':''));
+return '<span class="'+cls+'" data-tip="'+tip.replace(/"/g,'&quot;')+'">'+n+'</span>';
+}).join('');
+return '<span class="cks">'+chips+'<span class="cksum'+(pass>=5?' hot':'')+'">'+(ck?pass+'/'+dec:'\\u2026')+'</span></span>';
 }
 function chip(tf,c){
 if(!c)return '<span class="tf">'+tf.toUpperCase()+' &ndash;</span>';
@@ -971,7 +1137,7 @@ if(!r)return;
 r.textContent=s.rsi15!=null?s.rsi15.toFixed(1):'?';
 r.className='rsi '+(s.rsi15!=null&&s.rsi15>=65?'hot':'cool');
 var bd=badge(s);b.innerHTML=bd[0];b.className='bdg '+bd[1];
-var h=rail(s.divTf);
+var h=ckStrip(s.ck);
 h+=chip('1h',s.cross&&s.cross['1h']);
 h+=chip('2h',s.cross&&s.cross['2h']);
 var c2=s.cross&&s.cross['2h'];
@@ -995,7 +1161,7 @@ $('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
 $('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
 $('list').addEventListener('click',function(e){
 var b=e.target.closest('[data-sym]');if(b){mutate('remove',b.dataset.sym);return;}
-var c=e.target.closest('.cp[data-tip]');if(c)setMsg(c.dataset.tip,'muted');
+var c=e.target.closest('.ck[data-tip]');if(c)setMsg(c.dataset.tip,'muted');
 });
 $('rf').onclick=loadStatus;
 render();loadStatus();
@@ -1019,7 +1185,7 @@ async function maybeHeartbeat(env: Env, symbols: DivHealth["symbols"]): Promise<
 
 // ดึง klines → normalize เป็น {highs, closes, times(ms)} จาก 2 format:
 // binance spot (array ของ array, t=ms) | gate futures (array ของ object {h,c,t}, t=วินาที)
-type Klines = { highs: number[]; lows: number[]; closes: number[]; times: number[] };
+type Klines = { opens: number[]; highs: number[]; lows: number[]; closes: number[]; vols: number[]; times: number[] };
 async function fetchKlines(item: DivSym, interval = "15m", limit = 150, keepForming = false, budget?: FetchBudget): Promise<Klines | { error: string; code?: number }> {
   const url =
     item.source === "gate"
@@ -1040,24 +1206,24 @@ async function fetchKlines(item: DivSym, interval = "15m", limit = 150, keepForm
   if (!Array.isArray(raw) || raw.length < 41) return { error: "too_few_klines" };
   const k = keepForming ? raw : raw.slice(0, -1); // ปกติตัดแท่งกำลังก่อตัวทิ้ง → closed only (กัน whipsaw, gotcha #9); early watcher ขอเก็บไว้
   if (item.source === "gate") {
-    const a = k as { h: string; l: string; c: string; t: number }[];
+    const a = k as { o: string; h: string; l: string; c: string; v?: number; t: number }[];
     return {
-      highs: a.map((r) => parseFloat(r.h)), lows: a.map((r) => parseFloat(r.l)),
-      closes: a.map((r) => parseFloat(r.c)), times: a.map((r) => r.t * 1000),
+      opens: a.map((r) => parseFloat(r.o)), highs: a.map((r) => parseFloat(r.h)), lows: a.map((r) => parseFloat(r.l)),
+      closes: a.map((r) => parseFloat(r.c)), vols: a.map((r) => Number(r.v ?? 0)), times: a.map((r) => r.t * 1000),
     };
   }
   if (item.source === "gate_spot") {
     // spot format: [t(วินาที str), quote_vol, close, high, low, open, base_amount, closed_flag]
     const a = k as string[][];
     return {
-      highs: a.map((r) => parseFloat(r[3])), lows: a.map((r) => parseFloat(r[4])),
-      closes: a.map((r) => parseFloat(r[2])), times: a.map((r) => Number(r[0]) * 1000),
+      opens: a.map((r) => parseFloat(r[5])), highs: a.map((r) => parseFloat(r[3])), lows: a.map((r) => parseFloat(r[4])),
+      closes: a.map((r) => parseFloat(r[2])), vols: a.map((r) => parseFloat(r[1])), times: a.map((r) => Number(r[0]) * 1000),
     };
   }
   const a = k as string[][];
   return {
-    highs: a.map((r) => parseFloat(r[2])), lows: a.map((r) => parseFloat(r[3])),
-    closes: a.map((r) => parseFloat(r[4])), times: a.map((r) => Number(r[0])),
+    opens: a.map((r) => parseFloat(r[1])), highs: a.map((r) => parseFloat(r[2])), lows: a.map((r) => parseFloat(r[3])),
+    closes: a.map((r) => parseFloat(r[4])), vols: a.map((r) => parseFloat(r[5])), times: a.map((r) => Number(r[0])),
   };
 }
 
