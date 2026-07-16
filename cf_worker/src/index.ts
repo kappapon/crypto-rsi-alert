@@ -1068,6 +1068,36 @@ h1 .rf{margin-left:auto}
 .ck.fail{border-color:rgba(255,85,68,.55);color:#ff5544;background:rgba(255,85,68,.08)}
 .cksum{margin-left:2px;font-size:10px;color:#4a7a5c}
 .cksum.hot{color:#3fd07d;font-weight:700}
+/* modal checklist per-coin — mirror ปุ่ม 📋 ของ dashboard (คลาส ck-* ชุดเดียวกันให้ grep เจอคู่กัน) */
+.ckb{background:none;border:none;padding:0 4px 0 0;font-size:14px;line-height:1}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:flex;align-items:flex-start;justify-content:center;padding:14px;z-index:20;overflow-y:auto}
+.modal.hidden{display:none}
+.mc{background:#0d1b10;border:1px solid #1c5a30;border-radius:10px;max-width:520px;width:100%;margin:auto 0;padding:12px;display:flex;flex-direction:column;gap:8px}
+.mhead{display:flex;align-items:center;gap:8px}
+.mhead b{font-size:.95rem;color:#3fd07d;flex:1}
+.ck-tfrule{font-size:.72rem;color:#6a9a7c;border:1px dashed #1c5a30;padding:6px 8px;border-radius:4px;line-height:1.5;margin:0}
+.ck-step{border:1px solid #1c5a30;border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:5px}
+.ck-step.done{border-color:#3fd07d}
+.ck-step.done .ck-num{background:#3fd07d;color:#06230f}
+.ck-head{font-size:.78rem;color:#3fd07d;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.ck-num{display:inline-flex;justify-content:center;align-items:center;width:18px;height:18px;border-radius:50%;border:1px solid #3fd07d;font-size:.7rem;flex:none}
+.ck-tag{margin-left:auto;font-size:.62rem;color:#4a7a5c;text-align:right}
+.ck-step label{display:flex;flex-wrap:wrap;gap:7px;align-items:flex-start;font-size:.74rem;color:#cfe4d6;line-height:1.45}
+.ck-step input{accent-color:#3fd07d;margin-top:2px;flex:none;width:16px;height:16px}
+.ck-txt{flex:1;min-width:0}
+.ck-val{flex-basis:100%;padding-left:23px;font-size:.66rem;color:#4a7a5c}
+label.ck-auto-pass .ck-txt{color:#3fd07d}
+label.ck-auto-pass .ck-val{color:#6a9a7c}
+label.ck-auto-fail .ck-txt{color:#ff5544;opacity:.85}
+label.ck-auto-na .ck-val{color:#ffb04d;opacity:.8}
+.ck-warn{font-size:.68rem;color:#ffb04d;line-height:1.4;margin:0}
+.ck-note{font-size:.68rem;color:#4a7a5c;line-height:1.4;margin:0}
+.ck-foot{display:flex;align-items:center;gap:10px;border-top:1px solid #1c5a30;padding-top:10px}
+#ck-progress{font-size:.78rem;color:#6a9a7c}
+#ck-verdict{font-size:.78rem;font-weight:700}
+#ck-verdict.ok{color:#3fd07d}
+#ck-verdict.wait{color:#ffb04d}
+#ck-reset{margin-left:auto;padding:4px 12px;font-size:.72rem}
 button{background:#13351f;color:#cfe4d6;border:1px solid #1c5a30;border-radius:6px;padding:9px 14px;font-size:.92rem}
 button:active{background:#1c5a30}
 .x{background:none;border:none;color:#888;font-size:1.05rem;padding:6px 10px}
@@ -1084,6 +1114,66 @@ button:active{background:#1c5a30}
 <button id="add">add</button></div>
 <div id="msg" class="muted"></div>
 <div id="list"></div>
+
+<!-- modal checklist per-coin — โครง/ข้อความเดียวกับ #modal-checklist ของ dashboard -->
+<div id="ckm" class="modal hidden">
+<div class="mc">
+<div class="mhead"><b id="ck-title">&#128203; SHORT ENTRY CHECKLIST</b><button class="x" id="ck-close">&#10005;</button></div>
+<p class="ck-tfrule">กฎ timeframe: โครงสร้างตัดสินบน <b>1D เท่านั้น</b> · 4H = ยืนยัน + entry trigger · 1H = noise ห้ามใช้ตัดสินเทรนด์ · ทุก TF ต้องสอดคล้องกัน — 1D ขึ้น + 4H ลง = แค่ pullback ไม่ใช่ reversal</p>
+
+<div class="ck-step" data-need="3">
+<div class="ck-head"><span class="ck-num">1</span> โครงสร้าง 1D — ต้องผ่านจุดพีคก่อน <span class="ck-tag">ตัวตัดสิน · ครบทั้ง 3</span></div>
+<label data-k="s1a"><input type="checkbox"> <span class="ck-txt">ผ่านจุดพีคแล้ว — มี HH สุดท้าย และไม่มี HH ใหม่อีก</span></label>
+<label data-k="s1b"><input type="checkbox"> <span class="ck-txt">CHoCH — ปิดใต้ swing low ล่าสุด (โครงสร้างขาขึ้นเสีย)</span></label>
+<label data-k="s1c"><input type="checkbox"> <span class="ck-txt">LH + LL ต่อเนื่อง &ge; 2 รอบ (BOS ขาลง) — downtrend ยืนยัน</span></label>
+<p class="ck-warn">&#9888;&#65039; ไม่ครบ = ยังเป็น uptrend — จะ fade แบบ AKE ต้องมี exhaustion สุดขีด + rejection ชัดเท่านั้น และ size ครึ่งเดียว (ข้อ 6)</p>
+</div>
+
+<div class="ck-step" data-need="2">
+<div class="ck-head"><span class="ck-num">2</span> Bearish confluence — 1D หลัก · 4H ยืนยัน <span class="ck-tag">อย่างน้อย 2/4</span></div>
+<label data-k="s2ema"><input type="checkbox"> <span class="ck-txt">ราคา &lt; EMA50 (&lt; EMA200 = structural) และ slope MA ชี้ลง</span></label>
+<label data-k="s2mom"><input type="checkbox"> <span class="ck-txt">RSI &lt; 50 + MACD ใต้ signal (histogram ติดลบ)</span></label>
+<label data-k="s2vol"><input type="checkbox"> <span class="ck-txt">Volume ขยายตอนแท่งแดง (distribution) · หดตอนเด้ง (dead-cat)</span></label>
+<label data-k="s2smc"><input type="checkbox"> <span class="ck-txt">SMC: bearish OB unmitigated · FVG ล่างรอ fill · resistance flip</span></label>
+</div>
+
+<div class="ck-step" data-need="2">
+<div class="ck-head"><span class="ck-num">3</span> ADX — แรงพอ และไม่ใช่รถไฟ <span class="ck-tag">ครบทั้ง 2</span></div>
+<label data-k="s3dir"><input type="checkbox"> <span class="ck-txt">ADX &gt; 25 + &minus;DI เหนือ +DI (ขาลงมีแรง) — หรือถ้า choppy &lt; 20 (เคส RIF 11.7): ยอมรับ whipsaw risk แล้วเข้มข้อ 5 เป็นพิเศษ</span></label>
+<label data-k="s3train"><input type="checkbox"> <span class="ck-txt">ไม่ได้สวนเทรนด์แรง — ADX ฝั่งขึ้นไม่เกิน 40 (เคส AKE 52.9 = ยืนขวางรถไฟ ห้าม fade)</span></label>
+</div>
+
+<div class="ck-step" data-need="2">
+<div class="ck-head"><span class="ck-num">4</span> โซนเข้า — supply ข้างบน <span class="ck-tag">วางแผนก่อน แล้วรอ</span></div>
+<label data-k="s4zone"><input type="checkbox"> <span class="ck-txt">ราคา pullback ขึ้นทดสอบโซนขาย: LH เดิม / แนวต้าน / bearish OB / upper BB</span></label>
+<label data-k="s4plan"><input type="checkbox"> <span class="ck-txt">กำหนดโซน entry + stop + targets ไว้ก่อนราคามาถึง — ไม่ไล่ราคา</span></label>
+</div>
+
+<div class="ck-step" data-need="1">
+<div class="ck-head"><span class="ck-num">5</span> Entry trigger บน 4H <span class="ck-tag">อย่างน้อย 1 · ห้าม pre-empt</span></div>
+<label data-k="s5candle"><input type="checkbox"> <span class="ck-txt">Bearish pin bar / engulfing ปฏิเสธโซน</span></label>
+<label data-k="s5div"><input type="checkbox"> <span class="ck-txt">Bearish divergence — ราคา HH + RSI LH</span></label>
+<label data-k="s5macd"><input type="checkbox"> <span class="ck-txt">MACD bearish cross บน 4H</span></label>
+<label data-k="s5break"><input type="checkbox"> <span class="ck-txt">ปิด 4H หลุดระดับ momentum break</span></label>
+<p class="ck-note">&#128059; divwatch จับ divergence 15m ให้อัตโนมัติ · &#127919; confirmed (sweep&rarr;reclaim) = trigger สำเร็จรูปของข้อนี้</p>
+</div>
+
+<div class="ck-step" data-need="4">
+<div class="ck-head"><span class="ck-num">6</span> แผน + ขนาด — ก่อนกดคำสั่ง <span class="ck-tag">ครบทั้ง 4</span></div>
+<label data-k="s6stop"><input type="checkbox"> <span class="ck-txt">Stop เหนือ peak/swing high ล่าสุด + buffer (~0.5&times;ATR) — invalidation ชัด</span></label>
+<label data-k="s6rr"><input type="checkbox"> <span class="ck-txt">R:R &ge; 3:1 (setup สวย 5:1+) · วาง T1/T2 ล่วงหน้า</span></label>
+<label data-k="s6size"><input type="checkbox"> <span class="ck-txt">Size: ตามเทรนด์ 0.5&ndash;1% risk · สวนเทรนด์ 0.25&ndash;0.5% หรือข้ามไปเลย</span></label>
+<label data-k="s6exit"><input type="checkbox"> <span class="ck-txt">ปิด 4H เหนือ stop = ออกทันที — ไม่เถียง ไม่ขยับ stop</span></label>
+</div>
+
+<div class="ck-foot">
+<span id="ck-progress"></span>
+<span id="ck-verdict"></span>
+<button id="ck-reset">ล้าง</button>
+</div>
+</div>
+</div>
+
 <script>
 var TOKEN=new URLSearchParams(location.search).get('token');
 var list=${listJson};
@@ -1094,23 +1184,24 @@ return '<div class="row"><div class="main"><span class="lbl">'+d.label+'</span>'
 '<span class="rsi cool" id="rsi-'+d.label+'">&ndash;</span>'+
 '<span class="bdg dim" id="bdg-'+d.label+'">&hellip;</span>'+
 '<button class="x" data-sym="'+d.label+'">&#10005;</button></div>'+
-'<div class="sub" id="sub-'+d.label+'">'+ckStrip(null)+'</div></div>';
+'<div class="sub" id="sub-'+d.label+'">'+ckStrip(null,d.label)+'</div></div>';
 }).join('')||'<p class="muted">ว่าง</p>';
 }
 // checklist strip 6 ขั้นตรง dashboard — ck จาก /coinstatus (ประเมินบน edge); null = ยังโหลด/ตัดสินไม่ได้
 var CK_NAMES={1:'โครงสร้าง 1D',2:'confluence',3:'ADX',4:'โซน supply',5:'trigger 4H',6:'แผน+size (manual)'};
 var CK_KEYS={1:['s1a','s1b','s1c'],2:['s2ema','s2mom','s2vol'],3:['s3dir','s3train'],4:['s4zone'],5:['s5candle','s5div','s5macd','s5break']};
-function ckStrip(ck){
+function ckStrip(ck,label){
 var pass=0,dec=0;
 var chips=[1,2,3,4,5,6].map(function(n){
 var p=ck?ck.steps[n]:null;
 if(p!==null&&p!==undefined&&ck){dec++;if(p===true)pass++;}
 var cls=p===true?'ck pass':p===false?'ck fail':'ck na';
 var det=ck?(CK_KEYS[n]||[]).map(function(k){var it=ck.items[k];return it?((it.pass===true?'\\u2713':it.pass===false?'\\u2717':'?')+' '+it.txt):''}).filter(Boolean).join(' | '):'';
-var tip=n+'. '+CK_NAMES[n]+(det?' \\u2014 '+det:(n===6?' \\u2014 ติ๊กเองใน checklist บน dashboard':''));
+var tip=n+'. '+CK_NAMES[n]+(det?' \\u2014 '+det:(n===6?' \\u2014 ติ๊กเองใน \\uD83D\\uDCCB':''));
 return '<span class="'+cls+'" data-tip="'+tip.replace(/"/g,'&quot;')+'">'+n+'</span>';
 }).join('');
-return '<span class="cks">'+chips+'<span class="cksum'+(pass>=5?' hot':'')+'">'+(ck?pass+'/'+dec:'\\u2026')+'</span></span>';
+var open='<button class="ckb" data-ck="'+label+'" title="เปิด checklist '+label+'">\\uD83D\\uDCCB</button>';
+return '<span class="cks">'+open+chips+'<span class="cksum'+(pass>=5?' hot':'')+'">'+(ck?pass+'/'+dec:'\\u2026')+'</span></span>';
 }
 function chip(tf,c){
 if(!c)return '<span class="tf">'+tf.toUpperCase()+' &ndash;</span>';
@@ -1137,7 +1228,8 @@ if(!r)return;
 r.textContent=s.rsi15!=null?s.rsi15.toFixed(1):'?';
 r.className='rsi '+(s.rsi15!=null&&s.rsi15>=65?'hot':'cool');
 var bd=badge(s);b.innerHTML=bd[0];b.className='bdg '+bd[1];
-var h=ckStrip(s.ck);
+ckCache[d.label]=s.ck||null; // เก็บไว้ให้ modal 📋 — เติมค่าเฉพาะตอนเปิด (ตรง dashboard)
+var h=ckStrip(s.ck,d.label);
 h+=chip('1h',s.cross&&s.cross['1h']);
 h+=chip('2h',s.cross&&s.cross['2h']);
 var c2=s.cross&&s.cross['2h'];
@@ -1161,9 +1253,65 @@ $('add').onclick=function(){var v=$('sym').value.trim();if(v)mutate('add',v)};
 $('sym').addEventListener('keydown',function(e){if(e.key==='Enter'){var v=$('sym').value.trim();if(v)mutate('add',v)}});
 $('list').addEventListener('click',function(e){
 var b=e.target.closest('[data-sym]');if(b){mutate('remove',b.dataset.sym);return;}
+var k=e.target.closest('[data-ck]');if(k){ckOpenFor(k.dataset.ck);return;}
 var c=e.target.closest('.ck[data-tip]');if(c)setMsg(c.dataset.tip,'muted');
 });
 $('rf').onclick=loadStatus;
+
+// ---- modal checklist per-coin (logic เดียวกับ dashboard: auto เติมสถานะ+ค่า แต่ไม่ล็อก / manual ติ๊กเอง) ----
+var ckCache={};var ckSym=null;
+function ckUpdate(){
+var steps=document.querySelectorAll('#ckm .ck-step');var passed=0;
+for(var i=0;i<steps.length;i++){
+var ok=steps[i].querySelectorAll('input:checked').length>=+steps[i].getAttribute('data-need');
+steps[i].classList.toggle('done',ok);if(ok)passed++;
+}
+$('ck-progress').textContent='ผ่าน '+passed+'/'+steps.length+' ขั้น';
+var v=$('ck-verdict');var full=passed===steps.length;
+v.textContent=full?'\\u2705 ครบ \\u2014 เข้าได้ตามแผน':'\\u26D4 รอ \\u2014 ห้าม pre-empt';
+v.className=full?'ok':'wait';
+}
+function ckClearDecor(){
+var lbs=document.querySelectorAll('#ckm label[data-k]');
+for(var i=0;i<lbs.length;i++){var lb=lbs[i];
+lb.querySelector('input').checked=false;
+lb.classList.remove('ck-auto-pass','ck-auto-fail','ck-auto-na');
+var v=lb.querySelector('.ck-val');if(v)v.remove();
+}
+ckUpdate();
+}
+function ckOpenGeneric(){
+if(ckSym!==null){ckClearDecor();ckSym=null;}
+$('ck-title').textContent='\\uD83D\\uDCCB SHORT ENTRY CHECKLIST';
+$('ckm').classList.remove('hidden');
+}
+function ckOpenFor(label){
+var ck=ckCache[label];
+if(!ck){ckOpenGeneric();return;}
+if(ckSym!==label)ckClearDecor();
+ckSym=label;
+$('ck-title').textContent='\\uD83D\\uDCCB '+label+' \\u2014 SHORT CHECKLIST';
+var lbs=document.querySelectorAll('#ckm label[data-k]');
+for(var i=0;i<lbs.length;i++){var lb=lbs[i];
+var it=ck.items[lb.getAttribute('data-k')];
+if(!it)continue; // ข้อ manual — ปล่อยติ๊กมือ
+var val=lb.querySelector('.ck-val');
+if(!val){val=document.createElement('span');val.className='ck-val';lb.appendChild(val);}
+val.textContent=it.txt;
+lb.classList.remove('ck-auto-pass','ck-auto-fail','ck-auto-na');
+if(it.pass===null)lb.classList.add('ck-auto-na');
+else{lb.querySelector('input').checked=it.pass;lb.classList.add(it.pass?'ck-auto-pass':'ck-auto-fail');}
+}
+ckUpdate();
+$('ckm').classList.remove('hidden');
+}
+$('ck-close').onclick=function(){$('ckm').classList.add('hidden')};
+$('ckm').addEventListener('click',function(e){if(e.target===$('ckm'))$('ckm').classList.add('hidden')});
+$('ck-reset').onclick=function(){ckClearDecor();if(ckSym!==null){var s=ckSym;ckSym=null;ckOpenFor(s);}};
+var ckInputs=document.querySelectorAll('#ckm input[type=checkbox]');
+for(var i=0;i<ckInputs.length;i++)ckInputs[i].addEventListener('change',ckUpdate);
+ckUpdate();
+
 render();loadStatus();
 </script></body></html>`;
 }
