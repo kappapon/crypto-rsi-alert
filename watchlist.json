@@ -1363,6 +1363,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "MEITUAN_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 11.4756,
+        "resistance": 11.306,
+        "rejection_below": 10.5621,
+        "support_strong": 10.8817,
+        "support_extreme": 10.5826
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
