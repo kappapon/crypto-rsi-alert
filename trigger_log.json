@@ -13674,8 +13674,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-07-13T20:23:45.000181+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-15T04:23:32.883879+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-17T12:24:25.531223+00:00"
     },
     {
       "symbol": "O_USDT",
@@ -14761,6 +14761,78 @@
       "price": 0.0883,
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-07-17T08:24:57.816008+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AERO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-17T12:24:20.001111+00:00",
+      "price": 0.4899,
+      "funding": -0.0445,
+      "id": "AERO_USDT:support_break:2026-07-17T12:24:20.001111+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MAGMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-17T12:24:34.470260+00:00",
+      "price": 0.25962,
+      "funding": 0.005,
+      "id": "MAGMA_USDT:rejection:2026-07-17T12:24:34.470260+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-17T12:24:35.341130+00:00",
+      "price": 0.9152,
+      "funding": 0.0,
+      "id": "KAITOUSDT:breakout:2026-07-17T12:24:35.341130+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-17T12:25:03.516762+00:00",
+      "price": 0.0688,
+      "funding": 0.0,
+      "id": "BANKUSDT:breakout:2026-07-17T12:25:03.516762+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-17T12:25:03.516762+00:00",
+      "price": 0.0688,
+      "funding": 0.0,
+      "id": "BANKUSDT:resistance_test:2026-07-17T12:25:03.516762+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MEMES_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-17T12:25:04.104531+00:00",
+      "price": 0.002482,
+      "funding": 0.01,
+      "id": "MEMES_USDT:rejection:2026-07-17T12:25:04.104531+00:00",
       "status": "pending",
       "repeats": 1
     }
