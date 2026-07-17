@@ -647,6 +647,19 @@
       "ts": "2026-07-17T11:15:00.000Z",
       "id": "armed:VANRY_USDT:gate:2026-07-17T11:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.3779,
+      "p1_rsi": 66.1126047186998,
+      "p2_high": 0.3798,
+      "p2_rsi": 55.0924778692216,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-07-17T11:45:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-07-17T11:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
