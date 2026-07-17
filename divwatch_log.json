@@ -809,6 +809,20 @@
       "ts": "2026-07-17T19:48:04.898Z",
       "id": "confirmed:ESPORTS_USDT:gate:2026-07-17T11:03:07.739Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.13729,
+      "armed_ts": "2026-07-17T18:17:58.070Z",
+      "entry": 0.13632,
+      "label": "RIF",
+      "peak_high": 0.14001,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.140627857142857,
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-17T22:32:58.335Z",
+      "id": "confirmed:RIF_USDT:gate:2026-07-17T18:17:58.070Z",
+      "status": "pending"
     }
   ]
 }
