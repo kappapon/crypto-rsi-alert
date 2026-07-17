@@ -499,6 +499,20 @@
       "ts": "2026-07-17T00:30:00.000Z",
       "id": "flip:RE_USDT:gate:2026-07-17T00:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.8732,
+      "armed_ts": "2026-07-16T23:33:02.439Z",
+      "entry": 0.8675,
+      "label": "KAITO",
+      "peak_high": 0.8882,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.894721428571429,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-07-17T07:48:02.665Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-07-16T23:33:02.439Z",
+      "status": "pending"
     }
   ]
 }
