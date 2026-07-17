@@ -553,6 +553,19 @@
       "ts": "2026-07-17T09:00:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-07-17T09:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "VELVET",
+      "p1_high": 0.54202,
+      "p1_rsi": 65.8462767497003,
+      "p2_high": 0.54354,
+      "p2_rsi": 56.628460673199,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "VELVET_USDT",
+      "ts": "2026-07-17T09:00:00.000Z",
+      "id": "armed:VELVET_USDT:gate:2026-07-17T09:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
