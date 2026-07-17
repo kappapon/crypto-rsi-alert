@@ -714,6 +714,20 @@
       "ts": "2026-07-17T15:03:03.618Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-17T12:48:02.954Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.0013015,
+      "armed_ts": "2026-07-17T14:18:05.458Z",
+      "entry": 0.0012313,
+      "label": "AKE",
+      "peak_high": 0.0014,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00143471785714286,
+      "symbol": "AKE_USDT",
+      "ts": "2026-07-17T15:03:09.490Z",
+      "id": "confirmed:AKE_USDT:gate:2026-07-17T14:18:05.458Z",
+      "status": "pending"
     }
   ]
 }
