@@ -620,6 +620,20 @@
       "ts": "2026-07-17T11:17:58.726Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-17T11:02:58.546Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.54354,
+      "armed_ts": "2026-07-17T09:48:05.729Z",
+      "entry": 0.53938,
+      "label": "VELVET",
+      "peak_high": 0.57509,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.582241428571429,
+      "symbol": "VELVET_USDT",
+      "ts": "2026-07-17T11:18:09.058Z",
+      "id": "confirmed:VELVET_USDT:gate:2026-07-17T09:48:05.729Z",
+      "status": "pending"
     }
   ]
 }
