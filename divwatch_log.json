@@ -755,6 +755,19 @@
       "ts": "2026-07-17T16:02:59.291Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-17T12:02:58.947Z",
       "status": "pending"
+    },
+    {
+      "label": "RIF",
+      "p1_high": 0.13696,
+      "p1_rsi": 68.8566235416267,
+      "p2_high": 0.13729,
+      "p2_rsi": 65.4699385798184,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-17T17:30:00.000Z",
+      "id": "armed:RIF_USDT:gate:2026-07-17T17:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
