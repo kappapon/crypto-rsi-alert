@@ -606,6 +606,20 @@
       "ts": "2026-07-17T10:15:00.000Z",
       "id": "armed:ESPORTS_USDT:gate:2026-07-17T10:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.005622,
+      "armed_ts": "2026-07-17T11:02:58.546Z",
+      "entry": 0.005607,
+      "label": "VANRY",
+      "peak_high": 0.00563,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.005685,
+      "symbol": "VANRY_USDT",
+      "ts": "2026-07-17T11:17:58.726Z",
+      "id": "confirmed:VANRY_USDT:gate:2026-07-17T11:02:58.546Z",
+      "status": "pending"
     }
   ]
 }
