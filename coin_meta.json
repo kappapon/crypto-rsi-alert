@@ -1965,5 +1965,92 @@
     "logo_url": null,
     "cg_id": null,
     "categories": []
+  },
+  "METAB": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102174260/small/bstocks_metab.png?1782838007",
+    "cg_id": "meta-platforms-bstocks-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Tokenized Stock",
+      "Real World Assets (RWA)",
+      "bStocks Ecosystem"
+    ]
+  },
+  "PLTRB": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102174257/small/bstocks_pltrb.png?1782836664",
+    "cg_id": "palantir-technologies-bstocks-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Tokenized Stock",
+      "Real World Assets (RWA)",
+      "bStocks Ecosystem"
+    ]
+  },
+  "MSFTB": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102174258/small/bstocks_msftb.png?1782837051",
+    "cg_id": "microsoft-bstocks-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Tokenized Stock",
+      "Real World Assets (RWA)",
+      "bStocks Ecosystem"
+    ]
+  },
+  "AAPLX": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/55586/small/Ticker_AAPL__Company_Name_Apple_Inc.__size_200x200_2x.png?1746807196",
+    "cg_id": "apple-xstock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Mantle Ecosystem",
+      "TON Ecosystem",
+      "BackedFi xStocks Ecosystem"
+    ]
+  },
+  "DGB": {
+    "theme": "L1",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/63/small/digibyte.png?1696501454",
+    "cg_id": "digibyte",
+    "categories": [
+      "Internet of Things (IOT)",
+      "Smart Contract Platform",
+      "Layer 1 (L1)",
+      "Proof of Work (PoW)",
+      "Made in USA"
+    ]
+  },
+  "MEITUAN": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "POPMART": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
+  },
+  "BANK": {
+    "theme": "Unclassified",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/55250/small/lorenzo.jpg?1744963693",
+    "cg_id": "lorenzo-protocol",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "YZi Labs (Prev. Binance Labs) Portfolio",
+      "Liquid Staking",
+      "BTCfi Protocol"
+    ]
   }
 }
