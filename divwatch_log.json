@@ -593,6 +593,19 @@
       "ts": "2026-07-17T10:15:00.000Z",
       "id": "armed:VANRY_USDT:gate:2026-07-17T10:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "ESPORTS",
+      "p1_high": 0.02573,
+      "p1_rsi": 67.0716579690248,
+      "p2_high": 0.02595,
+      "p2_rsi": 66.1123796731368,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "ESPORTS_USDT",
+      "ts": "2026-07-17T10:15:00.000Z",
+      "id": "armed:ESPORTS_USDT:gate:2026-07-17T10:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
