@@ -486,6 +486,19 @@
       "ts": "2026-07-17T00:15:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-07-17T00:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "RE",
+      "p1_low": 0.48606,
+      "p1_rsi": 26.2554957353813,
+      "p2_low": 0.48438,
+      "p2_rsi": 37.0238192614042,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "RE_USDT",
+      "ts": "2026-07-17T00:30:00.000Z",
+      "id": "flip:RE_USDT:gate:2026-07-17T00:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
