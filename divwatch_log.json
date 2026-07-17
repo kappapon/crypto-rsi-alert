@@ -795,6 +795,20 @@
       "ts": "2026-07-17T19:18:04.612Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-17T15:18:04.279Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.02595,
+      "armed_ts": "2026-07-17T11:03:07.739Z",
+      "entry": 0.02586,
+      "label": "ESPORTS",
+      "peak_high": 0.02841,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0293025,
+      "symbol": "ESPORTS_USDT",
+      "ts": "2026-07-17T19:48:04.898Z",
+      "id": "confirmed:ESPORTS_USDT:gate:2026-07-17T11:03:07.739Z",
+      "status": "pending"
     }
   ]
 }
