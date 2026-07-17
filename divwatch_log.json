@@ -279,7 +279,15 @@
       "symbol": "RIF_USDT",
       "ts": "2026-07-15T16:02:11.095Z",
       "id": "confirmed:RIF_USDT:gate:2026-07-15T09:02:09.937Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.816,
+      "stopped": true,
+      "stop_ts": "2026-07-16T05:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.142565714285714,
+      "closed_at": "2026-07-16T05:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "RIF",
@@ -319,7 +327,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-07-16T07:03:04.996Z",
       "id": "confirmed:LDO_USDT:gate:2026-07-16T06:18:04.913Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 3.445,
+      "stopped": true,
+      "stop_ts": "2026-07-16T15:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.375228571428571,
+      "closed_at": "2026-07-16T15:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -359,7 +375,15 @@
       "symbol": "RE_USDT",
       "ts": "2026-07-16T12:17:58.269Z",
       "id": "confirmed:RE_USDT:gate:2026-07-16T09:47:57.847Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.053,
+      "stopped": true,
+      "stop_ts": "2026-07-16T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.5237775,
+      "closed_at": "2026-07-16T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.00095,
@@ -373,7 +397,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-07-16T12:18:03.017Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-16T08:33:06.245Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-07-16T12:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.000983914285714286,
+      "closed_at": "2026-07-16T12:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
