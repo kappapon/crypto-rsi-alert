@@ -1025,6 +1025,19 @@
       "ts": "2026-07-18T09:00:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-07-18T09:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "RIF",
+      "p1_high": 0.13741,
+      "p1_rsi": 65.6987406327767,
+      "p2_high": 0.13793,
+      "p2_rsi": 62.4023386902776,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "RIF_USDT",
+      "ts": "2026-07-18T14:30:00.000Z",
+      "id": "armed:RIF_USDT:gate:2026-07-18T14:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
