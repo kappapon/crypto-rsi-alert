@@ -12037,8 +12037,8 @@
       "funding": 0.0,
       "id": "RIFUSDT:support_break:2026-07-08T12:24:22.213908+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-18T00:24:18.391081+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-18T20:23:34.796071+00:00"
     },
     {
       "symbol": "EVAA_USDT",
@@ -15412,6 +15412,30 @@
       "price": 0.0981,
       "funding": 0.0,
       "id": "BANKUSDT:resistance_test:2026-07-18T16:24:06.031997+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "VELODROMEUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-18T20:23:40.462156+00:00",
+      "price": 0.01853,
+      "funding": 0.0,
+      "id": "VELODROMEUSDT:rejection:2026-07-18T20:23:40.462156+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-18T20:24:03.905538+00:00",
+      "price": 0.0019996,
+      "funding": 0.0177,
+      "id": "AKE_USDT:resistance_test:2026-07-18T20:24:03.905538+00:00",
       "status": "pending",
       "repeats": 1
     }
