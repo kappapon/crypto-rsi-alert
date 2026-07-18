@@ -199,7 +199,15 @@
       "symbol": "VANRY_USDT",
       "ts": "2026-07-14T17:02:13.606Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-14T16:47:17.138Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.512,
+      "mfe_r": 2.908,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 1.249,
+      "exit": 0.005586,
+      "closed_at": "2026-07-17T17:02:13+00:00",
+      "horizon_h": 72
     },
     {
       "label": "SPELL",
@@ -239,7 +247,15 @@
       "symbol": "SPELL_USDT",
       "ts": "2026-07-14T22:17:13.694Z",
       "id": "confirmed:SPELL_USDT:gate:2026-07-14T17:02:18.602Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 15.167,
+      "stopped": true,
+      "stop_ts": "2026-07-17T20:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 8.96571428571429e-05,
+      "closed_at": "2026-07-17T20:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "RIF",
@@ -432,7 +448,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-07-16T18:18:03.783Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-16T14:18:03.148Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.638,
+      "stopped": true,
+      "stop_ts": "2026-07-17T09:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00120188214285714,
+      "closed_at": "2026-07-17T09:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -459,7 +483,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-07-16T23:03:01.924Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-16T22:48:01.766Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.13,
+      "stopped": true,
+      "stop_ts": "2026-07-17T07:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.881753571428571,
+      "closed_at": "2026-07-17T07:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -512,7 +544,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-07-17T07:48:02.665Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-16T23:33:02.439Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.228,
+      "stopped": true,
+      "stop_ts": "2026-07-17T09:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.894721428571429,
+      "closed_at": "2026-07-17T09:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -539,7 +579,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-07-17T09:18:02.491Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-17T08:03:01.497Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.01,
+      "stopped": true,
+      "stop_ts": "2026-07-17T12:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.905125,
+      "closed_at": "2026-07-17T12:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -579,7 +627,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-07-17T10:03:02.557Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-17T09:48:02.424Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.821,
+      "stopped": true,
+      "stop_ts": "2026-07-17T12:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.907182142857143,
+      "closed_at": "2026-07-17T12:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "VANRY",
@@ -619,7 +675,15 @@
       "symbol": "VANRY_USDT",
       "ts": "2026-07-17T11:17:58.726Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-17T11:02:58.546Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.449,
+      "stopped": true,
+      "stop_ts": "2026-07-17T13:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.005685,
+      "closed_at": "2026-07-17T13:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.54354,
@@ -699,7 +763,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-07-17T14:33:05.823Z",
       "id": "confirmed:LDO_USDT:gate:2026-07-17T12:33:04.720Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.393,
+      "stopped": true,
+      "stop_ts": "2026-07-17T16:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.386378571428571,
+      "closed_at": "2026-07-17T16:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.9221,
@@ -727,7 +799,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-07-17T15:03:09.490Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-17T14:18:05.458Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.252,
+      "stopped": true,
+      "stop_ts": "2026-07-17T19:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00143471785714286,
+      "closed_at": "2026-07-17T19:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -794,7 +874,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-07-17T19:18:04.612Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-17T15:18:04.279Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-07-17T19:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00144258571428571,
+      "closed_at": "2026-07-17T19:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.02595,
@@ -808,7 +896,15 @@
       "symbol": "ESPORTS_USDT",
       "ts": "2026-07-17T19:48:04.898Z",
       "id": "confirmed:ESPORTS_USDT:gate:2026-07-17T11:03:07.739Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.351,
+      "stopped": true,
+      "stop_ts": "2026-07-17T23:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0293025,
+      "closed_at": "2026-07-17T23:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.13729,
