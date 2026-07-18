@@ -14057,8 +14057,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-07-14T20:24:14.029658+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-17T08:24:57.816008+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-18T16:24:00.103232+00:00"
     },
     {
       "symbol": "DEXEUSDT",
@@ -14102,8 +14102,8 @@
       "funding": 0.005,
       "id": "BP_USDT:support_break:2026-07-15T04:23:25.882585+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-16T04:23:23.830195+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-18T16:23:32.350699+00:00"
     },
     {
       "symbol": "HOODX_USDT",
@@ -15183,8 +15183,8 @@
       "funding": 0.01,
       "id": "AAPLX_USDT:support_break:2026-07-17T16:24:53.234659+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-18T04:24:54.122341+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-18T16:24:04.257075+00:00"
     },
     {
       "symbol": "UNH_USDT",
@@ -15364,6 +15364,54 @@
       "price": 0.05242,
       "funding": 0.005,
       "id": "ELSA_USDT:rejection:2026-07-18T12:23:57.279692+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ADSK_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-18T16:23:56.092667+00:00",
+      "price": 216.88,
+      "funding": 0.01,
+      "id": "ADSK_USDT:support_break:2026-07-18T16:23:56.092667+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "O_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-18T16:23:59.642782+00:00",
+      "price": 0.5728,
+      "funding": 0.005,
+      "id": "O_USDT:support_break:2026-07-18T16:23:59.642782+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-18T16:24:06.031997+00:00",
+      "price": 0.0981,
+      "funding": 0.0,
+      "id": "BANKUSDT:breakout:2026-07-18T16:24:06.031997+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-18T16:24:06.031997+00:00",
+      "price": 0.0981,
+      "funding": 0.0,
+      "id": "BANKUSDT:resistance_test:2026-07-18T16:24:06.031997+00:00",
       "status": "pending",
       "repeats": 1
     }
