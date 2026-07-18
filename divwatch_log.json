@@ -1038,6 +1038,19 @@
       "ts": "2026-07-18T14:30:00.000Z",
       "id": "armed:RIF_USDT:gate:2026-07-18T14:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "SYN",
+      "p1_high": 0.2387,
+      "p1_rsi": 68.1538816639995,
+      "p2_high": 0.24819,
+      "p2_rsi": 62.4618061914323,
+      "source": "gate_spot",
+      "stage": "armed",
+      "symbol": "SYN_USDT",
+      "ts": "2026-07-18T14:45:00.000Z",
+      "id": "armed:SYN_USDT:gate_spot:2026-07-18T14:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
