@@ -998,6 +998,20 @@
       "ts": "2026-07-18T07:00:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-07-18T07:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.0019731,
+      "armed_ts": "2026-07-18T07:47:21.501Z",
+      "entry": 0.0019449,
+      "label": "AKE",
+      "peak_high": 0.0021,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00215805,
+      "symbol": "AKE_USDT",
+      "ts": "2026-07-18T09:17:21.763Z",
+      "id": "confirmed:AKE_USDT:gate:2026-07-18T07:47:21.501Z",
+      "status": "pending"
     }
   ]
 }
