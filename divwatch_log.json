@@ -932,6 +932,19 @@
       "ts": "2026-07-18T01:15:00.000Z",
       "id": "flip:VELVET_USDT:gate:2026-07-18T01:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "ESPORTS",
+      "p1_high": 0.02841,
+      "p1_rsi": 74.8236182561065,
+      "p2_high": 0.03515,
+      "p2_rsi": 68.7548887575239,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "ESPORTS_USDT",
+      "ts": "2026-07-18T01:30:00.000Z",
+      "id": "armed:ESPORTS_USDT:gate:2026-07-18T01:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
