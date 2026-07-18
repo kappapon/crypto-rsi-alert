@@ -919,6 +919,19 @@
       "ts": "2026-07-17T22:32:58.335Z",
       "id": "confirmed:RIF_USDT:gate:2026-07-17T18:17:58.070Z",
       "status": "pending"
+    },
+    {
+      "label": "VELVET",
+      "p1_low": 0.51338,
+      "p1_rsi": 30.78801320623,
+      "p2_low": 0.51095,
+      "p2_rsi": 35.4191327314813,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "VELVET_USDT",
+      "ts": "2026-07-18T01:15:00.000Z",
+      "id": "flip:VELVET_USDT:gate:2026-07-18T01:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
