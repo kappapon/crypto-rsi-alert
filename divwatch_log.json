@@ -959,6 +959,19 @@
       "ts": "2026-07-18T02:48:05.627Z",
       "id": "confirmed:ESPORTS_USDT:gate:2026-07-18T02:18:04.963Z",
       "status": "pending"
+    },
+    {
+      "label": "VANRY",
+      "p1_low": 0.005251,
+      "p1_rsi": 31.5125444789171,
+      "p2_low": 0.005222,
+      "p2_rsi": 31.6229865269579,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "VANRY_USDT",
+      "ts": "2026-07-18T02:15:00.000Z",
+      "id": "flip:VANRY_USDT:gate:2026-07-18T02:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
