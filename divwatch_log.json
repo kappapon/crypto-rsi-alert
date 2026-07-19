@@ -1078,6 +1078,19 @@
       "ts": "2026-07-18T21:02:20.906Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-18T09:47:19.616Z",
       "status": "pending"
+    },
+    {
+      "label": "VANRY",
+      "p1_high": 0.00531,
+      "p1_rsi": 81.8686831674378,
+      "p2_high": 0.005326,
+      "p2_rsi": 69.9759593871007,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "VANRY_USDT",
+      "ts": "2026-07-19T00:45:00.000Z",
+      "id": "armed:VANRY_USDT:gate:2026-07-19T00:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
