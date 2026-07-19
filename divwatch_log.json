@@ -1158,6 +1158,19 @@
       "ts": "2026-07-19T06:47:14.967Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-19T06:32:13.249Z",
       "status": "pending"
+    },
+    {
+      "label": "RE",
+      "p1_high": 0.41957,
+      "p1_rsi": 74.0862993138191,
+      "p2_high": 0.43493,
+      "p2_rsi": 70.5804589951716,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "RE_USDT",
+      "ts": "2026-07-19T07:15:00.000Z",
+      "id": "armed:RE_USDT:gate:2026-07-19T07:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
