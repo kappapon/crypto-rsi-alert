@@ -14469,8 +14469,8 @@
       "funding": 0.005,
       "id": "BP_USDT:rejection:2026-07-16T04:23:23.830195+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-19T08:23:27.776015+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-19T16:23:48.308316+00:00"
     },
     {
       "symbol": "EBAY_USDT",
@@ -14593,7 +14593,8 @@
       "funding": 0.0,
       "id": "DEXEUSDT:rejection:2026-07-16T12:24:43.099770+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-19T16:24:13.822251+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -14766,7 +14767,8 @@
       "funding": 0.0,
       "id": "METABUSDT:support_break:2026-07-16T16:25:03.169128+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-19T16:24:19.220580+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -14859,7 +14861,8 @@
       "funding": 0.01,
       "id": "BX_USDT:support_break:2026-07-17T04:24:23.952217+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-19T16:23:55.813091+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -15308,8 +15311,8 @@
       "funding": 0.0,
       "id": "GNSUSDT:support_break:2026-07-18T00:24:49.250929+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-19T08:23:55.523056+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-19T16:24:08.610253+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -15547,7 +15550,8 @@
       "funding": 0.01,
       "id": "LLY_USDT:rejection:2026-07-19T00:23:42.225378+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-19T16:23:59.895027+00:00"
     },
     {
       "symbol": "TLMUSDT",
@@ -15762,6 +15766,30 @@
       "price": 0.1732,
       "funding": 0.0,
       "id": "BANKUSDT:resistance_test:2026-07-19T12:24:03.131009+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "XLK_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-19T16:24:03.945845+00:00",
+      "price": 175.51,
+      "funding": 0.01,
+      "id": "XLK_USDT:support_break:2026-07-19T16:24:03.945845+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DGBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-19T16:24:21.001689+00:00",
+      "price": 0.0032,
+      "funding": 0.0,
+      "id": "DGBUSDT:rejection:2026-07-19T16:24:21.001689+00:00",
       "status": "pending",
       "repeats": 1
     }
