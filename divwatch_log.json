@@ -1225,6 +1225,20 @@
       "ts": "2026-07-19T13:45:00.000Z",
       "id": "armed:VANRY_USDT:gate:2026-07-19T13:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.005857,
+      "armed_ts": "2026-07-19T14:32:30.960Z",
+      "entry": 0.005742,
+      "label": "VANRY",
+      "peak_high": 0.005871,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0059535,
+      "symbol": "VANRY_USDT",
+      "ts": "2026-07-19T16:32:32.110Z",
+      "id": "confirmed:VANRY_USDT:gate:2026-07-19T14:32:30.960Z",
+      "status": "pending"
     }
   ]
 }
