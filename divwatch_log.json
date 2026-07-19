@@ -1091,6 +1091,19 @@
       "ts": "2026-07-19T00:45:00.000Z",
       "id": "armed:VANRY_USDT:gate:2026-07-19T00:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "SYN",
+      "p1_low": 0.21543,
+      "p1_rsi": 33.2311245714784,
+      "p2_low": 0.21414,
+      "p2_rsi": 34.4243922131016,
+      "source": "gate_spot",
+      "stage": "flip",
+      "symbol": "SYN_USDT",
+      "ts": "2026-07-19T03:45:00.000Z",
+      "id": "flip:SYN_USDT:gate_spot:2026-07-19T03:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
