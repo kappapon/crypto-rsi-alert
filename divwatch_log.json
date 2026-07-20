@@ -1329,6 +1329,19 @@
       "ts": "2026-07-20T06:15:00.000Z",
       "id": "armed:VELVET_USDT:gate:2026-07-20T06:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.29844,
+      "p1_rsi": 68.4855266297725,
+      "p2_high": 0.30886,
+      "p2_rsi": 63.0647586507392,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-07-20T15:45:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-07-20T15:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
