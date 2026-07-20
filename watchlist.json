@@ -230,7 +230,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 208.075,
-        "resistance": 205.0,
+        "resistance": 205,
         "rejection_below": 185.2405,
         "support_strong": 195.0225,
         "support_extreme": 195.0212
@@ -315,7 +315,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 132.965,
-        "resistance": 131.0,
+        "resistance": 131,
         "rejection_below": 126.56,
         "support_strong": 124.9235,
         "support_extreme": 125.4178
@@ -605,7 +605,7 @@
       "levels": {
         "breakout_above": 1213.6355,
         "resistance": 1195.7,
-        "rejection_below": 1069.0,
+        "rejection_below": 1069,
         "support_strong": 1062.0278,
         "support_extreme": 1057.9553
       },
@@ -944,7 +944,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 1929.515,
-        "resistance": 1901.0,
+        "resistance": 1901,
         "rejection_below": 1723.11,
         "support_strong": 1813.7683,
         "support_extreme": 1817.212
@@ -961,8 +961,8 @@
       "enabled": true,
       "levels": {
         "breakout_above": 2890.72,
-        "resistance": 2848.0,
-        "rejection_below": 2133.0,
+        "resistance": 2848,
+        "rejection_below": 2133,
         "support_strong": 2116.6529,
         "support_extreme": 2110.4259
       },
@@ -1113,11 +1113,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
+        "breakout_above": 0,
+        "resistance": 0,
+        "rejection_below": 0,
+        "support_strong": 0,
+        "support_extreme": 0
       },
       "alerts": {
         "price_breakout": true,
@@ -1169,23 +1169,6 @@
         "rejection_below": 0.002,
         "support_strong": 0.0019,
         "support_extreme": 0.0018
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "DODOXUSDT": {
-      "exchange": "binance_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0303,
-        "resistance": 0.0299,
-        "rejection_below": 0.0268,
-        "support_strong": 0.026,
-        "support_extreme": 0.0237
       },
       "alerts": {
         "price_breakout": true,
