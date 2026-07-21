@@ -230,7 +230,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 208.075,
-        "resistance": 205.0,
+        "resistance": 205,
         "rejection_below": 186.3235,
         "support_strong": 195.8831,
         "support_extreme": 195.5309
@@ -251,23 +251,6 @@
         "rejection_below": 322.354,
         "support_strong": 340.6528,
         "support_extreme": 342.1104
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "APH_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 181.2993,
-        "resistance": 178.62,
-        "rejection_below": 143.811,
-        "support_strong": 151.9166,
-        "support_extreme": 152.3083
       },
       "alerts": {
         "price_breakout": true,
@@ -315,7 +298,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 132.965,
-        "resistance": 131.0,
+        "resistance": 131,
         "rejection_below": 117.4485,
         "support_strong": 124.5134,
         "support_extreme": 125.1295
@@ -927,7 +910,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 1929.515,
-        "resistance": 1901.0,
+        "resistance": 1901,
         "rejection_below": 1740.21,
         "support_strong": 1830.0708,
         "support_extreme": 1824.3367
@@ -944,8 +927,8 @@
       "enabled": true,
       "levels": {
         "breakout_above": 2890.72,
-        "resistance": 2848.0,
-        "rejection_below": 2125.0,
+        "resistance": 2848,
+        "rejection_below": 2125,
         "support_strong": 2110.3637,
         "support_extreme": 2109.3239
       },
@@ -1096,11 +1079,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
+        "breakout_above": 0,
+        "resistance": 0,
+        "rejection_below": 0,
+        "support_strong": 0,
+        "support_extreme": 0
       },
       "alerts": {
         "price_breakout": true,
