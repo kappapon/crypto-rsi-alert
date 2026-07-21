@@ -1329,6 +1329,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "NBISBUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 232.8511,
+        "resistance": 229.41,
+        "rejection_below": 193.43,
+        "support_strong": 189.4948,
+        "support_extreme": 184.6389
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
