@@ -1346,6 +1346,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "BULLA_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0127,
+        "resistance": 0.0125,
+        "rejection_below": 0.0114,
+        "support_strong": 0.0113,
+        "support_extreme": 0.0107
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
