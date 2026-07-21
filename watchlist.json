@@ -803,23 +803,6 @@
         "funding_high": 0.1
       }
     },
-    "VANRYUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0099,
-        "resistance": 0.0098,
-        "rejection_below": 0.0048,
-        "support_strong": 0.0051,
-        "support_extreme": 0.0052
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "TMO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
