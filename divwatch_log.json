@@ -697,7 +697,15 @@
       "symbol": "VELVET_USDT",
       "ts": "2026-07-17T11:18:09.058Z",
       "id": "confirmed:VELVET_USDT:gate:2026-07-17T09:48:05.729Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.925,
+      "stopped": true,
+      "stop_ts": "2026-07-20T05:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.582241428571429,
+      "closed_at": "2026-07-20T05:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "VANRY",
@@ -842,7 +850,15 @@
       "symbol": "VANRY_USDT",
       "ts": "2026-07-17T16:02:59.291Z",
       "id": "confirmed:VANRY_USDT:gate:2026-07-17T12:02:58.947Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.611,
+      "mfe_r": 1.527,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 1.155,
+      "exit": 0.005035,
+      "closed_at": "2026-07-20T16:02:59+00:00",
+      "horizon_h": 72
     },
     {
       "label": "RIF",
@@ -926,7 +942,15 @@
       "symbol": "RIF_USDT",
       "ts": "2026-07-17T22:32:58.335Z",
       "id": "confirmed:RIF_USDT:gate:2026-07-17T18:17:58.070Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.374,
+      "mfe_r": 3.733,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 3.591,
+      "exit": 0.12085,
+      "closed_at": "2026-07-20T22:32:58+00:00",
+      "horizon_h": 72
     },
     {
       "label": "VELVET",
