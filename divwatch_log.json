@@ -1550,6 +1550,20 @@
       "ts": "2026-07-22T10:00:00.000Z",
       "id": "armed:TA_USDT:gate:2026-07-22T10:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.003502,
+      "armed_ts": "2026-07-22T06:02:25.263Z",
+      "entry": 0.003437,
+      "label": "TAC",
+      "peak_high": 0.003539,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00356971428571429,
+      "symbol": "TAC_USDT",
+      "ts": "2026-07-22T11:32:24.326Z",
+      "id": "confirmed:TAC_USDT:gate:2026-07-22T06:02:25.263Z",
+      "status": "pending"
     }
   ]
 }
