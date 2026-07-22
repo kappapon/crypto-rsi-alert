@@ -1497,6 +1497,19 @@
       "ts": "2026-07-22T00:00:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-07-22T00:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.20529,
+      "p1_rsi": 67.4287331701293,
+      "p2_high": 0.20944,
+      "p2_rsi": 59.5081837652797,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-07-22T03:30:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-07-22T03:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
