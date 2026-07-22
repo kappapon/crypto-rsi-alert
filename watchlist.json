@@ -722,11 +722,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 112.1676,
-        "resistance": 110.51,
-        "rejection_below": 104.975,
-        "support_strong": 109.2995,
-        "support_extreme": 108.4556
+        "breakout_above": 112.2691,
+        "resistance": 110.61,
+        "rejection_below": 104.006,
+        "support_strong": 110.1133,
+        "support_extreme": 109.3346
       },
       "alerts": {
         "price_breakout": true,
