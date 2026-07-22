@@ -13736,8 +13736,8 @@
       "funding": 0.01,
       "id": "EEM_USDT:support_break:2026-07-13T04:23:57.781478+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-16T08:24:34.003549+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-22T12:24:00.484076+00:00"
     },
     {
       "symbol": "SYNUSDT",
@@ -14253,8 +14253,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-07-14T20:24:14.029658+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-21T20:24:18.716781+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-22T12:24:16.885648+00:00"
     },
     {
       "symbol": "DEXEUSDT",
@@ -14980,8 +14980,8 @@
       "funding": 0.0,
       "id": "PLTRBUSDT:support_break:2026-07-16T16:25:03.811489+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-21T12:24:05.923595+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-22T12:24:21.538151+00:00"
     },
     {
       "symbol": "AAPLX_USDT",
@@ -16877,6 +16877,54 @@
       "price": 0.1393,
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-07-22T08:24:18.415266+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "RIVN_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-22T12:23:50.704089+00:00",
+      "price": 17.735,
+      "funding": 0.01,
+      "id": "RIVN_USDT:rejection:2026-07-22T12:23:50.704089+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GEV_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-22T12:23:59.234058+00:00",
+      "price": 1012.1,
+      "funding": 0.01,
+      "id": "GEV_USDT:rejection:2026-07-22T12:23:59.234058+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "NBISBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-22T12:24:28.001930+00:00",
+      "price": 208.03,
+      "funding": 0.0,
+      "id": "NBISBUSDT:support_break:2026-07-22T12:24:28.001930+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-22T12:24:29.302657+00:00",
+      "price": 0.01146,
+      "funding": 0.005,
+      "id": "BULLA_USDT:rejection:2026-07-22T12:24:29.302657+00:00",
       "status": "pending",
       "repeats": 1
     }
