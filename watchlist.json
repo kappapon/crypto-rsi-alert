@@ -1353,9 +1353,9 @@
       "levels": {
         "breakout_above": 0.0127,
         "resistance": 0.0125,
-        "rejection_below": 0.0113,
-        "support_strong": 0.0117,
-        "support_extreme": 0.0111
+        "rejection_below": 0.0109,
+        "support_strong": 0.0116,
+        "support_extreme": 0.011
       },
       "alerts": {
         "price_breakout": true,
