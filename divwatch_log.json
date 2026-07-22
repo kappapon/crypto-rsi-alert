@@ -1484,6 +1484,19 @@
       "ts": "2026-07-21T23:02:26.081Z",
       "id": "confirmed:TAC_USDT:gate:2026-07-21T22:47:26.119Z",
       "status": "pending"
+    },
+    {
+      "label": "LDO",
+      "p1_low": 0.3865,
+      "p1_rsi": 31.3969351061132,
+      "p2_low": 0.3855,
+      "p2_rsi": 40.9134855639864,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "LDO_USDT",
+      "ts": "2026-07-22T00:00:00.000Z",
+      "id": "flip:LDO_USDT:gate:2026-07-22T00:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
