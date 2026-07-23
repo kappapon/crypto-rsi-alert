@@ -1802,6 +1802,19 @@
       "ts": "2026-07-23T13:30:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-07-23T13:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_low": 0.06961,
+      "p1_rsi": 18.9124461037896,
+      "p2_low": 0.06874,
+      "p2_rsi": 32.455348956849,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TA_USDT",
+      "ts": "2026-07-23T14:15:00.000Z",
+      "id": "flip:TA_USDT:gate:2026-07-23T14:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
