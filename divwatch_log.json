@@ -1681,6 +1681,20 @@
       "ts": "2026-07-23T00:00:00.000Z",
       "id": "armed:JST_USDT:gate:2026-07-23T00:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.24125,
+      "armed_ts": "2026-07-23T00:32:28.872Z",
+      "entry": 0.23974,
+      "label": "BANK",
+      "peak_high": 0.2467,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.250506071428571,
+      "symbol": "BANK_USDT",
+      "ts": "2026-07-23T01:02:28.031Z",
+      "id": "confirmed:BANK_USDT:gate:2026-07-23T00:32:28.872Z",
+      "status": "pending"
     }
   ]
 }
