@@ -1695,6 +1695,19 @@
       "ts": "2026-07-23T01:02:28.031Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-23T00:32:28.872Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.07211,
+      "p1_rsi": 65.5280296282666,
+      "p2_high": 0.07235,
+      "p2_rsi": 65.5087881967721,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-07-23T01:45:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-07-23T01:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
