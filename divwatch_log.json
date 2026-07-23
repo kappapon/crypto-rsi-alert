@@ -1789,6 +1789,19 @@
       "ts": "2026-07-23T12:17:31.703Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-23T09:32:30.863Z",
       "status": "pending"
+    },
+    {
+      "label": "AKE",
+      "p1_high": 0.0020697,
+      "p1_rsi": 70.3764460109588,
+      "p2_high": 0.0021258,
+      "p2_rsi": 65.1933875153145,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "AKE_USDT",
+      "ts": "2026-07-23T13:30:00.000Z",
+      "id": "armed:AKE_USDT:gate:2026-07-23T13:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
