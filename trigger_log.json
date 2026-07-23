@@ -14691,8 +14691,8 @@
       "funding": 0.005,
       "id": "BP_USDT:rejection:2026-07-16T04:23:23.830195+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-19T16:23:48.308316+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-23T20:23:37.167248+00:00"
     },
     {
       "symbol": "EBAY_USDT",
@@ -16682,8 +16682,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-07-21T12:23:41.930051+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-21T20:23:44.894104+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-23T20:23:41.111221+00:00"
     },
     {
       "symbol": "TLMUSDT",
@@ -16695,7 +16695,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:rejection:2026-07-21T12:23:53.888051+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-23T20:24:00.339084+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -16781,8 +16782,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:support_break:2026-07-22T00:23:53.287646+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-22T20:24:01.416755+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-23T20:24:00.339084+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -17111,7 +17112,8 @@
       "funding": 0.01,
       "id": "SOXS_USDT:support_break:2026-07-22T16:24:23.026386+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-23T20:24:16.718952+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -17209,8 +17211,8 @@
       "funding": -2.0,
       "id": "O_USDT:funding:2026-07-23T04:24:12.502508+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-23T16:24:10.160009+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-23T20:24:13.462203+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -17246,7 +17248,8 @@
       "funding": 0.0,
       "id": "KAITOUSDT:breakout:2026-07-23T12:23:51.107650+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-23T20:23:54.373000+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -17365,6 +17368,18 @@
       "price": 574.2,
       "funding": 0.01,
       "id": "TMO_USDT:breakout:2026-07-23T16:24:02.990884+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-23T20:24:26.517117+00:00",
+      "price": 0.0859,
+      "funding": 0.0,
+      "id": "1INCHUSDT:breakout:2026-07-23T20:24:26.517117+00:00",
       "status": "pending",
       "repeats": 1
     }
