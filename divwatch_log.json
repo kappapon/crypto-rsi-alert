@@ -2073,6 +2073,19 @@
       "ts": "2026-07-24T10:32:24.341Z",
       "id": "confirmed:TA_USDT:gate:2026-07-24T09:17:25.472Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 1.526,
+      "p1_rsi": 33.4004590903776,
+      "p2_low": 1.516,
+      "p2_rsi": 33.5759357513678,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-07-24T10:30:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-07-24T10:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
