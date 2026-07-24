@@ -1979,6 +1979,19 @@
       "ts": "2026-07-24T01:17:26.290Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-23T21:47:26.075Z",
       "status": "pending"
+    },
+    {
+      "label": "MEMES",
+      "p1_high": 0.0027493,
+      "p1_rsi": 75.0771924500383,
+      "p2_high": 0.0029002,
+      "p2_rsi": 73.3597589227522,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "MEMES_USDT",
+      "ts": "2026-07-24T00:45:00.000Z",
+      "id": "armed:MEMES_USDT:gate:2026-07-24T00:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
