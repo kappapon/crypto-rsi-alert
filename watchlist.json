@@ -463,23 +463,6 @@
         "funding_high": 0.1
       }
     },
-    "UNH_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 466.6868,
-        "resistance": 459.79,
-        "rejection_below": 402.6195,
-        "support_strong": 425.6751,
-        "support_extreme": 427.981
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "MAGMA_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -1050,23 +1033,6 @@
         "rejection_below": 0.0,
         "support_strong": 0.0,
         "support_extreme": 0.0
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "EGLDUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 3.7047,
-        "resistance": 3.65,
-        "rejection_below": 2.812,
-        "support_strong": 3.0097,
-        "support_extreme": 3.0667
       },
       "alerts": {
         "price_breakout": true,
