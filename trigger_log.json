@@ -16170,8 +16170,8 @@
       "funding": 0.01,
       "id": "V_USDT:rejection:2026-07-19T04:23:57.072661+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-25T12:24:00.119865+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-25T20:23:57.643603+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -18147,8 +18147,8 @@
       "funding": 0.0,
       "id": "REUSDT:rejection:2026-07-25T04:23:56.128099+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-25T12:23:57.389847+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-25T20:23:55.036188+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -18317,6 +18317,30 @@
       "price": 0.3429,
       "funding": 0.0,
       "id": "BANKUSDT:resistance_test:2026-07-25T16:24:07.864168+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LLY_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-25T20:23:48.492556+00:00",
+      "price": 1194.99,
+      "funding": 0.01,
+      "id": "LLY_USDT:rejection:2026-07-25T20:23:48.492556+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "COP_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-25T20:24:23.292845+00:00",
+      "price": 120.35,
+      "funding": 0.01,
+      "id": "COP_USDT:support_break:2026-07-25T20:24:23.292845+00:00",
       "status": "pending",
       "repeats": 1
     }
