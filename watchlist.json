@@ -1295,6 +1295,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "ZAMAUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.0656,
+        "resistance": 0.0646,
+        "rejection_below": 0.0486,
+        "support_strong": 0.0547,
+        "support_extreme": 0.0529
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
