@@ -2289,6 +2289,19 @@
       "ts": "2026-07-25T05:00:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-07-25T05:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.322,
+      "p1_rsi": 66.8271692004234,
+      "p2_high": 0.32438,
+      "p2_rsi": 65.3767159761044,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-07-25T05:15:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-07-25T05:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
