@@ -2263,6 +2263,19 @@
       "ts": "2026-07-25T04:47:26.413Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-24T21:02:26.972Z",
       "status": "pending"
+    },
+    {
+      "label": "MEMES",
+      "p1_high": 0.00498,
+      "p1_rsi": 85.9655612269276,
+      "p2_high": 0.007,
+      "p2_rsi": 75.5878870046085,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "MEMES_USDT",
+      "ts": "2026-07-25T04:30:00.000Z",
+      "id": "armed:MEMES_USDT:gate:2026-07-25T04:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
