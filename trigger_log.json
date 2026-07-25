@@ -15452,8 +15452,8 @@
       "funding": 0.01,
       "id": "POPMART_USDT:support_break:2026-07-17T04:25:03.768505+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-24T04:24:21.332133+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-25T04:24:19.345899+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -16016,8 +16016,8 @@
       "funding": 0.01,
       "id": "ADSK_USDT:support_break:2026-07-18T16:23:56.092667+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-24T04:24:08.843783+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-25T04:24:06.494735+00:00"
     },
     {
       "symbol": "O_USDT",
@@ -16849,7 +16849,8 @@
       "funding": 0.01,
       "id": "MEITUAN_USDT:support_break:2026-07-21T04:24:13.630092+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-25T04:24:18.684786+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -17934,8 +17935,8 @@
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-07-24T04:24:25.937210+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-24T20:24:14.547523+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-25T04:24:25.028043+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -18057,7 +18058,8 @@
       "funding": 0.005,
       "id": "O_USDT:rejection:2026-07-24T20:24:05.814807+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-25T04:24:11.022113+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -18093,7 +18095,8 @@
       "funding": 0.0173,
       "id": "ON_USDT:rejection:2026-07-24T20:24:13.516649+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-25T04:24:23.515318+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -18128,6 +18131,42 @@
       "price": 332.52,
       "funding": -0.09990000000000002,
       "id": "AAPLX_USDT:rejection:2026-07-25T00:24:26.431971+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "REUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-25T04:23:56.128099+00:00",
+      "price": 0.5547,
+      "funding": 0.0,
+      "id": "REUSDT:rejection:2026-07-25T04:23:56.128099+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-25T04:24:13.750278+00:00",
+      "price": 50.54,
+      "funding": -0.02,
+      "id": "SOXS_USDT:rejection:2026-07-25T04:24:13.750278+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-07-25T04:24:14.405104+00:00",
+      "price": 0.0026612,
+      "funding": -0.1634,
+      "id": "AKE_USDT:funding:2026-07-25T04:24:14.405104+00:00",
       "status": "pending",
       "repeats": 1
     }
