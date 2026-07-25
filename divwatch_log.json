@@ -1587,7 +1587,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-07-22T11:32:24.326Z",
       "id": "confirmed:TAC_USDT:gate:2026-07-22T06:02:25.263Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.424,
+      "stopped": true,
+      "stop_ts": "2026-07-24T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00356971428571429,
+      "closed_at": "2026-07-24T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TAC",
@@ -1627,7 +1635,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-07-22T15:32:24.338Z",
       "id": "confirmed:TAC_USDT:gate:2026-07-22T12:02:23.253Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 6.222,
+      "stopped": true,
+      "stop_ts": "2026-07-24T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00357532142857143,
+      "closed_at": "2026-07-24T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BANK",
@@ -1737,7 +1753,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-07-23T06:47:28.681Z",
       "id": "confirmed:JST_USDT:gate:2026-07-23T00:47:28.443Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 6.957,
+      "stopped": true,
+      "stop_ts": "2026-07-24T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.102642142857143,
+      "closed_at": "2026-07-24T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -1978,7 +2002,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-07-24T01:17:26.290Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-23T21:47:26.075Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-07-24T01:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.88057142857143,
+      "closed_at": "2026-07-24T01:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "MEMES",
@@ -2018,7 +2050,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-07-24T07:17:36.407Z",
       "id": "confirmed:BULLA_USDT:gate:2026-07-24T04:47:28.530Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.548,
+      "stopped": true,
+      "stop_ts": "2026-07-24T09:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0121921785714286,
+      "closed_at": "2026-07-24T09:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -2072,7 +2112,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-07-24T10:32:24.341Z",
       "id": "confirmed:TA_USDT:gate:2026-07-24T09:17:25.472Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.853,
+      "stopped": true,
+      "stop_ts": "2026-07-24T15:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0706935714285714,
+      "closed_at": "2026-07-24T15:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
@@ -2165,7 +2213,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-07-24T19:47:26.410Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-24T18:17:27.017Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.067,
+      "stopped": true,
+      "stop_ts": "2026-07-24T20:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.88185714285714,
+      "closed_at": "2026-07-24T20:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
