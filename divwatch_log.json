@@ -2249,6 +2249,20 @@
       "ts": "2026-07-24T22:47:26.785Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-24T12:32:28.206Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 1.918,
+      "armed_ts": "2026-07-24T21:02:26.972Z",
+      "entry": 1.904,
+      "label": "PROM",
+      "peak_high": 1.972,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 1.99957142857143,
+      "symbol": "PROM_USDT",
+      "ts": "2026-07-25T04:47:26.413Z",
+      "id": "confirmed:PROM_USDT:gate:2026-07-24T21:02:26.972Z",
+      "status": "pending"
     }
   ]
 }
