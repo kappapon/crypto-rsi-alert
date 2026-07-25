@@ -2276,6 +2276,19 @@
       "ts": "2026-07-25T04:30:00.000Z",
       "id": "armed:MEMES_USDT:gate:2026-07-25T04:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 1.918,
+      "p1_rsi": 68.5788667380556,
+      "p2_high": 2.02,
+      "p2_rsi": 64.2825292830859,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-07-25T05:00:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-07-25T05:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
