@@ -89,23 +89,6 @@
         "funding_high": 0.1
       }
     },
-    "HIMS_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 39.5941,
-        "resistance": 39.009,
-        "rejection_below": 26.6351,
-        "support_strong": 29.8472,
-        "support_extreme": 31.1318
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "SPX_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -166,23 +149,6 @@
         "rejection_below": 0.0072,
         "support_strong": 0.0077,
         "support_extreme": 0.0078
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "SYNUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.477,
-        "resistance": 0.47,
-        "rejection_below": 0.1441,
-        "support_strong": 0.148,
-        "support_extreme": 0.1561
       },
       "alerts": {
         "price_breakout": true,
@@ -319,23 +285,6 @@
         "rejection_below": 17.9208,
         "support_strong": 18.9143,
         "support_extreme": 18.9365
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "EBAY_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 119.8309,
-        "resistance": 118.06,
-        "rejection_below": 103.7495,
-        "support_strong": 108.9547,
-        "support_extreme": 109.6404
       },
       "alerts": {
         "price_breakout": true,
@@ -914,23 +863,6 @@
         "rejection_below": 0.3579,
         "support_strong": 0.384,
         "support_extreme": 0.3888
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "MUBARAKUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0142,
-        "resistance": 0.014,
-        "rejection_below": 0.0097,
-        "support_strong": 0.0104,
-        "support_extreme": 0.0105
       },
       "alerts": {
         "price_breakout": true,

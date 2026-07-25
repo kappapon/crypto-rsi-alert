@@ -582,16 +582,20 @@
       "blocked_at": "2026-07-23T00:25:53+00:00",
       "blocked_by": "2026-07-22T00:28:06+00:00",
       "breadth": 3,
+      "closed_at": "2026-07-24T16:00:00+00:00",
       "entry": 0.0839,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.08735597119317738,
       "prob": 0.47,
       "pump_pct": 0.3014,
+      "r": -1.0,
+      "r_net": -1.073,
       "rule": "concurrent",
       "sl": 0.08735597119317738,
       "stage": "pre",
       "stage_frac": 0.0154,
-      "status": "blocked",
+      "status": "cf_sl",
       "symbol": "1INCHUSDT",
       "tau": 0.35,
       "tp": 0.07698805761364524
@@ -694,6 +698,25 @@
       "symbol": "KAITOUSDT",
       "tau": 0.35,
       "tp": 0.8265564535342153
+    },
+    {
+      "atr": 0.003561526181872332,
+      "blocked_at": "2026-07-25T00:26:35+00:00",
+      "blocked_by": "2026-07-23T20:00:00+00:00",
+      "breadth": 2,
+      "entry": 0.0858,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.499,
+      "pump_pct": 0.3524,
+      "rule": "cooldown",
+      "sl": 0.08936152618187233,
+      "stage": "pre",
+      "stage_frac": 0.0746,
+      "status": "blocked",
+      "symbol": "1INCHUSDT",
+      "tau": 0.35,
+      "tp": 0.07867694763625534
     }
   ]
 }
