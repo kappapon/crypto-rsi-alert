@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-25T12:31:55Z",
+  "date": "2026-07-25T20:31:51Z",
   "parabolic_seen": {
     "AERO": "2026-07-07",
     "AKE": "2026-07-25",
@@ -38,7 +38,8 @@
     "VANRY": "2026-07-10",
     "VELODROME": "2026-07-05",
     "XEC": "2026-07-19",
-    "YFI": "2026-07-09"
+    "YFI": "2026-07-09",
+    "ZAMA": "2026-07-25"
   },
   "patterns": {
     "1INCHUSDT": "Range",
@@ -88,6 +89,7 @@
     "WINUSDT": "Range",
     "XECUSDT": "Pullback",
     "YFIUSDT": "Pullback",
+    "ZAMAUSDT": "Parabolic",
     "ZEREBRO_USDT": "Pullback"
   }
 }
