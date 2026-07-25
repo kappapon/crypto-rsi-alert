@@ -2397,6 +2397,19 @@
       "ts": "2026-07-25T15:02:20.930Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-25T09:17:20.758Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.10361,
+      "p1_rsi": 86.2528421661176,
+      "p2_high": 0.10371,
+      "p2_rsi": 79.013206116857,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-07-25T21:00:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-07-25T21:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
