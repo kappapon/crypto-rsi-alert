@@ -2383,6 +2383,20 @@
       "ts": "2026-07-25T13:02:25.645Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-25T09:47:25.900Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.0034559,
+      "armed_ts": "2026-07-25T09:17:20.758Z",
+      "entry": 0.0034461,
+      "label": "AKE",
+      "peak_high": 0.003493,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.003537725,
+      "symbol": "AKE_USDT",
+      "ts": "2026-07-25T15:02:20.930Z",
+      "id": "confirmed:AKE_USDT:gate:2026-07-25T09:17:20.758Z",
+      "status": "pending"
     }
   ]
 }
