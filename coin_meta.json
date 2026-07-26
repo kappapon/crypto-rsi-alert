@@ -2154,5 +2154,31 @@
       "Pump.fun Ecosystem",
       "Binance Alpha Spotlight"
     ]
+  },
+  "COP": {
+    "theme": "Gaming",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/102173268/small/perp.jpg?1778738905",
+    "cg_id": "clash-of-perps",
+    "categories": [
+      "Gaming (GameFi)",
+      "Base Ecosystem",
+      "Strategy Games"
+    ]
+  },
+  "ZAMA": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/70921/small/zama.png?1764591992",
+    "cg_id": "zama",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Ethereum Ecosystem",
+      "Cross-chain Communication",
+      "Binance Wallet IDO",
+      "CoinList Launchpad",
+      "Privacy Infrastructure",
+      "Zama Gateway Mainnet Ecosystem",
+      "Privacy"
+    ]
   }
 }
