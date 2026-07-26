@@ -2464,6 +2464,19 @@
       "ts": "2026-07-26T00:17:28.162Z",
       "id": "confirmed:JST_USDT:gate:2026-07-25T21:47:27.521Z",
       "status": "pending"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 1.0113,
+      "p1_rsi": 77.1577509575287,
+      "p2_high": 1.0323,
+      "p2_rsi": 74.0840606042679,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-07-26T00:15:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-07-26T00:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
