@@ -2490,6 +2490,19 @@
       "ts": "2026-07-26T01:15:00.000Z",
       "id": "armed:JST_USDT:gate:2026-07-26T01:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.38703,
+      "p1_rsi": 73.1225927207344,
+      "p2_high": 0.398,
+      "p2_rsi": 68.1303369719258,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-07-26T03:45:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-07-26T03:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
