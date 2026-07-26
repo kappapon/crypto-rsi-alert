@@ -15183,8 +15183,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-16T16:24:49.127334+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-07-25T08:24:06.999036+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-07-26T00:24:04.206351+00:00"
     },
     {
       "symbol": "METABUSDT",
@@ -15452,8 +15452,8 @@
       "funding": 0.01,
       "id": "POPMART_USDT:support_break:2026-07-17T04:25:03.768505+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-25T04:24:19.345899+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-26T00:24:20.565980+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -17599,8 +17599,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-07-23T12:23:47.932182+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-25T16:23:47.469810+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-26T00:23:48.408821+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -18172,8 +18172,8 @@
       "funding": -0.1634,
       "id": "AKE_USDT:funding:2026-07-25T04:24:14.405104+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-25T16:24:04.266600+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-26T00:24:15.805186+00:00"
     },
     {
       "symbol": "JNJ_USDT",
@@ -18233,7 +18233,8 @@
       "funding": 0.01,
       "id": "LLY_USDT:support_break:2026-07-25T08:23:52.198849+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-26T00:23:50.401500+00:00"
     },
     {
       "symbol": "MELI_USDT",
@@ -18341,6 +18342,90 @@
       "price": 120.35,
       "funding": 0.01,
       "id": "COP_USDT:support_break:2026-07-25T20:24:23.292845+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-07-26T00:23:35.404964+00:00",
+      "price": 3.3488,
+      "funding": -0.1158,
+      "id": "BEAT_USDT:funding:2026-07-26T00:23:35.404964+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JNJ_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-26T00:23:36.737687+00:00",
+      "price": 265.27,
+      "funding": 0.01,
+      "id": "JNJ_USDT:support_break:2026-07-26T00:23:36.737687+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DDOG_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-26T00:23:54.354189+00:00",
+      "price": 249.33,
+      "funding": 0.01,
+      "id": "DDOG_USDT:support_break:2026-07-26T00:23:54.354189+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-26T00:24:13.034240+00:00",
+      "price": 0.0822,
+      "funding": 0.0,
+      "id": "ARBUSDT:support_break:2026-07-26T00:24:13.034240+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-26T00:24:15.805186+00:00",
+      "price": 0.0030646,
+      "funding": -0.2271,
+      "id": "AKE_USDT:support_break:2026-07-26T00:24:15.805186+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AAPLX_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-07-26T00:24:18.571752+00:00",
+      "price": 332.81,
+      "funding": -0.1247,
+      "id": "AAPLX_USDT:funding:2026-07-26T00:24:18.571752+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-26T00:24:22.619179+00:00",
+      "price": 1.896,
+      "funding": 0.0,
+      "id": "PROMUSDT:support_break:2026-07-26T00:24:22.619179+00:00",
       "status": "pending",
       "repeats": 1
     }
