@@ -2248,7 +2248,15 @@
       "symbol": "BANK_USDT",
       "ts": "2026-07-24T22:47:26.785Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-24T12:32:28.206Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.795,
+      "stopped": true,
+      "stop_ts": "2026-07-25T06:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.324912142857143,
+      "closed_at": "2026-07-25T06:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 1.918,
@@ -2262,7 +2270,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-07-25T04:47:26.413Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-24T21:02:26.972Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-07-25T05:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.99957142857143,
+      "closed_at": "2026-07-25T05:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "MEMES",
@@ -2315,7 +2331,15 @@
       "symbol": "BANK_USDT",
       "ts": "2026-07-25T06:17:25.869Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-25T06:02:25.681Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-07-25T06:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.331814285714286,
+      "closed_at": "2026-07-25T06:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 2.02,
@@ -2329,7 +2353,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-07-25T06:32:29.862Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-25T05:47:26.134Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.402,
+      "stopped": true,
+      "stop_ts": "2026-07-25T08:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 2.06660714285714,
+      "closed_at": "2026-07-25T08:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -2382,7 +2414,15 @@
       "symbol": "BANK_USDT",
       "ts": "2026-07-25T13:02:25.645Z",
       "id": "confirmed:BANK_USDT:gate:2026-07-25T09:47:25.900Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.018,
+      "stopped": true,
+      "stop_ts": "2026-07-25T14:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.341948928571429,
+      "closed_at": "2026-07-25T14:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.0034559,
