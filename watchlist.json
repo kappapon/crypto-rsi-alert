@@ -361,23 +361,6 @@
         "funding_high": 0.1
       }
     },
-    "PANW_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 377.2653,
-        "resistance": 371.69,
-        "rejection_below": 323.18,
-        "support_strong": 321.0403,
-        "support_extreme": 324.3716
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "LLY_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -438,23 +421,6 @@
         "rejection_below": 0.991,
         "support_strong": 0.9807,
         "support_extreme": 0.9821
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "CGNX_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 72.7958,
-        "resistance": 71.72,
-        "rejection_below": 59.0805,
-        "support_strong": 62.332,
-        "support_extreme": 62.545
       },
       "alerts": {
         "price_breakout": true,
@@ -727,23 +693,6 @@
         "rejection_below": 1.615,
         "support_strong": 1.6984,
         "support_extreme": 1.707
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "BSV_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 15.5092,
-        "resistance": 15.28,
-        "rejection_below": 12.559,
-        "support_strong": 13.2166,
-        "support_extreme": 13.2825
       },
       "alerts": {
         "price_breakout": true,
