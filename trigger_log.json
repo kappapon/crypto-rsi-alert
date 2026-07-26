@@ -15219,8 +15219,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-16T16:24:49.127334+00:00",
       "status": "pending",
-      "repeats": 10,
-      "last_repeat": "2026-07-26T00:24:04.206351+00:00"
+      "repeats": 11,
+      "last_repeat": "2026-07-26T16:23:58.115703+00:00"
     },
     {
       "symbol": "METABUSDT",
@@ -17224,8 +17224,8 @@
       "funding": 0.0,
       "id": "VELODROMEUSDT:support_break:2026-07-22T04:23:47.431855+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-24T20:23:46.282265+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-26T16:23:41.976298+00:00"
     },
     {
       "symbol": "BLESS_USDT",
@@ -18254,8 +18254,8 @@
       "funding": -0.1634,
       "id": "AKE_USDT:funding:2026-07-25T04:24:14.405104+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-26T00:24:15.805186+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-26T16:24:06.602356+00:00"
     },
     {
       "symbol": "JNJ_USDT",
@@ -18722,6 +18722,30 @@
       "price": 0.10478,
       "funding": 0.0,
       "id": "JSTUSDT:resistance_test:2026-07-26T12:24:02.506811+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-26T16:23:38.576796+00:00",
+      "price": 3.94,
+      "funding": 0.0,
+      "id": "UNIUSDT:resistance_test:2026-07-26T16:23:38.576796+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "METABUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-26T16:24:07.360231+00:00",
+      "price": 598.84,
+      "funding": 0.0,
+      "id": "METABUSDT:rejection:2026-07-26T16:24:07.360231+00:00",
       "status": "pending",
       "repeats": 1
     }
