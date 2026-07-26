@@ -16076,8 +16076,8 @@
       "funding": 0.01,
       "id": "ADSK_USDT:support_break:2026-07-18T16:23:56.092667+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-07-26T08:24:03.140841+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-07-26T20:23:57.666768+00:00"
     },
     {
       "symbol": "O_USDT",
@@ -17060,8 +17060,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-07-21T12:23:41.930051+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-24T20:23:42.947053+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-26T20:23:39.586559+00:00"
     },
     {
       "symbol": "TLMUSDT",
@@ -17566,8 +17566,8 @@
       "funding": 0.0,
       "id": "GNSUSDT:support_break:2026-07-22T20:24:04.982569+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-23T04:24:03.001282+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-26T20:23:54.642847+00:00"
     },
     {
       "symbol": "O_USDT",
@@ -17729,8 +17729,8 @@
       "funding": 0.0,
       "id": "LDOUSDT:support_break:2026-07-23T12:24:02.574705+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-24T20:24:03.831994+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-26T20:23:59.142102+00:00"
     },
     {
       "symbol": "JSTUSDT",
@@ -18404,7 +18404,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:resistance_test:2026-07-25T16:24:07.864168+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-26T20:24:07.131864+00:00"
     },
     {
       "symbol": "LLY_USDT",
@@ -18699,7 +18700,8 @@
       "funding": -0.0291,
       "id": "AERO_USDT:support_break:2026-07-26T12:23:40.529940+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-26T20:23:38.408420+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -18746,6 +18748,30 @@
       "price": 598.84,
       "funding": 0.0,
       "id": "METABUSDT:rejection:2026-07-26T16:24:07.360231+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "METABUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-26T20:24:03.606723+00:00",
+      "price": 597.31,
+      "funding": 0.0,
+      "id": "METABUSDT:support_break:2026-07-26T20:24:03.606723+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-26T20:24:07.131864+00:00",
+      "price": 0.3963,
+      "funding": 0.0,
+      "id": "BANKUSDT:breakout:2026-07-26T20:24:07.131864+00:00",
       "status": "pending",
       "repeats": 1
     }
