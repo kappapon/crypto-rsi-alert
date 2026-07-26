@@ -2557,6 +2557,20 @@
       "ts": "2026-07-26T09:17:21.031Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-26T07:47:19.256Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.10423,
+      "armed_ts": "2026-07-26T02:02:28.165Z",
+      "entry": 0.10398,
+      "label": "JST",
+      "peak_high": 0.10462,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.104690714285714,
+      "symbol": "JST_USDT",
+      "ts": "2026-07-26T11:17:25.674Z",
+      "id": "confirmed:JST_USDT:gate:2026-07-26T02:02:28.165Z",
+      "status": "pending"
     }
   ]
 }
