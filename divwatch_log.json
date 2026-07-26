@@ -2516,6 +2516,20 @@
       "ts": "2026-07-26T04:00:00.000Z",
       "id": "flip:MEMES_USDT:gate:2026-07-26T04:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 1.0323,
+      "armed_ts": "2026-07-26T01:02:19.265Z",
+      "entry": 1.0255,
+      "label": "KAITO",
+      "peak_high": 1.0477,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 1.05355,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-07-26T07:32:19.372Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-07-26T01:02:19.265Z",
+      "status": "pending"
     }
   ]
 }
