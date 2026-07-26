@@ -2503,6 +2503,19 @@
       "ts": "2026-07-26T03:45:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-07-26T03:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "MEMES",
+      "p1_low": 0.0032769,
+      "p1_rsi": 33.8905916184102,
+      "p2_low": 0.0027681,
+      "p2_rsi": 39.9681199227756,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "MEMES_USDT",
+      "ts": "2026-07-26T04:00:00.000Z",
+      "id": "flip:MEMES_USDT:gate:2026-07-26T04:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
