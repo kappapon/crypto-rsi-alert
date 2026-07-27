@@ -2886,6 +2886,20 @@
       "ts": "2026-07-27T12:15:00.000Z",
       "id": "flip:JST_USDT:gate:2026-07-27T12:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.00449,
+      "armed_ts": "2026-07-27T11:17:23.606Z",
+      "entry": 0.0043265,
+      "label": "MEMES",
+      "peak_high": 0.00523,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00536329642857143,
+      "symbol": "MEMES_USDT",
+      "ts": "2026-07-27T18:17:23.525Z",
+      "id": "confirmed:MEMES_USDT:gate:2026-07-27T11:17:23.606Z",
+      "status": "pending"
     }
   ]
 }
