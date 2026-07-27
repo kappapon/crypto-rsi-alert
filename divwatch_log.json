@@ -2873,6 +2873,19 @@
       "ts": "2026-07-27T10:30:00.000Z",
       "id": "armed:MEMES_USDT:gate:2026-07-27T10:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_low": 0.10435,
+      "p1_rsi": 31.9431105141339,
+      "p2_low": 0.104,
+      "p2_rsi": 32.8170262249907,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "JST_USDT",
+      "ts": "2026-07-27T12:15:00.000Z",
+      "id": "flip:JST_USDT:gate:2026-07-27T12:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
