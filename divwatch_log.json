@@ -2765,6 +2765,20 @@
       "ts": "2026-07-27T04:30:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-07-27T04:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 2.052,
+      "armed_ts": "2026-07-26T19:02:37.337Z",
+      "entry": 2.034,
+      "label": "PROM",
+      "peak_high": 2.074,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 2.09246428571429,
+      "symbol": "PROM_USDT",
+      "ts": "2026-07-27T06:02:25.811Z",
+      "id": "confirmed:PROM_USDT:gate:2026-07-26T19:02:37.337Z",
+      "status": "pending"
     }
   ]
 }
