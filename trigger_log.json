@@ -17553,8 +17553,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-07-22T16:24:17.363560+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-25T00:24:14.805934+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-27T12:23:55.907141+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -18678,7 +18678,8 @@
       "funding": 0.01,
       "id": "CVS_USDT:support_break:2026-07-26T04:24:00.845987+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-27T12:23:51.115759+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -18932,7 +18933,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-07-27T00:24:05.773363+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-27T12:24:03.331707+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -19004,7 +19006,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-27T04:23:59.334889+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-27T12:23:53.294053+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -19075,6 +19078,102 @@
       "price": 0.0035046,
       "funding": 0.005,
       "id": "AKE_USDT:breakout:2026-07-27T08:24:08.904589+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-27T12:23:36.442384+00:00",
+      "price": 4.1549,
+      "funding": 0.01,
+      "id": "BEAT_USDT:breakout:2026-07-27T12:23:36.442384+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-27T12:23:36.442384+00:00",
+      "price": 4.1549,
+      "funding": 0.01,
+      "id": "BEAT_USDT:resistance_test:2026-07-27T12:23:36.442384+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BX_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-27T12:23:42.289538+00:00",
+      "price": 131.28,
+      "funding": 0.01,
+      "id": "BX_USDT:resistance_test:2026-07-27T12:23:42.289538+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MRK_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-27T12:23:51.563264+00:00",
+      "price": 131.4,
+      "funding": 0.01,
+      "id": "MRK_USDT:resistance_test:2026-07-27T12:23:51.563264+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JSTUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-27T12:23:56.768382+00:00",
+      "price": 0.10438,
+      "funding": 0.0,
+      "id": "JSTUSDT:support_break:2026-07-27T12:23:56.768382+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-27T12:24:03.331707+00:00",
+      "price": 0.3546,
+      "funding": 0.0,
+      "id": "BANKUSDT:rejection:2026-07-27T12:24:03.331707+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-27T12:24:05.500135+00:00",
+      "price": 0.013444,
+      "funding": 0.0541,
+      "id": "BULLA_USDT:breakout:2026-07-27T12:24:05.500135+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-27T12:24:05.500135+00:00",
+      "price": 0.013444,
+      "funding": 0.0541,
+      "id": "BULLA_USDT:resistance_test:2026-07-27T12:24:05.500135+00:00",
       "status": "pending",
       "repeats": 1
     }
