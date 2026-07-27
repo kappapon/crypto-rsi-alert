@@ -2900,6 +2900,19 @@
       "ts": "2026-07-27T18:17:23.525Z",
       "id": "confirmed:MEMES_USDT:gate:2026-07-27T11:17:23.606Z",
       "status": "pending"
+    },
+    {
+      "label": "BULLA",
+      "p1_high": 0.013818,
+      "p1_rsi": 65.1420924174937,
+      "p2_high": 0.014,
+      "p2_rsi": 60.1502764143542,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-07-27T19:30:00.000Z",
+      "id": "armed:BULLA_USDT:gate:2026-07-27T19:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
