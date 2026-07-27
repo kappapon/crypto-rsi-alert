@@ -16851,8 +16851,8 @@
       "funding": 0.0,
       "id": "JTOUSDT:support_break:2026-07-21T04:23:41.970185+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-25T08:23:39.254616+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-27T20:23:46.187845+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -17208,8 +17208,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:support_break:2026-07-22T00:23:53.287646+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-27T00:23:51.234473+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-27T20:24:04.102140+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -17733,8 +17733,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-07-23T12:23:47.932182+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-26T00:23:48.408821+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-27T20:23:55.028307+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -18825,8 +18825,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-07-26T08:23:55.865107+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-27T08:23:55.794462+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-27T20:24:04.984606+00:00"
     },
     {
       "symbol": "AERO_USDT",
@@ -18851,7 +18851,8 @@
       "funding": 0.0,
       "id": "KAITOUSDT:breakout:2026-07-26T12:23:50.035437+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-27T20:23:58.342634+00:00"
     },
     {
       "symbol": "JSTUSDT",
@@ -18962,7 +18963,8 @@
       "funding": -0.0412,
       "id": "BEAT_USDT:support_break:2026-07-27T04:23:40.486963+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-27T20:23:43.551950+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -19119,7 +19121,8 @@
       "funding": 0.01,
       "id": "BX_USDT:resistance_test:2026-07-27T12:23:42.289538+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-27T20:23:52.409072+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -19238,6 +19241,66 @@
       "price": 0.1498,
       "funding": 0.0,
       "id": "DIAUSDT:rejection:2026-07-27T16:24:14.277419+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-27T20:23:43.551950+00:00",
+      "price": 3.0564,
+      "funding": -0.0667,
+      "id": "BEAT_USDT:rejection:2026-07-27T20:23:43.551950+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-27T20:23:58.342634+00:00",
+      "price": 1.2733,
+      "funding": 0.0,
+      "id": "KAITOUSDT:resistance_test:2026-07-27T20:23:58.342634+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GNSUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-27T20:24:08.271055+00:00",
+      "price": 0.505,
+      "funding": 0.0,
+      "id": "GNSUSDT:rejection:2026-07-27T20:24:08.271055+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ADSK_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-27T20:24:12.206848+00:00",
+      "price": 225.63,
+      "funding": 0.01,
+      "id": "ADSK_USDT:breakout:2026-07-27T20:24:12.206848+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-27T20:24:32.856675+00:00",
+      "price": 0.1435,
+      "funding": 0.0,
+      "id": "DIAUSDT:support_break:2026-07-27T20:24:32.856675+00:00",
       "status": "pending",
       "repeats": 1
     }
