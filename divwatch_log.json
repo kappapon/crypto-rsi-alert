@@ -3012,6 +3012,20 @@
       "exit": 0.0143896785714286,
       "closed_at": "2026-07-28T00:15:00+00:00",
       "horizon_h": 72
+    },
+    {
+      "armed_high": 1.2753,
+      "armed_ts": "2026-07-27T20:47:28.138Z",
+      "entry": 1.2667,
+      "label": "KAITO",
+      "peak_high": 1.3594,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 1.37211785714286,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-07-28T00:32:51.897Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-07-27T20:47:28.138Z",
+      "status": "pending"
     }
   ]
 }
