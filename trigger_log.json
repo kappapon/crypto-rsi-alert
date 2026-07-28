@@ -16021,8 +16021,8 @@
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-07-18T04:24:24.626277+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-27T00:23:43.565433+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-07-28T12:24:17.579090+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -16052,8 +16052,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:support_break:2026-07-18T04:24:35.163598+00:00",
       "status": "pending",
-      "repeats": 10,
-      "last_repeat": "2026-07-28T00:24:32.794688+00:00"
+      "repeats": 11,
+      "last_repeat": "2026-07-28T12:24:23.710782+00:00"
     },
     {
       "symbol": "MEMES_USDT",
@@ -19478,7 +19478,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:resistance_test:2026-07-27T12:23:51.563264+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-28T12:24:26.068302+00:00"
     },
     {
       "symbol": "JSTUSDT",
@@ -19554,7 +19555,8 @@
       "funding": 0.01,
       "id": "RTX_USDT:resistance_test:2026-07-27T16:23:41.481611+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-28T12:24:14.857194+00:00"
     },
     {
       "symbol": "EEM_USDT",
@@ -19579,7 +19581,8 @@
       "funding": 0.01,
       "id": "ADSK_USDT:resistance_test:2026-07-27T16:23:58.451496+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-28T12:24:29.343367+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -19729,7 +19732,8 @@
       "funding": 0.005,
       "id": "ON_USDT:breakout:2026-07-28T04:24:51.454121+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-28T12:24:40.445528+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -19741,7 +19745,8 @@
       "funding": 0.005,
       "id": "ON_USDT:resistance_test:2026-07-28T04:24:51.454121+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-28T12:24:40.445528+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -19824,6 +19829,66 @@
       "price": 0.1201,
       "funding": 0.0,
       "id": "DIAUSDT:rejection:2026-07-28T08:24:44.002230+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-28T12:24:11.151217+00:00",
+      "price": 87.02,
+      "funding": 0.01,
+      "id": "KO_USDT:resistance_test:2026-07-28T12:24:11.151217+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-28T12:24:34.727485+00:00",
+      "price": 60.95,
+      "funding": -0.02,
+      "id": "SOXS_USDT:resistance_test:2026-07-28T12:24:34.727485+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PLTRBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-28T12:24:36.371656+00:00",
+      "price": 126.77,
+      "funding": 0.0,
+      "id": "PLTRBUSDT:rejection:2026-07-28T12:24:36.371656+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PLTRBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-28T12:24:36.371656+00:00",
+      "price": 126.77,
+      "funding": 0.0,
+      "id": "PLTRBUSDT:support_break:2026-07-28T12:24:36.371656+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-07-28T12:24:40.854577+00:00",
+      "price": 0.015965,
+      "funding": 0.1013,
+      "id": "BULLA_USDT:funding:2026-07-28T12:24:40.854577+00:00",
       "status": "pending",
       "repeats": 1
     }
