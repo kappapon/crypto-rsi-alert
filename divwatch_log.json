@@ -2098,7 +2098,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-07-24T09:32:29.707Z",
       "id": "confirmed:BULLA_USDT:gate:2026-07-24T07:32:28.310Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.42,
+      "stopped": true,
+      "stop_ts": "2026-07-27T09:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0125203928571429,
+      "closed_at": "2026-07-27T09:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.07032,
@@ -2173,7 +2181,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-07-24T17:32:23.264Z",
       "id": "confirmed:TA_USDT:gate:2026-07-24T17:17:24.136Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.39,
+      "mfe_r": 6.949,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 6.808,
+      "exit": 0.06529,
+      "closed_at": "2026-07-27T17:32:23+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -2436,7 +2452,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-07-25T15:02:20.930Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-25T09:17:20.758Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 7.689,
+      "stopped": true,
+      "stop_ts": "2026-07-27T04:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.003537725,
+      "closed_at": "2026-07-27T04:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -2712,7 +2736,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-07-26T14:02:17.896Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-26T13:47:18.209Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.097,
+      "stopped": true,
+      "stop_ts": "2026-07-27T19:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.24773571428571,
+      "closed_at": "2026-07-27T19:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -2778,7 +2810,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-07-27T06:02:25.811Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-26T19:02:37.337Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.907,
+      "stopped": true,
+      "stop_ts": "2026-07-27T07:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 2.09246428571429,
+      "closed_at": "2026-07-27T07:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
@@ -2805,7 +2845,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-07-27T06:32:27.596Z",
       "id": "confirmed:BULLA_USDT:gate:2026-07-27T04:32:26.490Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.491,
+      "stopped": true,
+      "stop_ts": "2026-07-27T09:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0122177857142857,
+      "closed_at": "2026-07-27T09:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -2859,7 +2907,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-07-27T08:17:27.057Z",
       "id": "confirmed:PROM_USDT:gate:2026-07-27T06:32:24.275Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.526,
+      "stopped": true,
+      "stop_ts": "2026-07-27T11:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 2.17660714285714,
+      "closed_at": "2026-07-27T11:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "MEMES",
@@ -2899,7 +2955,15 @@
       "symbol": "MEMES_USDT",
       "ts": "2026-07-27T18:17:23.525Z",
       "id": "confirmed:MEMES_USDT:gate:2026-07-27T11:17:23.606Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.199,
+      "stopped": true,
+      "stop_ts": "2026-07-28T00:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00536329642857143,
+      "closed_at": "2026-07-28T00:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -2939,7 +3003,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-07-27T22:17:36.105Z",
       "id": "confirmed:BULLA_USDT:gate:2026-07-27T20:17:36.826Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.144,
+      "stopped": true,
+      "stop_ts": "2026-07-28T00:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0143896785714286,
+      "closed_at": "2026-07-28T00:15:00+00:00",
+      "horizon_h": 72
     }
   ]
 }
