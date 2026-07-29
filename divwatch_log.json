@@ -3141,6 +3141,19 @@
       "ts": "2026-07-29T13:45:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-07-29T13:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 1.3697,
+      "p1_rsi": 79.2107838051581,
+      "p2_high": 1.3836,
+      "p2_rsi": 68.4401843834487,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-07-29T17:30:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-07-29T17:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
