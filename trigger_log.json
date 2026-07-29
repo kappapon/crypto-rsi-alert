@@ -16707,8 +16707,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-07-20T04:23:54.095375+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-24T08:23:46.913159+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-29T16:24:22.533617+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -17247,8 +17247,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:rejection:2026-07-21T12:23:53.888051+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-25T08:24:01.218994+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-29T16:24:30.555969+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -17641,8 +17641,8 @@
       "funding": 0.01,
       "id": "GEV_USDT:rejection:2026-07-22T12:23:59.234058+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-27T16:23:50.013871+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-29T16:24:28.599394+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -19036,8 +19036,8 @@
       "funding": 0.01,
       "id": "CVS_USDT:support_break:2026-07-26T04:24:00.845987+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-27T12:23:51.115759+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-29T16:24:31.894663+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -19113,8 +19113,8 @@
       "funding": 0.01,
       "id": "LMT_USDT:support_break:2026-07-26T04:24:23.653197+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-29T00:24:52.807492+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-29T16:24:48.891568+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -20117,8 +20117,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:support_break:2026-07-28T16:24:20.988820+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-29T04:24:20.431257+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-29T16:24:22.086499+00:00"
     },
     {
       "symbol": "V_USDT",
@@ -20130,7 +20130,8 @@
       "funding": 0.01,
       "id": "V_USDT:resistance_test:2026-07-28T16:24:35.884790+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:31.450559+00:00"
     },
     {
       "symbol": "AMGN_USDT",
@@ -20166,7 +20167,8 @@
       "funding": 0.01,
       "id": "SCHW_USDT:resistance_test:2026-07-28T16:24:41.523403+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:35.863443+00:00"
     },
     {
       "symbol": "BKNG_USDT",
@@ -20190,7 +20192,8 @@
       "funding": 0.01,
       "id": "BKNG_USDT:resistance_test:2026-07-28T16:24:42.288326+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:36.311917+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -20202,8 +20205,8 @@
       "funding": -0.02,
       "id": "SOXS_USDT:breakout:2026-07-28T16:24:50.120512+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-29T04:24:38.057862+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-29T16:24:41.298839+00:00"
     },
     {
       "symbol": "AAPLX_USDT",
@@ -20264,7 +20267,8 @@
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-07-29T00:24:51.468414+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:48.003298+00:00"
     },
     {
       "symbol": "LMT_USDT",
@@ -20276,7 +20280,8 @@
       "funding": 0.01,
       "id": "LMT_USDT:rejection:2026-07-29T00:24:52.807492+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:48.891568+00:00"
     },
     {
       "symbol": "AAVEUSDT",
@@ -20325,7 +20330,8 @@
       "funding": -0.02,
       "id": "SOXS_USDT:resistance_test:2026-07-29T04:24:38.057862+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:41.298839+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -20445,7 +20451,8 @@
       "funding": 0.01,
       "id": "RTX_USDT:support_break:2026-07-29T08:24:13.938533+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:21.614882+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -20457,7 +20464,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-07-29T08:24:29.171336+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-29T16:24:32.355829+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -20540,6 +20548,66 @@
       "price": 394.05,
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-07-29T12:24:45.715263+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JNJ_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-29T16:24:18.051050+00:00",
+      "price": 267.75,
+      "funding": 0.01,
+      "id": "JNJ_USDT:support_break:2026-07-29T16:24:18.051050+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-29T16:24:23.426606+00:00",
+      "price": 128.55,
+      "funding": 0.01,
+      "id": "BX_USDT:support_break:2026-07-29T16:24:23.426606+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ADSK_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-07-29T16:24:36.758264+00:00",
+      "price": 247.36,
+      "funding": 0.01,
+      "id": "ADSK_USDT:breakout:2026-07-29T16:24:36.758264+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ADSK_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-29T16:24:36.758264+00:00",
+      "price": 247.36,
+      "funding": 0.01,
+      "id": "ADSK_USDT:resistance_test:2026-07-29T16:24:36.758264+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-29T16:24:49.987311+00:00",
+      "price": 0.06084,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:support_break:2026-07-29T16:24:49.987311+00:00",
       "status": "pending",
       "repeats": 1
     }
