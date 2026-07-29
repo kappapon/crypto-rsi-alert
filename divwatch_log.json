@@ -3154,6 +3154,19 @@
       "ts": "2026-07-29T17:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-07-29T17:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.06549,
+      "p1_rsi": 79.1509553921813,
+      "p2_high": 0.06605,
+      "p2_rsi": 72.15570424438,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-07-29T18:15:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-07-29T18:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
