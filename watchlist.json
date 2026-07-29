@@ -395,23 +395,6 @@
         "funding_high": 0.1
       }
     },
-    "SMH_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 626.661,
-        "resistance": 617.4,
-        "rejection_below": 507.775,
-        "support_strong": 532.8178,
-        "support_extreme": 542.5455
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "DDOG_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -438,23 +421,6 @@
         "rejection_below": 907.915,
         "support_strong": 955.7187,
         "support_extreme": 975.1225
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "XLK_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 189.7339,
-        "resistance": 186.93,
-        "rejection_below": 163.4095,
-        "support_strong": 172.0667,
-        "support_extreme": 173.7624
       },
       "alerts": {
         "price_breakout": true,
@@ -863,23 +829,6 @@
         "rejection_below": 0.0453,
         "support_strong": 0.0476,
         "support_extreme": 0.048
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "XECUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
       },
       "alerts": {
         "price_breakout": true,
