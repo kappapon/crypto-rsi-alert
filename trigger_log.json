@@ -17298,8 +17298,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:support_break:2026-07-22T00:23:53.287646+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-27T20:24:04.102140+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-07-29T00:24:27.187716+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -18714,8 +18714,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-07-25T12:23:57.389847+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-28T00:24:32.150715+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-29T00:24:25.876823+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -18807,8 +18807,8 @@
       "funding": 0.01,
       "id": "DDOG_USDT:support_break:2026-07-26T00:23:54.354189+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-28T16:24:30.407346+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-29T00:24:23.250660+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -19004,8 +19004,8 @@
       "funding": 0.01,
       "id": "LMT_USDT:support_break:2026-07-26T04:24:23.653197+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-28T00:24:59.877437+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-29T00:24:52.807492+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -20037,6 +20037,42 @@
       "price": 0.0039055,
       "funding": 0.005,
       "id": "AKE_USDT:support_break:2026-07-28T20:24:40.477938+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-29T00:24:41.704081+00:00",
+      "price": 60.77,
+      "funding": -0.02,
+      "id": "SOXS_USDT:support_break:2026-07-29T00:24:41.704081+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-29T00:24:51.468414+00:00",
+      "price": 0.0834,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-07-29T00:24:51.468414+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LMT_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-29T00:24:52.807492+00:00",
+      "price": 581.09,
+      "funding": 0.01,
+      "id": "LMT_USDT:rejection:2026-07-29T00:24:52.807492+00:00",
       "status": "pending",
       "repeats": 1
     }
