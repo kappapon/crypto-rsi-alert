@@ -18853,8 +18853,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-07-25T12:23:57.389847+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-29T00:24:25.876823+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-30T12:24:21.639765+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -18971,8 +18971,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-07-26T00:24:13.034240+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-29T04:24:37.164219+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-30T12:24:34.163411+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -19317,8 +19317,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:resistance_test:2026-07-26T16:23:38.576796+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-29T12:24:12.116969+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-30T12:24:10.753958+00:00"
     },
     {
       "symbol": "METABUSDT",
@@ -19951,8 +19951,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-07-28T04:24:50.168883+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-29T08:24:47.136017+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-30T12:24:41.865812+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -20660,7 +20660,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:breakout:2026-07-29T12:24:12.116969+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-30T12:24:10.753958+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -21065,6 +21066,78 @@
       "price": 0.1071,
       "funding": 0.0,
       "id": "DIAUSDT:rejection:2026-07-30T08:24:52.121810+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DDOG_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-30T12:24:20.457337+00:00",
+      "price": 264.16,
+      "funding": 0.01,
+      "id": "DDOG_USDT:rejection:2026-07-30T12:24:20.457337+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BKNG_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-30T12:24:29.374714+00:00",
+      "price": 199.26,
+      "funding": 0.01,
+      "id": "BKNG_USDT:support_break:2026-07-30T12:24:29.374714+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-30T12:24:34.163411+00:00",
+      "price": 0.0781,
+      "funding": 0.0,
+      "id": "ARBUSDT:rejection:2026-07-30T12:24:34.163411+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-30T12:24:35.344003+00:00",
+      "price": 64.25,
+      "funding": -0.02,
+      "id": "SOXS_USDT:rejection:2026-07-30T12:24:35.344003+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-30T12:24:35.344003+00:00",
+      "price": 64.25,
+      "funding": -0.02,
+      "id": "SOXS_USDT:support_break:2026-07-30T12:24:35.344003+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-30T12:24:37.706485+00:00",
+      "price": 428.73,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:resistance_test:2026-07-30T12:24:37.706485+00:00",
       "status": "pending",
       "repeats": 1
     }
