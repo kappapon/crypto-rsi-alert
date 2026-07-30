@@ -3309,6 +3309,20 @@
       "ts": "2026-07-30T19:00:00.000Z",
       "id": "armed:TA_USDT:gate:2026-07-30T19:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.06819,
+      "armed_ts": "2026-07-30T19:47:53.481Z",
+      "entry": 0.06793,
+      "label": "TA",
+      "peak_high": 0.06835,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0685082142857143,
+      "symbol": "TA_USDT",
+      "ts": "2026-07-30T21:47:52.653Z",
+      "id": "confirmed:TA_USDT:gate:2026-07-30T19:47:53.481Z",
+      "status": "pending"
     }
   ]
 }
