@@ -3025,7 +3025,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-07-28T00:32:51.897Z",
       "id": "confirmed:KAITO_USDT:gate:2026-07-27T20:47:28.138Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.723,
+      "stopped": true,
+      "stop_ts": "2026-07-29T17:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.37211785714286,
+      "closed_at": "2026-07-29T17:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
