@@ -310,23 +310,6 @@
         "funding_high": 0.1
       }
     },
-    "HEIUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.1285,
-        "resistance": 0.1266,
-        "rejection_below": 0.0838,
-        "support_strong": 0.0835,
-        "support_extreme": 0.0849
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "LLY_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -404,23 +387,6 @@
         "rejection_below": 266.97,
         "support_strong": 260.6798,
         "support_extreme": 255.4195
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "GEV_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 1165.3215,
-        "resistance": 1148.1,
-        "rejection_below": 865.545,
-        "support_strong": 921.8266,
-        "support_extreme": 943.3075
       },
       "alerts": {
         "price_breakout": true,
