@@ -16800,8 +16800,8 @@
       "funding": 0.01,
       "id": "ROKU_USDT:support_break:2026-07-20T08:24:18.315769+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-07-26T08:23:58.472324+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-07-30T20:24:30.500014+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -18785,8 +18785,8 @@
       "funding": 0.0546,
       "id": "ELSA_USDT:support_break:2026-07-25T08:24:16.406260+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-29T04:24:37.607425+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-07-30T20:24:41.354248+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -19496,8 +19496,8 @@
       "funding": 0.005,
       "id": "MAGMA_USDT:support_break:2026-07-27T04:23:51.001572+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-30T08:24:19.993217+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-30T20:24:23.017406+00:00"
     },
     {
       "symbol": "RPLUSDT",
@@ -19938,8 +19938,8 @@
       "funding": 0.01,
       "id": "MEMES_USDT:rejection:2026-07-28T04:24:49.522297+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-30T04:24:34.702059+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-30T20:24:48.767063+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -20552,8 +20552,8 @@
       "funding": 0.11449999999999999,
       "id": "BULLA_USDT:rejection:2026-07-29T04:24:44.314062+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-30T08:24:47.528864+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-07-30T20:24:51.496319+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -20948,7 +20948,8 @@
       "funding": 0.005,
       "id": "BP_USDT:rejection:2026-07-30T04:24:09.369895+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-30T20:24:11.588579+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -21044,7 +21045,8 @@
       "funding": 0.005,
       "id": "MAGMA_USDT:rejection:2026-07-30T08:24:19.993217+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-30T20:24:23.017406+00:00"
     },
     {
       "symbol": "POPMART_USDT",
@@ -21211,6 +21213,18 @@
       "price": 455.86,
       "funding": 0.0,
       "id": "MSFTBUSDT:breakout:2026-07-30T16:24:35.661115+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BLESS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-30T20:24:18.960778+00:00",
+      "price": 0.008067,
+      "funding": 0.005,
+      "id": "BLESS_USDT:rejection:2026-07-30T20:24:18.960778+00:00",
       "status": "pending",
       "repeats": 1
     }
