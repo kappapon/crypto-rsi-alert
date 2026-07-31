@@ -55,23 +55,6 @@
         "funding_high": 0.1
       }
     },
-    "BP_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.6786,
-        "resistance": 0.6686,
-        "rejection_below": 0.362,
-        "support_strong": 0.4203,
-        "support_extreme": 0.4451
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "JTOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
@@ -880,23 +863,6 @@
         "rejection_below": 425.562,
         "support_strong": 440.315,
         "support_extreme": 423.6216
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "AAPLX_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 350.1242,
-        "resistance": 344.95,
-        "rejection_below": 298.3,
-        "support_strong": 327.4335,
-        "support_extreme": 333.4001
       },
       "alerts": {
         "price_breakout": true,
