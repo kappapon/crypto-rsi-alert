@@ -3501,6 +3501,19 @@
       "ts": "2026-07-31T20:45:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-07-31T20:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TAC",
+      "p1_low": 0.003169,
+      "p1_rsi": 33.8038428780688,
+      "p2_low": 0.003159,
+      "p2_rsi": 38.2562432794455,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TAC_USDT",
+      "ts": "2026-07-31T21:30:00.000Z",
+      "id": "flip:TAC_USDT:gate:2026-07-31T21:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
