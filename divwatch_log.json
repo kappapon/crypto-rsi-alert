@@ -3475,6 +3475,19 @@
       "ts": "2026-07-31T12:00:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-07-31T12:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_low": 0.015883,
+      "p1_rsi": 27.343196822392,
+      "p2_low": 0.01573,
+      "p2_rsi": 29.0851364406949,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-07-31T18:00:00.000Z",
+      "id": "flip:BULLA_USDT:gate:2026-07-31T18:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
