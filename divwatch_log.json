@@ -3382,6 +3382,19 @@
       "ts": "2026-07-31T00:17:52.618Z",
       "id": "confirmed:TA_USDT:gate:2026-07-30T22:17:52.436Z",
       "status": "pending"
+    },
+    {
+      "label": "BULLA",
+      "p1_high": 0.020149,
+      "p1_rsi": 80.5808712923415,
+      "p2_high": 0.021566,
+      "p2_rsi": 74.7825212800346,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-07-31T06:45:00.000Z",
+      "id": "armed:BULLA_USDT:gate:2026-07-31T06:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
