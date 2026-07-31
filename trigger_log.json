@@ -19649,8 +19649,8 @@
       "funding": 0.076,
       "id": "BLESS_USDT:support_break:2026-07-27T08:23:45.715043+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-31T04:24:16.457098+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-07-31T16:24:13.291201+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -20270,7 +20270,8 @@
       "funding": 0.0,
       "id": "PLTRBUSDT:support_break:2026-07-28T12:24:36.371656+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-07-31T16:24:33.911489+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -20626,8 +20627,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:rejection:2026-07-29T04:24:42.078590+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-31T04:24:43.511407+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-31T16:24:36.735676+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -21466,8 +21467,8 @@
       "funding": -0.41529999999999995,
       "id": "SOXS_USDT:funding:2026-07-31T04:24:38.239042+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-31T12:24:28.200263+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-07-31T16:24:32.248999+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -21610,6 +21611,66 @@
       "price": 383.8,
       "funding": 0.01,
       "id": "AMGN_USDT:rejection:2026-07-31T12:24:22.770365+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-07-31T16:24:08.758657+00:00",
+      "price": 4.282,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-07-31T16:24:08.758657+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LDOUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-31T16:24:28.879463+00:00",
+      "price": 0.3446,
+      "funding": 0.0,
+      "id": "LDOUSDT:rejection:2026-07-31T16:24:28.879463+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-07-31T16:24:34.483242+00:00",
+      "price": 464.16,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:resistance_test:2026-07-31T16:24:34.483242+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "NBISBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-31T16:24:38.545173+00:00",
+      "price": 186.01,
+      "funding": 0.0,
+      "id": "NBISBUSDT:rejection:2026-07-31T16:24:38.545173+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-07-31T16:24:42.394425+00:00",
+      "price": 0.05055,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:rejection:2026-07-31T16:24:42.394425+00:00",
       "status": "pending",
       "repeats": 1
     }
