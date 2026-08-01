@@ -3715,6 +3715,19 @@
       "ts": "2026-08-01T19:17:54.541Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-01T14:02:54.805Z",
       "status": "pending"
+    },
+    {
+      "label": "TAC",
+      "p1_low": 0.003163,
+      "p1_rsi": 28.7532782203622,
+      "p2_low": 0.003158,
+      "p2_rsi": 33.7481636594623,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TAC_USDT",
+      "ts": "2026-08-01T20:00:00.000Z",
+      "id": "flip:TAC_USDT:gate:2026-08-01T20:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
