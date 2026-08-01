@@ -55,23 +55,6 @@
         "funding_high": 0.1
       }
     },
-    "JTOUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.6997,
-        "resistance": 0.6894,
-        "rejection_below": 0.4868,
-        "support_strong": 0.5123,
-        "support_extreme": 0.5174
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "AERO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -285,23 +268,6 @@
         "rejection_below": 239.02,
         "support_strong": 253.1786,
         "support_extreme": 256.111
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "LLY_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 1253.1596,
-        "resistance": 1234.64,
-        "rejection_below": 1092.1485,
-        "support_strong": 1152.1422,
-        "support_extreme": 1166.774
       },
       "alerts": {
         "price_breakout": true,
