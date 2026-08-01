@@ -19586,8 +19586,8 @@
       "funding": 0.005,
       "id": "MAGMA_USDT:support_break:2026-07-27T04:23:51.001572+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-31T12:24:15.467150+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-01T08:24:14.152856+00:00"
     },
     {
       "symbol": "RPLUSDT",
@@ -21032,8 +21032,8 @@
       "funding": 0.01,
       "id": "AMGN_USDT:support_break:2026-07-29T20:24:38.874973+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-31T12:24:22.770365+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-01T08:24:24.011684+00:00"
     },
     {
       "symbol": "SCHW_USDT",
@@ -21255,7 +21255,8 @@
       "funding": 0.005,
       "id": "ON_USDT:support_break:2026-07-30T04:24:36.084874+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T08:24:39.359758+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -21353,7 +21354,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-07-30T12:24:34.163411+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T08:24:30.726829+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -21578,8 +21580,8 @@
       "funding": -0.41529999999999995,
       "id": "SOXS_USDT:funding:2026-07-31T04:24:38.239042+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-01T04:24:33.202485+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-01T08:24:31.907229+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -21621,7 +21623,8 @@
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-07-31T08:24:18.580366+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T08:24:11.722607+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -21743,7 +21746,8 @@
       "funding": 0.01,
       "id": "AMGN_USDT:rejection:2026-07-31T12:24:22.770365+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T08:24:24.011684+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -21875,6 +21879,66 @@
       "price": 0.001758,
       "funding": 0.0,
       "id": "TLMUSDT:rejection:2026-08-01T04:24:20.954615+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MRK_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-01T08:24:20.759535+00:00",
+      "price": 130.68,
+      "funding": 0.01,
+      "id": "MRK_USDT:rejection:2026-08-01T08:24:20.759535+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-01T08:24:36.953062+00:00",
+      "price": 0.0571,
+      "funding": 0.0,
+      "id": "BANKUSDT:support_break:2026-08-01T08:24:36.953062+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-01T08:24:39.950438+00:00",
+      "price": 0.013971,
+      "funding": 0.036699999999999997,
+      "id": "BULLA_USDT:rejection:2026-08-01T08:24:39.950438+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-01T08:24:39.950438+00:00",
+      "price": 0.013971,
+      "funding": 0.036699999999999997,
+      "id": "BULLA_USDT:support_break:2026-08-01T08:24:39.950438+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-01T08:24:44.490121+00:00",
+      "price": 0.1123,
+      "funding": 0.0,
+      "id": "DIAUSDT:rejection:2026-08-01T08:24:44.490121+00:00",
       "status": "pending",
       "repeats": 1
     }
