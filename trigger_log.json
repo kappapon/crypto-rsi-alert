@@ -17806,8 +17806,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-07-22T16:24:17.363560+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-01T00:24:25.371915+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-01T20:24:39.437900+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -19599,8 +19599,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-27T04:23:59.334889+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-07-31T00:24:23.689352+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-01T20:24:35.484357+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -20600,8 +20600,8 @@
       "funding": 0.0,
       "id": "GNSUSDT:support_break:2026-07-29T04:24:31.303146+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-31T00:24:22.695694+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-01T20:24:34.166028+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -21256,8 +21256,8 @@
       "funding": 0.005,
       "id": "ON_USDT:support_break:2026-07-30T04:24:36.084874+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-01T08:24:39.359758+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-01T20:24:52.975506+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -21281,8 +21281,8 @@
       "funding": 0.005,
       "id": "MAGMA_USDT:rejection:2026-07-30T08:24:19.993217+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-30T20:24:23.017406+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-01T20:24:25.153137+00:00"
     },
     {
       "symbol": "POPMART_USDT",
@@ -21871,7 +21871,8 @@
       "funding": 0.1,
       "id": "BTW_USDT:funding:2026-08-01T04:24:11.177877+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T20:24:17.105491+00:00"
     },
     {
       "symbol": "TLMUSDT",
@@ -22015,6 +22016,30 @@
       "price": 0.001588,
       "funding": 0.0,
       "id": "TLMUSDT:support_break:2026-08-01T16:24:28.366926+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-01T20:24:41.642817+00:00",
+      "price": 0.00335,
+      "funding": 0.0,
+      "id": "TUSDT:support_break:2026-08-01T20:24:41.642817+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "METABUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-01T20:24:46.018561+00:00",
+      "price": 550.89,
+      "funding": 0.0,
+      "id": "METABUSDT:support_break:2026-08-01T20:24:46.018561+00:00",
       "status": "pending",
       "repeats": 1
     }
