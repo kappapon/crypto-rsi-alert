@@ -3116,7 +3116,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-07-29T01:18:02.084Z",
       "id": "confirmed:BULLA_USDT:gate:2026-07-28T23:03:01.211Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 5.683,
+      "stopped": true,
+      "stop_ts": "2026-07-31T02:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0195475357142857,
+      "closed_at": "2026-07-31T02:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -3327,7 +3335,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-07-30T19:17:53.486Z",
       "id": "confirmed:TA_USDT:gate:2026-07-30T18:17:52.951Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.485,
+      "stopped": true,
+      "stop_ts": "2026-07-31T12:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0684860714285714,
+      "closed_at": "2026-07-31T12:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -3354,7 +3370,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-07-30T21:47:52.653Z",
       "id": "confirmed:TA_USDT:gate:2026-07-30T19:47:53.481Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.729,
+      "stopped": true,
+      "stop_ts": "2026-07-31T12:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0685082142857143,
+      "closed_at": "2026-07-31T12:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -3381,7 +3405,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-07-31T00:17:52.618Z",
       "id": "confirmed:TA_USDT:gate:2026-07-30T22:17:52.436Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 4.596,
+      "stopped": true,
+      "stop_ts": "2026-07-31T12:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0685128571428571,
+      "closed_at": "2026-07-31T12:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -3434,7 +3466,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-07-31T10:32:55.445Z",
       "id": "confirmed:JST_USDT:gate:2026-07-31T09:47:54.889Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-07-31T12:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.103493214285714,
+      "closed_at": "2026-07-31T12:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
