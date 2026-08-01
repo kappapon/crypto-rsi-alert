@@ -3607,6 +3607,20 @@
       "ts": "2026-08-01T07:30:00.000Z",
       "id": "flip:AKE_USDT:gate:2026-08-01T07:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.003281,
+      "armed_ts": "2026-08-01T06:47:52.162Z",
+      "entry": 0.003278,
+      "label": "TAC",
+      "peak_high": 0.003331,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00334289285714286,
+      "symbol": "TAC_USDT",
+      "ts": "2026-08-01T09:32:51.876Z",
+      "id": "confirmed:TAC_USDT:gate:2026-08-01T06:47:52.162Z",
+      "status": "pending"
     }
   ]
 }
