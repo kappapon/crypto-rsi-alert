@@ -19189,8 +19189,8 @@
       "funding": 0.005,
       "id": "O_USDT:support_break:2026-07-26T04:24:09.773716+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-07-31T20:24:33.645159+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-08-01T04:24:31.547388+00:00"
     },
     {
       "symbol": "MEMES_USDT",
@@ -21114,7 +21114,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-07-30T00:24:58.745404+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T04:24:44.512790+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -21577,8 +21578,8 @@
       "funding": -0.41529999999999995,
       "id": "SOXS_USDT:funding:2026-07-31T04:24:38.239042+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-31T16:24:32.248999+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-01T04:24:33.202485+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -21656,7 +21657,8 @@
       "funding": 0.0048000000000000004,
       "id": "AKE_USDT:rejection:2026-07-31T08:24:34.634754+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T04:24:33.766366+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -21668,7 +21670,8 @@
       "funding": 0.0048000000000000004,
       "id": "AKE_USDT:support_break:2026-07-31T08:24:34.634754+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T04:24:33.766366+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -21752,7 +21755,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-07-31T16:24:08.758657+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-01T04:24:10.029740+00:00"
     },
     {
       "symbol": "LDOUSDT",
@@ -21847,6 +21851,30 @@
       "price": 143.73,
       "funding": 0.01,
       "id": "ROKU_USDT:support_break:2026-08-01T00:24:21.439497+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-08-01T04:24:11.177877+00:00",
+      "price": 0.108522,
+      "funding": 0.1,
+      "id": "BTW_USDT:funding:2026-08-01T04:24:11.177877+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TLMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-01T04:24:20.954615+00:00",
+      "price": 0.001758,
+      "funding": 0.0,
+      "id": "TLMUSDT:rejection:2026-08-01T04:24:20.954615+00:00",
       "status": "pending",
       "repeats": 1
     }
