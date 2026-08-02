@@ -3975,6 +3975,19 @@
       "ts": "2026-08-02T13:15:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-08-02T13:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_low": 0.013398,
+      "p1_rsi": 30.3385179415495,
+      "p2_low": 0.01328,
+      "p2_rsi": 42.3921462577189,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-08-02T13:30:00.000Z",
+      "id": "flip:BULLA_USDT:gate:2026-08-02T13:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
