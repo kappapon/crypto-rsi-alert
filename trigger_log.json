@@ -19231,8 +19231,8 @@
       "funding": 0.005,
       "id": "O_USDT:support_break:2026-07-26T04:24:09.773716+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-08-02T00:24:32.902626+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-08-02T12:24:30.408228+00:00"
     },
     {
       "symbol": "MEMES_USDT",
@@ -20711,8 +20711,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:rejection:2026-07-29T04:24:42.078590+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-02T04:24:30.633213+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-02T12:24:38.299349+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -21042,8 +21042,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-07-29T16:24:49.987311+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-30T00:24:57.443017+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-02T12:24:44.975771+00:00"
     },
     {
       "symbol": "LLY_USDT",
@@ -21306,8 +21306,8 @@
       "funding": 0.005,
       "id": "ON_USDT:rejection:2026-07-30T04:24:36.084874+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-01T12:24:33.895885+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-02T12:24:40.943960+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -21319,8 +21319,8 @@
       "funding": 0.005,
       "id": "ON_USDT:support_break:2026-07-30T04:24:36.084874+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-01T20:24:52.975506+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-02T12:24:40.943960+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -21940,7 +21940,8 @@
       "funding": 0.01,
       "id": "DDOG_USDT:support_break:2026-07-31T20:24:20.193238+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-02T12:24:15.527174+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -22208,7 +22209,8 @@
       "funding": 0.12240000000000001,
       "id": "BLESS_USDT:funding:2026-08-02T00:24:12.333627+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-02T12:24:10.858652+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -22351,6 +22353,30 @@
       "price": 0.3262,
       "funding": 0.0,
       "id": "LDOUSDT:support_break:2026-08-02T08:24:24.966760+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EULUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-02T12:24:45.623783+00:00",
+      "price": 1.466,
+      "funding": 0.0,
+      "id": "EULUSDT:rejection:2026-08-02T12:24:45.623783+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EULUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-02T12:24:45.623783+00:00",
+      "price": 1.466,
+      "funding": 0.0,
+      "id": "EULUSDT:support_break:2026-08-02T12:24:45.623783+00:00",
       "status": "pending",
       "repeats": 1
     }
