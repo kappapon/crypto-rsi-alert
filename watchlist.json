@@ -174,23 +174,6 @@
         "funding_high": 0.1
       }
     },
-    "VELODROMEUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0224,
-        "resistance": 0.0221,
-        "rejection_below": 0.0158,
-        "support_strong": 0.017,
-        "support_extreme": 0.0172
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BX_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
