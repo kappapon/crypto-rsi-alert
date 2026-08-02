@@ -3936,6 +3936,19 @@
       "ts": "2026-08-02T06:45:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-08-02T06:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_low": 1.1573,
+      "p1_rsi": 33.4372715245838,
+      "p2_low": 1.1561,
+      "p2_rsi": 40.3332522927153,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-08-02T07:45:00.000Z",
+      "id": "flip:KAITO_USDT:gate:2026-08-02T07:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
