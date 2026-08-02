@@ -21669,8 +21669,8 @@
       "funding": 0.01,
       "id": "MEITUAN_USDT:support_break:2026-07-31T04:24:42.226672+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-02T08:24:31.359372+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-02T20:24:34.996969+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -22209,8 +22209,8 @@
       "funding": 0.12240000000000001,
       "id": "BLESS_USDT:funding:2026-08-02T00:24:12.333627+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-02T16:24:14.147371+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-02T20:24:17.356960+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -22330,7 +22330,8 @@
       "funding": 0.0036999999999999997,
       "id": "KOMA_USDT:rejection:2026-08-02T08:24:07.330571+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-02T20:24:14.600594+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -22413,6 +22414,30 @@
       "price": 1876.0,
       "funding": 0.01,
       "id": "MELI_USDT:support_break:2026-08-02T16:24:31.907110+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BEAT_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-08-02T20:24:12.294981+00:00",
+      "price": 3.3366,
+      "funding": -0.1033,
+      "id": "BEAT_USDT:funding:2026-08-02T20:24:12.294981+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JSTUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-02T20:24:30.012864+00:00",
+      "price": 0.10654,
+      "funding": 0.0,
+      "id": "JSTUSDT:resistance_test:2026-08-02T20:24:30.012864+00:00",
       "status": "pending",
       "repeats": 1
     }
