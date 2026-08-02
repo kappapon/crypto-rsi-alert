@@ -3962,6 +3962,19 @@
       "ts": "2026-08-02T07:45:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-08-02T07:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_low": 0.3228,
+      "p1_rsi": 34.0221567264121,
+      "p2_low": 0.3216,
+      "p2_rsi": 39.3623136813953,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "LDO_USDT",
+      "ts": "2026-08-02T13:15:00.000Z",
+      "id": "flip:LDO_USDT:gate:2026-08-02T13:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
