@@ -3501,7 +3501,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-07-31T12:32:55.584Z",
       "id": "confirmed:JST_USDT:gate:2026-07-31T10:47:55.219Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.169,
+      "stopped": true,
+      "stop_ts": "2026-08-01T04:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.104015714285714,
+      "closed_at": "2026-08-01T04:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TAC",
@@ -3567,7 +3575,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-08-01T01:17:50.736Z",
       "id": "confirmed:AKE_USDT:gate:2026-07-31T21:32:50.667Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 7.461,
+      "stopped": true,
+      "stop_ts": "2026-08-01T15:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.004509075,
+      "closed_at": "2026-08-01T15:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -3660,7 +3676,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-08-01T13:02:56.090Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-01T10:17:53.310Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.727,
+      "stopped": true,
+      "stop_ts": "2026-08-01T19:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.85264285714286,
+      "closed_at": "2026-08-01T19:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
@@ -3687,7 +3711,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-08-01T15:32:49.860Z",
       "id": "confirmed:KAITO_USDT:gate:2026-08-01T13:02:49.570Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.339,
+      "stopped": true,
+      "stop_ts": "2026-08-01T17:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.18238928571429,
+      "closed_at": "2026-08-01T17:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -3714,7 +3746,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-08-01T19:17:54.541Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-01T14:02:54.805Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.863,
+      "stopped": true,
+      "stop_ts": "2026-08-01T21:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.88839285714286,
+      "closed_at": "2026-08-01T21:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TAC",
@@ -3754,7 +3794,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-08-01T21:47:56.008Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-01T21:02:53.349Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-08-01T22:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 1.91039285714286,
+      "closed_at": "2026-08-01T22:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
