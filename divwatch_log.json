@@ -3949,6 +3949,19 @@
       "ts": "2026-08-02T07:45:00.000Z",
       "id": "flip:KAITO_USDT:gate:2026-08-02T07:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.003309,
+      "p1_rsi": 70.0211075863608,
+      "p2_high": 0.003313,
+      "p2_rsi": 63.9880616023034,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-08-02T07:45:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-08-02T07:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
