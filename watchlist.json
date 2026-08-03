@@ -55,23 +55,6 @@
         "funding_high": 0.1
       }
     },
-    "AERO_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.5408,
-        "resistance": 0.5328,
-        "rejection_below": 0.3779,
-        "support_strong": 0.3986,
-        "support_extreme": 0.4042
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "UNIUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
@@ -315,7 +298,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 284.2,
-        "resistance": 280.0,
+        "resistance": 280,
         "rejection_below": 249.9165,
         "support_strong": 263.27,
         "support_extreme": 263.9842
@@ -519,7 +502,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 403.97,
-        "resistance": 398.0,
+        "resistance": 398,
         "rejection_below": 387.2,
         "support_strong": 386.6101,
         "support_extreme": 385.9672
@@ -587,7 +570,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 1929.515,
-        "resistance": 1901.0,
+        "resistance": 1901,
         "rejection_below": 1782.58,
         "support_strong": 1876.2604,
         "support_extreme": 1875.806
@@ -604,7 +587,7 @@
       "enabled": true,
       "levels": {
         "breakout_above": 2229.955,
-        "resistance": 2197.0,
+        "resistance": 2197,
         "rejection_below": 1994.05,
         "support_strong": 2110.9017,
         "support_extreme": 2088.526
@@ -977,11 +960,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0,
-        "resistance": 0.0,
-        "rejection_below": 0.0,
-        "support_strong": 0.0,
-        "support_extreme": 0.0
+        "breakout_above": 0,
+        "resistance": 0,
+        "rejection_below": 0,
+        "support_strong": 0,
+        "support_extreme": 0
       },
       "alerts": {
         "price_breakout": true,
