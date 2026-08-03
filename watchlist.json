@@ -739,11 +739,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 475.9538,
-        "resistance": 468.92,
-        "rejection_below": 444.011,
-        "support_strong": 463.4823,
-        "support_extreme": 459.9497
+        "breakout_above": 478.3999,
+        "resistance": 471.33,
+        "rejection_below": 445.0085,
+        "support_strong": 466.4734,
+        "support_extreme": 462.4382
       },
       "alerts": {
         "price_breakout": true,
