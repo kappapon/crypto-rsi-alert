@@ -1589,6 +1589,23 @@
       "symbol": "GIGGLEUSDT",
       "tau": 0.35,
       "tp": 34.618826148751126
+    },
+    {
+      "atr": 0.002109331342117175,
+      "breadth": 7,
+      "entry": 0.020337,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-08-03T00:28:42+00:00",
+      "prob": 0.397,
+      "pump_pct": 4.5761,
+      "sl": 0.022446331342117175,
+      "stage": "pre",
+      "stage_frac": 0.0906,
+      "status": "open",
+      "symbol": "BLESS_USDT",
+      "tau": 0.35,
+      "tp": 0.01611833731576565
     }
   ]
 }
