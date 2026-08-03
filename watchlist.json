@@ -1091,6 +1091,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "NEURALINK_USDT": {
+      "exchange": "gateio_futures",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 412.7396,
+        "resistance": 406.64,
+        "rejection_below": 356.25,
+        "support_strong": 387.153,
+        "support_extreme": 381.241
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
