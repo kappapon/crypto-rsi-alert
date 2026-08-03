@@ -259,23 +259,6 @@
         "funding_high": 0.1
       }
     },
-    "MAGMA_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.3821,
-        "resistance": 0.3764,
-        "rejection_below": 0.2485,
-        "support_strong": 0.267,
-        "support_extreme": 0.2751
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "KAITOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
