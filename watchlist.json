@@ -1040,6 +1040,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "EPICUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 1.0149,
+        "resistance": 0.9999,
+        "rejection_below": 0.8543,
+        "support_strong": 0.9064,
+        "support_extreme": 0.8857
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
