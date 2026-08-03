@@ -18961,8 +18961,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-07-25T12:23:57.389847+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-08-02T04:24:15.709460+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-08-03T00:24:22.018752+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -19282,8 +19282,8 @@
       "funding": 0.01,
       "id": "LMT_USDT:support_break:2026-07-26T04:24:23.653197+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-07-29T16:24:48.891568+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-03T00:24:47.971279+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -19641,8 +19641,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-27T04:23:59.334889+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-01T20:24:35.484357+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-03T00:24:28.689581+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -20063,8 +20063,8 @@
       "funding": -0.0134,
       "id": "AERO_USDT:support_break:2026-07-28T04:24:10.790561+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-07-31T00:24:08.608691+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-03T00:24:10.574469+00:00"
     },
     {
       "symbol": "POPMART_USDT",
@@ -20622,8 +20622,8 @@
       "funding": 0.0,
       "id": "AAVEUSDT:support_break:2026-07-29T04:24:24.951763+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-31T08:24:20.602862+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-03T00:24:18.730872+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -20635,8 +20635,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:support_break:2026-07-29T04:24:28.159204+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-02T16:24:21.310749+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-03T00:24:22.664214+00:00"
     },
     {
       "symbol": "GNSUSDT",
@@ -20999,8 +20999,8 @@
       "funding": 0.01,
       "id": "BX_USDT:support_break:2026-07-29T16:24:23.426606+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-31T12:24:12.583712+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-03T00:24:15.406649+00:00"
     },
     {
       "symbol": "ADSK_USDT",
@@ -21042,8 +21042,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-07-29T16:24:49.987311+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-02T12:24:44.975771+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-03T00:24:49.262094+00:00"
     },
     {
       "symbol": "LLY_USDT",
@@ -21860,8 +21860,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-07-31T16:24:08.758657+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-01T04:24:10.029740+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-03T00:24:11.227460+00:00"
     },
     {
       "symbol": "LDOUSDT",
@@ -21928,7 +21928,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-07-31T20:24:13.240238+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-03T00:24:14.743462+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -22027,7 +22028,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-08-01T08:24:36.953062+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-03T00:24:42.623218+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -22209,8 +22211,8 @@
       "funding": 0.12240000000000001,
       "id": "BLESS_USDT:funding:2026-08-02T00:24:12.333627+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-02T20:24:17.356960+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-03T00:24:16.056827+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -22355,7 +22357,8 @@
       "funding": 0.0,
       "id": "LDOUSDT:support_break:2026-08-02T08:24:24.966760+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-03T00:24:33.337542+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -22438,6 +22441,30 @@
       "price": 0.10654,
       "funding": 0.0,
       "id": "JSTUSDT:resistance_test:2026-08-02T20:24:30.012864+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "YFIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-03T00:24:32.666532+00:00",
+      "price": 2099.0,
+      "funding": 0.0,
+      "id": "YFIUSDT:support_break:2026-08-03T00:24:32.666532+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "NBISBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-03T00:24:44.614000+00:00",
+      "price": 197.89,
+      "funding": 0.0,
+      "id": "NBISBUSDT:support_break:2026-08-03T00:24:44.614000+00:00",
       "status": "pending",
       "repeats": 1
     }
