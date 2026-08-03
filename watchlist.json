@@ -1028,11 +1028,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0404,
-        "resistance": 0.0398,
-        "rejection_below": 0.0352,
-        "support_strong": 0.0345,
-        "support_extreme": 0.0314
+        "breakout_above": 0.0422,
+        "resistance": 0.0416,
+        "rejection_below": 0.0367,
+        "support_strong": 0.0369,
+        "support_extreme": 0.0335
       },
       "alerts": {
         "price_breakout": true,
