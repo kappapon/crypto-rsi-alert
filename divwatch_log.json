@@ -3286,7 +3286,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-07-30T16:47:51.804Z",
       "id": "confirmed:LDO_USDT:gate:2026-07-30T15:47:51.633Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.623,
+      "mfe_r": 9.622,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 9.137,
+      "exit": 0.322,
+      "closed_at": "2026-08-02T16:47:51+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.06677,
@@ -3842,7 +3850,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-08-02T02:02:56.377Z",
       "id": "confirmed:JST_USDT:gate:2026-08-01T21:47:58.152Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-08-02T03:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.105040357142857,
+      "closed_at": "2026-08-02T03:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
