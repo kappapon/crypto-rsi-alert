@@ -3938,7 +3938,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-08-02T07:32:57.006Z",
       "id": "confirmed:BULLA_USDT:gate:2026-08-02T03:32:56.048Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.635,
+      "stopped": true,
+      "stop_ts": "2026-08-03T08:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.01625275,
+      "closed_at": "2026-08-03T08:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
