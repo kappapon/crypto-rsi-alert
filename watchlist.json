@@ -38,23 +38,6 @@
         "funding_high": 0.1
       }
     },
-    "JNJ_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 278.1608,
-        "resistance": 274.05,
-        "rejection_below": 242.991,
-        "support_strong": 255.8557,
-        "support_extreme": 256.8029
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "UNIUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
