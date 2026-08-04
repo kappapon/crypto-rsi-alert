@@ -20874,8 +20874,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-07-29T08:24:29.171336+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-03T16:24:20.851398+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-04T20:24:32.950908+00:00"
     },
     {
       "symbol": "ON_USDT",
@@ -21373,8 +21373,8 @@
       "funding": 0.005,
       "id": "ON_USDT:support_break:2026-07-30T04:24:36.084874+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-02T12:24:40.943960+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-04T20:24:45.847875+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -21417,8 +21417,8 @@
       "funding": 0.01,
       "id": "POPMART_USDT:support_break:2026-07-30T08:24:43.432250+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-04T04:24:29.082978+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-04T20:24:43.343638+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -22972,7 +22972,8 @@
       "funding": 0.01,
       "id": "POPMART_USDT:rejection:2026-08-04T04:24:29.082978+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-04T20:24:43.343638+00:00"
     },
     {
       "symbol": "JDON_USDT",
@@ -23199,6 +23200,102 @@
       "price": 1.056,
       "funding": 0.0,
       "id": "EPICUSDT:resistance_test:2026-08-04T16:24:47.912345+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-04T20:24:24.242927+00:00",
+      "price": 0.132961,
+      "funding": 0.055099999999999996,
+      "id": "BTW_USDT:breakout:2026-08-04T20:24:24.242927+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-04T20:24:24.242927+00:00",
+      "price": 0.132961,
+      "funding": 0.055099999999999996,
+      "id": "BTW_USDT:resistance_test:2026-08-04T20:24:24.242927+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DDOG_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-04T20:24:29.032092+00:00",
+      "price": 285.54,
+      "funding": 0.01,
+      "id": "DDOG_USDT:breakout:2026-08-04T20:24:29.032092+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BKNG_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-04T20:24:35.569316+00:00",
+      "price": 205.18,
+      "funding": 0.01,
+      "id": "BKNG_USDT:resistance_test:2026-08-04T20:24:35.569316+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-04T20:24:50.074707+00:00",
+      "price": 0.04403,
+      "funding": 0.005,
+      "id": "TAKE_USDT:breakout:2026-08-04T20:24:50.074707+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-04T20:24:50.074707+00:00",
+      "price": 0.04403,
+      "funding": 0.005,
+      "id": "TAKE_USDT:resistance_test:2026-08-04T20:24:50.074707+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "NEURALINK_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-04T20:24:51.831469+00:00",
+      "price": 352.6,
+      "funding": 0.01,
+      "id": "NEURALINK_USDT:rejection:2026-08-04T20:24:51.831469+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "NEURALINK_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-04T20:24:51.831469+00:00",
+      "price": 352.6,
+      "funding": 0.01,
+      "id": "NEURALINK_USDT:support_break:2026-08-04T20:24:51.831469+00:00",
       "status": "pending",
       "repeats": 1
     }
