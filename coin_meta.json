@@ -2217,5 +2217,59 @@
       "Sora Ecosystem",
       "Outlier Ventures Portfolio"
     ]
+  },
+  "TAKE": {
+    "theme": "Gaming",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68577/small/overtake.png?1756118725",
+    "cg_id": "overtake",
+    "categories": [
+      "Gaming (GameFi)",
+      "BNB Chain Ecosystem",
+      "Sui Ecosystem",
+      "Binance Alpha Spotlight",
+      "Gaming Marketplace",
+      "Binance Wallet IDO"
+    ]
+  },
+  "EPIC": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/54734/small/PFP.png?1753421273",
+    "cg_id": "epic-chain",
+    "categories": [
+      "Tourism",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Payment Solutions",
+      "RWA Protocol"
+    ]
+  },
+  "JDON": {
+    "theme": "RWA",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/68573/small/jdon_160x160.png?1756106373",
+    "cg_id": "jd-com-ondo-tokenized-stock",
+    "categories": [
+      "Tokenized Assets",
+      "BNB Chain Ecosystem",
+      "Solana Ecosystem",
+      "Tokenized Stock",
+      "Ethereum Ecosystem",
+      "Real World Assets (RWA)",
+      "Ondo Tokenized Assets"
+    ]
+  },
+  "RATS": {
+    "theme": "Meme",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/51779/small/rats-logo_200x200.png?1732053438",
+    "cg_id": "goldenrat",
+    "categories": [
+      "BNB Chain Ecosystem",
+      "Meme"
+    ]
+  },
+  "NEURALINK": {
+    "theme": "Unclassified",
+    "logo_url": null,
+    "cg_id": null,
+    "categories": []
   }
 }
