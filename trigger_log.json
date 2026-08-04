@@ -21147,8 +21147,8 @@
       "funding": 0.01,
       "id": "SCHW_USDT:support_break:2026-07-29T20:24:39.517267+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-07-31T08:24:29.044420+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-04T08:24:22.473053+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -22536,8 +22536,8 @@
       "funding": 0.0,
       "id": "LDOUSDT:support_break:2026-08-02T08:24:24.966760+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-03T00:24:33.337542+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-04T08:24:25.474682+00:00"
     },
     {
       "symbol": "EULUSDT",
@@ -22981,6 +22981,66 @@
       "price": 33.08,
       "funding": 0.01,
       "id": "JDON_USDT:support_break:2026-08-04T04:24:36.413877+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-04T08:24:07.218948+00:00",
+      "price": 0.014643,
+      "funding": -0.015799999999999998,
+      "id": "KOMA_USDT:rejection:2026-08-04T08:24:07.218948+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ROKU_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-04T08:24:20.057408+00:00",
+      "price": 144.92,
+      "funding": 0.01,
+      "id": "ROKU_USDT:support_break:2026-08-04T08:24:20.057408+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SCHW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-04T08:24:22.473053+00:00",
+      "price": 105.57,
+      "funding": 0.01,
+      "id": "SCHW_USDT:rejection:2026-08-04T08:24:22.473053+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-04T08:24:27.268765+00:00",
+      "price": 0.0824,
+      "funding": 0.0,
+      "id": "ARBUSDT:rejection:2026-08-04T08:24:27.268765+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-04T08:24:28.506522+00:00",
+      "price": 49.27,
+      "funding": -0.0116,
+      "id": "SOXS_USDT:rejection:2026-08-04T08:24:28.506522+00:00",
       "status": "pending",
       "repeats": 1
     }
