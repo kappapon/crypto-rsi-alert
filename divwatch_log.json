@@ -4402,6 +4402,19 @@
       "ts": "2026-08-05T14:47:52.895Z",
       "id": "confirmed:TAC_USDT:gate:2026-08-05T12:02:52.345Z",
       "status": "pending"
+    },
+    {
+      "label": "BANK",
+      "p1_low": 0.0453,
+      "p1_rsi": 30.4509029252365,
+      "p2_low": 0.04528,
+      "p2_rsi": 31.3529028551031,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-05T15:45:00.000Z",
+      "id": "flip:BANK_USDT:gate:2026-08-05T15:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
