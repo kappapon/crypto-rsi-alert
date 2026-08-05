@@ -1091,6 +1091,23 @@
         "support_break": true,
         "funding_high": 0.1
       }
+    },
+    "HFTUSDT": {
+      "exchange": "binance_spot",
+      "enabled": true,
+      "levels": {
+        "breakout_above": 0.018,
+        "resistance": 0.0178,
+        "rejection_below": 0.0155,
+        "support_strong": 0.0129,
+        "support_extreme": 0.011
+      },
+      "alerts": {
+        "price_breakout": true,
+        "price_rejection": true,
+        "support_break": true,
+        "funding_high": 0.1
+      }
     }
   }
 }
