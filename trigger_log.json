@@ -21828,8 +21828,8 @@
       "funding": 0.01,
       "id": "MEITUAN_USDT:support_break:2026-07-31T04:24:42.226672+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-02T20:24:34.996969+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-05T08:24:33.213521+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -22385,8 +22385,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:support_break:2026-08-01T16:24:28.366926+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-05T00:24:16.298112+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-05T08:24:19.169954+00:00"
     },
     {
       "symbol": "TUSDT",
@@ -22589,8 +22589,8 @@
       "funding": -0.0328,
       "id": "AKE_USDT:support_break:2026-08-02T04:24:27.615479+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-03T20:24:41.113545+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-05T08:24:30.232532+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -23458,6 +23458,42 @@
       "price": 0.04836,
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-08-05T04:24:37.923507+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZEREBRO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-05T08:24:12.339967+00:00",
+      "price": 0.037485,
+      "funding": 0.005,
+      "id": "ZEREBRO_USDT:rejection:2026-08-05T08:24:12.339967+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "NBISBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-05T08:24:36.240646+00:00",
+      "price": 220.97,
+      "funding": 0.0,
+      "id": "NBISBUSDT:support_break:2026-08-05T08:24:36.240646+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-05T08:24:41.801381+00:00",
+      "price": 0.04306,
+      "funding": 0.0237,
+      "id": "TAKE_USDT:rejection:2026-08-05T08:24:41.801381+00:00",
       "status": "pending",
       "repeats": 1
     }
