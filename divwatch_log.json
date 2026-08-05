@@ -4241,6 +4241,20 @@
       "ts": "2026-08-05T00:45:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-08-05T00:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 1.928,
+      "armed_ts": "2026-08-05T01:32:54.466Z",
+      "entry": 1.923,
+      "label": "PROM",
+      "peak_high": 1.94,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 1.94917857142857,
+      "symbol": "PROM_USDT",
+      "ts": "2026-08-05T02:47:54.553Z",
+      "id": "confirmed:PROM_USDT:gate:2026-08-05T01:32:54.466Z",
+      "status": "pending"
     }
   ]
 }
