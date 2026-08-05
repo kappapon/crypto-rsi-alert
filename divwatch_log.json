@@ -4268,6 +4268,19 @@
       "ts": "2026-08-05T05:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-08-05T05:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 1.981,
+      "p1_rsi": 66.5704172861165,
+      "p2_high": 2.004,
+      "p2_rsi": 62.3924430883266,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-08-05T06:30:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-08-05T06:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
