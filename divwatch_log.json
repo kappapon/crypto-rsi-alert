@@ -4428,6 +4428,20 @@
       "ts": "2026-08-05T16:15:00.000Z",
       "id": "armed:LDO_USDT:gate:2026-08-05T16:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.3044,
+      "armed_ts": "2026-08-05T17:02:51.823Z",
+      "entry": 0.3017,
+      "label": "LDO",
+      "peak_high": 0.305,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.306232142857143,
+      "symbol": "LDO_USDT",
+      "ts": "2026-08-05T17:17:51.958Z",
+      "id": "confirmed:LDO_USDT:gate:2026-08-05T17:02:51.823Z",
+      "status": "pending"
     }
   ]
 }
