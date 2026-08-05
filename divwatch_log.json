@@ -4361,6 +4361,20 @@
       "ts": "2026-08-05T11:30:00.000Z",
       "id": "flip:TAC_USDT:gate:2026-08-05T11:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.2981,
+      "armed_ts": "2026-08-05T11:17:51.059Z",
+      "entry": 0.2978,
+      "label": "LDO",
+      "peak_high": 0.3012,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.302592857142857,
+      "symbol": "LDO_USDT",
+      "ts": "2026-08-05T12:47:51.883Z",
+      "id": "confirmed:LDO_USDT:gate:2026-08-05T11:17:51.059Z",
+      "status": "pending"
     }
   ]
 }
