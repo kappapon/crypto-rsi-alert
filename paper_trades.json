@@ -1580,16 +1580,20 @@
     {
       "atr": 4.350586925624439,
       "breadth": 7,
+      "closed_at": "2026-08-04T08:00:00+00:00",
       "entry": 43.32,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 34.618826148751126,
       "opened_at": "2026-08-02T00:27:06+00:00",
       "prob": 0.419,
       "pump_pct": 1.3889,
+      "r": 2.0,
+      "r_net": 1.97,
       "sl": 47.67058692562444,
       "stage": "mid",
       "stage_frac": 0.3825,
-      "status": "open",
+      "status": "closed_tp",
       "symbol": "GIGGLEUSDT",
       "tau": 0.35,
       "tp": 34.618826148751126
@@ -1631,6 +1635,23 @@
       "symbol": "FLOWUSDT",
       "tau": 0.35,
       "tp": 0.022953890618089886
+    },
+    {
+      "atr": 0.0045700224759043714,
+      "breadth": 6,
+      "entry": 0.04613,
+      "entry_is_live": true,
+      "exchange": "gateio_futures",
+      "opened_at": "2026-08-05T00:27:55+00:00",
+      "prob": 0.362,
+      "pump_pct": 2.4053,
+      "sl": 0.05070002247590437,
+      "stage": "pre",
+      "stage_frac": 0.0128,
+      "status": "open",
+      "symbol": "TAKE_USDT",
+      "tau": 0.35,
+      "tp": 0.036989955048191255
     }
   ]
 }
