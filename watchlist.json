@@ -922,23 +922,6 @@
         "funding_high": 0.1
       }
     },
-    "COP_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 124.1852,
-        "resistance": 122.35,
-        "rejection_below": 110.048,
-        "support_strong": 116.3784,
-        "support_extreme": 117.4142
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ZAMAUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
