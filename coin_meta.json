@@ -2271,5 +2271,39 @@
     "logo_url": null,
     "cg_id": null,
     "categories": []
+  },
+  "CYS": {
+    "theme": "DePIN",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/71025/small/cysic.png?1765330348",
+    "cg_id": "cysic",
+    "categories": [
+      "Infrastructure",
+      "Smart Contract Platform",
+      "BNB Chain Ecosystem",
+      "Zero Knowledge (ZK)",
+      "Base Ecosystem",
+      "OKX Ventures Portfolio",
+      "Polychain Capital Portfolio",
+      "Binance Alpha Spotlight",
+      "Base Native"
+    ]
+  },
+  "HFT": {
+    "theme": "DeFi",
+    "logo_url": "https://coin-images.coingecko.com/coins/images/26136/small/200x200_360.png?1728551257",
+    "cg_id": "hashflow",
+    "categories": [
+      "Decentralized Exchange (DEX)",
+      "Exchange-based Tokens",
+      "Decentralized Finance (DeFi)",
+      "BNB Chain Ecosystem",
+      "Binance Launchpool",
+      "MEV Protection",
+      "Ethereum Ecosystem",
+      "Coinbase Ventures Portfolio",
+      "Alameda Research Portfolio",
+      "DragonFly Capital Portfolio",
+      "Galaxy Digital Portfolio"
+    ]
   }
 }
