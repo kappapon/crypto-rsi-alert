@@ -4554,6 +4554,19 @@
       "ts": "2026-08-06T08:00:00.000Z",
       "id": "armed:TA_USDT:gate:2026-08-06T08:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_high": 0.015057,
+      "p1_rsi": 76.6819618979062,
+      "p2_high": 0.015365,
+      "p2_rsi": 58.6023477011083,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-08-06T08:45:00.000Z",
+      "id": "armed:BULLA_USDT:gate:2026-08-06T08:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
