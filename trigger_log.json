@@ -19701,8 +19701,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-27T04:23:59.334889+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-08-05T00:24:19.714476+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-08-06T04:24:42.147157+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -21815,7 +21815,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:rejection:2026-07-31T04:24:23.900195+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-06T04:24:36.576991+00:00"
     },
     {
       "symbol": "YFIUSDT",
@@ -21908,8 +21909,8 @@
       "funding": 0.02,
       "id": "VOLX_USDT:support_break:2026-07-31T08:24:18.580366+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-04T12:24:20.926779+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-06T04:24:31.098222+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -22261,8 +22262,8 @@
       "funding": 0.0,
       "id": "TLMUSDT:rejection:2026-08-01T04:24:20.954615+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-04T12:24:25.014721+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-06T04:24:37.323063+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -22813,8 +22814,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-08-03T00:24:32.666532+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-04T16:24:29.137708+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-06T04:24:46.307301+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -23342,7 +23343,8 @@
       "funding": 0.0,
       "id": "KAITOUSDT:rejection:2026-08-04T16:24:16.830070+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-06T04:24:33.817866+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -23864,6 +23866,18 @@
       "price": 0.4914,
       "funding": 0.1505,
       "id": "O_USDT:funding:2026-08-06T00:24:23.712924+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-06T04:24:24.710616+00:00",
+      "price": 87.2,
+      "funding": 0.01,
+      "id": "KO_USDT:rejection:2026-08-06T04:24:24.710616+00:00",
       "status": "pending",
       "repeats": 1
     }
