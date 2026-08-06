@@ -23407,7 +23407,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:resistance_test:2026-08-04T16:24:35.723759+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-06T20:24:41.377367+00:00"
     },
     {
       "symbol": "EPICUSDT",
@@ -23961,8 +23962,8 @@
       "funding": 0.17880000000000001,
       "id": "TAKE_USDT:funding:2026-08-06T08:24:56.732269+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-06T12:24:43.110326+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-06T20:24:48.684275+00:00"
     },
     {
       "symbol": "HFTUSDT",
@@ -24010,7 +24011,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-08-06T12:24:17.152396+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-06T20:24:24.643000+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -24189,6 +24191,30 @@
       "price": 0.1868,
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-06T16:30:28.652753+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BLESS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-06T20:24:27.664653+00:00",
+      "price": 0.022577,
+      "funding": 0.0011,
+      "id": "BLESS_USDT:rejection:2026-08-06T20:24:27.664653+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LMT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-06T20:24:46.630336+00:00",
+      "price": 582.34,
+      "funding": 0.01,
+      "id": "LMT_USDT:support_break:2026-08-06T20:24:46.630336+00:00",
       "status": "pending",
       "repeats": 1
     }
