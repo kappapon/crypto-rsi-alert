@@ -174,23 +174,6 @@
         "funding_high": 0.1
       }
     },
-    "VOLX_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 20.7222,
-        "resistance": 20.416,
-        "rejection_below": 16.6925,
-        "support_strong": 17.8145,
-        "support_extreme": 18.0477
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "EWZ_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -438,23 +421,6 @@
         "rejection_below": 551.285,
         "support_strong": 576.7716,
         "support_extreme": 575.0715
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "RPLUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 1.9691,
-        "resistance": 1.94,
-        "rejection_below": 1.444,
-        "support_strong": 1.5365,
-        "support_extreme": 1.5408
       },
       "alerts": {
         "price_breakout": true,
