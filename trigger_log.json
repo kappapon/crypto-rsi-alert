@@ -19701,8 +19701,8 @@
       "funding": 0.0,
       "id": "RPLUSDT:support_break:2026-07-27T04:23:59.334889+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-08-06T04:24:42.147157+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-08-07T00:24:34.543426+00:00"
     },
     {
       "symbol": "MEITUAN_USDT",
@@ -21878,8 +21878,8 @@
       "funding": 0.01,
       "id": "MEITUAN_USDT:support_break:2026-07-31T04:24:42.226672+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-08-06T08:24:46.948967+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-08-07T00:24:43.054525+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -22515,8 +22515,8 @@
       "funding": -0.0468,
       "id": "SOXS_USDT:support_break:2026-08-02T00:24:34.966694+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-06T16:30:11.452094+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-07T00:24:40.036396+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -22541,7 +22541,8 @@
       "funding": -0.034,
       "id": "BEAT_USDT:support_break:2026-08-02T04:24:06.390286+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-07T00:24:20.918056+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -22881,8 +22882,8 @@
       "funding": 0.0,
       "id": "JSTUSDT:support_break:2026-08-03T04:24:37.337153+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-05T04:24:24.805471+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-07T00:24:38.029426+00:00"
     },
     {
       "symbol": "BLESS_USDT",
@@ -24120,7 +24121,8 @@
       "funding": 0.0,
       "id": "JSTUSDT:rejection:2026-08-06T16:30:09.228987+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-07T00:24:38.029426+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -24156,7 +24158,8 @@
       "funding": 0.0,
       "id": "TUTUSDT:support_break:2026-08-06T16:30:27.514048+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-07T00:24:53.802671+00:00"
     },
     {
       "symbol": "BICOUSDT",
@@ -24215,6 +24218,18 @@
       "price": 582.34,
       "funding": 0.01,
       "id": "LMT_USDT:support_break:2026-08-06T20:24:46.630336+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "CYS_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-07T00:24:52.810022+00:00",
+      "price": 0.81,
+      "funding": 0.005,
+      "id": "CYS_USDT:support_break:2026-08-07T00:24:52.810022+00:00",
       "status": "pending",
       "repeats": 1
     }
