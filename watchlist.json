@@ -361,23 +361,6 @@
         "funding_high": 0.1
       }
     },
-    "CVS_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 112.2691,
-        "resistance": 110.61,
-        "rejection_below": 90.858,
-        "support_strong": 96.0225,
-        "support_extreme": 97.4068
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "MRK_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
