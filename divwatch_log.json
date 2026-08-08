@@ -4150,7 +4150,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-08-04T06:02:50.734Z",
       "id": "confirmed:LDO_USDT:gate:2026-08-04T00:47:51.096Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.277,
+      "mfe_r": 27.584,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 19.822,
+      "exit": 0.2891,
+      "closed_at": "2026-08-07T06:02:50+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -4190,7 +4198,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-08-04T10:32:55.637Z",
       "id": "confirmed:JST_USDT:gate:2026-08-04T06:02:56.328Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.935,
+      "mfe_r": 3.772,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 1.071,
+      "exit": 0.10518,
+      "closed_at": "2026-08-07T10:32:55+00:00",
+      "horizon_h": 72
     },
     {
       "label": "LDO",
@@ -4625,7 +4641,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-08-07T02:02:17.312Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-07T00:03:08.411Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.391,
+      "stopped": true,
+      "stop_ts": "2026-08-07T03:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 2.03303571428571,
+      "closed_at": "2026-08-07T03:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -4665,7 +4689,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-08-07T14:32:19.883Z",
       "id": "confirmed:TA_USDT:gate:2026-08-07T06:47:16.344Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.172,
+      "stopped": true,
+      "stop_ts": "2026-08-07T20:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0639210714285714,
+      "closed_at": "2026-08-07T20:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -4705,7 +4737,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-08-07T20:17:16.109Z",
       "id": "confirmed:TA_USDT:gate:2026-08-07T16:02:15.708Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-08-07T20:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0640496428571428,
+      "closed_at": "2026-08-07T20:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
