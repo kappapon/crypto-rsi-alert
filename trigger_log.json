@@ -22790,8 +22790,8 @@
       "funding": -0.0328,
       "id": "AKE_USDT:support_break:2026-08-02T04:24:27.615479+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-08-08T20:23:41.692795+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-08-09T00:23:43.552808+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -22965,8 +22965,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-08-03T00:24:32.666532+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-06T04:24:46.307301+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-09T00:23:39.396692+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -23327,8 +23327,8 @@
       "funding": 0.01,
       "id": "JDON_USDT:support_break:2026-08-04T04:24:36.413877+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-07T04:23:58.512995+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-09T00:23:57.623604+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -23483,8 +23483,8 @@
       "funding": 0.01,
       "id": "EWZ_USDT:support_break:2026-08-04T16:24:14.753994+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-05T20:24:13.410996+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-09T00:23:26.411327+00:00"
     },
     {
       "symbol": "KAITOUSDT",
@@ -23769,7 +23769,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-08-05T00:24:10.588132+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-09T00:23:24.382374+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -23881,8 +23882,8 @@
       "funding": 0.10809999999999999,
       "id": "BULLA_USDT:funding:2026-08-05T12:24:36.579095+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-08T16:23:44.230083+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-09T00:23:51.720228+00:00"
     },
     {
       "symbol": "EPICUSDT",
@@ -23964,8 +23965,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-08-05T16:24:17.687115+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-07T04:23:39.174803+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-09T00:23:30.427447+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -24303,8 +24304,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-08-06T12:24:17.152396+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-08T08:23:48.113631+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-09T00:23:20.943068+00:00"
     },
     {
       "symbol": "DDOG_USDT",
@@ -25083,8 +25084,8 @@
       "funding": 0.188,
       "id": "BTW_USDT:funding:2026-08-08T00:23:30.353603+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-08T08:23:49.410476+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-09T00:23:22.268767+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -25182,7 +25183,8 @@
       "funding": 0.01,
       "id": "EEM_USDT:support_break:2026-08-08T04:24:04.323168+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-09T00:23:29.768546+00:00"
     },
     {
       "symbol": "EPICUSDT",
@@ -25400,8 +25402,32 @@
       "funding": -0.3725,
       "id": "CYS_USDT:funding:2026-08-08T16:23:50.074081+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-08T20:23:55.201249+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-09T00:23:59.605101+00:00"
+    },
+    {
+      "symbol": "BICOUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-09T00:24:01.554998+00:00",
+      "price": 0.06832,
+      "funding": 0.0,
+      "id": "BICOUSDT:breakout:2026-08-09T00:24:01.554998+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BICOUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-09T00:24:01.554998+00:00",
+      "price": 0.06832,
+      "funding": 0.0,
+      "id": "BICOUSDT:resistance_test:2026-08-09T00:24:01.554998+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
