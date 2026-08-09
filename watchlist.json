@@ -208,23 +208,6 @@
         "funding_high": 0.1
       }
     },
-    "AAVEUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 104.0781,
-        "resistance": 102.54,
-        "rejection_below": 91.27,
-        "support_strong": 90.9961,
-        "support_extreme": 90.5285
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "KAITOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
