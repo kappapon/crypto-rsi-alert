@@ -922,23 +922,6 @@
         "funding_high": 0.1
       }
     },
-    "EPICUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 1.3094,
-        "resistance": 1.29,
-        "rejection_below": 0.5029,
-        "support_strong": 0.7898,
-        "support_extreme": 0.9229
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "JDON_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
