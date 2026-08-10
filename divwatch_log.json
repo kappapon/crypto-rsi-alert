@@ -4937,6 +4937,19 @@
       "ts": "2026-08-10T00:00:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-08-10T00:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.2986,
+      "p1_rsi": 73.1159928258561,
+      "p2_high": 0.2987,
+      "p2_rsi": 69.8105888314184,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-08-10T02:45:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-08-10T02:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
