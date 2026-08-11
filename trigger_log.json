@@ -23037,8 +23037,8 @@
       "funding": 0.0,
       "id": "YFIUSDT:support_break:2026-08-03T00:24:32.666532+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-08-10T08:23:37.286387+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-08-11T00:24:21.369172+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -24426,8 +24426,8 @@
       "funding": 0.01,
       "id": "DDOG_USDT:rejection:2026-08-06T12:24:23.272273+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-10T04:23:28.687060+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-11T00:24:10.859044+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -25049,8 +25049,8 @@
       "funding": 0.01,
       "id": "MELI_USDT:support_break:2026-08-07T16:23:51.899737+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-09T12:23:36.945695+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-11T00:24:20.592343+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -25123,8 +25123,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-07T16:24:11.993496+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-08T04:24:35.579382+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-11T00:24:44.716777+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -26004,7 +26004,8 @@
       "funding": 0.0,
       "id": "PLTRBUSDT:support_break:2026-08-10T00:23:43.337515+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-11T00:24:27.414419+00:00"
     },
     {
       "symbol": "BEAT_USDT",
@@ -26114,7 +26115,8 @@
       "funding": 0.01,
       "id": "BKNG_USDT:support_break:2026-08-10T08:23:35.912092+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-11T00:24:19.302244+00:00"
     },
     {
       "symbol": "TUTUSDT",
@@ -26257,6 +26259,42 @@
       "price": 547.83,
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:support_break:2026-08-10T20:23:46.122384+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-11T00:24:17.358676+00:00",
+      "price": 592.5,
+      "funding": 0.01,
+      "id": "TMO_USDT:support_break:2026-08-11T00:24:17.358676+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-11T00:24:32.357827+00:00",
+      "price": 2.455,
+      "funding": 0.0,
+      "id": "PROMUSDT:breakout:2026-08-11T00:24:32.357827+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-11T00:24:32.357827+00:00",
+      "price": 2.455,
+      "funding": 0.0,
+      "id": "PROMUSDT:resistance_test:2026-08-11T00:24:32.357827+00:00",
       "status": "pending",
       "repeats": 1
     }
