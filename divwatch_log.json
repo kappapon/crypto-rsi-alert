@@ -4857,7 +4857,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-08-08T13:02:06.350Z",
       "id": "confirmed:LDO_USDT:gate:2026-08-08T05:32:37.976Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 4.599,
+      "stopped": true,
+      "stop_ts": "2026-08-10T01:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.295435714285714,
+      "closed_at": "2026-08-10T01:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -4989,7 +4997,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-08-10T13:32:11.164Z",
       "id": "confirmed:BULLA_USDT:gate:2026-08-10T10:17:11.091Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.124,
+      "stopped": true,
+      "stop_ts": "2026-08-10T16:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0163428928571429,
+      "closed_at": "2026-08-10T16:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -5016,7 +5032,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-08-10T16:32:11.327Z",
       "id": "confirmed:BULLA_USDT:gate:2026-08-10T14:02:10.462Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.039,
+      "stopped": true,
+      "stop_ts": "2026-08-10T20:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0165565714285714,
+      "closed_at": "2026-08-10T20:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
