@@ -5207,6 +5207,19 @@
       "ts": "2026-08-12T21:15:00.000Z",
       "id": "flip:TAC_USDT:gate:2026-08-12T21:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.03904,
+      "p1_rsi": 76.5600830914662,
+      "p2_high": 0.03981,
+      "p2_rsi": 68.6514928812453,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-12T22:15:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-08-12T22:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
