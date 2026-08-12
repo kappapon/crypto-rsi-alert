@@ -5220,6 +5220,20 @@
       "ts": "2026-08-12T22:15:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-08-12T22:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.03981,
+      "armed_ts": "2026-08-12T23:02:54.387Z",
+      "entry": 0.03946,
+      "label": "BANK",
+      "peak_high": 0.03984,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0402203571428571,
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-12T23:32:54.588Z",
+      "id": "confirmed:BANK_USDT:gate:2026-08-12T23:02:54.387Z",
+      "status": "pending"
     }
   ]
 }
