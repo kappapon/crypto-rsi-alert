@@ -5168,6 +5168,19 @@
       "ts": "2026-08-12T12:47:55.702Z",
       "id": "confirmed:JST_USDT:gate:2026-08-12T10:02:57.220Z",
       "status": "pending"
+    },
+    {
+      "label": "AKE",
+      "p1_low": 0.004087,
+      "p1_rsi": 33.739183578973,
+      "p2_low": 0.0040658,
+      "p2_rsi": 38.9593637309868,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "AKE_USDT",
+      "ts": "2026-08-12T13:30:00.000Z",
+      "id": "flip:AKE_USDT:gate:2026-08-12T13:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
