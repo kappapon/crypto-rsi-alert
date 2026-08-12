@@ -2296,16 +2296,20 @@
     {
       "atr": 0.0116042337170113,
       "breadth": 19,
+      "closed_at": "2026-08-11T04:00:00+00:00",
       "entry": 0.263,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.2746042337170113,
       "opened_at": "2026-08-11T00:30:06+00:00",
       "prob": 0.497,
       "pump_pct": 0.45,
+      "r": -1.0,
+      "r_net": -1.068,
       "sl": 0.2746042337170113,
       "stage": "early",
       "stage_frac": 0.3,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "RADUSDT",
       "tau": 0.35,
       "tp": 0.2397915325659774
@@ -2360,6 +2364,23 @@
       "symbol": "CGPTUSDT",
       "tau": 0.35,
       "tp": 0.018267558879602627
+    },
+    {
+      "atr": 0.0024226928842525862,
+      "breadth": 12,
+      "entry": 0.0393,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-08-12T00:27:25+00:00",
+      "prob": 0.437,
+      "pump_pct": 0.5709,
+      "sl": 0.04172269288425259,
+      "stage": "pre",
+      "stage_frac": 0.1141,
+      "status": "open",
+      "symbol": "EDUUSDT",
+      "tau": 0.35,
+      "tp": 0.03445461423149483
     }
   ]
 }
