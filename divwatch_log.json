@@ -4905,7 +4905,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-08-09T08:47:10.429Z",
       "id": "confirmed:JST_USDT:gate:2026-08-09T08:02:09.656Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.184,
+      "mfe_r": 8.916,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 2.502,
+      "exit": 0.10229,
+      "closed_at": "2026-08-12T08:47:10+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
