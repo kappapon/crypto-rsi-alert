@@ -24951,8 +24951,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:rejection:2026-08-07T04:23:57.163986+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-13T04:24:25.906748+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-13T12:24:25.673986+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -25497,7 +25497,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:resistance_test:2026-08-08T00:23:38.772885+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-13T12:24:11.583095+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -26147,8 +26148,8 @@
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-08-09T08:23:54.708076+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-12T16:24:25.220227+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-13T12:24:23.847095+00:00"
     },
     {
       "symbol": "SCHW_USDT",
@@ -26802,8 +26803,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-08-11T08:24:27.827030+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-12T12:24:25.786731+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-13T12:24:26.121413+00:00"
     },
     {
       "symbol": "TUTUSDT",
@@ -27379,6 +27380,54 @@
       "price": 1.4235,
       "funding": 0.005,
       "id": "CYS_USDT:support_break:2026-08-13T08:24:27.281380+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-13T12:24:05.670468+00:00",
+      "price": 3.505,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-08-13T12:24:05.670468+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-13T12:24:11.131660+00:00",
+      "price": 2.35,
+      "funding": 9.999999999999999e-05,
+      "id": "LIT_USDT:support_break:2026-08-13T12:24:11.131660+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-13T12:24:11.583095+00:00",
+      "price": 0.01116,
+      "funding": 0.0,
+      "id": "GPSUSDT:breakout:2026-08-13T12:24:11.583095+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-13T12:24:26.121413+00:00",
+      "price": 0.04124,
+      "funding": 0.005,
+      "id": "TAKE_USDT:support_break:2026-08-13T12:24:26.121413+00:00",
       "status": "pending",
       "repeats": 1
     }
