@@ -174,23 +174,6 @@
         "funding_high": 0.1
       }
     },
-    "KAITOUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 1.397,
-        "resistance": 1.3764,
-        "rejection_below": 0.4313,
-        "support_strong": 0.5017,
-        "support_extreme": 0.5687
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "DDOG_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -421,23 +404,6 @@
         "rejection_below": 1749.9,
         "support_strong": 1872.9104,
         "support_extreme": 1876.9192
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "YFIUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 2196.46,
-        "resistance": 2164.0,
-        "rejection_below": 1853.45,
-        "support_strong": 1954.284,
-        "support_extreme": 1971.533
       },
       "alerts": {
         "price_breakout": true,
@@ -795,23 +761,6 @@
         "rejection_below": 0.047,
         "support_strong": 0.0466,
         "support_extreme": 0.0466
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "EULUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 2.7872,
-        "resistance": 2.746,
-        "rejection_below": 1.185,
-        "support_strong": 1.1673,
-        "support_extreme": 1.1694
       },
       "alerts": {
         "price_breakout": true,
