@@ -5269,6 +5269,19 @@
       "ts": "2026-08-13T03:02:54.586Z",
       "id": "confirmed:BANK_USDT:gate:2026-08-13T01:02:54.030Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.10229,
+      "p1_rsi": 70.1767663380235,
+      "p2_high": 0.10255,
+      "p2_rsi": 65.6636117081403,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-08-13T05:45:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-08-13T05:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
