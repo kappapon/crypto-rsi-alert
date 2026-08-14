@@ -25833,8 +25833,8 @@
       "funding": 0.006200000000000001,
       "id": "BLESS_USDT:rejection:2026-08-08T12:23:27.403058+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-13T08:24:08.931568+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-14T12:24:08.838761+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -25951,8 +25951,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-08-08T16:23:46.169568+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-13T00:24:28.779407+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-14T12:24:31.118952+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -26420,8 +26420,8 @@
       "funding": 0.02,
       "id": "POPMART_USDT:support_break:2026-08-10T04:23:40.784516+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-13T08:24:20.570603+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-14T12:24:24.983346+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -26964,8 +26964,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:support_break:2026-08-11T12:24:41.995191+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-13T20:24:35.432493+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-14T12:24:33.502506+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -27124,7 +27124,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:rejection:2026-08-12T08:24:05.458310+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-14T12:24:03.947741+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -27749,6 +27750,90 @@
       "price": 0.015848,
       "funding": 0.005,
       "id": "BULLA_USDT:rejection:2026-08-14T08:24:27.232694+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "REUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-14T12:24:11.296876+00:00",
+      "price": 0.4413,
+      "funding": 0.0,
+      "id": "REUSDT:support_break:2026-08-14T12:24:11.296876+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-14T12:24:12.488831+00:00",
+      "price": 0.01018,
+      "funding": 0.0,
+      "id": "GPSUSDT:rejection:2026-08-14T12:24:12.488831+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-14T12:24:12.488831+00:00",
+      "price": 0.01018,
+      "funding": 0.0,
+      "id": "GPSUSDT:support_break:2026-08-14T12:24:12.488831+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-14T12:24:21.236354+00:00",
+      "price": 0.0108554,
+      "funding": 0.0275,
+      "id": "AKE_USDT:breakout:2026-08-14T12:24:21.236354+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-14T12:24:21.236354+00:00",
+      "price": 0.0108554,
+      "funding": 0.0275,
+      "id": "AKE_USDT:resistance_test:2026-08-14T12:24:21.236354+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-14T12:24:31.118952+00:00",
+      "price": 0.04668,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:support_break:2026-08-14T12:24:31.118952+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "CYS_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-08-14T12:24:34.094701+00:00",
+      "price": 1.128,
+      "funding": -0.1403,
+      "id": "CYS_USDT:funding:2026-08-14T12:24:34.094701+00:00",
       "status": "pending",
       "repeats": 1
     }
