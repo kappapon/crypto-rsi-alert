@@ -854,23 +854,6 @@
         "funding_high": 0.1
       }
     },
-    "TUTUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.3102,
-        "resistance": 0.3056,
-        "rejection_below": 0.0333,
-        "support_strong": 0.046,
-        "support_extreme": 0.0619
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BICOUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
