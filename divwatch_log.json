@@ -5639,6 +5639,19 @@
       "ts": "2026-08-14T18:00:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-08-14T18:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.10635,
+      "p1_rsi": 84.5571264102377,
+      "p2_high": 0.10659,
+      "p2_rsi": 73.1554864693756,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-08-15T10:15:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-08-15T10:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
