@@ -565,23 +565,6 @@
         "funding_high": 0.1
       }
     },
-    "MEITUAN_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 12.4409,
-        "resistance": 12.257,
-        "rejection_below": 10.6419,
-        "support_strong": 11.2095,
-        "support_extreme": 11.348
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "POPMART_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
