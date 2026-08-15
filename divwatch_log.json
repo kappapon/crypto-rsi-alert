@@ -5692,6 +5692,19 @@
       "ts": "2026-08-15T21:47:56.177Z",
       "id": "confirmed:BULLA_USDT:gate:2026-08-15T20:02:56.976Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 2.161,
+      "p1_rsi": 27.9300616830581,
+      "p2_low": 2.154,
+      "p2_rsi": 28.7700252195125,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-08-15T22:45:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-08-15T22:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
