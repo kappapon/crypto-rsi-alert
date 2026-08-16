@@ -24461,8 +24461,8 @@
       "funding": 0.01,
       "id": "KO_USDT:rejection:2026-08-06T04:24:24.710616+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-06T16:29:49.148002+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-16T04:24:01.847178+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -25036,8 +25036,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-08-07T04:23:57.163986+00:00",
       "status": "pending",
-      "repeats": 10,
-      "last_repeat": "2026-08-14T16:24:26.885427+00:00"
+      "repeats": 11,
+      "last_repeat": "2026-08-16T04:24:28.531688+00:00"
     },
     {
       "symbol": "JDON_USDT",
@@ -25831,8 +25831,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-08-08T08:24:11.788441+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-15T16:24:23.278560+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-16T04:24:20.802307+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -25881,8 +25881,8 @@
       "funding": 0.006200000000000001,
       "id": "BLESS_USDT:rejection:2026-08-08T12:23:27.403058+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-08-15T16:24:07.952978+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-08-16T04:24:06.680877+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -26702,8 +26702,8 @@
       "funding": 0.01,
       "id": "KO_USDT:support_break:2026-08-10T20:23:21.478083+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-15T12:24:05.372187+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-16T04:24:01.847178+00:00"
     },
     {
       "symbol": "BX_USDT",
@@ -27049,8 +27049,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:support_break:2026-08-11T12:24:41.995191+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-15T08:24:33.774365+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-16T04:24:30.314147+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -27203,8 +27203,8 @@
       "funding": 0.005,
       "id": "ON_USDT:support_break:2026-08-12T00:24:29.577681+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-14T08:24:26.642047+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-16T04:24:24.973579+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -27572,8 +27572,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-08-13T08:24:21.922918+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-15T12:24:29.343068+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-16T04:24:23.785562+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -27735,7 +27735,8 @@
       "funding": -0.0053,
       "id": "SOXS_USDT:support_break:2026-08-13T16:24:25.481433+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-16T04:24:18.074300+00:00"
     },
     {
       "symbol": "JDON_USDT",
@@ -28224,7 +28225,8 @@
       "funding": -0.0201,
       "id": "CYS_USDT:rejection:2026-08-15T20:24:27.499617+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-16T04:24:30.907654+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -28271,6 +28273,30 @@
       "price": 135.79,
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-08-16T00:24:15.193544+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-16T04:24:18.668352+00:00",
+      "price": 0.0100102,
+      "funding": 0.005,
+      "id": "AKE_USDT:support_break:2026-08-16T04:24:18.668352+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JDON_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-16T04:24:29.718103+00:00",
+      "price": 29.16,
+      "funding": 0.01,
+      "id": "JDON_USDT:support_break:2026-08-16T04:24:29.718103+00:00",
       "status": "pending",
       "repeats": 1
     }
