@@ -27431,8 +27431,8 @@
       "funding": 0.0,
       "id": "DGBUSDT:support_break:2026-08-13T00:24:22.715546+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-15T04:24:20.222520+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-16T00:24:23.644673+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -27649,8 +27649,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:support_break:2026-08-13T16:24:12.596926+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-14T08:24:06.279098+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-16T00:24:09.706912+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -27674,7 +27674,8 @@
       "funding": 0.01,
       "id": "TMO_USDT:support_break:2026-08-13T16:24:20.202737+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-16T00:24:16.190755+00:00"
     },
     {
       "symbol": "BKNG_USDT",
@@ -27991,7 +27992,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-08-14T16:24:22.827215+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-16T00:24:25.608739+00:00"
     },
     {
       "symbol": "NEURALINK_USDT",
@@ -28082,8 +28084,8 @@
       "funding": 0.005,
       "id": "BTW_USDT:support_break:2026-08-15T04:24:03.990184+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-15T16:24:04.520081+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-16T00:24:08.639083+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -28107,7 +28109,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-08-15T08:24:25.199470+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-16T00:24:24.636928+00:00"
     },
     {
       "symbol": "NEURALINK_USDT",
@@ -28166,6 +28169,42 @@
       "price": 0.884,
       "funding": -0.0201,
       "id": "CYS_USDT:support_break:2026-08-15T20:24:27.499617+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZEREBRO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-16T00:24:10.196192+00:00",
+      "price": 0.038063,
+      "funding": 0.005,
+      "id": "ZEREBRO_USDT:support_break:2026-08-16T00:24:10.196192+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "V_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-16T00:24:14.676816+00:00",
+      "price": 364.5,
+      "funding": 0.01,
+      "id": "V_USDT:support_break:2026-08-16T00:24:14.676816+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MRK_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-16T00:24:15.193544+00:00",
+      "price": 135.79,
+      "funding": 0.01,
+      "id": "MRK_USDT:support_break:2026-08-16T00:24:15.193544+00:00",
       "status": "pending",
       "repeats": 1
     }
