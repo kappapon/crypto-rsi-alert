@@ -5734,6 +5734,20 @@
       "ts": "2026-08-18T11:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-08-18T11:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.3381,
+      "armed_ts": "2026-08-18T12:17:45.667Z",
+      "entry": 0.3371,
+      "label": "KAITO",
+      "peak_high": 0.3383,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.339985714285714,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-08-18T13:02:46.087Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-08-18T12:17:45.667Z",
+      "status": "pending"
     }
   ]
 }
