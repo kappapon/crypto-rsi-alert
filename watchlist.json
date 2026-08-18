@@ -10,9 +10,9 @@
       "levels": {
         "breakout_above": 92.2838,
         "resistance": 90.92,
-        "rejection_below": 87.75,
-        "support_strong": 87.6771,
-        "support_extreme": 87.5614
+        "rejection_below": 82.802,
+        "support_strong": 87.2538,
+        "support_extreme": 87.3364
       },
       "alerts": {
         "price_breakout": true,
@@ -27,9 +27,9 @@
       "levels": {
         "breakout_above": 4.6457,
         "resistance": 4.577,
-        "rejection_below": 3.0713,
-        "support_strong": 3.2496,
-        "support_extreme": 3.3086
+        "rejection_below": 3.115,
+        "support_strong": 3.287,
+        "support_extreme": 3.2891
       },
       "alerts": {
         "price_breakout": true,
@@ -44,9 +44,9 @@
       "levels": {
         "breakout_above": 0.0342,
         "resistance": 0.0337,
-        "rejection_below": 0.0142,
-        "support_strong": 0.014,
-        "support_extreme": 0.0139
+        "rejection_below": 0.0146,
+        "support_strong": 0.0149,
+        "support_extreme": 0.0146
       },
       "alerts": {
         "price_breakout": true,
@@ -59,11 +59,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.3298,
-        "resistance": 0.3249,
-        "rejection_below": 0.2902,
-        "support_strong": 0.3019,
-        "support_extreme": 0.2931
+        "breakout_above": 0.4481,
+        "resistance": 0.4415,
+        "rejection_below": 0.336,
+        "support_strong": 0.3545,
+        "support_extreme": 0.3445
       },
       "alerts": {
         "price_breakout": true,
@@ -78,9 +78,9 @@
       "levels": {
         "breakout_above": 232.435,
         "resistance": 229.0,
-        "rejection_below": 213.332,
-        "support_strong": 224.0159,
-        "support_extreme": 223.1857
+        "rejection_below": 211.869,
+        "support_strong": 223.5812,
+        "support_extreme": 223.8388
       },
       "alerts": {
         "price_breakout": true,
@@ -95,9 +95,9 @@
       "levels": {
         "breakout_above": 374.8496,
         "resistance": 369.31,
-        "rejection_below": 345.9995,
-        "support_strong": 364.0574,
-        "support_extreme": 364.0206
+        "rejection_below": 344.2515,
+        "support_strong": 362.8211,
+        "support_extreme": 363.2503
       },
       "alerts": {
         "price_breakout": true,
@@ -110,11 +110,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0436,
-        "resistance": 0.043,
-        "rejection_below": 0.0362,
-        "support_strong": 0.0387,
-        "support_extreme": 0.0385
+        "breakout_above": 0.0467,
+        "resistance": 0.046,
+        "rejection_below": 0.0387,
+        "support_strong": 0.0413,
+        "support_extreme": 0.0412
       },
       "alerts": {
         "price_breakout": true,
@@ -129,9 +129,9 @@
       "levels": {
         "breakout_above": 152.3718,
         "resistance": 150.12,
-        "rejection_below": 136.9995,
-        "support_strong": 144.3878,
-        "support_extreme": 145.1369
+        "rejection_below": 133.6935,
+        "support_strong": 141.7263,
+        "support_extreme": 143.0759
       },
       "alerts": {
         "price_breakout": true,
@@ -146,9 +146,9 @@
       "levels": {
         "breakout_above": 0.0308,
         "resistance": 0.0303,
-        "rejection_below": 0.0085,
-        "support_strong": 0.0094,
-        "support_extreme": 0.0099
+        "rejection_below": 0.0073,
+        "support_strong": 0.0082,
+        "support_extreme": 0.0086
       },
       "alerts": {
         "price_breakout": true,
@@ -163,9 +163,9 @@
       "levels": {
         "breakout_above": 270.6091,
         "resistance": 266.61,
-        "rejection_below": 238.279,
-        "support_strong": 251.3448,
-        "support_extreme": 251.1122
+        "rejection_below": 237.5475,
+        "support_strong": 250.6368,
+        "support_extreme": 250.815
       },
       "alerts": {
         "price_breakout": true,
@@ -180,9 +180,9 @@
       "levels": {
         "breakout_above": 300.8967,
         "resistance": 296.45,
-        "rejection_below": 244.986,
-        "support_strong": 257.5115,
-        "support_extreme": 255.4416
+        "rejection_below": 239.1815,
+        "support_strong": 251.2641,
+        "support_extreme": 253.4801
       },
       "alerts": {
         "price_breakout": true,
@@ -195,11 +195,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 68.3907,
-        "resistance": 67.38,
-        "rejection_below": 63.27,
-        "support_strong": 66.6126,
-        "support_extreme": 66.6034
+        "breakout_above": 68.9693,
+        "resistance": 67.95,
+        "rejection_below": 64.0395,
+        "support_strong": 67.2924,
+        "support_extreme": 67.017
       },
       "alerts": {
         "price_breakout": true,
@@ -212,11 +212,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.5477,
-        "resistance": 0.5396,
-        "rejection_below": 0.4379,
-        "support_strong": 0.4543,
-        "support_extreme": 0.4499
+        "breakout_above": 0.5397,
+        "resistance": 0.5317,
+        "rejection_below": 0.3877,
+        "support_strong": 0.416,
+        "support_extreme": 0.4274
       },
       "alerts": {
         "price_breakout": true,
@@ -231,9 +231,9 @@
       "levels": {
         "breakout_above": 2.5659,
         "resistance": 2.528,
-        "rejection_below": 2.1508,
-        "support_strong": 2.2593,
-        "support_extreme": 2.2663
+        "rejection_below": 2.2135,
+        "support_strong": 2.3374,
+        "support_extreme": 2.324
       },
       "alerts": {
         "price_breakout": true,
@@ -246,11 +246,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0122,
-        "resistance": 0.012,
-        "rejection_below": 0.0101,
-        "support_strong": 0.0105,
-        "support_extreme": 0.0104
+        "breakout_above": 0.0178,
+        "resistance": 0.0175,
+        "rejection_below": 0.0157,
+        "support_strong": 0.0156,
+        "support_extreme": 0.0138
       },
       "alerts": {
         "price_breakout": true,
@@ -265,9 +265,9 @@
       "levels": {
         "breakout_above": 379.7115,
         "resistance": 374.1,
-        "rejection_below": 348.27,
-        "support_strong": 366.5718,
-        "support_extreme": 365.7824
+        "rejection_below": 341.525,
+        "support_strong": 361.0896,
+        "support_extreme": 362.9288
       },
       "alerts": {
         "price_breakout": true,
@@ -280,11 +280,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 138.5272,
-        "resistance": 136.48,
-        "rejection_below": 129.0005,
-        "support_strong": 135.9672,
-        "support_extreme": 135.4928
+        "breakout_above": 139.3899,
+        "resistance": 137.33,
+        "rejection_below": 136.12,
+        "support_strong": 136.0429,
+        "support_extreme": 135.8753
       },
       "alerts": {
         "price_breakout": true,
@@ -297,11 +297,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 160.8775,
-        "resistance": 158.5,
-        "rejection_below": 149.6155,
-        "support_strong": 157.3989,
-        "support_extreme": 156.448
+        "breakout_above": 161.3748,
+        "resistance": 158.99,
+        "rejection_below": 149.9955,
+        "support_strong": 157.7822,
+        "support_extreme": 157.4894
       },
       "alerts": {
         "price_breakout": true,
@@ -316,9 +316,9 @@
       "levels": {
         "breakout_above": 617.8305,
         "resistance": 608.7,
-        "rejection_below": 555.275,
-        "support_strong": 589.4423,
-        "support_extreme": 591.9333
+        "rejection_below": 558.125,
+        "support_strong": 588.4001,
+        "support_extreme": 589.1029
       },
       "alerts": {
         "price_breakout": true,
@@ -333,9 +333,9 @@
       "levels": {
         "breakout_above": 429.548,
         "resistance": 423.2,
-        "rejection_below": 393.87,
-        "support_strong": 414.5792,
-        "support_extreme": 415.0525
+        "rejection_below": 399.19,
+        "support_strong": 417.989,
+        "support_extreme": 416.408
       },
       "alerts": {
         "price_breakout": true,
@@ -348,11 +348,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 112.9086,
-        "resistance": 111.24,
-        "rejection_below": 104.9845,
-        "support_strong": 110.7329,
-        "support_extreme": 110.5003
+        "breakout_above": 113.0913,
+        "resistance": 111.42,
+        "rejection_below": 105.241,
+        "support_strong": 110.9255,
+        "support_extreme": 110.7882
       },
       "alerts": {
         "price_breakout": true,
@@ -367,9 +367,9 @@
       "levels": {
         "breakout_above": 219.0471,
         "resistance": 215.81,
-        "rejection_below": 202.046,
-        "support_strong": 212.7157,
-        "support_extreme": 212.6994
+        "rejection_below": 195.2155,
+        "support_strong": 208.0802,
+        "support_extreme": 210.211
       },
       "alerts": {
         "price_breakout": true,
@@ -384,9 +384,9 @@
       "levels": {
         "breakout_above": 263.8289,
         "resistance": 259.93,
-        "rejection_below": 240.9485,
-        "support_strong": 253.365,
-        "support_extreme": 253.2546
+        "rejection_below": 231.2395,
+        "support_strong": 246.4474,
+        "support_extreme": 249.5573
       },
       "alerts": {
         "price_breakout": true,
@@ -401,9 +401,9 @@
       "levels": {
         "breakout_above": 2047.052,
         "resistance": 2016.8,
-        "rejection_below": 1751.325,
-        "support_strong": 1843.4094,
-        "support_extreme": 1844.3418
+        "rejection_below": 1699.265,
+        "support_strong": 1803.595,
+        "support_extreme": 1821.5424
       },
       "alerts": {
         "price_breakout": true,
@@ -418,9 +418,9 @@
       "levels": {
         "breakout_above": 0.5347,
         "resistance": 0.5268,
-        "rejection_below": 0.435,
-        "support_strong": 0.4531,
-        "support_extreme": 0.4496
+        "rejection_below": 0.438,
+        "support_strong": 0.4747,
+        "support_extreme": 0.4717
       },
       "alerts": {
         "price_breakout": true,
@@ -435,9 +435,9 @@
       "levels": {
         "breakout_above": 0.0854,
         "resistance": 0.0841,
-        "rejection_below": 0.0691,
-        "support_strong": 0.0739,
-        "support_extreme": 0.0745
+        "rejection_below": 0.0713,
+        "support_strong": 0.075,
+        "support_extreme": 0.0747
       },
       "alerts": {
         "price_breakout": true,
@@ -452,9 +452,9 @@
       "levels": {
         "breakout_above": 0.0629,
         "resistance": 0.062,
-        "rejection_below": 0.0446,
-        "support_strong": 0.0472,
-        "support_extreme": 0.0481
+        "rejection_below": 0.0402,
+        "support_strong": 0.0426,
+        "support_extreme": 0.0439
       },
       "alerts": {
         "price_breakout": true,
@@ -469,9 +469,9 @@
       "levels": {
         "breakout_above": 77.8302,
         "resistance": 76.68,
-        "rejection_below": 38.3135,
-        "support_strong": 40.3245,
-        "support_extreme": 40.3989
+        "rejection_below": 36.309,
+        "support_strong": 38.3555,
+        "support_extreme": 39.0527
       },
       "alerts": {
         "price_breakout": true,
@@ -486,9 +486,9 @@
       "levels": {
         "breakout_above": 0.0168,
         "resistance": 0.0166,
-        "rejection_below": 0.0098,
-        "support_strong": 0.0103,
-        "support_extreme": 0.0094
+        "rejection_below": 0.0084,
+        "support_strong": 0.0096,
+        "support_extreme": 0.0097
       },
       "alerts": {
         "price_breakout": true,
@@ -503,9 +503,9 @@
       "levels": {
         "breakout_above": 621.7484,
         "resistance": 612.56,
-        "rejection_below": 562.343,
-        "support_strong": 591.3819,
-        "support_extreme": 591.4896
+        "rejection_below": 540.3505,
+        "support_strong": 576.2916,
+        "support_extreme": 583.2928
       },
       "alerts": {
         "price_breakout": true,
@@ -520,9 +520,9 @@
       "levels": {
         "breakout_above": 182.7101,
         "resistance": 180.01,
-        "rejection_below": 166.649,
-        "support_strong": 175.0409,
-        "support_extreme": 175.0198
+        "rejection_below": 163.248,
+        "support_strong": 173.127,
+        "support_extreme": 173.9629
       },
       "alerts": {
         "price_breakout": true,
@@ -537,9 +537,9 @@
       "levels": {
         "breakout_above": 521.6593,
         "resistance": 513.95,
-        "rejection_below": 471.314,
-        "support_strong": 496.3668,
-        "support_extreme": 496.4475
+        "rejection_below": 455.9715,
+        "support_strong": 485.0135,
+        "support_extreme": 490.0253
       },
       "alerts": {
         "price_breakout": true,
@@ -552,11 +552,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.005,
-        "resistance": 0.0049,
+        "breakout_above": 0.0045,
+        "resistance": 0.0044,
         "rejection_below": 0.0038,
-        "support_strong": 0.004,
-        "support_extreme": 0.004
+        "support_strong": 0.0041,
+        "support_extreme": 0.0041
       },
       "alerts": {
         "price_breakout": true,
@@ -571,9 +571,9 @@
       "levels": {
         "breakout_above": 22.4021,
         "resistance": 22.071,
-        "rejection_below": 18.3378,
-        "support_strong": 19.3252,
-        "support_extreme": 19.4132
+        "rejection_below": 18.4537,
+        "support_strong": 19.4591,
+        "support_extreme": 19.4688
       },
       "alerts": {
         "price_breakout": true,
@@ -586,11 +586,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.6039,
-        "resistance": 0.595,
-        "rejection_below": 0.0351,
-        "support_strong": 0.0374,
-        "support_extreme": 0.0376
+        "breakout_above": 0.3886,
+        "resistance": 0.3829,
+        "rejection_below": 0.0337,
+        "support_strong": 0.0358,
+        "support_extreme": 0.0362
       },
       "alerts": {
         "price_breakout": true,
@@ -622,9 +622,9 @@
       "levels": {
         "breakout_above": 3.6814,
         "resistance": 3.627,
-        "rejection_below": 2.0492,
-        "support_strong": 2.2456,
-        "support_extreme": 2.3419
+        "rejection_below": 1.842,
+        "support_strong": 2.0157,
+        "support_extreme": 2.0844
       },
       "alerts": {
         "price_breakout": true,
@@ -637,11 +637,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 282.8297,
-        "resistance": 278.65,
-        "rejection_below": 262.6275,
-        "support_strong": 275.7357,
-        "support_extreme": 269.2052
+        "breakout_above": 289.4983,
+        "resistance": 285.22,
+        "rejection_below": 257.374,
+        "support_strong": 274.0067,
+        "support_extreme": 274.8266
       },
       "alerts": {
         "price_breakout": true,
@@ -656,9 +656,9 @@
       "levels": {
         "breakout_above": 0.4731,
         "resistance": 0.4661,
-        "rejection_below": 0.365,
-        "support_strong": 0.3769,
-        "support_extreme": 0.3753
+        "rejection_below": 0.3239,
+        "support_strong": 0.352,
+        "support_extreme": 0.3633
       },
       "alerts": {
         "price_breakout": true,
@@ -673,9 +673,9 @@
       "levels": {
         "breakout_above": 0.0219,
         "resistance": 0.0216,
-        "rejection_below": 0.0173,
-        "support_strong": 0.0176,
-        "support_extreme": 0.0168
+        "rejection_below": 0.0167,
+        "support_strong": 0.0181,
+        "support_extreme": 0.0178
       },
       "alerts": {
         "price_breakout": true,
@@ -688,10 +688,10 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.09,
-        "resistance": 0.0887,
-        "rejection_below": 0.0783,
-        "support_strong": 0.0827,
+        "breakout_above": 0.0881,
+        "resistance": 0.0868,
+        "rejection_below": 0.0833,
+        "support_strong": 0.0829,
         "support_extreme": 0.0828
       },
       "alerts": {
@@ -724,9 +724,9 @@
       "levels": {
         "breakout_above": 623.0983,
         "resistance": 613.89,
-        "rejection_below": 580.0035,
-        "support_strong": 609.9402,
-        "support_extreme": 607.9481
+        "rejection_below": 566.4565,
+        "support_strong": 601.1684,
+        "support_extreme": 604.737
       },
       "alerts": {
         "price_breakout": true,
@@ -739,11 +739,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.0677,
-        "resistance": 0.0667,
-        "rejection_below": 0.0411,
-        "support_strong": 0.0436,
-        "support_extreme": 0.0447
+        "breakout_above": 0.0665,
+        "resistance": 0.0655,
+        "rejection_below": 0.0385,
+        "support_strong": 0.0414,
+        "support_extreme": 0.042
       },
       "alerts": {
         "price_breakout": true,
@@ -756,11 +756,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.2121,
-        "resistance": 0.209,
-        "rejection_below": 0.1203,
-        "support_strong": 0.1263,
-        "support_extreme": 0.1258
+        "breakout_above": 0.1508,
+        "resistance": 0.1486,
+        "rejection_below": 0.1212,
+        "support_strong": 0.1301,
+        "support_extreme": 0.1296
       },
       "alerts": {
         "price_breakout": true,
@@ -775,9 +775,9 @@
       "levels": {
         "breakout_above": 0.0804,
         "resistance": 0.0792,
-        "rejection_below": 0.0421,
-        "support_strong": 0.0456,
-        "support_extreme": 0.0455
+        "rejection_below": 0.0474,
+        "support_strong": 0.0503,
+        "support_extreme": 0.0496
       },
       "alerts": {
         "price_breakout": true,
@@ -792,9 +792,9 @@
       "levels": {
         "breakout_above": 35.2205,
         "resistance": 34.7,
-        "rejection_below": 27.8445,
-        "support_strong": 29.2499,
-        "support_extreme": 29.4272
+        "rejection_below": 27.322,
+        "support_strong": 28.8972,
+        "support_extreme": 29.0826
       },
       "alerts": {
         "price_breakout": true,
@@ -809,9 +809,9 @@
       "levels": {
         "breakout_above": 659.75,
         "resistance": 650.0,
-        "rejection_below": 577.5905,
-        "support_strong": 605.0529,
-        "support_extreme": 600.0185
+        "rejection_below": 607.99,
+        "support_strong": 605.4576,
+        "support_extreme": 597.8615
       },
       "alerts": {
         "price_breakout": true,
@@ -826,9 +826,9 @@
       "levels": {
         "breakout_above": 1.8646,
         "resistance": 1.837,
-        "rejection_below": 0.807,
-        "support_strong": 1.1319,
-        "support_extreme": 1.2237
+        "rejection_below": 0.4274,
+        "support_strong": 0.5171,
+        "support_extreme": 0.6747
       },
       "alerts": {
         "price_breakout": true,
@@ -843,9 +843,9 @@
       "levels": {
         "breakout_above": 0.0913,
         "resistance": 0.09,
-        "rejection_below": 0.0195,
-        "support_strong": 0.0219,
-        "support_extreme": 0.0246
+        "rejection_below": 0.0184,
+        "support_strong": 0.0209,
+        "support_extreme": 0.0221
       },
       "alerts": {
         "price_breakout": true,
@@ -860,9 +860,9 @@
       "levels": {
         "breakout_above": 0.5482,
         "resistance": 0.5401,
-        "rejection_below": 0.1192,
-        "support_strong": 0.1321,
-        "support_extreme": 0.1349
+        "rejection_below": 0.1227,
+        "support_strong": 0.1315,
+        "support_extreme": 0.1323
       },
       "alerts": {
         "price_breakout": true,
