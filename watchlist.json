@@ -412,23 +412,6 @@
         "funding_high": 0.1
       }
     },
-    "O_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.5347,
-        "resistance": 0.5268,
-        "rejection_below": 0.438,
-        "support_strong": 0.4747,
-        "support_extreme": 0.4717
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ARBUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
