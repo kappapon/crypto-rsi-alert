@@ -27097,8 +27097,8 @@
       "funding": 0.1859,
       "id": "TAKE_USDT:funding:2026-08-11T12:24:39.964506+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-14T16:24:27.380812+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-18T12:24:33.227010+00:00"
     },
     {
       "symbol": "NEURALINK_USDT",
@@ -28344,8 +28344,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-15T08:24:35.983440+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-18T00:24:32.512822+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-18T12:24:36.076791+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -28383,7 +28383,8 @@
       "funding": -0.0201,
       "id": "CYS_USDT:support_break:2026-08-15T20:24:27.499617+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-18T12:24:34.894610+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -28630,6 +28631,30 @@
       "price": 66.98,
       "funding": 0.01,
       "id": "EEM_USDT:support_break:2026-08-18T08:24:08.999896+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-18T12:24:16.148794+00:00",
+      "price": 0.01821,
+      "funding": 0.0,
+      "id": "GPSUSDT:breakout:2026-08-18T12:24:16.148794+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-18T12:24:16.148794+00:00",
+      "price": 0.01821,
+      "funding": 0.0,
+      "id": "GPSUSDT:resistance_test:2026-08-18T12:24:16.148794+00:00",
       "status": "pending",
       "repeats": 1
     }
