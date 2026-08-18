@@ -5761,6 +5761,19 @@
       "ts": "2026-08-18T14:15:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-08-18T14:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.0362,
+      "p1_rsi": 68.2573633456454,
+      "p2_high": 0.03624,
+      "p2_rsi": 66.7034915796975,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-18T15:00:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-08-18T15:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
