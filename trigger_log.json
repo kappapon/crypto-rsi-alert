@@ -27584,8 +27584,8 @@
       "funding": 0.01,
       "id": "BX_USDT:support_break:2026-08-13T00:24:08.977866+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-19T04:24:06.942799+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-19T12:24:06.037440+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -28840,8 +28840,8 @@
       "funding": 0.1628,
       "id": "BTW_USDT:funding:2026-08-19T04:24:04.819783+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-19T08:24:08.080099+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-19T12:24:03.554884+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -28960,6 +28960,30 @@
       "price": 608.79,
       "funding": 0.01,
       "id": "LMT_USDT:rejection:2026-08-19T08:24:27.853311+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MRK_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-19T12:24:10.831943+00:00",
+      "price": 145.43,
+      "funding": 0.01,
+      "id": "MRK_USDT:breakout:2026-08-19T12:24:10.831943+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MRK_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-19T12:24:10.831943+00:00",
+      "price": 145.43,
+      "funding": 0.01,
+      "id": "MRK_USDT:resistance_test:2026-08-19T12:24:10.831943+00:00",
       "status": "pending",
       "repeats": 1
     }
