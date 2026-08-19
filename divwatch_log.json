@@ -5707,7 +5707,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-08-15T21:47:56.177Z",
       "id": "confirmed:BULLA_USDT:gate:2026-08-15T20:02:56.976Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.691,
+      "mfe_r": 1.005,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 0.42,
+      "exit": 0.017954,
+      "closed_at": "2026-08-18T21:47:56+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
@@ -5747,7 +5755,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-08-18T13:02:46.087Z",
       "id": "confirmed:KAITO_USDT:gate:2026-08-18T12:17:45.667Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.901,
+      "stopped": true,
+      "stop_ts": "2026-08-18T13:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.339985714285714,
+      "closed_at": "2026-08-18T13:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
