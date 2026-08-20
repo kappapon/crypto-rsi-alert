@@ -5897,6 +5897,19 @@
       "ts": "2026-08-20T08:17:49.077Z",
       "id": "confirmed:LDO_USDT:gate:2026-08-19T21:47:49.175Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 1.817,
+      "p1_rsi": 23.2977554828736,
+      "p2_low": 1.816,
+      "p2_rsi": 36.8913960417115,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-08-20T08:00:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-08-20T08:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
