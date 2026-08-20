@@ -26582,8 +26582,8 @@
       "funding": 0.02,
       "id": "POPMART_USDT:support_break:2026-08-10T04:23:40.784516+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-18T00:24:21.390754+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-20T12:24:18.163658+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -26688,8 +26688,8 @@
       "funding": 0.01,
       "id": "BKNG_USDT:support_break:2026-08-10T08:23:35.912092+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-14T00:24:15.551202+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-20T12:24:14.190019+00:00"
     },
     {
       "symbol": "TUTUSDT",
@@ -28531,8 +28531,8 @@
       "funding": -0.0201,
       "id": "CYS_USDT:rejection:2026-08-15T20:24:27.499617+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-16T04:24:30.907654+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-20T12:24:24.224397+00:00"
     },
     {
       "symbol": "CYS_USDT",
@@ -28544,8 +28544,8 @@
       "funding": -0.0201,
       "id": "CYS_USDT:support_break:2026-08-15T20:24:27.499617+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-19T04:24:25.280233+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-20T12:24:24.224397+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -29279,6 +29279,30 @@
       "price": 0.04619,
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-08-20T04:24:17.587872+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PLTRBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-20T12:24:16.866774+00:00",
+      "price": 173.97,
+      "funding": 0.0,
+      "id": "PLTRBUSDT:rejection:2026-08-20T12:24:16.866774+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "POPMART_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-20T12:24:18.163658+00:00",
+      "price": 18.926,
+      "funding": 0.009000000000000001,
+      "id": "POPMART_USDT:rejection:2026-08-20T12:24:18.163658+00:00",
       "status": "pending",
       "repeats": 1
     }
