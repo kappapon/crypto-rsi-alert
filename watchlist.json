@@ -633,23 +633,6 @@
         "funding_high": 0.1
       }
     },
-    "LMT_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 623.3115,
-        "resistance": 614.1,
-        "rejection_below": 547.504,
-        "support_strong": 582.9097,
-        "support_extreme": 591.1272
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ZAMAUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
