@@ -28541,8 +28541,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-15T08:24:35.983440+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-19T20:24:24.894947+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-21T08:24:24.628340+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -28586,8 +28586,8 @@
       "funding": -0.0201,
       "id": "CYS_USDT:support_break:2026-08-15T20:24:27.499617+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-21T00:24:23.401487+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-21T08:24:23.797076+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -28974,8 +28974,8 @@
       "funding": 0.005,
       "id": "BULLA_USDT:support_break:2026-08-19T00:24:27.126001+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-20T00:24:26.031266+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-21T08:24:20.463980+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -29121,8 +29121,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:rejection:2026-08-19T04:24:26.142469+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-19T20:24:24.894947+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-21T08:24:24.628340+00:00"
     },
     {
       "symbol": "SCHW_USDT",
@@ -29494,6 +29494,55 @@
       "price": 0.0917,
       "funding": 0.0,
       "id": "ARBUSDT:resistance_test:2026-08-21T00:24:13.155261+00:00",
+      "status": "pending",
+      "repeats": 2,
+      "last_repeat": "2026-08-21T08:24:15.440289+00:00"
+    },
+    {
+      "symbol": "REUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-21T08:24:10.732014+00:00",
+      "price": 0.4889,
+      "funding": 0.0,
+      "id": "REUSDT:rejection:2026-08-21T08:24:10.732014+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "REUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-21T08:24:10.732014+00:00",
+      "price": 0.4889,
+      "funding": 0.0,
+      "id": "REUSDT:support_break:2026-08-21T08:24:10.732014+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-21T08:24:15.440289+00:00",
+      "price": 0.0941,
+      "funding": 0.0,
+      "id": "ARBUSDT:breakout:2026-08-21T08:24:15.440289+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-21T08:24:20.871883+00:00",
+      "price": 0.0911,
+      "funding": 0.0,
+      "id": "1INCHUSDT:breakout:2026-08-21T08:24:20.871883+00:00",
       "status": "pending",
       "repeats": 1
     }
