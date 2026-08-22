@@ -29096,8 +29096,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-08-19T04:24:17.823513+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-20T08:24:18.362897+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T04:24:18.515617+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -29274,8 +29274,8 @@
       "funding": 0.0,
       "id": "1INCHUSDT:resistance_test:2026-08-19T16:24:20.880220+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-21T00:24:19.218576+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T04:24:23.456805+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -29324,7 +29324,8 @@
       "funding": 0.0,
       "id": "REUSDT:resistance_test:2026-08-19T20:24:08.991931+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T04:24:09.015404+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -29495,8 +29496,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:resistance_test:2026-08-21T00:24:13.155261+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-21T08:24:15.440289+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T04:24:15.563691+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -29533,7 +29534,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:breakout:2026-08-21T08:24:15.440289+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T04:24:15.563691+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -29642,7 +29644,8 @@
       "funding": 0.0,
       "id": "DGBUSDT:resistance_test:2026-08-21T20:24:16.157728+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T04:24:19.271189+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -29665,6 +29668,90 @@
       "price": 0.05627,
       "funding": 0.0147,
       "id": "TAKE_USDT:support_break:2026-08-22T00:24:23.599079+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-22T04:24:01.789577+00:00",
+      "price": 90.71,
+      "funding": 0.01,
+      "id": "KO_USDT:support_break:2026-08-22T04:24:01.789577+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-22T04:24:02.553412+00:00",
+      "price": 4.393,
+      "funding": 0.0,
+      "id": "UNIUSDT:breakout:2026-08-22T04:24:02.553412+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-22T04:24:02.553412+00:00",
+      "price": 4.393,
+      "funding": 0.0,
+      "id": "UNIUSDT:resistance_test:2026-08-22T04:24:02.553412+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-22T04:24:03.759638+00:00",
+      "price": 0.468809,
+      "funding": 0.061700000000000005,
+      "id": "BTW_USDT:support_break:2026-08-22T04:24:03.759638+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-22T04:24:06.801784+00:00",
+      "price": 267.66,
+      "funding": 0.01,
+      "id": "ABBV_USDT:resistance_test:2026-08-22T04:24:06.801784+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "REUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-22T04:24:09.015404+00:00",
+      "price": 0.6088,
+      "funding": 0.0,
+      "id": "REUSDT:breakout:2026-08-22T04:24:09.015404+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-22T04:24:24.670345+00:00",
+      "price": 0.05801,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:resistance_test:2026-08-22T04:24:24.670345+00:00",
       "status": "pending",
       "repeats": 1
     }
