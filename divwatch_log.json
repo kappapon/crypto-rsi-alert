@@ -6341,6 +6341,20 @@
       "ts": "2026-08-22T01:00:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-08-22T01:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.03943,
+      "armed_ts": "2026-08-22T01:47:54.297Z",
+      "entry": 0.03919,
+      "label": "BANK",
+      "peak_high": 0.03944,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0396646428571429,
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-22T03:02:54.222Z",
+      "id": "confirmed:BANK_USDT:gate:2026-08-22T01:47:54.297Z",
+      "status": "pending"
     }
   ]
 }
