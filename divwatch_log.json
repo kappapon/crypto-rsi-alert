@@ -6301,6 +6301,19 @@
       "ts": "2026-08-22T01:17:48.306Z",
       "id": "confirmed:LDO_USDT:gate:2026-08-21T22:47:48.669Z",
       "status": "pending"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.03884,
+      "p1_rsi": 79.7975008290978,
+      "p2_high": 0.03943,
+      "p2_rsi": 61.4021118918725,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-22T01:00:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-08-22T01:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
