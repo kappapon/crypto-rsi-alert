@@ -29525,8 +29525,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-08-21T08:24:10.732014+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-21T16:24:12.181215+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T20:24:06.597879+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -29612,8 +29612,8 @@
       "funding": 0.0315,
       "id": "LIT_USDT:breakout:2026-08-21T20:24:09.217690+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-22T12:24:01.931248+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T20:24:07.137895+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -29625,8 +29625,8 @@
       "funding": 0.0315,
       "id": "LIT_USDT:resistance_test:2026-08-21T20:24:09.217690+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-22T12:24:01.931248+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T20:24:07.137895+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -29712,7 +29712,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:resistance_test:2026-08-22T04:24:02.553412+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T20:24:00.897885+00:00"
     },
     {
       "symbol": "BTW_USDT",
