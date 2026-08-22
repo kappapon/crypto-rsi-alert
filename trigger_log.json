@@ -28515,8 +28515,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-08-15T08:24:25.199470+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-21T04:24:21.281837+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-22T08:24:17.019732+00:00"
     },
     {
       "symbol": "NEURALINK_USDT",
@@ -28528,8 +28528,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:rejection:2026-08-15T08:24:33.774365+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-21T16:24:27.824071+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-22T08:24:21.536511+00:00"
     },
     {
       "symbol": "HEIUSDT",
@@ -28541,8 +28541,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-15T08:24:35.983440+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-22T00:24:26.570261+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-22T08:24:22.748945+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -28799,8 +28799,8 @@
       "funding": 0.0,
       "id": "BICOUSDT:support_break:2026-08-17T16:24:31.888529+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-18T08:24:34.579034+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T08:24:22.344322+00:00"
     },
     {
       "symbol": "NBISBUSDT",
@@ -28874,8 +28874,8 @@
       "funding": 0.01,
       "id": "EEM_USDT:support_break:2026-08-18T08:24:08.999896+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-19T20:24:08.520977+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T08:24:08.686367+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -29060,7 +29060,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:rejection:2026-08-19T04:24:10.267241+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T08:24:09.945607+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -29072,7 +29073,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-08-19T04:24:10.267241+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T08:24:09.945607+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -29669,7 +29671,8 @@
       "funding": 0.0147,
       "id": "TAKE_USDT:support_break:2026-08-22T00:24:23.599079+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-22T08:24:20.706310+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -29752,6 +29755,54 @@
       "price": 0.05801,
       "funding": 0.0,
       "id": "ZAMAUSDT:resistance_test:2026-08-22T04:24:24.670345+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZEREBRO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-22T08:24:07.017496+00:00",
+      "price": 0.040803,
+      "funding": 0.005,
+      "id": "ZEREBRO_USDT:support_break:2026-08-22T08:24:07.017496+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BANKUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-22T08:24:17.019732+00:00",
+      "price": 0.0369,
+      "funding": 0.0,
+      "id": "BANKUSDT:rejection:2026-08-22T08:24:17.019732+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-22T08:24:19.063806+00:00",
+      "price": 0.0919,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-08-22T08:24:19.063806+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-22T08:24:19.902409+00:00",
+      "price": 0.0617,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:breakout:2026-08-22T08:24:19.902409+00:00",
       "status": "pending",
       "repeats": 1
     }
