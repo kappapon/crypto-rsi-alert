@@ -28541,8 +28541,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-15T08:24:35.983440+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-21T08:24:24.628340+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-22T00:24:26.570261+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -28586,8 +28586,8 @@
       "funding": -0.0201,
       "id": "CYS_USDT:support_break:2026-08-15T20:24:27.499617+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-08-21T08:24:23.797076+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-08-22T00:24:25.385041+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -28649,8 +28649,8 @@
       "funding": 0.005,
       "id": "AKE_USDT:support_break:2026-08-16T04:24:18.668352+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-21T04:24:18.825422+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-22T00:24:15.017620+00:00"
     },
     {
       "symbol": "JDON_USDT",
@@ -28848,8 +28848,8 @@
       "funding": 0.01,
       "id": "ROKU_USDT:support_break:2026-08-18T04:24:12.613833+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-19T04:24:11.733022+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T00:24:09.274420+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -28861,8 +28861,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-08-18T08:24:02.649719+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-20T08:24:05.800363+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-22T00:24:00.894961+00:00"
     },
     {
       "symbol": "EEM_USDT",
@@ -29653,6 +29653,18 @@
       "price": 219.48,
       "funding": 0.0,
       "id": "NBISBUSDT:support_break:2026-08-21T20:24:18.242710+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-22T00:24:23.599079+00:00",
+      "price": 0.05627,
+      "funding": 0.0147,
+      "id": "TAKE_USDT:support_break:2026-08-22T00:24:23.599079+00:00",
       "status": "pending",
       "repeats": 1
     }
