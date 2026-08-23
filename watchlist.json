@@ -72,23 +72,6 @@
         "funding_high": 0.1
       }
     },
-    "RTX_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 232.435,
-        "resistance": 229.0,
-        "rejection_below": 212.91,
-        "support_strong": 212.7591,
-        "support_extreme": 213.9623
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "JPM_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -149,23 +132,6 @@
         "rejection_below": 254.486,
         "support_strong": 267.4777,
         "support_extreme": 266.1498
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "DDOG_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 300.8967,
-        "resistance": 296.45,
-        "rejection_below": 225.8625,
-        "support_strong": 237.7277,
-        "support_extreme": 237.4799
       },
       "alerts": {
         "price_breakout": true,
