@@ -6300,7 +6300,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-08-22T01:17:48.306Z",
       "id": "confirmed:LDO_USDT:gate:2026-08-21T22:47:48.669Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-08-22T01:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.38385,
+      "closed_at": "2026-08-22T01:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BANK",
