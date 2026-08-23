@@ -6403,6 +6403,19 @@
       "ts": "2026-08-23T14:17:48.543Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-23T13:47:48.097Z",
       "status": "pending"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.03623,
+      "p1_rsi": 70.356327356505,
+      "p2_high": 0.0363,
+      "p2_rsi": 59.7637847746269,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-08-23T16:15:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-08-23T16:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
