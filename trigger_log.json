@@ -28177,8 +28177,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-08-14T04:24:07.087735+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-08-24T04:24:00.463412+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-08-24T20:24:05.959062+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -28994,8 +28994,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-08-18T08:24:02.649719+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-24T04:24:00.463412+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-24T20:24:05.959062+00:00"
     },
     {
       "symbol": "EEM_USDT",
@@ -30344,7 +30344,8 @@
       "funding": 0.0,
       "id": "REUSDT:support_break:2026-08-24T00:24:05.643862+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-24T20:24:09.025520+00:00"
     },
     {
       "symbol": "V_USDT",
@@ -30476,7 +30477,8 @@
       "funding": 0.0,
       "id": "DGBUSDT:support_break:2026-08-24T08:24:20.356905+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-24T20:24:16.488720+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -30559,6 +30561,42 @@
       "price": 599.01,
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:rejection:2026-08-24T16:24:21.201962+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-24T20:24:05.525346+00:00",
+      "price": 4.272,
+      "funding": 0.0,
+      "id": "UNIUSDT:rejection:2026-08-24T20:24:05.525346+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-24T20:24:09.896012+00:00",
+      "price": 0.0117,
+      "funding": 0.0,
+      "id": "GPSUSDT:support_break:2026-08-24T20:24:09.896012+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AMGN_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-24T20:24:12.102535+00:00",
+      "price": 446.7,
+      "funding": 0.01,
+      "id": "AMGN_USDT:resistance_test:2026-08-24T20:24:12.102535+00:00",
       "status": "pending",
       "repeats": 1
     }
