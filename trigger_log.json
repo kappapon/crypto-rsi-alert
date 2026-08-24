@@ -28981,8 +28981,8 @@
       "funding": 0.01,
       "id": "ROKU_USDT:support_break:2026-08-18T04:24:12.613833+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-22T00:24:09.274420+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-24T08:24:13.617736+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -29288,8 +29288,8 @@
       "funding": 0.01,
       "id": "SCHW_USDT:support_break:2026-08-19T08:24:17.242924+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-23T08:24:11.353334+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-24T08:24:15.352416+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -30450,6 +30450,54 @@
       "price": 29.05,
       "funding": 0.01,
       "id": "JDON_USDT:rejection:2026-08-24T04:24:16.911277+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-24T08:24:06.178311+00:00",
+      "price": 4.343,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-08-24T08:24:06.178311+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DGBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-24T08:24:20.356905+00:00",
+      "price": 0.00472,
+      "funding": 0.0,
+      "id": "DGBUSDT:support_break:2026-08-24T08:24:20.356905+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-24T08:24:22.651816+00:00",
+      "price": 3.801,
+      "funding": 0.0,
+      "id": "PROMUSDT:breakout:2026-08-24T08:24:22.651816+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-24T08:24:22.651816+00:00",
+      "price": 3.801,
+      "funding": 0.0,
+      "id": "PROMUSDT:resistance_test:2026-08-24T08:24:22.651816+00:00",
       "status": "pending",
       "repeats": 1
     }
