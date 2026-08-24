@@ -30116,8 +30116,8 @@
       "funding": 0.0259,
       "id": "BTW_USDT:rejection:2026-08-22T12:23:56.804719+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-23T12:24:02.591839+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-24T12:24:04.703902+00:00"
     },
     {
       "symbol": "BKNG_USDT",
@@ -30498,6 +30498,18 @@
       "price": 3.801,
       "funding": 0.0,
       "id": "PROMUSDT:resistance_test:2026-08-24T08:24:22.651816+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-08-24T12:24:03.137606+00:00",
+      "price": 92.0,
+      "funding": 0.01,
+      "id": "KO_USDT:resistance_test:2026-08-24T12:24:03.137606+00:00",
       "status": "pending",
       "repeats": 1
     }
