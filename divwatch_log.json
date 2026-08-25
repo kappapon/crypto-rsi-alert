@@ -6402,7 +6402,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-08-23T14:17:48.543Z",
       "id": "confirmed:PROM_USDT:gate:2026-08-23T13:47:48.097Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 4.047,
+      "stopped": true,
+      "stop_ts": "2026-08-24T04:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 3.21303571428571,
+      "closed_at": "2026-08-24T04:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BANK",
@@ -6549,7 +6557,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-08-24T20:32:51.620Z",
       "id": "confirmed:TAC_USDT:gate:2026-08-24T19:17:51.246Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.176,
+      "stopped": true,
+      "stop_ts": "2026-08-24T21:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00201596428571429,
+      "closed_at": "2026-08-24T21:30:00+00:00",
+      "horizon_h": 72
     }
   ]
 }
