@@ -6566,6 +6566,19 @@
       "exit": 0.00201596428571429,
       "closed_at": "2026-08-24T21:30:00+00:00",
       "horizon_h": 72
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.002449,
+      "p1_rsi": 87.4653907919287,
+      "p2_high": 0.002692,
+      "p2_rsi": 79.2644411254435,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-08-25T02:45:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-08-25T02:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
