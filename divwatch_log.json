@@ -6593,6 +6593,19 @@
       "ts": "2026-08-25T04:32:49.130Z",
       "id": "confirmed:TAC_USDT:gate:2026-08-25T03:32:52.827Z",
       "status": "pending"
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.002692,
+      "p1_rsi": 79.2650943036368,
+      "p2_high": 0.002783,
+      "p2_rsi": 77.0800159177931,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-08-25T04:00:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-08-25T04:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
