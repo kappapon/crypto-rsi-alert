@@ -28176,9 +28176,15 @@
       "price": 0.013891,
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-08-14T04:24:07.087735+00:00",
-      "status": "pending",
+      "status": "closed_expiry",
       "repeats": 8,
-      "last_repeat": "2026-08-24T20:24:05.959062+00:00"
+      "last_repeat": "2026-08-24T20:24:05.959062+00:00",
+      "atr": 0.0032036832394426824,
+      "sl": 0.017094683239442684,
+      "tp": 0.007483633521114636,
+      "exit": 0.012178,
+      "r": 0.535,
+      "closed_at": "2026-08-24T04:24:07+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -28412,9 +28418,15 @@
       "price": 157.5,
       "funding": 0.01,
       "id": "ROKU_USDT:resistance_test:2026-08-14T16:24:12.718180+00:00",
-      "status": "pending",
+      "status": "closed_expiry",
       "repeats": 2,
-      "last_repeat": "2026-08-18T16:24:10.811208+00:00"
+      "last_repeat": "2026-08-18T16:24:10.811208+00:00",
+      "atr": 2.559538212401342,
+      "sl": 160.05953821240135,
+      "tp": 152.38092357519733,
+      "exit": 158.23,
+      "r": -0.285,
+      "closed_at": "2026-08-24T16:24:12+00:00"
     },
     {
       "symbol": "ADSK_USDT",
@@ -28425,8 +28437,14 @@
       "price": 252.77,
       "funding": 0.01,
       "id": "ADSK_USDT:rejection:2026-08-14T16:24:15.217539+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_expiry",
+      "repeats": 1,
+      "atr": 8.14886706187336,
+      "sl": 260.91886706187336,
+      "tp": 236.4722658762533,
+      "exit": 254.86,
+      "r": -0.256,
+      "closed_at": "2026-08-24T16:24:15+00:00"
     },
     {
       "symbol": "METABUSDT",
@@ -28887,9 +28905,15 @@
       "price": 111.28,
       "funding": 0.01,
       "id": "SCHW_USDT:resistance_test:2026-08-17T16:24:14.296801+00:00",
-      "status": "pending",
+      "status": "closed_sl",
       "repeats": 4,
-      "last_repeat": "2026-08-24T16:24:11.520413+00:00"
+      "last_repeat": "2026-08-24T16:24:11.520413+00:00",
+      "atr": 1.6311131971556942,
+      "sl": 112.9111131971557,
+      "tp": 108.01777360568862,
+      "exit": 112.9111131971557,
+      "r": -1.0,
+      "closed_at": "2026-08-24T16:00:00+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -29093,9 +29117,15 @@
       "price": 252.02,
       "funding": 0.0,
       "id": "NBISBUSDT:rejection:2026-08-18T16:24:19.412624+00:00",
-      "status": "pending",
+      "status": "closed_tp",
       "repeats": 3,
-      "last_repeat": "2026-08-20T16:24:24.496797+00:00"
+      "last_repeat": "2026-08-20T16:24:24.496797+00:00",
+      "atr": 20.9923459421789,
+      "sl": 273.0123459421789,
+      "tp": 210.0353081156422,
+      "exit": 210.0353081156422,
+      "r": 2.0,
+      "closed_at": "2026-08-24T04:00:00+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -29230,8 +29260,14 @@
       "price": 44.8,
       "funding": 0.01,
       "id": "SOXS_USDT:rejection:2026-08-19T04:24:16.008543+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 5.19635045347068,
+      "sl": 49.996350453470676,
+      "tp": 34.40729909305864,
+      "exit": 49.996350453470676,
+      "r": -1.0,
+      "closed_at": "2026-08-24T08:00:00+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -29287,9 +29323,15 @@
       "price": 111.41,
       "funding": 0.01,
       "id": "SCHW_USDT:support_break:2026-08-19T08:24:17.242924+00:00",
-      "status": "pending",
+      "status": "closed_sl",
       "repeats": 3,
-      "last_repeat": "2026-08-24T08:24:15.352416+00:00"
+      "last_repeat": "2026-08-24T08:24:15.352416+00:00",
+      "atr": 1.5879399497047808,
+      "sl": 112.99793994970477,
+      "tp": 108.23412010059043,
+      "exit": 112.99793994970477,
+      "r": -1.0,
+      "closed_at": "2026-08-24T16:00:00+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -29598,8 +29640,14 @@
       "price": 18.926,
       "funding": 0.009000000000000001,
       "id": "POPMART_USDT:rejection:2026-08-20T12:24:18.163658+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 0.7705175914292807,
+      "sl": 19.69651759142928,
+      "tp": 17.384964817141437,
+      "exit": 19.69651759142928,
+      "r": -1.0,
+      "closed_at": "2026-08-24T04:00:00+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -29951,8 +29999,14 @@
       "price": 90.71,
       "funding": 0.01,
       "id": "KO_USDT:support_break:2026-08-22T04:24:01.789577+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 1.5919968811200487,
+      "sl": 92.30199688112005,
+      "tp": 87.5260062377599,
+      "exit": 92.30199688112005,
+      "r": -1.0,
+      "closed_at": "2026-08-24T16:00:00+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -30154,8 +30208,14 @@
       "price": 19.033,
       "funding": 0.01,
       "id": "POPMART_USDT:support_break:2026-08-22T12:24:11.329822+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 0.8389477577398204,
+      "sl": 19.87194775773982,
+      "tp": 17.35510448452036,
+      "exit": 19.87194775773982,
+      "r": -1.0,
+      "closed_at": "2026-08-24T04:00:00+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -30234,8 +30294,14 @@
       "price": 47.37,
       "funding": -0.009000000000000001,
       "id": "SOXS_USDT:support_break:2026-08-23T04:24:15.397269+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 4.927629248338939,
+      "sl": 52.297629248338936,
+      "tp": 37.51474150332212,
+      "exit": 52.297629248338936,
+      "r": -1.0,
+      "closed_at": "2026-08-24T16:00:00+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -30295,8 +30361,14 @@
       "price": 4.533,
       "funding": 0.0,
       "id": "UNIUSDT:breakout:2026-08-23T16:24:00.369937+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 0.2753384544564632,
+      "sl": 4.257661545543537,
+      "tp": 5.083676908912927,
+      "exit": 4.257661545543537,
+      "r": -1.0,
+      "closed_at": "2026-08-24T12:00:00+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -30357,8 +30429,14 @@
       "price": 370.8,
       "funding": 0.01,
       "id": "V_USDT:support_break:2026-08-24T00:24:06.940186+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 7.140226343342954,
+      "sl": 377.94022634334294,
+      "tp": 356.5195473133141,
+      "exit": 377.94022634334294,
+      "r": -1.0,
+      "closed_at": "2026-08-24T16:00:00+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -30393,8 +30471,14 @@
       "price": 2.749,
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-08-24T00:24:15.427155+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 0.4492709879234782,
+      "sl": 3.198270987923478,
+      "tp": 1.8504580241530437,
+      "exit": 3.198270987923478,
+      "r": -1.0,
+      "closed_at": "2026-08-24T08:00:00+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -30417,8 +30501,14 @@
       "price": 0.05574,
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-08-24T04:24:15.528577+00:00",
-      "status": "pending",
-      "repeats": 1
+      "status": "closed_sl",
+      "repeats": 1,
+      "atr": 0.0056672965184986915,
+      "sl": 0.06140729651849869,
+      "tp": 0.04440540696300262,
+      "exit": 0.06140729651849869,
+      "r": -1.0,
+      "closed_at": "2026-08-24T12:00:00+00:00"
     },
     {
       "symbol": "DIAUSDT",
