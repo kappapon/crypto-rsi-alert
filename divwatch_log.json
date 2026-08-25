@@ -6606,6 +6606,19 @@
       "ts": "2026-08-25T04:00:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-08-25T04:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 4.652,
+      "p1_rsi": 87.3603416252754,
+      "p2_high": 4.985,
+      "p2_rsi": 85.5363626296046,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-08-25T04:45:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-08-25T04:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
