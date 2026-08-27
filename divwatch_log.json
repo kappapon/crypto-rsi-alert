@@ -6800,6 +6800,19 @@
       "ts": "2026-08-27T06:30:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-08-27T06:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.3641,
+      "p1_rsi": 74.292478639055,
+      "p2_high": 0.3754,
+      "p2_rsi": 72.7500793775429,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-08-27T08:30:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-08-27T08:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
