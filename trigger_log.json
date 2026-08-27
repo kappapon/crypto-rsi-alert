@@ -28673,8 +28673,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-15T08:24:35.983440+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-08-25T04:24:30.381031+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-08-27T00:24:18.299023+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -30055,8 +30055,8 @@
       "funding": 0.061700000000000005,
       "id": "BTW_USDT:support_break:2026-08-22T04:24:03.759638+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-26T20:23:56.498864+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-27T00:23:55.651550+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -30407,7 +30407,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-08-24T00:24:04.542407+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-27T00:23:57.937911+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -30759,7 +30760,8 @@
       "funding": 0.01,
       "id": "SOXS_USDT:support_break:2026-08-25T04:24:17.033163+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-27T00:24:06.441037+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -30807,7 +30809,8 @@
       "funding": 0.0,
       "id": "SCHW_USDT:support_break:2026-08-26T20:24:06.146434+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-27T00:24:03.577086+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -30854,6 +30857,30 @@
       "price": 0.05278,
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-08-26T20:24:18.166347+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BX_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-27T00:23:57.355884+00:00",
+      "price": 143.17,
+      "funding": 0.0,
+      "id": "BX_USDT:support_break:2026-08-27T00:23:57.355884+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "V_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-27T00:24:00.764948+00:00",
+      "price": 383.3,
+      "funding": 0.0,
+      "id": "V_USDT:support_break:2026-08-27T00:24:00.764948+00:00",
       "status": "pending",
       "repeats": 1
     }
