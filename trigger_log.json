@@ -31064,6 +31064,18 @@
       "id": "1INCHUSDT:rejection:2026-08-27T04:24:13.966206+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-27T08:24:07.130788+00:00",
+      "price": 0.0077103,
+      "funding": 0.005,
+      "id": "AKE_USDT:support_break:2026-08-27T08:24:07.130788+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
