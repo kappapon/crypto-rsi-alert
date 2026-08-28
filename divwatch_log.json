@@ -6918,6 +6918,19 @@
       "ts": "2026-08-27T18:00:00.000Z",
       "id": "flip:JST_USDT:gate:2026-08-27T18:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_low": 0.06028,
+      "p1_rsi": 34.6782286079657,
+      "p2_low": 0.06019,
+      "p2_rsi": 37.8136525533179,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TA_USDT",
+      "ts": "2026-08-28T03:00:00.000Z",
+      "id": "flip:TA_USDT:gate:2026-08-28T03:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
