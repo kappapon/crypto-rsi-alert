@@ -293,23 +293,6 @@
         "funding_high": 0.1
       }
     },
-    "SCHW_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 116.5118,
-        "resistance": 114.79,
-        "rejection_below": 102.03,
-        "support_strong": 108.5783,
-        "support_extreme": 109.7874
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BKNG_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
