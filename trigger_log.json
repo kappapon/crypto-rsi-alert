@@ -30652,8 +30652,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-08-24T04:24:15.974663+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-28T08:24:17.822379+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-29T04:24:10.894268+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -30852,8 +30852,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-08-24T20:24:09.896012+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-26T20:24:02.117877+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-29T04:23:59.925616+00:00"
     },
     {
       "symbol": "AMGN_USDT",
@@ -31350,7 +31350,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:support_break:2026-08-28T04:23:59.607284+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-29T04:23:59.465394+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -31481,6 +31482,18 @@
       "price": 0.143,
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-28T16:24:20.370638+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ROKU_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-29T04:24:01.302269+00:00",
+      "price": 157.26,
+      "funding": 0.0,
+      "id": "ROKU_USDT:support_break:2026-08-29T04:24:01.302269+00:00",
       "status": "pending",
       "repeats": 1
     }
