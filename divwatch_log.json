@@ -7147,6 +7147,19 @@
       "ts": "2026-08-29T16:45:00.000Z",
       "id": "armed:LDO_USDT:gate:2026-08-29T16:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_low": 0.0081029,
+      "p1_rsi": 28.7276264175934,
+      "p2_low": 0.0080442,
+      "p2_rsi": 30.5735021545073,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "AKE_USDT",
+      "ts": "2026-08-29T18:15:00.000Z",
+      "id": "flip:AKE_USDT:gate:2026-08-29T18:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
