@@ -30095,8 +30095,8 @@
       "funding": 0.0,
       "id": "NBISBUSDT:support_break:2026-08-21T20:24:18.242710+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-27T16:24:10.182561+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-30T12:24:11.465233+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -31688,6 +31688,30 @@
       "price": 0.1471,
       "funding": 0.0,
       "id": "HEIUSDT:rejection:2026-08-30T04:24:11.472274+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-30T12:23:54.319377+00:00",
+      "price": 5.203,
+      "funding": 0.0,
+      "id": "UNIUSDT:breakout:2026-08-30T12:23:54.319377+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ADSK_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-30T12:24:03.957946+00:00",
+      "price": 261.21,
+      "funding": 0.0,
+      "id": "ADSK_USDT:support_break:2026-08-30T12:24:03.957946+00:00",
       "status": "pending",
       "repeats": 1
     }
