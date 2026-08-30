@@ -30108,8 +30108,8 @@
       "funding": 0.0147,
       "id": "TAKE_USDT:support_break:2026-08-22T00:24:23.599079+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-26T20:24:19.495407+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-30T20:24:11.199204+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -30598,7 +30598,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-08-24T00:24:07.373070+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-30T20:23:59.368409+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -30646,7 +30647,8 @@
       "funding": -0.025599999999999998,
       "id": "LIT_USDT:resistance_test:2026-08-24T04:24:04.173859+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-30T20:23:57.859786+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -31410,7 +31412,8 @@
       "funding": 0.0,
       "id": "BICOUSDT:support_break:2026-08-28T08:24:20.806921+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-30T20:24:13.210376+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31712,6 +31715,30 @@
       "price": 261.21,
       "funding": 0.0,
       "id": "ADSK_USDT:support_break:2026-08-30T12:24:03.957946+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-08-30T20:23:57.859786+00:00",
+      "price": 3.867,
+      "funding": 0.005,
+      "id": "LIT_USDT:breakout:2026-08-30T20:23:57.859786+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-08-30T20:24:07.726277+00:00",
+      "price": 6.643,
+      "funding": 0.0,
+      "id": "PROMUSDT:rejection:2026-08-30T20:24:07.726277+00:00",
       "status": "pending",
       "repeats": 1
     }
