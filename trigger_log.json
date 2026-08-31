@@ -30325,8 +30325,8 @@
       "funding": 0.01,
       "id": "BKNG_USDT:support_break:2026-08-22T12:24:06.353004+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-28T20:24:09.010213+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-31T04:24:06.771324+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -30547,8 +30547,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:support_break:2026-08-23T16:24:23.892802+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-30T08:24:22.285773+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-31T04:24:15.334081+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -30860,8 +30860,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:rejection:2026-08-24T16:24:21.201962+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-30T08:24:22.285773+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-31T04:24:15.334081+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -31820,6 +31820,18 @@
       "price": 0.088,
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-08-31T00:24:14.563641+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-31T04:23:59.850915+00:00",
+      "price": 4.98,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-08-31T04:23:59.850915+00:00",
       "status": "pending",
       "repeats": 1
     }
