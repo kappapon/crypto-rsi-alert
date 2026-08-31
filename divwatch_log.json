@@ -7288,6 +7288,19 @@
       "ts": "2026-08-31T02:45:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-08-31T02:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_low": 0.06263,
+      "p1_rsi": 23.0435543912141,
+      "p2_low": 0.06232,
+      "p2_rsi": 31.03093809181,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TA_USDT",
+      "ts": "2026-08-31T05:00:00.000Z",
+      "id": "flip:TA_USDT:gate:2026-08-31T05:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
