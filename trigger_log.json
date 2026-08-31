@@ -30560,8 +30560,8 @@
       "funding": 0.01,
       "id": "ABBV_USDT:support_break:2026-08-24T00:24:04.542407+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-28T12:24:01.527595+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-31T12:23:56.891715+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -30690,8 +30690,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-08-24T04:24:15.974663+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-31T00:24:16.709185+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-08-31T12:24:09.039519+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -31835,7 +31835,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-08-31T04:23:59.850915+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-31T12:23:54.158366+00:00"
     }
   ]
 }
