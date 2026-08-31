@@ -30547,8 +30547,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:support_break:2026-08-23T16:24:23.892802+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-31T04:24:15.334081+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-08-31T16:24:10.923232+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -30860,8 +30860,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:rejection:2026-08-24T16:24:21.201962+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-31T04:24:15.334081+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-08-31T16:24:10.923232+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -31263,8 +31263,8 @@
       "funding": 0.005,
       "id": "CYS_USDT:rejection:2026-08-27T12:24:13.839125+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-28T12:24:23.973342+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-31T16:24:11.403322+00:00"
     },
     {
       "symbol": "ADSK_USDT",
@@ -31361,7 +31361,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-08-27T20:24:02.032937+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-31T16:24:00.297125+00:00"
     },
     {
       "symbol": "JDON_USDT",
@@ -31386,8 +31387,8 @@
       "funding": 0.0,
       "id": "EEM_USDT:support_break:2026-08-28T04:23:58.564596+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-31T00:23:56.711565+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-31T16:23:57.093706+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31487,7 +31488,8 @@
       "funding": 0.005,
       "id": "CYS_USDT:support_break:2026-08-28T12:24:23.973342+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-31T16:24:11.403322+00:00"
     },
     {
       "symbol": "BICOUSDT",
@@ -31798,8 +31800,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-08-30T20:24:07.726277+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-31T08:24:11.353726+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-08-31T16:24:07.087451+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -31823,7 +31825,8 @@
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-08-31T00:24:14.563641+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-08-31T16:24:08.459493+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -31837,6 +31840,18 @@
       "status": "pending",
       "repeats": 2,
       "last_repeat": "2026-08-31T12:23:54.158366+00:00"
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-08-31T16:24:07.087451+00:00",
+      "price": 5.619,
+      "funding": 0.0,
+      "id": "PROMUSDT:support_break:2026-08-31T16:24:07.087451+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
