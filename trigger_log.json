@@ -30610,8 +30610,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-08-24T00:24:07.373070+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-30T20:23:59.368409+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-01T00:24:12.931124+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -30916,8 +30916,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:support_break:2026-08-25T00:24:08.231275+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-08-30T16:23:56.368000+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-01T00:24:06.966751+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31361,8 +31361,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-08-27T20:24:02.032937+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-31T16:24:00.297125+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-01T00:24:14.183221+00:00"
     },
     {
       "symbol": "JDON_USDT",
@@ -31679,7 +31679,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-08-30T00:24:10.284534+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-01T00:24:22.154477+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -31851,6 +31852,30 @@
       "price": 5.619,
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-08-31T16:24:07.087451+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-01T00:24:10.923779+00:00",
+      "price": 3.557,
+      "funding": 0.0029,
+      "id": "LIT_USDT:support_break:2026-09-01T00:24:10.923779+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-01T00:24:16.743777+00:00",
+      "price": 0.1114,
+      "funding": 0.0,
+      "id": "ARBUSDT:resistance_test:2026-09-01T00:24:16.743777+00:00",
       "status": "pending",
       "repeats": 1
     }
