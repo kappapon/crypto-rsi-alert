@@ -514,23 +514,6 @@
         "funding_high": 0.1
       }
     },
-    "NBISBUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 289.4983,
-        "resistance": 285.22,
-        "rejection_below": 196.46,
-        "support_strong": 206.3257,
-        "support_extreme": 207.5689
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BULLA_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -642,23 +625,6 @@
         "rejection_below": 589.95,
         "support_strong": 620.642,
         "support_extreme": 620.3108
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "CYS_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 1.8646,
-        "resistance": 1.837,
-        "rejection_below": 0.5842,
-        "support_strong": 0.7079,
-        "support_extreme": 0.7463
       },
       "alerts": {
         "price_breakout": true,
