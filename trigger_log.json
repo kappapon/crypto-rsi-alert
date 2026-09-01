@@ -30273,8 +30273,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-08-22T08:24:07.017496+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-01T04:24:07.750749+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-01T20:24:13.843291+00:00"
     },
     {
       "symbol": "BANKUSDT",
@@ -30940,8 +30940,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:support_break:2026-08-25T00:24:08.231275+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-01T00:24:06.966751+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-01T20:24:13.211796+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31015,8 +31015,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-08-25T04:24:25.738943+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-09-01T04:24:26.540697+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-09-01T20:24:30.794720+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -31157,8 +31157,8 @@
       "funding": 0.005,
       "id": "ZEREBRO_USDT:rejection:2026-08-27T04:24:00.553831+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-01T04:24:07.750749+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-01T20:24:13.843291+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31435,8 +31435,8 @@
       "funding": 0.0,
       "id": "EEM_USDT:support_break:2026-08-28T04:23:58.564596+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-01T04:24:09.835527+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-01T20:24:15.788056+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31858,8 +31858,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-08-30T20:24:07.726277+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-08-31T16:24:07.087451+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-01T20:24:29.013140+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -32018,6 +32018,18 @@
       "price": 0.016051,
       "funding": 0.005,
       "id": "BULLA_USDT:rejection:2026-09-01T08:24:23.537581+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ELSA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-01T20:24:23.609591+00:00",
+      "price": 0.04488,
+      "funding": 0.005,
+      "id": "ELSA_USDT:rejection:2026-09-01T20:24:23.609591+00:00",
       "status": "pending",
       "repeats": 1
     }
