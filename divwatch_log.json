@@ -7488,6 +7488,20 @@
       "ts": "2026-09-01T17:47:54.985Z",
       "id": "confirmed:TA_USDT:gate:2026-09-01T14:32:53.406Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.373,
+      "armed_ts": "2026-09-01T12:17:52.922Z",
+      "entry": 0.3689,
+      "label": "LDO",
+      "peak_high": 0.375,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.377178571428571,
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-01T19:17:52.250Z",
+      "id": "confirmed:LDO_USDT:gate:2026-09-01T12:17:52.922Z",
+      "status": "pending"
     }
   ]
 }
