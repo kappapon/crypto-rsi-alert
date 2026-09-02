@@ -31076,8 +31076,8 @@
       "funding": 0.0,
       "id": "KO_USDT:support_break:2026-08-26T20:23:54.406779+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-01T16:24:09.554048+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-02T20:24:05.976428+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -32232,6 +32232,66 @@
       "price": 0.023226,
       "funding": 0.0846,
       "id": "BULLA_USDT:resistance_test:2026-09-02T16:24:21.177862+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-02T20:24:15.575471+00:00",
+      "price": 0.1236,
+      "funding": 0.0,
+      "id": "ARBUSDT:breakout:2026-09-02T20:24:15.575471+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-02T20:24:15.575471+00:00",
+      "price": 0.1236,
+      "funding": 0.0,
+      "id": "ARBUSDT:resistance_test:2026-09-02T20:24:15.575471+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-02T20:24:17.102034+00:00",
+      "price": 0.0180555,
+      "funding": -0.6563,
+      "id": "AKE_USDT:breakout:2026-09-02T20:24:17.102034+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-02T20:24:17.102034+00:00",
+      "price": 0.0180555,
+      "funding": -0.6563,
+      "id": "AKE_USDT:resistance_test:2026-09-02T20:24:17.102034+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-09-02T20:24:17.102034+00:00",
+      "price": 0.0180555,
+      "funding": -0.6563,
+      "id": "AKE_USDT:funding:2026-09-02T20:24:17.102034+00:00",
       "status": "pending",
       "repeats": 1
     }
