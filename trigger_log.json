@@ -30670,8 +30670,8 @@
       "funding": 0.01,
       "id": "MRK_USDT:support_break:2026-08-24T00:24:07.373070+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-01T00:24:12.931124+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-02T08:24:15.058145+00:00"
     },
     {
       "symbol": "PLTRBUSDT",
@@ -31528,8 +31528,8 @@
       "funding": 0.0,
       "id": "BICOUSDT:support_break:2026-08-28T08:24:20.806921+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-02T00:24:32.537761+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-02T08:24:25.830118+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31665,8 +31665,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-28T16:24:20.370638+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-30T08:24:24.299215+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-02T08:24:26.294660+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -32147,6 +32147,18 @@
       "price": 0.037772,
       "funding": 0.005,
       "id": "ZEREBRO_USDT:support_break:2026-09-02T04:24:09.834997+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MRK_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-02T08:24:15.058145+00:00",
+      "price": 148.66,
+      "funding": 0.0,
+      "id": "MRK_USDT:rejection:2026-09-02T08:24:15.058145+00:00",
       "status": "pending",
       "repeats": 1
     }
