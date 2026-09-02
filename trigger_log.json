@@ -30932,8 +30932,8 @@
       "funding": 9.999999999999999e-05,
       "id": "NEURALINK_USDT:rejection:2026-08-24T16:24:21.201962+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-08-31T16:24:10.923232+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-02T04:24:22.826040+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -30963,8 +30963,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-08-24T20:24:09.896012+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-01T08:24:14.855982+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-02T04:24:12.435131+00:00"
     },
     {
       "symbol": "AMGN_USDT",
@@ -30988,8 +30988,8 @@
       "funding": 0.01,
       "id": "JPM_USDT:support_break:2026-08-25T00:24:08.231275+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-09-01T20:24:13.211796+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-09-02T04:24:09.389697+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31063,8 +31063,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-08-25T04:24:25.738943+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-09-01T20:24:30.794720+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-09-02T04:24:21.092344+00:00"
     },
     {
       "symbol": "KO_USDT",
@@ -31483,8 +31483,8 @@
       "funding": 0.0,
       "id": "EEM_USDT:support_break:2026-08-28T04:23:58.564596+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-01T20:24:15.788056+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-02T04:24:11.142910+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -31691,7 +31691,8 @@
       "funding": 0.005,
       "id": "AKE_USDT:rejection:2026-08-29T08:24:07.197874+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-02T04:24:16.771975+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -31703,8 +31704,8 @@
       "funding": 0.005,
       "id": "AKE_USDT:support_break:2026-08-29T08:24:07.197874+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-08-31T08:24:06.767018+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-02T04:24:16.771975+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -32068,7 +32069,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:resistance_test:2026-09-01T08:24:10.229334+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-02T04:24:08.079446+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -32121,6 +32123,30 @@
       "price": 0.04488,
       "funding": 0.005,
       "id": "ELSA_USDT:rejection:2026-09-01T20:24:23.609591+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-02T04:24:08.079446+00:00",
+      "price": 6.174,
+      "funding": 0.0,
+      "id": "UNIUSDT:breakout:2026-09-02T04:24:08.079446+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZEREBRO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-02T04:24:09.834997+00:00",
+      "price": 0.037772,
+      "funding": 0.005,
+      "id": "ZEREBRO_USDT:support_break:2026-09-02T04:24:09.834997+00:00",
       "status": "pending",
       "repeats": 1
     }
