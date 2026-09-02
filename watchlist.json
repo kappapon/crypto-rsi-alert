@@ -293,23 +293,6 @@
         "funding_high": 0.1
       }
     },
-    "BKNG_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 219.8287,
-        "resistance": 216.58,
-        "rejection_below": 187.036,
-        "support_strong": 198.6812,
-        "support_extreme": 200.8845
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ADSK_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
