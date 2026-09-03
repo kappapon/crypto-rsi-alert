@@ -7743,6 +7743,19 @@
       "ts": "2026-09-02T21:45:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-09-02T21:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_high": 0.029983,
+      "p1_rsi": 73.9017053448135,
+      "p2_high": 0.03026,
+      "p2_rsi": 66.0915685793637,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-09-03T12:00:00.000Z",
+      "id": "armed:BULLA_USDT:gate:2026-09-03T12:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
