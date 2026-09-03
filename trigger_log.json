@@ -31227,8 +31227,8 @@
       "funding": 0.0,
       "id": "BX_USDT:support_break:2026-08-27T00:23:57.355884+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-01T12:24:35.873213+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-03T08:24:14.086720+00:00"
     },
     {
       "symbol": "V_USDT",
@@ -31731,8 +31731,8 @@
       "funding": 0.0,
       "id": "HEIUSDT:support_break:2026-08-28T16:24:20.370638+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-02T08:24:26.294660+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-03T08:24:31.805088+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -32074,7 +32074,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-08-31T16:24:07.087451+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-03T08:24:26.800204+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -32380,7 +32381,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:breakout:2026-09-02T20:24:15.575471+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-03T08:24:21.193975+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -32518,6 +32520,30 @@
       "price": 0.0133867,
       "funding": 0.005,
       "id": "AKE_USDT:support_break:2026-09-03T04:24:21.340250+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EEM_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-03T08:24:15.199050+00:00",
+      "price": 67.01,
+      "funding": 0.0,
+      "id": "EEM_USDT:rejection:2026-09-03T08:24:15.199050+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "V_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-03T08:24:18.048088+00:00",
+      "price": 378.5,
+      "funding": 0.0,
+      "id": "V_USDT:rejection:2026-09-03T08:24:18.048088+00:00",
       "status": "pending",
       "repeats": 1
     }
