@@ -30993,8 +30993,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-08-24T20:24:09.896012+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-02T04:24:12.435131+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-03T20:24:12.628352+00:00"
     },
     {
       "symbol": "AMGN_USDT",
@@ -32193,8 +32193,8 @@
       "funding": -0.1478,
       "id": "KOMA_USDT:funding:2026-09-01T08:24:10.667561+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-03T00:24:06.265106+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-03T20:24:06.484796+00:00"
     },
     {
       "symbol": "BX_USDT",
@@ -32630,6 +32630,42 @@
       "price": 606.3,
       "funding": 0.0,
       "id": "NEURALINK_USDT:support_break:2026-09-03T16:24:27.137138+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-03T20:24:09.904854+00:00",
+      "price": 260.16,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-09-03T20:24:09.904854+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-03T20:24:25.947223+00:00",
+      "price": 0.06684,
+      "funding": 0.005,
+      "id": "TAKE_USDT:breakout:2026-09-03T20:24:25.947223+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-03T20:24:25.947223+00:00",
+      "price": 0.06684,
+      "funding": 0.005,
+      "id": "TAKE_USDT:resistance_test:2026-09-03T20:24:25.947223+00:00",
       "status": "pending",
       "repeats": 1
     }
