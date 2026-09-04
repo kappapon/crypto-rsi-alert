@@ -31166,8 +31166,8 @@
       "funding": 0.0,
       "id": "KO_USDT:support_break:2026-08-26T20:23:54.406779+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-09-04T08:24:02.137076+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-09-04T20:23:59.359154+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -32974,7 +32974,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-09-04T12:24:10.562196+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-04T20:24:09.060294+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -32986,7 +32987,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-09-04T12:24:10.562196+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-04T20:24:09.060294+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -33033,6 +33035,30 @@
       "price": 611.8,
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-09-04T16:24:10.021608+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-04T20:24:05.428015+00:00",
+      "price": 0.01035,
+      "funding": 0.0,
+      "id": "GPSUSDT:support_break:2026-09-04T20:24:05.428015+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-04T20:24:15.287697+00:00",
+      "price": 0.027985,
+      "funding": -0.0125,
+      "id": "BULLA_USDT:support_break:2026-09-04T20:24:15.287697+00:00",
       "status": "pending",
       "repeats": 1
     }
