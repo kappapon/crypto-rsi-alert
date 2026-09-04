@@ -8001,6 +8001,19 @@
       "ts": "2026-09-04T05:32:53.068Z",
       "id": "confirmed:PROM_USDT:gate:2026-09-04T05:02:53.563Z",
       "status": "pending"
+    },
+    {
+      "label": "KAITO",
+      "p1_low": 0.2993,
+      "p1_rsi": 28.9174262811864,
+      "p2_low": 0.2985,
+      "p2_rsi": 37.8073189293748,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-09-04T10:15:00.000Z",
+      "id": "flip:KAITO_USDT:gate:2026-09-04T10:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
