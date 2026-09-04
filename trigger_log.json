@@ -31166,8 +31166,8 @@
       "funding": 0.0,
       "id": "KO_USDT:support_break:2026-08-26T20:23:54.406779+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-09-02T20:24:05.976428+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-09-04T08:24:02.137076+00:00"
     },
     {
       "symbol": "REUSDT",
@@ -31256,8 +31256,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-08-26T20:24:18.166347+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-03T04:24:27.777001+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-04T08:24:16.111636+00:00"
     },
     {
       "symbol": "BX_USDT",
@@ -31288,8 +31288,8 @@
       "funding": 0.0,
       "id": "V_USDT:support_break:2026-08-27T00:24:00.764948+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-04T00:24:11.337207+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-04T08:24:07.698208+00:00"
     },
     {
       "symbol": "ZEREBRO_USDT",
@@ -31934,8 +31934,8 @@
       "funding": 0.0,
       "id": "BANKUSDT:support_break:2026-08-30T00:24:10.284534+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-01T00:24:22.154477+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-04T08:24:13.655098+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -32846,6 +32846,114 @@
       "price": 0.032634,
       "funding": 0.054,
       "id": "BULLA_USDT:rejection:2026-09-04T04:24:23.253330+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "JPM_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:04.183528+00:00",
+      "price": 362.16,
+      "funding": 0.0,
+      "id": "JPM_USDT:rejection:2026-09-04T08:24:04.183528+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:06.698595+00:00",
+      "price": 4.488,
+      "funding": 0.0026,
+      "id": "LIT_USDT:resistance_test:2026-09-04T08:24:06.698595+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:11.638157+00:00",
+      "price": 0.0138313,
+      "funding": 0.005,
+      "id": "AKE_USDT:rejection:2026-09-04T08:24:11.638157+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:11.638157+00:00",
+      "price": 0.0138313,
+      "funding": 0.005,
+      "id": "AKE_USDT:support_break:2026-09-04T08:24:11.638157+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:12.129801+00:00",
+      "price": 508.22,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:rejection:2026-09-04T08:24:12.129801+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DGBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:12.642291+00:00",
+      "price": 0.00466,
+      "funding": 0.0,
+      "id": "DGBUSDT:rejection:2026-09-04T08:24:12.642291+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DGBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:12.642291+00:00",
+      "price": 0.00466,
+      "funding": 0.0,
+      "id": "DGBUSDT:support_break:2026-09-04T08:24:12.642291+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:17.084135+00:00",
+      "price": 0.05945,
+      "funding": 0.005,
+      "id": "TAKE_USDT:rejection:2026-09-04T08:24:17.084135+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-04T08:24:17.084135+00:00",
+      "price": 0.05945,
+      "funding": 0.005,
+      "id": "TAKE_USDT:support_break:2026-09-04T08:24:17.084135+00:00",
       "status": "pending",
       "repeats": 1
     }
