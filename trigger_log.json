@@ -32372,8 +32372,8 @@
       "funding": 0.0,
       "id": "MRK_USDT:rejection:2026-09-02T08:24:15.058145+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-04T04:24:14.049848+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-04T12:24:08.817176+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -32703,7 +32703,8 @@
       "funding": 0.0007,
       "id": "LIT_USDT:breakout:2026-09-03T16:24:12.318524+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-04T12:24:07.494997+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -32787,7 +32788,8 @@
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-09-03T20:24:09.904854+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-04T12:24:06.196353+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -32835,7 +32837,8 @@
       "funding": 0.0,
       "id": "MRK_USDT:support_break:2026-09-04T04:24:14.049848+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-04T12:24:08.817176+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -32954,6 +32957,54 @@
       "price": 0.05945,
       "funding": 0.005,
       "id": "TAKE_USDT:support_break:2026-09-04T08:24:17.084135+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T12:24:10.562196+00:00",
+      "price": 0.1336,
+      "funding": 0.0,
+      "id": "ARBUSDT:rejection:2026-09-04T12:24:10.562196+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-04T12:24:10.562196+00:00",
+      "price": 0.1336,
+      "funding": 0.0,
+      "id": "ARBUSDT:support_break:2026-09-04T12:24:10.562196+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "SOXS_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-04T12:24:11.433646+00:00",
+      "price": 48.69,
+      "funding": 0.0,
+      "id": "SOXS_USDT:rejection:2026-09-04T12:24:11.433646+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-04T12:24:14.906250+00:00",
+      "price": 0.035479,
+      "funding": 0.11429999999999998,
+      "id": "BULLA_USDT:funding:2026-09-04T12:24:14.906250+00:00",
       "status": "pending",
       "repeats": 1
     }
