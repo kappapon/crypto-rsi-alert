@@ -7973,7 +7973,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-09-04T03:02:54.233Z",
       "id": "confirmed:TAC_USDT:gate:2026-09-04T02:47:51.764Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.075,
+      "stopped": true,
+      "stop_ts": "2026-09-04T08:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00242571428571429,
+      "closed_at": "2026-09-04T08:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
@@ -8000,7 +8008,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-09-04T05:32:53.068Z",
       "id": "confirmed:PROM_USDT:gate:2026-09-04T05:02:53.563Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.253,
+      "stopped": true,
+      "stop_ts": "2026-09-04T07:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 5.53932142857143,
+      "closed_at": "2026-09-04T07:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -8053,7 +8069,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-09-04T17:32:46.804Z",
       "id": "confirmed:TAC_USDT:gate:2026-09-04T17:17:46.753Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-09-04T17:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00287796428571429,
+      "closed_at": "2026-09-04T17:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TAC",
