@@ -8143,6 +8143,20 @@
       "ts": "2026-09-05T06:00:00.000Z",
       "id": "armed:TA_USDT:gate:2026-09-05T06:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.03543,
+      "armed_ts": "2026-09-05T05:02:49.106Z",
+      "entry": 0.03541,
+      "label": "BANK",
+      "peak_high": 0.03547,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0355239285714286,
+      "symbol": "BANK_USDT",
+      "ts": "2026-09-05T06:47:51.339Z",
+      "id": "confirmed:BANK_USDT:gate:2026-09-05T05:02:49.106Z",
+      "status": "pending"
     }
   ]
 }
