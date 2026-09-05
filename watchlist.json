@@ -259,23 +259,6 @@
         "funding_high": 0.1
       }
     },
-    "AMGN_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 455.2275,
-        "resistance": 448.5,
-        "rejection_below": 396.34,
-        "support_strong": 430.8362,
-        "support_extreme": 435.9607
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ARBUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
