@@ -32172,8 +32172,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-08-31T16:24:07.087451+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-03T08:24:26.800204+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-05T08:24:16.281585+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -33180,6 +33180,30 @@
       "price": 0.062804,
       "funding": 0.298,
       "id": "BULLA_USDT:funding:2026-09-05T04:24:13.758201+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-05T08:24:07.311327+00:00",
+      "price": 4.617,
+      "funding": 0.005,
+      "id": "LIT_USDT:support_break:2026-09-05T08:24:07.311327+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-05T08:24:17.920511+00:00",
+      "price": 0.05101,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:support_break:2026-09-05T08:24:17.920511+00:00",
       "status": "pending",
       "repeats": 1
     }
