@@ -8157,6 +8157,19 @@
       "ts": "2026-09-05T06:47:51.339Z",
       "id": "confirmed:BANK_USDT:gate:2026-09-05T05:02:49.106Z",
       "status": "pending"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 0.3076,
+      "p1_rsi": 70.5110989018284,
+      "p2_high": 0.3091,
+      "p2_rsi": 68.0491577960238,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-09-05T06:30:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-09-05T06:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
