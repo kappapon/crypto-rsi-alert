@@ -33181,8 +33181,8 @@
       "funding": 0.298,
       "id": "BULLA_USDT:funding:2026-09-05T04:24:13.758201+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-05T16:24:20.486840+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-05T20:24:14.876190+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -33241,6 +33241,54 @@
       "price": 0.0190698,
       "funding": -0.1554,
       "id": "AKE_USDT:funding:2026-09-05T12:24:09.196651+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-05T20:23:58.532409+00:00",
+      "price": 7.139,
+      "funding": 0.0,
+      "id": "UNIUSDT:breakout:2026-09-05T20:23:58.532409+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-05T20:23:58.532409+00:00",
+      "price": 7.139,
+      "funding": 0.0,
+      "id": "UNIUSDT:resistance_test:2026-09-05T20:23:58.532409+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-05T20:24:08.129231+00:00",
+      "price": 0.1638,
+      "funding": 0.0,
+      "id": "ARBUSDT:breakout:2026-09-05T20:24:08.129231+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-05T20:24:08.129231+00:00",
+      "price": 0.1638,
+      "funding": 0.0,
+      "id": "ARBUSDT:resistance_test:2026-09-05T20:24:08.129231+00:00",
       "status": "pending",
       "repeats": 1
     }
