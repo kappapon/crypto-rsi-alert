@@ -8170,6 +8170,20 @@
       "ts": "2026-09-05T06:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-09-05T06:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.069821,
+      "armed_ts": "2026-09-05T05:47:51.337Z",
+      "entry": 0.06718,
+      "label": "BULLA",
+      "peak_high": 0.081046,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0827476071428572,
+      "symbol": "BULLA_USDT",
+      "ts": "2026-09-05T10:17:50.342Z",
+      "id": "confirmed:BULLA_USDT:gate:2026-09-05T05:47:51.337Z",
+      "status": "pending"
     }
   ]
 }
