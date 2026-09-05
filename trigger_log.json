@@ -31666,8 +31666,8 @@
       "funding": 0.0,
       "id": "BICOUSDT:support_break:2026-08-28T08:24:20.806921+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-03T00:24:28.143596+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-05T04:24:17.626100+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -33144,6 +33144,42 @@
       "price": 0.05416,
       "funding": 0.005,
       "id": "ELSA_USDT:resistance_test:2026-09-05T00:24:11.114700+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-05T04:24:13.758201+00:00",
+      "price": 0.062804,
+      "funding": 0.298,
+      "id": "BULLA_USDT:breakout:2026-09-05T04:24:13.758201+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-05T04:24:13.758201+00:00",
+      "price": 0.062804,
+      "funding": 0.298,
+      "id": "BULLA_USDT:resistance_test:2026-09-05T04:24:13.758201+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-05T04:24:13.758201+00:00",
+      "price": 0.062804,
+      "funding": 0.298,
+      "id": "BULLA_USDT:funding:2026-09-05T04:24:13.758201+00:00",
       "status": "pending",
       "repeats": 1
     }
