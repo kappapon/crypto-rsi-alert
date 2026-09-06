@@ -33440,6 +33440,54 @@
       "exit": 0.17428835197741377,
       "r": -1.0,
       "closed_at": "2026-09-06T00:00:00+00:00"
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-06T04:24:02.208065+00:00",
+      "price": 0.014461,
+      "funding": -0.0022,
+      "id": "KOMA_USDT:rejection:2026-09-06T04:24:02.208065+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "EEM_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-06T04:24:05.243161+00:00",
+      "price": 68.37,
+      "funding": 0.0,
+      "id": "EEM_USDT:support_break:2026-09-06T04:24:05.243161+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "V_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-06T04:24:07.963235+00:00",
+      "price": 375.3,
+      "funding": 0.0,
+      "id": "V_USDT:support_break:2026-09-06T04:24:07.963235+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DGBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-06T04:24:13.438262+00:00",
+      "price": 0.00489,
+      "funding": 0.0,
+      "id": "DGBUSDT:support_break:2026-09-06T04:24:13.438262+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
