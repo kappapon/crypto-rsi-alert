@@ -33377,8 +33377,8 @@
       "funding": -0.1554,
       "id": "AKE_USDT:funding:2026-09-05T12:24:09.196651+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-06T16:24:12.513677+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-06T20:24:09.244518+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -33537,7 +33537,8 @@
       "funding": 0.040499999999999994,
       "id": "BULLA_USDT:support_break:2026-09-06T08:24:13.541626+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-06T20:24:13.089548+00:00"
     }
   ]
 }
