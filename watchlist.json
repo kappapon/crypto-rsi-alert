@@ -361,23 +361,6 @@
         "funding_high": 0.1
       }
     },
-    "POPMART_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 20.8075,
-        "resistance": 20.5,
-        "rejection_below": 18.8793,
-        "support_strong": 19.8397,
-        "support_extreme": 19.7968
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BANKUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
