@@ -140,23 +140,6 @@
         "funding_high": 0.1
       }
     },
-    "REUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.6354,
-        "resistance": 0.626,
-        "rejection_below": 0.4572,
-        "support_strong": 0.4556,
-        "support_extreme": 0.4534
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "LIT_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
