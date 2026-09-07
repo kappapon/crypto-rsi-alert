@@ -32959,7 +32959,8 @@
       "funding": 0.0,
       "id": "KO_USDT:rejection:2026-09-04T04:24:05.936429+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-07T08:23:33.703009+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -33521,7 +33522,8 @@
       "funding": 0.0,
       "id": "V_USDT:support_break:2026-09-06T04:24:07.963235+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-07T08:23:40.690008+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -33661,7 +33663,8 @@
       "funding": -0.1458,
       "id": "AKE_USDT:funding:2026-09-07T04:23:40.287310+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-07T08:23:45.252473+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -33696,6 +33699,42 @@
       "price": 0.05419,
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-09-07T04:23:44.130124+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-07T08:23:33.703009+00:00",
+      "price": 88.67,
+      "funding": 0.0,
+      "id": "KO_USDT:support_break:2026-09-07T08:23:33.703009+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ELSA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-07T08:23:43.954072+00:00",
+      "price": 0.05079,
+      "funding": 0.005,
+      "id": "ELSA_USDT:rejection:2026-09-07T08:23:43.954072+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-07T08:23:50.383729+00:00",
+      "price": 0.0951,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-09-07T08:23:50.383729+00:00",
       "status": "pending",
       "repeats": 1
     }
