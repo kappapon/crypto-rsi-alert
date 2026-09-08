@@ -8533,6 +8533,19 @@
       "ts": "2026-09-08T12:15:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-09-08T12:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_low": 0.03475,
+      "p1_rsi": 29.3482070737696,
+      "p2_low": 0.03472,
+      "p2_rsi": 36.1167376387579,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BANK_USDT",
+      "ts": "2026-09-08T12:15:00.000Z",
+      "id": "flip:BANK_USDT:gate:2026-09-08T12:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
