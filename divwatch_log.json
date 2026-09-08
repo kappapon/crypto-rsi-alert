@@ -8573,6 +8573,20 @@
       "ts": "2026-09-08T14:47:19.753Z",
       "id": "confirmed:AKE_USDT:gate:2026-09-08T13:02:19.440Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.06084,
+      "armed_ts": "2026-09-08T13:17:23.166Z",
+      "entry": 0.06076,
+      "label": "TA",
+      "peak_high": 0.06105,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0611978571428571,
+      "symbol": "TA_USDT",
+      "ts": "2026-09-08T16:32:23.050Z",
+      "id": "confirmed:TA_USDT:gate:2026-09-08T13:17:23.166Z",
+      "status": "pending"
     }
   ]
 }
