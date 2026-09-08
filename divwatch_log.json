@@ -8600,6 +8600,19 @@
       "ts": "2026-09-08T15:45:00.000Z",
       "id": "armed:TA_USDT:gate:2026-09-08T15:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_high": 0.020312,
+      "p1_rsi": 71.7634094229738,
+      "p2_high": 0.021677,
+      "p2_rsi": 49.0406390913438,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "AKE_USDT",
+      "ts": "2026-09-08T16:45:00.000Z",
+      "id": "armed:AKE_USDT:gate:2026-09-08T16:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
