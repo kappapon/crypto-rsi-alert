@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-07T20:36:22Z",
+  "date": "2026-09-08T00:32:13Z",
   "parabolic_seen": {
     "AKE": "2026-09-04",
     "ARB": "2026-09-07",
@@ -27,7 +27,7 @@
     "MEMES": "2026-07-29",
     "MUBARAK": "2026-07-12",
     "ON": "2026-08-07",
-    "PROM": "2026-09-07",
+    "PROM": "2026-09-08",
     "RIF": "2026-07-11",
     "SAFE": "2026-07-12",
     "T": "2026-07-14",
@@ -37,20 +37,19 @@
     "VANRY": "2026-07-10",
     "WIN": "2026-08-22",
     "XEC": "2026-07-19",
-    "YFI": "2026-07-09",
     "ZAMA": "2026-08-25"
   },
   "patterns": {
-    "1INCHUSDT": "Breakout",
+    "1INCHUSDT": "Range",
     "ABBV_USDT": "Range",
-    "AKE_USDT": "Pullback",
-    "ARBUSDT": "Parabolic",
+    "AKE_USDT": "Range",
+    "ARBUSDT": "Range",
     "BANKUSDT": "Downtrend",
     "BICOUSDT": "Range",
     "BTW_USDT": "Pullback",
     "BULLA_USDT": "Pullback",
     "DGBUSDT": "Range",
-    "DIAUSDT": "Range",
+    "DIAUSDT": "Pullback",
     "EEM_USDT": "Range",
     "ELSA_USDT": "Range",
     "GPSUSDT": "Range",
@@ -61,15 +60,15 @@
     "LIT_USDT": "Pullback",
     "MRK_USDT": "Pullback",
     "MSFTBUSDT": "Pullback",
-    "NEURALINK_USDT": "Pullback",
+    "NEURALINK_USDT": "Range",
     "PROMUSDT": "Parabolic",
-    "ROKU_USDT": "Pullback",
+    "ROKU_USDT": "Range",
     "SOXS_USDT": "Downtrend",
     "TAKE_USDT": "Range",
     "TMO_USDT": "Range",
-    "UNIUSDT": "Parabolic",
+    "UNIUSDT": "Range",
     "V_USDT": "Range",
     "ZAMAUSDT": "Pullback",
-    "ZEREBRO_USDT": "Downtrend"
+    "ZEREBRO_USDT": "Range"
   }
 }
