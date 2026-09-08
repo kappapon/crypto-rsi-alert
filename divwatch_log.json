@@ -8546,6 +8546,19 @@
       "ts": "2026-09-08T12:15:00.000Z",
       "id": "flip:BANK_USDT:gate:2026-09-08T12:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.0606,
+      "p1_rsi": 77.6561618858963,
+      "p2_high": 0.06084,
+      "p2_rsi": 71.7697739247636,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-08T12:30:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-09-08T12:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
