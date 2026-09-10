@@ -33295,8 +33295,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-09-04T16:24:10.021608+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-08T08:23:41.312895+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-10T16:23:56.928336+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -33616,8 +33616,8 @@
       "funding": 0.0,
       "id": "V_USDT:support_break:2026-09-06T04:24:07.963235+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-08T00:23:42.312099+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-10T16:23:54.938129+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -33850,7 +33850,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:rejection:2026-09-07T08:23:43.954072+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-10T16:23:58.172445+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -33875,8 +33876,8 @@
       "funding": -0.009600000000000001,
       "id": "JPM_USDT:support_break:2026-09-07T12:23:38.608289+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-08T00:23:38.865779+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-10T16:23:51.112360+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -34097,7 +34098,8 @@
       "funding": -0.0548,
       "id": "AKE_USDT:support_break:2026-09-10T04:24:28.325156+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-10T16:23:59.472907+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -34132,6 +34134,31 @@
       "price": 0.078747,
       "funding": 0.005,
       "id": "BULLA_USDT:support_break:2026-09-10T08:24:30.614307+00:00",
+      "status": "pending",
+      "repeats": 2,
+      "last_repeat": "2026-09-10T16:24:02.572190+00:00"
+    },
+    {
+      "symbol": "JPM_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-10T16:23:51.112360+00:00",
+      "price": 352.56,
+      "funding": 0.0,
+      "id": "JPM_USDT:rejection:2026-09-10T16:23:51.112360+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-10T16:24:04.786730+00:00",
+      "price": 0.1267,
+      "funding": 0.0,
+      "id": "DIAUSDT:rejection:2026-09-10T16:24:04.786730+00:00",
       "status": "pending",
       "repeats": 1
     }
