@@ -34082,6 +34082,31 @@
       "funding": -0.0024000000000000002,
       "id": "KOMA_USDT:rejection:2026-09-09T16:24:04.812226+00:00",
       "status": "pending",
+      "repeats": 2,
+      "last_repeat": "2026-09-10T04:24:18.252007+00:00"
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-10T04:24:28.325156+00:00",
+      "price": 0.0152375,
+      "funding": -0.0548,
+      "id": "AKE_USDT:support_break:2026-09-10T04:24:28.325156+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-10T04:24:30.962410+00:00",
+      "price": 5.452,
+      "funding": 0.0,
+      "id": "PROMUSDT:rejection:2026-09-10T04:24:30.962410+00:00",
+      "status": "pending",
       "repeats": 1
     }
   ]
