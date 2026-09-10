@@ -8663,6 +8663,19 @@
       "ts": "2026-09-09T16:00:00.000Z",
       "id": "flip:AKE_USDT:gate:2026-09-09T16:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.10574,
+      "p1_rsi": 87.9446409366718,
+      "p2_high": 0.10577,
+      "p2_rsi": 65.6033155348787,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-09-10T05:15:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-09-10T05:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
