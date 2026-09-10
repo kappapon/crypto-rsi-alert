@@ -33836,8 +33836,8 @@
       "funding": 0.0,
       "id": "KO_USDT:support_break:2026-09-07T08:23:33.703009+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-09T16:24:03.948725+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-10T08:24:19.552192+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -34106,6 +34106,30 @@
       "price": 5.452,
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-09-10T04:24:30.962410+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-10T08:24:24.087922+00:00",
+      "price": 0.01174,
+      "funding": 0.0,
+      "id": "GPSUSDT:support_break:2026-09-10T08:24:24.087922+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-10T08:24:30.614307+00:00",
+      "price": 0.078747,
+      "funding": 0.005,
+      "id": "BULLA_USDT:support_break:2026-09-10T08:24:30.614307+00:00",
       "status": "pending",
       "repeats": 1
     }
