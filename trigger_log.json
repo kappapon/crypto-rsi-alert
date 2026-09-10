@@ -34111,7 +34111,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-09-10T04:24:30.962410+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-10T20:23:58.915111+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -34159,6 +34160,30 @@
       "price": 0.1267,
       "funding": 0.0,
       "id": "DIAUSDT:rejection:2026-09-10T16:24:04.786730+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ROKU_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-10T20:23:53.549491+00:00",
+      "price": 153.11,
+      "funding": 0.0,
+      "id": "ROKU_USDT:support_break:2026-09-10T20:23:53.549491+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-10T20:23:59.523226+00:00",
+      "price": 0.077238,
+      "funding": 0.005,
+      "id": "BULLA_USDT:rejection:2026-09-10T20:23:59.523226+00:00",
       "status": "pending",
       "repeats": 1
     }
