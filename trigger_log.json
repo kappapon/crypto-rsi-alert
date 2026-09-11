@@ -33258,8 +33258,8 @@
       "funding": 0.0,
       "id": "SOXS_USDT:rejection:2026-09-04T12:24:11.433646+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-08T16:23:44.308341+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-11T08:23:47.792036+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -33803,8 +33803,8 @@
       "funding": -0.1458,
       "id": "AKE_USDT:funding:2026-09-07T04:23:40.287310+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-09-09T16:24:11.103412+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-09-11T08:23:48.434059+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -33855,8 +33855,8 @@
       "funding": 0.0,
       "id": "KO_USDT:support_break:2026-09-07T08:23:33.703009+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-10T08:24:19.552192+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-11T08:23:37.062479+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -34203,7 +34203,8 @@
       "funding": 0.0,
       "id": "ROKU_USDT:support_break:2026-09-10T20:23:53.549491+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-11T08:23:45.020487+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -34215,7 +34216,8 @@
       "funding": 0.005,
       "id": "BULLA_USDT:rejection:2026-09-10T20:23:59.523226+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-11T08:23:51.665066+00:00"
     },
     {
       "symbol": "ARBUSDT",
