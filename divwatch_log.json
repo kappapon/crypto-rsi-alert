@@ -8767,6 +8767,19 @@
       "exit": 0.00192853571428571,
       "closed_at": "2026-09-10T22:30:00+00:00",
       "horizon_h": 72
+    },
+    {
+      "label": "PROM",
+      "p1_low": 5.367,
+      "p1_rsi": 25.2750883616734,
+      "p2_low": 5.227,
+      "p2_rsi": 37.7434205798877,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-09-11T03:00:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-09-11T03:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
