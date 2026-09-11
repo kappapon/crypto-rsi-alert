@@ -33734,8 +33734,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-09-07T04:23:32.949553+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-09T08:23:30.438554+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-11T00:23:47.110617+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -33798,8 +33798,8 @@
       "funding": 0.0,
       "id": "DGBUSDT:support_break:2026-09-07T04:23:41.397823+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-09T16:24:11.973587+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-11T00:23:59.337016+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -34184,6 +34184,30 @@
       "price": 0.077238,
       "funding": 0.005,
       "id": "BULLA_USDT:rejection:2026-09-10T20:23:59.523226+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-11T00:23:55.794292+00:00",
+      "price": 0.1414,
+      "funding": 0.0,
+      "id": "ARBUSDT:support_break:2026-09-11T00:23:55.794292+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-11T00:23:58.697034+00:00",
+      "price": 491.35,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:support_break:2026-09-11T00:23:58.697034+00:00",
       "status": "pending",
       "repeats": 1
     }
