@@ -8880,6 +8880,20 @@
       "ts": "2026-09-12T12:17:33.250Z",
       "id": "confirmed:LDO_USDT:gate:2026-09-12T09:03:06.133Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.10871,
+      "armed_ts": "2026-09-12T10:32:51.908Z",
+      "entry": 0.1086,
+      "label": "JST",
+      "peak_high": 0.10879,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.108888571428571,
+      "symbol": "JST_USDT",
+      "ts": "2026-09-12T13:17:51.079Z",
+      "id": "confirmed:JST_USDT:gate:2026-09-12T10:32:51.908Z",
+      "status": "pending"
     }
   ]
 }
