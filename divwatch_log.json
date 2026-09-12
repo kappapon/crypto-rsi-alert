@@ -8894,6 +8894,20 @@
       "ts": "2026-09-12T13:17:51.079Z",
       "id": "confirmed:JST_USDT:gate:2026-09-12T10:32:51.908Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.001875,
+      "armed_ts": "2026-09-12T09:03:07.427Z",
+      "entry": 0.001873,
+      "label": "TAC",
+      "peak_high": 0.001927,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00193596428571429,
+      "symbol": "TAC_USDT",
+      "ts": "2026-09-12T14:03:10.026Z",
+      "id": "confirmed:TAC_USDT:gate:2026-09-12T09:03:07.427Z",
+      "status": "pending"
     }
   ]
 }
