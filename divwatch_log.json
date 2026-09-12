@@ -8618,7 +8618,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-09-08T16:32:23.050Z",
       "id": "confirmed:TA_USDT:gate:2026-09-08T13:17:23.166Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.548,
+      "mfe_r": 35.902,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 29.188,
+      "exit": 0.04798,
+      "closed_at": "2026-09-11T16:32:23+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
