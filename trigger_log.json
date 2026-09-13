@@ -33051,8 +33051,8 @@
       "funding": 0.0,
       "id": "KO_USDT:rejection:2026-09-04T04:24:05.936429+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-09T08:23:29.623939+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-13T12:23:46.737633+00:00"
     },
     {
       "symbol": "MRK_USDT",
@@ -33659,8 +33659,8 @@
       "funding": 0.0,
       "id": "V_USDT:support_break:2026-09-06T04:24:07.963235+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-12T08:24:00.288765+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-13T12:23:51.222206+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -33892,8 +33892,8 @@
       "funding": 0.0,
       "id": "KO_USDT:support_break:2026-09-07T08:23:33.703009+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-12T08:23:55.886824+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-13T12:23:46.737633+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -34258,8 +34258,8 @@
       "funding": 0.0,
       "id": "ROKU_USDT:support_break:2026-09-10T20:23:53.549491+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-11T08:23:45.020487+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-13T12:23:52.054565+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -34396,6 +34396,18 @@
       "price": 0.0908,
       "funding": 0.0,
       "id": "1INCHUSDT:rejection:2026-09-13T10:48:15.137367+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-13T12:23:47.603348+00:00",
+      "price": 0.016686,
+      "funding": 0.005,
+      "id": "KOMA_USDT:support_break:2026-09-13T12:23:47.603348+00:00",
       "status": "pending",
       "repeats": 1
     }
