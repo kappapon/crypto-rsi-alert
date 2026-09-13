@@ -9009,6 +9009,19 @@
       "ts": "2026-09-13T03:30:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-09-13T03:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.11175,
+      "p1_rsi": 83.9752276340978,
+      "p2_high": 0.11261,
+      "p2_rsi": 79.6788970368247,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-09-13T10:00:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-09-13T10:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
