@@ -33256,8 +33256,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:support_break:2026-09-04T08:24:17.084135+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-13T10:48:17.185889+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-14T08:24:00.964882+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -33664,8 +33664,8 @@
       "funding": 0.0,
       "id": "EEM_USDT:support_break:2026-09-06T04:24:05.243161+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-14T00:23:49.284786+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-14T08:23:48.228371+00:00"
     },
     {
       "symbol": "V_USDT",
@@ -34315,8 +34315,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-09-11T00:23:55.794292+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-14T00:23:52.327321+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-14T08:23:52.846677+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -34470,6 +34470,54 @@
       "price": 4.133,
       "funding": 0.005,
       "id": "LIT_USDT:support_break:2026-09-14T00:23:49.730453+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-14T08:23:45.554856+00:00",
+      "price": 0.019909,
+      "funding": 0.005,
+      "id": "KOMA_USDT:breakout:2026-09-14T08:23:45.554856+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-14T08:23:45.554856+00:00",
+      "price": 0.019909,
+      "funding": 0.005,
+      "id": "KOMA_USDT:resistance_test:2026-09-14T08:23:45.554856+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-14T08:23:46.216428+00:00",
+      "price": 0.760142,
+      "funding": 0.0379,
+      "id": "BTW_USDT:resistance_test:2026-09-14T08:23:46.216428+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-14T08:23:57.364042+00:00",
+      "price": 5.597,
+      "funding": 0.0,
+      "id": "PROMUSDT:support_break:2026-09-14T08:23:57.364042+00:00",
       "status": "pending",
       "repeats": 1
     }
