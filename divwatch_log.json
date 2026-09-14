@@ -9181,6 +9181,19 @@
       "ts": "2026-09-14T07:47:47.993Z",
       "id": "confirmed:BANK_USDT:gate:2026-09-14T06:32:40.761Z",
       "status": "pending"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.02887,
+      "p1_rsi": 66.6595156373557,
+      "p2_high": 0.0291,
+      "p2_rsi": 66.4496918898761,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-09-14T07:45:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-09-14T07:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
