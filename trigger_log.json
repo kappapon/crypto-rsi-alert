@@ -34246,8 +34246,8 @@
       "funding": 0.005,
       "id": "BULLA_USDT:support_break:2026-09-10T08:24:30.614307+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-12T04:24:04.453376+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-14T20:24:01.972701+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -34530,6 +34530,30 @@
       "price": 355.95,
       "funding": 0.0,
       "id": "JPM_USDT:rejection:2026-09-14T12:23:56.482978+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-14T20:23:53.024218+00:00",
+      "price": 0.638802,
+      "funding": 0.057499999999999996,
+      "id": "BTW_USDT:rejection:2026-09-14T20:23:53.024218+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-14T20:23:53.024218+00:00",
+      "price": 0.638802,
+      "funding": 0.057499999999999996,
+      "id": "BTW_USDT:support_break:2026-09-14T20:23:53.024218+00:00",
       "status": "pending",
       "repeats": 1
     }
