@@ -89,23 +89,6 @@
         "funding_high": 0.1
       }
     },
-    "ZEREBRO_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0433,
-        "resistance": 0.0427,
-        "rejection_below": 0.0291,
-        "support_strong": 0.0316,
-        "support_extreme": 0.0326
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "ABBV_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -455,23 +438,6 @@
         "rejection_below": 0.0571,
         "support_strong": 0.0602,
         "support_extreme": 0.0602
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "NEURALINK_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 632.6495,
-        "resistance": 623.3,
-        "rejection_below": 526.7275,
-        "support_strong": 558.8933,
-        "support_extreme": 568.5211
       },
       "alerts": {
         "price_breakout": true,
