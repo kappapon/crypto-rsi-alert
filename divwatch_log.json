@@ -8915,7 +8915,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-09-12T14:03:10.026Z",
       "id": "confirmed:TAC_USDT:gate:2026-09-12T09:03:07.427Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.461,
+      "stopped": true,
+      "stop_ts": "2026-09-13T00:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00193596428571429,
+      "closed_at": "2026-09-13T00:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -8982,7 +8990,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-09-13T00:32:34.392Z",
       "id": "confirmed:TAC_USDT:gate:2026-09-12T14:17:34.697Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-09-13T00:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00193314285714286,
+      "closed_at": "2026-09-13T00:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -9035,7 +9051,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-09-13T17:32:42.186Z",
       "id": "confirmed:JST_USDT:gate:2026-09-13T10:47:42.207Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-09-13T18:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.113108571428571,
+      "closed_at": "2026-09-13T18:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
