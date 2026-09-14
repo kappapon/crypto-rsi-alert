@@ -9154,6 +9154,19 @@
       "ts": "2026-09-14T05:45:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-09-14T05:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.0539,
+      "p1_rsi": 67.5062041736544,
+      "p2_high": 0.05551,
+      "p2_rsi": 67.2122239383572,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-14T06:30:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-09-14T06:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
