@@ -9306,6 +9306,20 @@
       "ts": "2026-09-15T06:32:45.267Z",
       "id": "confirmed:TAC_USDT:gate:2026-09-15T06:02:52.538Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.05411,
+      "armed_ts": "2026-09-15T05:02:36.588Z",
+      "entry": 0.05408,
+      "label": "TA",
+      "peak_high": 0.05412,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0541814285714286,
+      "symbol": "TA_USDT",
+      "ts": "2026-09-15T06:32:47.524Z",
+      "id": "confirmed:TA_USDT:gate:2026-09-15T05:02:36.588Z",
+      "status": "pending"
     }
   ]
 }
