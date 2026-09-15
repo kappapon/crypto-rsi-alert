@@ -9360,6 +9360,19 @@
       "ts": "2026-09-15T12:00:00.000Z",
       "id": "armed:JST_USDT:gate:2026-09-15T12:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TAC",
+      "p1_low": 0.00176,
+      "p1_rsi": 20.6170229695714,
+      "p2_low": 0.001759,
+      "p2_rsi": 23.4378224527938,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TAC_USDT",
+      "ts": "2026-09-15T14:15:00.000Z",
+      "id": "flip:TAC_USDT:gate:2026-09-15T14:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
