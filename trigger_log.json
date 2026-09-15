@@ -34665,6 +34665,54 @@
       "id": "V_USDT:rejection:2026-09-15T00:23:48.975054+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-15T04:23:49.525204+00:00",
+      "price": 0.019229,
+      "funding": -0.045899999999999996,
+      "id": "KOMA_USDT:rejection:2026-09-15T04:23:49.525204+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-15T04:23:49.525204+00:00",
+      "price": 0.019229,
+      "funding": -0.045899999999999996,
+      "id": "KOMA_USDT:support_break:2026-09-15T04:23:49.525204+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-15T04:23:53.181317+00:00",
+      "price": 615.6,
+      "funding": 0.0,
+      "id": "TMO_USDT:rejection:2026-09-15T04:23:53.181317+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-15T04:23:55.477575+00:00",
+      "price": 502.18,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:rejection:2026-09-15T04:23:55.477575+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
