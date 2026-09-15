@@ -9279,6 +9279,19 @@
       "ts": "2026-09-15T04:15:00.000Z",
       "id": "armed:TA_USDT:gate:2026-09-15T04:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.001967,
+      "p1_rsi": 65.0444128291585,
+      "p2_high": 0.001969,
+      "p2_rsi": 64.9893878342429,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-09-15T05:15:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-09-15T05:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
