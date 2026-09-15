@@ -34787,6 +34787,18 @@
       "id": "GPSUSDT:support_break:2026-09-15T16:23:49.871349+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-15T20:23:56.336737+00:00",
+      "price": 0.088,
+      "funding": 0.0,
+      "id": "1INCHUSDT:rejection:2026-09-15T20:23:56.336737+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
