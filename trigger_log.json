@@ -33971,8 +33971,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:rejection:2026-09-07T08:23:43.954072+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-10T16:23:58.172445+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-15T12:23:53.154936+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -34616,7 +34616,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-09-14T08:23:57.364042+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-15T12:23:57.264741+00:00"
     },
     {
       "symbol": "JPM_USDT",
@@ -34724,6 +34725,18 @@
       "price": 499.61,
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-09-15T08:24:04.134519+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ROKU_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-15T12:23:51.192025+00:00",
+      "price": 156.78,
+      "funding": 0.0,
+      "id": "ROKU_USDT:rejection:2026-09-15T12:23:51.192025+00:00",
       "status": "pending",
       "repeats": 1
     }
