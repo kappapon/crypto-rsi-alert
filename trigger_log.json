@@ -33719,8 +33719,8 @@
       "funding": 0.0,
       "id": "V_USDT:support_break:2026-09-06T04:24:07.963235+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-09-13T12:23:51.222206+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-09-15T08:23:59.539218+00:00"
     },
     {
       "symbol": "DGBUSDT",
@@ -33913,8 +33913,8 @@
       "funding": 0.0,
       "id": "DGBUSDT:support_break:2026-09-07T04:23:41.397823+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-14T00:23:54.484673+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-15T08:24:04.781589+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -34041,8 +34041,8 @@
       "funding": 0.0,
       "id": "DGBUSDT:rejection:2026-09-07T16:23:43.629049+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-09T20:24:08.476715+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-15T08:24:04.781589+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -34664,7 +34664,8 @@
       "funding": 0.0,
       "id": "V_USDT:rejection:2026-09-15T00:23:48.975054+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-15T08:23:59.539218+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -34711,6 +34712,18 @@
       "price": 502.18,
       "funding": 0.0,
       "id": "MSFTBUSDT:rejection:2026-09-15T04:23:55.477575+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-15T08:24:04.134519+00:00",
+      "price": 499.61,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:support_break:2026-09-15T08:24:04.134519+00:00",
       "status": "pending",
       "repeats": 1
     }
