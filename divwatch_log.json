@@ -9333,6 +9333,20 @@
       "ts": "2026-09-15T11:15:00.000Z",
       "id": "flip:TA_USDT:gate:2026-09-15T11:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.11599,
+      "armed_ts": "2026-09-15T04:47:42.907Z",
+      "entry": 0.11584,
+      "label": "JST",
+      "peak_high": 0.11611,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.116186071428571,
+      "symbol": "JST_USDT",
+      "ts": "2026-09-15T12:18:17.035Z",
+      "id": "confirmed:JST_USDT:gate:2026-09-15T04:47:42.907Z",
+      "status": "pending"
     }
   ]
 }
