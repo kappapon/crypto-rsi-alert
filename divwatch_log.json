@@ -9320,6 +9320,19 @@
       "ts": "2026-09-15T06:32:47.524Z",
       "id": "confirmed:TA_USDT:gate:2026-09-15T05:02:36.588Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_low": 0.05226,
+      "p1_rsi": 28.7453089983144,
+      "p2_low": 0.05159,
+      "p2_rsi": 29.3558086867968,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-15T11:15:00.000Z",
+      "id": "flip:TA_USDT:gate:2026-09-15T11:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
