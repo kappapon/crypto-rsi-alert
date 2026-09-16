@@ -4,23 +4,6 @@
     "enabled": true
   },
   "tickers": {
-    "KO_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 93.4714,
-        "resistance": 92.09,
-        "rejection_below": 84.17,
-        "support_strong": 88.6237,
-        "support_extreme": 88.6688
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "UNIUSDT": {
       "exchange": "binance_spot",
       "enabled": true,
@@ -64,23 +47,6 @@
         "rejection_below": 0.6629,
         "support_strong": 0.6957,
         "support_extreme": 0.68
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "JPM_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 369.734,
-        "resistance": 364.27,
-        "rejection_below": 353.7,
-        "support_strong": 351.2357,
-        "support_extreme": 352.1038
       },
       "alerts": {
         "price_breakout": true,
@@ -268,23 +234,6 @@
         "rejection_below": 473.5275,
         "support_strong": 499.584,
         "support_extreme": 499.1742
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "DGBUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0055,
-        "resistance": 0.0054,
-        "rejection_below": 0.0034,
-        "support_strong": 0.0039,
-        "support_extreme": 0.0041
       },
       "alerts": {
         "price_breakout": true,
