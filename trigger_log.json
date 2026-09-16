@@ -34799,6 +34799,18 @@
       "id": "1INCHUSDT:rejection:2026-09-15T20:23:56.336737+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-16T00:23:53.647758+00:00",
+      "price": 643.5,
+      "funding": 0.0,
+      "id": "TMO_USDT:resistance_test:2026-09-16T00:23:53.647758+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
