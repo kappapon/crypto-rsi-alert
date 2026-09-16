@@ -33983,8 +33983,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:rejection:2026-09-07T08:23:43.954072+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-15T12:23:53.154936+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-16T08:24:05.568575+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -34122,8 +34122,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-09-08T04:23:43.888478+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-15T16:23:53.566574+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-16T08:24:05.568575+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -34893,6 +34893,30 @@
       "price": 49.98,
       "funding": 0.0,
       "id": "SOXS_USDT:support_break:2026-09-16T04:23:50.419346+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-16T08:24:12.325351+00:00",
+      "price": 0.05809,
+      "funding": 0.005,
+      "id": "TAKE_USDT:rejection:2026-09-16T08:24:12.325351+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-16T08:24:12.325351+00:00",
+      "price": 0.05809,
+      "funding": 0.005,
+      "id": "TAKE_USDT:support_break:2026-09-16T08:24:12.325351+00:00",
       "status": "pending",
       "repeats": 1
     }
