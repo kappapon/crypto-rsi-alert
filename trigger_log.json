@@ -34947,6 +34947,30 @@
       "id": "ROKU_USDT:support_break:2026-09-16T16:23:50.618292+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-16T20:23:52.593094+00:00",
+      "price": 0.0196553,
+      "funding": 0.005,
+      "id": "AKE_USDT:rejection:2026-09-16T20:23:52.593094+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-16T20:23:52.593094+00:00",
+      "price": 0.0196553,
+      "funding": 0.005,
+      "id": "AKE_USDT:support_break:2026-09-16T20:23:52.593094+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
