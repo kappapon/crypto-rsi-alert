@@ -35028,6 +35028,18 @@
       "id": "ARBUSDT:rejection:2026-09-17T04:23:56.567975+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-17T08:24:24.213963+00:00",
+      "price": 0.107013,
+      "funding": 0.1109,
+      "id": "BULLA_USDT:funding:2026-09-17T08:24:24.213963+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
