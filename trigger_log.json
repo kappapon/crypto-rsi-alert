@@ -35040,7 +35040,8 @@
       "funding": 0.1109,
       "id": "BULLA_USDT:funding:2026-09-17T08:24:24.213963+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-17T20:23:58.275326+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -35052,7 +35053,8 @@
       "funding": 0.0837,
       "id": "BTW_USDT:rejection:2026-09-17T12:23:50.365649+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-17T20:23:49.825203+00:00"
     },
     {
       "symbol": "SOXS_USDT",
@@ -35087,6 +35089,30 @@
       "price": 0.095149,
       "funding": 0.0332,
       "id": "BULLA_USDT:support_break:2026-09-17T16:23:57.633776+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-17T20:23:48.500428+00:00",
+      "price": 7.787,
+      "funding": 0.0,
+      "id": "UNIUSDT:breakout:2026-09-17T20:23:48.500428+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-17T20:23:48.500428+00:00",
+      "price": 7.787,
+      "funding": 0.0,
+      "id": "UNIUSDT:resistance_test:2026-09-17T20:23:48.500428+00:00",
       "status": "pending",
       "repeats": 1
     }
