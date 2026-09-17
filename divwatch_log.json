@@ -9687,6 +9687,19 @@
       "ts": "2026-09-17T14:47:30.550Z",
       "id": "confirmed:KAITO_USDT:gate:2026-09-17T13:17:40.827Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.05303,
+      "p1_rsi": 74.4315616368838,
+      "p2_high": 0.05307,
+      "p2_rsi": 65.8040146621109,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-17T17:45:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-09-17T17:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
