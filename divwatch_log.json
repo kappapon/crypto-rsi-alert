@@ -9370,7 +9370,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-09-15T12:18:17.035Z",
       "id": "confirmed:JST_USDT:gate:2026-09-15T04:47:42.907Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 8.293,
+      "stopped": true,
+      "stop_ts": "2026-09-16T05:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.116186071428571,
+      "closed_at": "2026-09-16T05:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
