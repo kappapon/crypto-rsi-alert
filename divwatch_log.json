@@ -9538,6 +9538,20 @@
       "ts": "2026-09-17T01:30:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-09-17T01:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.2962,
+      "armed_ts": "2026-09-17T02:17:35.581Z",
+      "entry": 0.296,
+      "label": "KAITO",
+      "peak_high": 0.2973,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.298053571428571,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-09-17T03:47:33.950Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-09-17T02:17:35.581Z",
+      "status": "pending"
     }
   ]
 }
