@@ -9949,6 +9949,19 @@
       "ts": "2026-09-18T13:45:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-09-18T13:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.3899,
+      "p1_rsi": 77.4651096276515,
+      "p2_high": 0.396,
+      "p2_rsi": 66.6133279158498,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-18T13:45:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-09-18T13:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
