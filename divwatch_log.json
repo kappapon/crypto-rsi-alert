@@ -9910,6 +9910,19 @@
       "ts": "2026-09-18T09:48:06.612Z",
       "id": "confirmed:AKE_USDT:gate:2026-09-18T09:03:58.475Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 4.976,
+      "p1_rsi": 14.2440120832754,
+      "p2_low": 4.959,
+      "p2_rsi": 18.9907313279514,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-09-18T11:45:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-09-18T11:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
