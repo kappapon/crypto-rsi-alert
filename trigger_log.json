@@ -34843,7 +34843,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:rejection:2026-09-15T04:23:55.477575+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-18T16:23:52.539475+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -34855,7 +34856,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-09-15T08:24:04.134519+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-18T16:23:52.539475+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -35183,7 +35185,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:breakout:2026-09-18T04:23:54.022062+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-18T16:23:50.276443+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -35206,6 +35209,18 @@
       "price": 262.56,
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-09-18T12:23:50.720196+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-18T16:23:49.733509+00:00",
+      "price": 653.9,
+      "funding": 0.0,
+      "id": "TMO_USDT:support_break:2026-09-18T16:23:49.733509+00:00",
       "status": "pending",
       "repeats": 1
     }
