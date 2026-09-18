@@ -9843,6 +9843,19 @@
       "ts": "2026-09-18T04:45:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-09-18T04:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.38,
+      "p1_rsi": 78.8467291777772,
+      "p2_high": 0.3879,
+      "p2_rsi": 74.3618669003003,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-18T07:15:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-09-18T07:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
