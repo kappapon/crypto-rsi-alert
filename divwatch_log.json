@@ -9896,6 +9896,20 @@
       "ts": "2026-09-18T09:04:00.832Z",
       "id": "confirmed:LDO_USDT:gate:2026-09-18T08:04:41.164Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.0244672,
+      "armed_ts": "2026-09-18T09:03:58.475Z",
+      "entry": 0.0243562,
+      "label": "AKE",
+      "peak_high": 0.0247338,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0251069642857143,
+      "symbol": "AKE_USDT",
+      "ts": "2026-09-18T09:48:06.612Z",
+      "id": "confirmed:AKE_USDT:gate:2026-09-18T09:03:58.475Z",
+      "status": "pending"
     }
   ]
 }
