@@ -9778,6 +9778,19 @@
       "ts": "2026-09-18T00:32:35.658Z",
       "id": "confirmed:TA_USDT:gate:2026-09-17T18:33:29.350Z",
       "status": "pending"
+    },
+    {
+      "label": "TAC",
+      "p1_low": 0.001653,
+      "p1_rsi": 26.8632118230688,
+      "p2_low": 0.001647,
+      "p2_rsi": 33.3091174192563,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TAC_USDT",
+      "ts": "2026-09-18T01:15:00.000Z",
+      "id": "flip:TAC_USDT:gate:2026-09-18T01:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
