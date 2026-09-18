@@ -9923,6 +9923,19 @@
       "ts": "2026-09-18T11:45:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-09-18T11:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.11805,
+      "p1_rsi": 73.7284630164993,
+      "p2_high": 0.11899,
+      "p2_rsi": 71.3387489498217,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-09-18T13:15:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-09-18T13:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
