@@ -9830,6 +9830,19 @@
       "ts": "2026-09-18T04:15:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-09-18T04:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_high": 0.101141,
+      "p1_rsi": 71.293723856539,
+      "p2_high": 0.107794,
+      "p2_rsi": 69.1336345667804,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-09-18T04:45:00.000Z",
+      "id": "armed:BULLA_USDT:gate:2026-09-18T04:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
