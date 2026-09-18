@@ -34334,8 +34334,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-09-10T04:24:30.962410+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-17T12:23:59.237014+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-18T12:23:57.437760+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -35028,7 +35028,8 @@
       "funding": 0.0,
       "id": "ROKU_USDT:support_break:2026-09-16T16:23:50.618292+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-18T12:23:52.974134+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -35193,6 +35194,18 @@
       "price": 0.2279,
       "funding": 0.0,
       "id": "ARBUSDT:resistance_test:2026-09-18T04:23:54.022062+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-18T12:23:50.720196+00:00",
+      "price": 262.56,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-09-18T12:23:50.720196+00:00",
       "status": "pending",
       "repeats": 1
     }
