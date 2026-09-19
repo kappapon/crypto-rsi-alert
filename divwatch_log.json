@@ -10184,6 +10184,19 @@
       "ts": "2026-09-19T14:00:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-09-19T14:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_low": 0.11553,
+      "p1_rsi": 34.1163382175708,
+      "p2_low": 0.11524,
+      "p2_rsi": 39.0373838091401,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "JST_USDT",
+      "ts": "2026-09-19T16:15:00.000Z",
+      "id": "flip:JST_USDT:gate:2026-09-19T16:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
