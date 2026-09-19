@@ -35224,6 +35224,18 @@
       "id": "TMO_USDT:support_break:2026-09-18T16:23:49.733509+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-19T00:23:49.877204+00:00",
+      "price": 4.789,
+      "funding": 0.005,
+      "id": "LIT_USDT:support_break:2026-09-19T00:23:49.877204+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
