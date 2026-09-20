@@ -10410,6 +10410,19 @@
       "ts": "2026-09-20T12:00:00.000Z",
       "id": "flip:BANK_USDT:gate:2026-09-20T12:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_low": 0.3257,
+      "p1_rsi": 20.9458642395868,
+      "p2_low": 0.3218,
+      "p2_rsi": 28.0174949916731,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-09-20T13:30:00.000Z",
+      "id": "flip:KAITO_USDT:gate:2026-09-20T13:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
