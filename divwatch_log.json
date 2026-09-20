@@ -10331,6 +10331,19 @@
       "ts": "2026-09-19T23:32:06.312Z",
       "id": "confirmed:KAITO_USDT:gate:2026-09-19T15:17:49.324Z",
       "status": "pending"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.4194,
+      "p1_rsi": 80.7246398654444,
+      "p2_high": 0.4202,
+      "p2_rsi": 62.0537800668103,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-20T01:15:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-09-20T01:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
