@@ -10423,6 +10423,19 @@
       "ts": "2026-09-20T13:30:00.000Z",
       "id": "flip:KAITO_USDT:gate:2026-09-20T13:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.4197,
+      "p1_rsi": 72.6179752553542,
+      "p2_high": 0.4235,
+      "p2_rsi": 70.3050056258938,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-20T19:30:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-09-20T19:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
