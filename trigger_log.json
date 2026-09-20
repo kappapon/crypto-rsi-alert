@@ -35427,6 +35427,18 @@
       "id": "UNIUSDT:support_break:2026-09-19T20:23:20.128362+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-20T00:24:06.077871+00:00",
+      "price": 0.0982,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-09-20T00:24:06.077871+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
