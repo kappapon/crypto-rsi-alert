@@ -35289,7 +35289,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-09-18T16:23:49.733509+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-21T00:23:26.648454+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -35540,8 +35541,8 @@
       "funding": 0.0,
       "id": "SOXS_USDT:support_break:2026-09-20T08:23:26.785790+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-20T16:23:27.763270+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-21T00:23:28.663729+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -35565,7 +35566,8 @@
       "funding": -0.1161,
       "id": "AKE_USDT:support_break:2026-09-20T12:23:26.441305+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-21T00:23:29.326967+00:00"
     },
     {
       "symbol": "DIAUSDT",
