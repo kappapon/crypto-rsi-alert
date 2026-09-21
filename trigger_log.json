@@ -35680,6 +35680,42 @@
       "id": "BTW_USDT:resistance_test:2026-09-21T16:23:23.643707+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-21T20:23:22.523531+00:00",
+      "price": 0.968886,
+      "funding": 0.1023,
+      "id": "BTW_USDT:breakout:2026-09-21T20:23:22.523531+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-21T20:23:22.523531+00:00",
+      "price": 0.968886,
+      "funding": 0.1023,
+      "id": "BTW_USDT:funding:2026-09-21T20:23:22.523531+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-21T20:23:28.546036+00:00",
+      "price": 0.0553134,
+      "funding": 0.1198,
+      "id": "AKE_USDT:funding:2026-09-21T20:23:28.546036+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
