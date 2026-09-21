@@ -10653,6 +10653,19 @@
       "ts": "2026-09-21T15:30:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-09-21T15:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_low": 0.105994,
+      "p1_rsi": 31.9485784570911,
+      "p2_low": 0.105787,
+      "p2_rsi": 36.5258662686001,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-09-21T22:45:00.000Z",
+      "id": "flip:BULLA_USDT:gate:2026-09-21T22:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
