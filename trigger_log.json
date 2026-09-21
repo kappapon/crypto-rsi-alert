@@ -34881,8 +34881,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-09-15T08:24:04.134519+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-20T04:23:26.941769+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-21T16:23:29.766177+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -35030,8 +35030,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-09-16T08:24:12.325351+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-17T16:24:00.462051+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-21T16:23:33.901734+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -35320,8 +35320,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-09-18T16:23:49.733509+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-21T00:23:26.648454+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-21T16:23:26.722156+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -35666,6 +35666,18 @@
       "price": 0.09942,
       "funding": 0.0,
       "id": "ZAMAUSDT:resistance_test:2026-09-21T12:23:31.307636+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-21T16:23:23.643707+00:00",
+      "price": 0.907708,
+      "funding": 0.0523,
+      "id": "BTW_USDT:resistance_test:2026-09-21T16:23:23.643707+00:00",
       "status": "pending",
       "repeats": 1
     }
