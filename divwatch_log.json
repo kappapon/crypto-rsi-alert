@@ -10276,7 +10276,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-09-19T20:02:07.630Z",
       "id": "confirmed:AKE_USDT:gate:2026-09-19T17:47:43.151Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.448,
+      "stopped": true,
+      "stop_ts": "2026-09-20T10:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0926937642857143,
+      "closed_at": "2026-09-20T10:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.11868,
@@ -10357,7 +10365,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-09-20T02:47:08.196Z",
       "id": "confirmed:LDO_USDT:gate:2026-09-20T02:02:07.772Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.337,
+      "stopped": true,
+      "stop_ts": "2026-09-20T22:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.427389285714286,
+      "closed_at": "2026-09-20T22:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
