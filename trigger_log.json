@@ -35844,6 +35844,30 @@
       "id": "TMO_USDT:rejection:2026-09-22T04:23:25.892078+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-22T08:23:26.403435+00:00",
+      "price": 0.0537265,
+      "funding": 0.0139,
+      "id": "AKE_USDT:support_break:2026-09-22T08:23:26.403435+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-22T08:23:29.198594+00:00",
+      "price": 0.09424,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:support_break:2026-09-22T08:23:29.198594+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
