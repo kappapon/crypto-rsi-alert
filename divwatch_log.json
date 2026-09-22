@@ -10817,6 +10817,19 @@
       "ts": "2026-09-22T14:30:00.000Z",
       "id": "flip:BULLA_USDT:gate:2026-09-22T14:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.4285,
+      "p1_rsi": 65.8531493726685,
+      "p2_high": 0.4288,
+      "p2_rsi": 62.3188778934026,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-22T20:30:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-09-22T20:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
