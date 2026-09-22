@@ -34892,8 +34892,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:rejection:2026-09-15T04:23:55.477575+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-22T00:23:34.436283+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-22T16:23:31.855914+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -34905,8 +34905,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-09-15T08:24:04.134519+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-21T16:23:29.766177+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-22T16:23:31.855914+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -35890,6 +35890,42 @@
       "price": 0.1014,
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-09-22T12:23:29.272839+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-22T16:23:29.784627+00:00",
+      "price": 0.2131,
+      "funding": 0.0,
+      "id": "ARBUSDT:rejection:2026-09-22T16:23:29.784627+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-22T16:23:33.835767+00:00",
+      "price": 0.098067,
+      "funding": 0.0324,
+      "id": "BULLA_USDT:rejection:2026-09-22T16:23:33.835767+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-22T16:23:35.142755+00:00",
+      "price": 0.08784,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:rejection:2026-09-22T16:23:35.142755+00:00",
       "status": "pending",
       "repeats": 1
     }
