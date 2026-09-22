@@ -10844,6 +10844,19 @@
       "ts": "2026-09-22T21:47:08.298Z",
       "id": "confirmed:LDO_USDT:gate:2026-09-22T21:17:07.469Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_low": 0.11228,
+      "p1_rsi": 25.8632803572722,
+      "p2_low": 0.11223,
+      "p2_rsi": 38.0538839602049,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "JST_USDT",
+      "ts": "2026-09-22T22:00:00.000Z",
+      "id": "flip:JST_USDT:gate:2026-09-22T22:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
