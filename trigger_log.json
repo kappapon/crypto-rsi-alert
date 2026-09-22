@@ -35566,8 +35566,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-09-19T20:23:20.128362+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-21T04:23:27.008673+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-22T12:23:22.568813+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -35866,6 +35866,30 @@
       "price": 0.09424,
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-09-22T08:23:29.198594+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-22T12:23:28.406763+00:00",
+      "price": 4.637,
+      "funding": 0.0,
+      "id": "PROMUSDT:rejection:2026-09-22T12:23:28.406763+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-22T12:23:29.272839+00:00",
+      "price": 0.1014,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-09-22T12:23:29.272839+00:00",
       "status": "pending",
       "repeats": 1
     }
