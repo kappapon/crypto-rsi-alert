@@ -34905,8 +34905,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-09-15T08:24:04.134519+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-22T16:23:31.855914+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-23T16:23:28.369915+00:00"
     },
     {
       "symbol": "ROKU_USDT",
@@ -35343,8 +35343,8 @@
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-09-18T12:23:50.720196+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-21T12:23:22.150527+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-23T16:23:22.882020+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -35566,8 +35566,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-09-19T20:23:20.128362+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-22T12:23:22.568813+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-23T16:23:20.848018+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -35609,8 +35609,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-09-20T04:23:25.018301+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-21T04:23:32.359848+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-23T16:23:27.091339+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -35715,8 +35715,8 @@
       "funding": -0.007600000000000001,
       "id": "AKE_USDT:rejection:2026-09-21T04:23:33.501432+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-23T04:23:26.285243+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-23T16:23:27.728087+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -35867,7 +35867,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-09-22T08:23:29.198594+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-23T16:23:31.922264+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -35904,7 +35905,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-09-22T16:23:29.784627+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-23T16:23:26.450779+00:00"
     },
     {
       "symbol": "BULLA_USDT",
@@ -35916,7 +35918,8 @@
       "funding": 0.0324,
       "id": "BULLA_USDT:rejection:2026-09-22T16:23:33.835767+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-23T16:23:30.383224+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -35928,7 +35931,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-09-22T16:23:35.142755+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-23T16:23:31.922264+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -36059,6 +36063,42 @@
       "price": 0.1955,
       "funding": -1.1516,
       "id": "TAKE_USDT:funding:2026-09-23T12:23:29.747023+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-23T16:23:23.591279+00:00",
+      "price": 5.395,
+      "funding": 0.005,
+      "id": "LIT_USDT:resistance_test:2026-09-23T16:23:23.591279+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-23T16:23:26.450779+00:00",
+      "price": 0.2227,
+      "funding": 0.0,
+      "id": "ARBUSDT:support_break:2026-09-23T16:23:26.450779+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-23T16:23:31.025126+00:00",
+      "price": 0.0985,
+      "funding": 0.0,
+      "id": "1INCHUSDT:rejection:2026-09-23T16:23:31.025126+00:00",
       "status": "pending",
       "repeats": 1
     }
