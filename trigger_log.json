@@ -35715,8 +35715,8 @@
       "funding": -0.007600000000000001,
       "id": "AKE_USDT:rejection:2026-09-21T04:23:33.501432+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-22T04:23:27.281018+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-23T04:23:26.285243+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -35938,6 +35938,30 @@
       "price": 0.02391,
       "funding": 0.1291,
       "id": "KOMA_USDT:funding:2026-09-23T00:23:20.772324+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-23T04:23:20.910842+00:00",
+      "price": 10.481,
+      "funding": 0.0,
+      "id": "UNIUSDT:resistance_test:2026-09-23T04:23:20.910842+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-23T04:23:22.174010+00:00",
+      "price": 0.924998,
+      "funding": 0.18710000000000002,
+      "id": "BTW_USDT:funding:2026-09-23T04:23:22.174010+00:00",
       "status": "pending",
       "repeats": 1
     }
