@@ -35928,6 +35928,18 @@
       "id": "ZAMAUSDT:rejection:2026-09-22T16:23:35.142755+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-23T00:23:20.772324+00:00",
+      "price": 0.02391,
+      "funding": 0.1291,
+      "id": "KOMA_USDT:funding:2026-09-23T00:23:20.772324+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
