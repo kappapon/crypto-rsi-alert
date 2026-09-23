@@ -35758,7 +35758,8 @@
       "funding": 0.0523,
       "id": "BTW_USDT:resistance_test:2026-09-21T16:23:23.643707+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-23T20:23:26.076411+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -36099,6 +36100,54 @@
       "price": 0.0985,
       "funding": 0.0,
       "id": "1INCHUSDT:rejection:2026-09-23T16:23:31.025126+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-23T20:23:26.076411+00:00",
+      "price": 1.00378,
+      "funding": 0.005,
+      "id": "BTW_USDT:breakout:2026-09-23T20:23:26.076411+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-09-23T20:23:26.947350+00:00",
+      "price": 5.423,
+      "funding": 0.0,
+      "id": "LIT_USDT:breakout:2026-09-23T20:23:26.947350+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-23T20:23:28.466216+00:00",
+      "price": 662.0,
+      "funding": 0.0,
+      "id": "TMO_USDT:resistance_test:2026-09-23T20:23:28.466216+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-23T20:23:32.846131+00:00",
+      "price": 0.1436,
+      "funding": 0.0,
+      "id": "DIAUSDT:support_break:2026-09-23T20:23:32.846131+00:00",
       "status": "pending",
       "repeats": 1
     }
