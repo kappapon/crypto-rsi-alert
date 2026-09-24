@@ -11016,6 +11016,20 @@
       "ts": "2026-09-24T13:17:08.317Z",
       "id": "confirmed:LDO_USDT:gate:2026-09-24T08:17:29.136Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.3433,
+      "armed_ts": "2026-09-24T07:17:06.152Z",
+      "entry": 0.3429,
+      "label": "KAITO",
+      "peak_high": 0.3511,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.353117857142857,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-09-24T15:17:06.931Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-09-24T07:17:06.152Z",
+      "status": "pending"
     }
   ]
 }
