@@ -35189,8 +35189,8 @@
       "funding": 0.1109,
       "id": "BULLA_USDT:funding:2026-09-17T08:24:24.213963+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-24T00:23:28.356071+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-24T20:23:34.384618+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -35769,8 +35769,8 @@
       "funding": -0.007600000000000001,
       "id": "AKE_USDT:rejection:2026-09-21T04:23:33.501432+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-24T12:23:26.848022+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-24T20:23:31.789935+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36079,7 +36079,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-09-23T08:23:22.859095+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-24T20:23:26.721923+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -36375,6 +36376,18 @@
       "price": 1.087018,
       "funding": 0.0503,
       "id": "BTW_USDT:resistance_test:2026-09-24T16:23:28.378313+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-09-24T20:23:36.873240+00:00",
+      "price": 0.05716,
+      "funding": 0.1088,
+      "id": "TAKE_USDT:funding:2026-09-24T20:23:36.873240+00:00",
       "status": "pending",
       "repeats": 1
     }
