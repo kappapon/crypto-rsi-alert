@@ -11124,6 +11124,19 @@
       "ts": "2026-09-24T18:47:08.333Z",
       "id": "confirmed:LDO_USDT:gate:2026-09-24T17:02:09.803Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.05595,
+      "p1_rsi": 68.1155947561518,
+      "p2_high": 0.05607,
+      "p2_rsi": 60.8364073782099,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-24T19:45:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-09-24T19:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
