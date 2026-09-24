@@ -11110,6 +11110,20 @@
       "ts": "2026-09-24T18:02:12.948Z",
       "id": "confirmed:BANK_USDT:gate:2026-09-24T07:17:28.340Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.4247,
+      "armed_ts": "2026-09-24T17:02:09.803Z",
+      "entry": 0.4213,
+      "label": "LDO",
+      "peak_high": 0.4248,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.426853571428571,
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-24T18:47:08.333Z",
+      "id": "confirmed:LDO_USDT:gate:2026-09-24T17:02:09.803Z",
+      "status": "pending"
     }
   ]
 }
