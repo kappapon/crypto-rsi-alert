@@ -36302,6 +36302,30 @@
       "id": "TAKE_USDT:rejection:2026-09-24T04:23:36.055178+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-24T08:23:22.356412+00:00",
+      "price": 265.11,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-09-24T08:23:22.356412+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-24T08:23:30.436966+00:00",
+      "price": 0.09309,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:support_break:2026-09-24T08:23:30.436966+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
