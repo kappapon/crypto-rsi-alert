@@ -10976,6 +10976,19 @@
       "ts": "2026-09-24T06:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-09-24T06:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.0343,
+      "p1_rsi": 71.151699506289,
+      "p2_high": 0.03434,
+      "p2_rsi": 69.4805513755075,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-09-24T06:30:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-09-24T06:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
