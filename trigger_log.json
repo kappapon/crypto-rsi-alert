@@ -35769,8 +35769,8 @@
       "funding": -0.007600000000000001,
       "id": "AKE_USDT:rejection:2026-09-21T04:23:33.501432+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-23T16:23:27.728087+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-24T04:23:30.264871+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36227,7 +36227,8 @@
       "funding": 0.005,
       "id": "BTW_USDT:breakout:2026-09-23T20:23:26.076411+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-24T04:23:24.955450+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -36263,6 +36264,42 @@
       "price": 0.1436,
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-09-23T20:23:32.846131+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-24T04:23:25.554031+00:00",
+      "price": 266.17,
+      "funding": 0.0,
+      "id": "ABBV_USDT:rejection:2026-09-24T04:23:25.554031+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "LIT_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-24T04:23:26.178077+00:00",
+      "price": 5.203,
+      "funding": 0.005,
+      "id": "LIT_USDT:support_break:2026-09-24T04:23:26.178077+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-24T04:23:36.055178+00:00",
+      "price": 0.0714,
+      "funding": 0.005,
+      "id": "TAKE_USDT:rejection:2026-09-24T04:23:36.055178+00:00",
       "status": "pending",
       "repeats": 1
     }
