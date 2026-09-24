@@ -11178,6 +11178,19 @@
       "ts": "2026-09-24T21:47:14.620Z",
       "id": "confirmed:JST_USDT:gate:2026-09-24T20:47:12.071Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.0561,
+      "p1_rsi": 65.830553355864,
+      "p2_high": 0.05612,
+      "p2_rsi": 59.4021051115901,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-24T22:00:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-09-24T22:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
