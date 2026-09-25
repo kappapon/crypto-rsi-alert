@@ -35122,8 +35122,8 @@
       "funding": 0.0,
       "id": "ROKU_USDT:support_break:2026-09-16T16:23:50.618292+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-22T20:23:36.636169+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-25T16:23:22.948569+00:00"
     },
     {
       "symbol": "AKE_USDT",
@@ -36066,8 +36066,8 @@
       "funding": 0.18710000000000002,
       "id": "BTW_USDT:funding:2026-09-23T04:23:22.174010+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-25T12:23:42.417471+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-25T16:23:21.163639+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -36164,7 +36164,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-09-23T12:23:22.029788+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-25T16:23:20.698474+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -36318,8 +36319,8 @@
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-09-24T08:23:22.356412+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-25T08:23:26.462370+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-25T16:23:21.612119+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36331,8 +36332,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-09-24T08:23:30.436966+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-25T08:23:32.234185+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-25T16:23:27.674935+00:00"
     },
     {
       "symbol": "LIT_USDT",
@@ -36344,7 +36345,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:rejection:2026-09-24T12:23:22.621873+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-25T16:23:22.055549+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -36430,6 +36432,18 @@
       "price": 5.47,
       "funding": 0.0,
       "id": "PROMUSDT:rejection:2026-09-25T04:23:34.605178+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-25T16:23:25.374131+00:00",
+      "price": 514.59,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:resistance_test:2026-09-25T16:23:25.374131+00:00",
       "status": "pending",
       "repeats": 1
     }
