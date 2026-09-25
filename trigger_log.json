@@ -35978,8 +35978,8 @@
       "funding": 0.0,
       "id": "1INCHUSDT:support_break:2026-09-22T12:23:29.272839+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-23T12:23:28.393682+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-25T04:23:35.785345+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -36010,8 +36010,8 @@
       "funding": 0.0324,
       "id": "BULLA_USDT:rejection:2026-09-22T16:23:33.835767+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-23T16:23:30.383224+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-25T04:23:35.201124+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36256,8 +36256,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:resistance_test:2026-09-23T20:23:28.466216+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-24T16:23:30.654804+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-25T04:23:30.646153+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -36366,7 +36366,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-09-24T12:23:26.209216+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-25T04:23:31.799758+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -36414,6 +36415,18 @@
       "price": 0.960005,
       "funding": 0.0775,
       "id": "BTW_USDT:support_break:2026-09-25T00:23:17.918476+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-25T04:23:34.605178+00:00",
+      "price": 5.47,
+      "funding": 0.0,
+      "id": "PROMUSDT:rejection:2026-09-25T04:23:34.605178+00:00",
       "status": "pending",
       "repeats": 1
     }
