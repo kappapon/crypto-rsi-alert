@@ -1,13 +1,13 @@
 {
-  "date": "2026-09-24T20:36:04Z",
+  "date": "2026-09-25T00:32:08Z",
   "parabolic_seen": {
     "AKE": "2026-09-21",
-    "ARB": "2026-09-24",
+    "ARB": "2026-09-25",
     "BANK": "2026-07-28",
     "BEAT": "2026-08-10",
     "BICO": "2026-08-10",
     "BLESS": "2026-08-04",
-    "BTW": "2026-09-24",
+    "BTW": "2026-09-25",
     "BULLA": "2026-09-19",
     "CYS": "2026-08-13",
     "DGB": "2026-08-28",
@@ -30,22 +30,22 @@
   },
   "patterns": {
     "1INCHUSDT": "Range",
-    "ABBV_USDT": "Breakout",
+    "ABBV_USDT": "Range",
     "AKE_USDT": "Pullback",
     "ARBUSDT": "Parabolic",
     "BTW_USDT": "Parabolic",
     "BULLA_USDT": "Pullback",
     "DIAUSDT": "Range",
     "ELSA_USDT": "Range",
-    "GPSUSDT": "Range",
+    "GPSUSDT": "Pullback",
     "KOMA_USDT": "Range",
     "LIT_USDT": "Range",
-    "MSFTBUSDT": "Pullback",
+    "MSFTBUSDT": "Range",
     "PROMUSDT": "Range",
     "ROKU_USDT": "Range",
-    "TAKE_USDT": "Parabolic",
+    "TAKE_USDT": "Range",
     "TMO_USDT": "Breakout",
-    "UNIUSDT": "Parabolic",
-    "ZAMAUSDT": "Parabolic"
+    "UNIUSDT": "Pullback",
+    "ZAMAUSDT": "Pullback"
   }
 }
