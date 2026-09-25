@@ -36206,7 +36206,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-09-23T16:23:26.450779+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-25T00:23:21.377747+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -36292,8 +36293,8 @@
       "funding": 0.005,
       "id": "LIT_USDT:support_break:2026-09-24T04:23:26.178077+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-24T12:23:22.621873+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-25T00:23:19.090823+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -36388,6 +36389,31 @@
       "price": 0.05716,
       "funding": 0.1088,
       "id": "TAKE_USDT:funding:2026-09-24T20:23:36.873240+00:00",
+      "status": "pending",
+      "repeats": 2,
+      "last_repeat": "2026-09-25T00:23:27.436418+00:00"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-25T00:23:16.656019+00:00",
+      "price": 9.131,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-09-25T00:23:16.656019+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-25T00:23:17.918476+00:00",
+      "price": 0.960005,
+      "funding": 0.0775,
+      "id": "BTW_USDT:support_break:2026-09-25T00:23:17.918476+00:00",
       "status": "pending",
       "repeats": 1
     }
