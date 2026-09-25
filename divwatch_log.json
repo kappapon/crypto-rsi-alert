@@ -11314,6 +11314,20 @@
       "ts": "2026-09-25T09:00:00.000Z",
       "id": "armed:JST_USDT:gate:2026-09-25T09:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.11789,
+      "armed_ts": "2026-09-25T09:47:11.350Z",
+      "entry": 0.11771,
+      "label": "JST",
+      "peak_high": 0.11792,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.118094285714286,
+      "symbol": "JST_USDT",
+      "ts": "2026-09-25T12:02:12.436Z",
+      "id": "confirmed:JST_USDT:gate:2026-09-25T09:47:11.350Z",
+      "status": "pending"
     }
   ]
 }
