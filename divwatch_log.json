@@ -11440,6 +11440,20 @@
       "ts": "2026-09-26T04:47:36.053Z",
       "id": "confirmed:PROM_USDT:gate:2026-09-25T20:02:11.291Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.3611,
+      "armed_ts": "2026-09-26T02:17:31.296Z",
+      "entry": 0.3607,
+      "label": "KAITO",
+      "peak_high": 0.3614,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.362925,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-09-26T05:47:33.836Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-09-26T02:17:31.296Z",
+      "status": "pending"
     }
   ]
 }
