@@ -10952,7 +10952,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-09-23T08:02:08.676Z",
       "id": "confirmed:TA_USDT:gate:2026-09-23T07:47:09.370Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.186,
+      "mfe_r": 2.458,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 1.231,
+      "exit": 0.05596,
+      "closed_at": "2026-09-26T08:02:08+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -11453,7 +11461,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-09-26T05:47:33.836Z",
       "id": "confirmed:KAITO_USDT:gate:2026-09-26T02:17:31.296Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.124,
+      "stopped": true,
+      "stop_ts": "2026-09-26T06:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.362925,
+      "closed_at": "2026-09-26T06:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -11480,7 +11496,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-09-26T06:32:33.597Z",
       "id": "confirmed:KAITO_USDT:gate:2026-09-26T06:17:29.559Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-09-26T07:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.365357142857143,
+      "closed_at": "2026-09-26T07:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
