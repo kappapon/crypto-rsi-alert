@@ -36209,8 +36209,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-09-23T16:23:26.450779+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-26T20:23:50.836228+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-27T16:23:50.984949+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -36272,7 +36272,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-09-23T20:23:32.846131+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-27T16:23:55.384146+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -36374,8 +36375,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-09-24T12:23:26.209216+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-25T04:23:31.799758+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-27T16:23:51.419151+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -36511,6 +36512,18 @@
       "price": 0.05838,
       "funding": 0.014899999999999998,
       "id": "TAKE_USDT:support_break:2026-09-27T00:23:56.955735+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-27T16:23:54.985013+00:00",
+      "price": 0.08091,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:rejection:2026-09-27T16:23:54.985013+00:00",
       "status": "pending",
       "repeats": 1
     }
