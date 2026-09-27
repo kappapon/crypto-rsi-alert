@@ -35929,8 +35929,8 @@
       "funding": 0.0139,
       "id": "AKE_USDT:support_break:2026-09-22T08:23:26.403435+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-24T12:23:26.848022+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-27T00:23:51.649348+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36309,7 +36309,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-09-24T04:23:36.055178+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-27T00:23:56.955735+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -36424,8 +36425,8 @@
       "funding": 0.0775,
       "id": "BTW_USDT:support_break:2026-09-25T00:23:17.918476+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-26T04:23:45.192402+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-27T00:23:46.298026+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -36500,6 +36501,18 @@
       "status": "pending",
       "repeats": 2,
       "last_repeat": "2026-09-26T20:23:53.001917+00:00"
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-27T00:23:56.955735+00:00",
+      "price": 0.05838,
+      "funding": 0.014899999999999998,
+      "id": "TAKE_USDT:support_break:2026-09-27T00:23:56.955735+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
