@@ -36135,8 +36135,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-09-23T08:23:22.859095+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-28T04:23:45.853044+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-09-29T16:23:50.179682+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -36283,8 +36283,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-09-23T16:23:26.450779+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-09-28T04:23:50.358289+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-09-29T16:23:52.701739+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -36428,8 +36428,8 @@
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-09-24T08:23:22.356412+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-27T04:23:46.987393+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-29T16:23:50.983800+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36706,8 +36706,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:rejection:2026-09-28T08:23:54.578007+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-29T04:23:52.461360+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-29T16:23:53.141571+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -36719,7 +36719,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-09-29T04:23:51.601129+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-29T16:23:52.259313+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -36731,7 +36732,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-09-29T04:23:52.461360+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-29T16:23:53.141571+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -36766,6 +36768,18 @@
       "price": 0.1647,
       "funding": 0.0,
       "id": "DIAUSDT:resistance_test:2026-09-29T12:23:57.906034+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-29T16:23:49.653265+00:00",
+      "price": 8.873,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-09-29T16:23:49.653265+00:00",
       "status": "pending",
       "repeats": 1
     }
