@@ -35971,8 +35971,8 @@
       "funding": 0.0139,
       "id": "AKE_USDT:support_break:2026-09-22T08:23:26.403435+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-27T00:23:51.649348+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-29T12:23:53.666606+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36742,6 +36742,30 @@
       "price": 6.298,
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-09-29T04:23:54.204944+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-29T12:23:55.687289+00:00",
+      "price": 5.74,
+      "funding": 0.0,
+      "id": "PROMUSDT:rejection:2026-09-29T12:23:55.687289+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-09-29T12:23:57.906034+00:00",
+      "price": 0.1647,
+      "funding": 0.0,
+      "id": "DIAUSDT:resistance_test:2026-09-29T12:23:57.906034+00:00",
       "status": "pending",
       "repeats": 1
     }
