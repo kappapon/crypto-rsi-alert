@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-28T20:35:37Z",
+  "date": "2026-09-29T00:32:31Z",
   "parabolic_seen": {
     "AKE": "2026-09-21",
     "ARB": "2026-09-28",
@@ -15,7 +15,6 @@
     "GPS": "2026-08-19",
     "HEI": "2026-08-08",
     "HFT": "2026-08-07",
-    "KAITO": "2026-07-30",
     "KOMA": "2026-09-15",
     "LIT": "2026-09-18",
     "ON": "2026-08-07",
@@ -27,11 +26,11 @@
     "ZAMA": "2026-09-24"
   },
   "patterns": {
-    "1INCHUSDT": "Range",
+    "1INCHUSDT": "Pullback",
     "ABBV_USDT": "Range",
-    "AKE_USDT": "Pullback",
-    "ARBUSDT": "Parabolic",
-    "BTW_USDT": "Range",
+    "AKE_USDT": "Range",
+    "ARBUSDT": "Pullback",
+    "BTW_USDT": "Pullback",
     "BULLA_USDT": "Pullback",
     "DIAUSDT": "Range",
     "ELSA_USDT": "Pullback",
@@ -39,11 +38,11 @@
     "KOMA_USDT": "Range",
     "LIT_USDT": "Pullback",
     "MSFTBUSDT": "Pullback",
-    "PROMUSDT": "Parabolic",
+    "PROMUSDT": "Range",
     "ROKU_USDT": "Downtrend",
     "TAKE_USDT": "Range",
     "TMO_USDT": "Range",
-    "UNIUSDT": "Range",
-    "ZAMAUSDT": "Range"
+    "UNIUSDT": "Pullback",
+    "ZAMAUSDT": "Pullback"
   }
 }
