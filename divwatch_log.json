@@ -12009,6 +12009,19 @@
       "ts": "2026-09-29T09:47:32.486Z",
       "id": "confirmed:TAC_USDT:gate:2026-09-28T21:47:34.160Z",
       "status": "pending"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.03194,
+      "p1_rsi": 69.0948617172256,
+      "p2_high": 0.03206,
+      "p2_rsi": 69.035028050186,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-09-29T09:45:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-09-29T09:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
