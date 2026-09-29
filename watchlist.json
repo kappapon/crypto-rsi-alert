@@ -106,23 +106,6 @@
         "funding_high": 0.1
       }
     },
-    "ROKU_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 159.6493,
-        "resistance": 157.29,
-        "rejection_below": 145.008,
-        "support_strong": 152.8691,
-        "support_extreme": 152.9966
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "TMO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
