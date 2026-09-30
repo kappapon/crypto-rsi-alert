@@ -36433,8 +36433,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-09-24T04:23:36.055178+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-30T04:23:57.939521+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-30T12:23:56.381478+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -36842,6 +36842,18 @@
       "price": 1.041161,
       "funding": 0.0509,
       "id": "BTW_USDT:support_break:2026-09-30T08:23:54.334394+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-30T12:23:53.139964+00:00",
+      "price": 508.97,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:support_break:2026-09-30T12:23:53.139964+00:00",
       "status": "pending",
       "repeats": 1
     }
