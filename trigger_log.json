@@ -36097,8 +36097,8 @@
       "funding": 0.1291,
       "id": "KOMA_USDT:funding:2026-09-23T00:23:20.772324+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-28T12:23:49.908955+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-09-30T16:23:49.913044+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -36794,7 +36794,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:resistance_test:2026-09-29T12:23:57.906034+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-09-30T16:23:57.172391+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -36854,6 +36855,18 @@
       "price": 508.97,
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-09-30T12:23:53.139964+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-30T16:23:56.147690+00:00",
+      "price": 0.102,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-09-30T16:23:56.147690+00:00",
       "status": "pending",
       "repeats": 1
     }
