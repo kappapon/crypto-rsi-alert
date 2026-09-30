@@ -36147,8 +36147,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-09-23T08:23:22.859095+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-09-29T16:23:50.179682+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-09-30T08:23:53.714073+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -36830,6 +36830,18 @@
       "price": 1.310275,
       "funding": 0.0273,
       "id": "BTW_USDT:rejection:2026-09-30T04:23:50.097379+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-09-30T08:23:54.334394+00:00",
+      "price": 1.041161,
+      "funding": 0.0509,
+      "id": "BTW_USDT:support_break:2026-09-30T08:23:54.334394+00:00",
       "status": "pending",
       "repeats": 1
     }
