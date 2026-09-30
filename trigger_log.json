@@ -36433,8 +36433,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-09-24T04:23:36.055178+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-27T00:23:56.955735+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-30T04:23:57.939521+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -36693,8 +36693,8 @@
       "funding": 0.014899999999999998,
       "id": "TAKE_USDT:support_break:2026-09-27T00:23:56.955735+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-28T00:23:55.761332+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-30T04:23:57.939521+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36744,8 +36744,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-09-29T04:23:51.601129+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-29T16:23:52.259313+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-09-30T04:23:51.911056+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -36818,6 +36818,18 @@
       "price": 0.1601,
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-09-30T00:23:54.812548+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-09-30T04:23:50.097379+00:00",
+      "price": 1.310275,
+      "funding": 0.0273,
+      "id": "BTW_USDT:rejection:2026-09-30T04:23:50.097379+00:00",
       "status": "pending",
       "repeats": 1
     }
