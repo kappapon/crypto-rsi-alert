@@ -12240,6 +12240,20 @@
       "ts": "2026-09-30T09:30:00.000Z",
       "id": "armed:JST_USDT:gate:2026-09-30T09:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.4884,
+      "armed_ts": "2026-09-30T12:17:33.285Z",
+      "entry": 0.4865,
+      "label": "LDO",
+      "peak_high": 0.491,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.493325,
+      "symbol": "LDO_USDT",
+      "ts": "2026-09-30T12:32:33.321Z",
+      "id": "confirmed:LDO_USDT:gate:2026-09-30T12:17:33.285Z",
+      "status": "pending"
     }
   ]
 }
