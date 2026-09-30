@@ -12334,6 +12334,19 @@
       "ts": "2026-09-30T17:06:31.536Z",
       "id": "confirmed:KAITO_USDT:gate:2026-09-30T14:17:30.473Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.13295,
+      "p1_rsi": 81.5344111611698,
+      "p2_high": 0.13317,
+      "p2_rsi": 74.9318317138593,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-09-30T19:00:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-09-30T19:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
