@@ -12374,6 +12374,19 @@
       "ts": "2026-09-30T21:45:00.000Z",
       "id": "armed:JST_USDT:gate:2026-09-30T21:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_low": 0.04977,
+      "p1_rsi": 34.5739071415101,
+      "p2_low": 0.04963,
+      "p2_rsi": 37.4033774598936,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TA_USDT",
+      "ts": "2026-09-30T22:00:00.000Z",
+      "id": "flip:TA_USDT:gate:2026-09-30T22:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
