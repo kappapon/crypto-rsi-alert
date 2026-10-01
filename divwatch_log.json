@@ -12518,6 +12518,19 @@
       "ts": "2026-10-01T13:15:00.000Z",
       "id": "flip:KAITO_USDT:gate:2026-10-01T13:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_low": 0.077636,
+      "p1_rsi": 14.4196049781915,
+      "p2_low": 0.076969,
+      "p2_rsi": 28.1528877045921,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-10-01T13:15:00.000Z",
+      "id": "flip:BULLA_USDT:gate:2026-10-01T13:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
