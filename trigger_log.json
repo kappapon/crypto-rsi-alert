@@ -35977,8 +35977,8 @@
       "funding": 0.0139,
       "id": "AKE_USDT:support_break:2026-09-22T08:23:26.403435+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-29T12:23:53.666606+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-01T16:23:52.776623+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36953,7 +36953,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:rejection:2026-10-01T08:23:54.254756+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-01T16:23:53.432860+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -36964,6 +36965,18 @@
       "price": 511.92,
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-10-01T08:23:54.254756+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-01T16:23:48.855745+00:00",
+      "price": 1.452389,
+      "funding": 0.0567,
+      "id": "BTW_USDT:resistance_test:2026-10-01T16:23:48.855745+00:00",
       "status": "pending",
       "repeats": 1
     }
