@@ -36712,8 +36712,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-09-27T16:23:54.985013+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-01T04:23:57.229211+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-01T20:23:58.655482+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -36929,7 +36929,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-01T04:23:57.229211+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-01T20:23:58.655482+00:00"
     },
     {
       "symbol": "GPSUSDT",
@@ -36966,7 +36967,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-10-01T08:23:54.254756+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-01T20:23:56.372548+00:00"
     },
     {
       "symbol": "BTW_USDT",
