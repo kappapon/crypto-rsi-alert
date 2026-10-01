@@ -36295,8 +36295,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-09-23T16:23:26.450779+00:00",
       "status": "pending",
-      "repeats": 10,
-      "last_repeat": "2026-10-01T00:23:51.041641+00:00"
+      "repeats": 11,
+      "last_repeat": "2026-10-01T08:23:52.066350+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -36433,8 +36433,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-09-24T04:23:36.055178+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-30T12:23:56.381478+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-01T08:23:58.252507+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -36497,8 +36497,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:rejection:2026-09-24T12:23:23.263440+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-09-29T04:23:51.150339+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-01T08:23:50.928291+00:00"
     },
     {
       "symbol": "ELSA_USDT",
@@ -36699,8 +36699,8 @@
       "funding": 0.014899999999999998,
       "id": "TAKE_USDT:support_break:2026-09-27T00:23:56.955735+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-09-30T04:23:57.939521+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-01T08:23:58.252507+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -36812,8 +36812,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:resistance_test:2026-09-29T12:23:57.906034+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-09-30T16:23:57.172391+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-01T08:23:57.651008+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -36927,6 +36927,42 @@
       "price": 0.07693,
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-01T04:23:57.229211+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "GPSUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-01T08:23:50.928291+00:00",
+      "price": 0.0105,
+      "funding": 0.0,
+      "id": "GPSUSDT:support_break:2026-10-01T08:23:50.928291+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-01T08:23:54.254756+00:00",
+      "price": 511.92,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:rejection:2026-10-01T08:23:54.254756+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-01T08:23:54.254756+00:00",
+      "price": 511.92,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:support_break:2026-10-01T08:23:54.254756+00:00",
       "status": "pending",
       "repeats": 1
     }
