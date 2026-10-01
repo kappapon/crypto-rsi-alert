@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-30T20:33:14Z",
+  "date": "2026-10-01T00:37:00Z",
   "parabolic_seen": {
     "AKE": "2026-09-21",
     "ARB": "2026-09-28",
@@ -10,7 +10,7 @@
     "BULLA": "2026-09-19",
     "CYS": "2026-08-13",
     "DGB": "2026-08-28",
-    "DIA": "2026-09-26",
+    "DIA": "2026-10-01",
     "EPIC": "2026-08-08",
     "GPS": "2026-08-19",
     "HEI": "2026-08-08",
@@ -27,12 +27,12 @@
   },
   "patterns": {
     "1INCHUSDT": "Pullback",
-    "ABBV_USDT": "Range",
-    "AKE_USDT": "Pullback",
-    "ARBUSDT": "Range",
-    "BTW_USDT": "Range",
+    "ABBV_USDT": "Pullback",
+    "AKE_USDT": "Range",
+    "ARBUSDT": "Pullback",
+    "BTW_USDT": "Pullback",
     "BULLA_USDT": "Pullback",
-    "DIAUSDT": "Range",
+    "DIAUSDT": "Parabolic",
     "ELSA_USDT": "Pullback",
     "GPSUSDT": "Range",
     "KOMA_USDT": "Range",
