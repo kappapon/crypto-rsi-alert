@@ -12587,6 +12587,19 @@
       "ts": "2026-10-02T06:47:55.524Z",
       "id": "confirmed:KAITO_USDT:gate:2026-10-02T02:47:54.860Z",
       "status": "pending"
+    },
+    {
+      "label": "AKE",
+      "p1_high": 0.0324649,
+      "p1_rsi": 78.7511844977255,
+      "p2_high": 0.0325029,
+      "p2_rsi": 65.6062732464444,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-02T06:00:00.000Z",
+      "id": "armed:AKE_USDT:gate:2026-10-02T06:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
