@@ -36825,8 +36825,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-09-29T16:23:49.653265+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-01T00:23:47.551957+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-02T00:23:49.772357+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -36979,6 +36979,18 @@
       "price": 1.452389,
       "funding": 0.0567,
       "id": "BTW_USDT:resistance_test:2026-10-01T16:23:48.855745+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-10-02T00:23:57.330528+00:00",
+      "price": 0.081402,
+      "funding": 0.1023,
+      "id": "BULLA_USDT:funding:2026-10-02T00:23:57.330528+00:00",
       "status": "pending",
       "repeats": 1
     }
