@@ -12654,6 +12654,20 @@
       "ts": "2026-10-02T09:33:03.510Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-02T07:48:01.154Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.0325029,
+      "armed_ts": "2026-10-02T06:47:58.134Z",
+      "entry": 0.0324315,
+      "label": "AKE",
+      "peak_high": 0.0332939,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0335108321428571,
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-02T09:47:54.658Z",
+      "id": "confirmed:AKE_USDT:gate:2026-10-02T06:47:58.134Z",
+      "status": "pending"
     }
   ]
 }
