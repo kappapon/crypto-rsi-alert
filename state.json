@@ -1,8 +1,10 @@
 {
   "date": "2026-10-02",
   "levels": {
+    "0GUSDT": 70,
     "AAVEUSDT": 70,
     "ACN_USDT.GATEIO": 70,
+    "ADI_USDT.GATEIO": 70,
     "AGT_USDT.GATEIO": 70,
     "AIOT_USDT.GATEIO": 70,
     "ALICEUSDT": 80,
@@ -12,7 +14,11 @@
     "AMD_USDT.GATEIO": 70,
     "ARKUSDT": 70,
     "ARX_USDT.GATEIO": 80,
+    "ASMLBUSDT": 70,
+    "ASX_USDT.GATEIO": 70,
+    "ATH_USDT.GATEIO": 70,
     "BP_USDT.GATEIO": 70,
+    "CAP_USDT.GATEIO": 70,
     "CCL_USDT.GATEIO": 70,
     "CELOUSDT": 70,
     "CHRUSDT": 70,
@@ -28,6 +34,7 @@
     "GPRO_USDT.GATEIO": 70,
     "GRASS_USDT.GATEIO": 70,
     "GTCUSDT": 80,
+    "HPE_USDT.GATEIO": 70,
     "HPSP_USDT.GATEIO": 80,
     "HUMAUSDT": 70,
     "INITUSDT": 70,
@@ -44,6 +51,7 @@
     "MINAUSDT": 70,
     "MON_USDT.GATEIO": 70,
     "MOVRUSDT": 80,
+    "MPWR_USDT.GATEIO": 70,
     "NIGHTUSDT": 80,
     "NOMUSDT": 70,
     "OKTA_USDT.GATEIO": 70,
@@ -72,7 +80,7 @@
     "WINUSDT": 70,
     "XLK_USDT.GATEIO": 70,
     "ZBCN_USDT.GATEIO": 70,
-    "ZROUSDT": 70,
+    "ZROUSDT": 80,
     "\u725b\u6765USDT": 70
   }
 }
