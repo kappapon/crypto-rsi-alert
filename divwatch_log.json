@@ -12613,7 +12613,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-02T07:18:00.806Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-02T06:18:01.566Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.027,
+      "stopped": true,
+      "stop_ts": "2026-10-02T09:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0871093928571429,
+      "closed_at": "2026-10-02T09:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -12653,7 +12661,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-02T09:33:03.510Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-02T07:48:01.154Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.255,
+      "stopped": true,
+      "stop_ts": "2026-10-02T10:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0874885357142857,
+      "closed_at": "2026-10-02T10:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.0325029,
@@ -12667,7 +12683,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-10-02T09:47:54.658Z",
       "id": "confirmed:AKE_USDT:gate:2026-10-02T06:47:58.134Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.637,
+      "stopped": true,
+      "stop_ts": "2026-10-02T16:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0335108321428571,
+      "closed_at": "2026-10-02T16:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -12694,7 +12718,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-10-02T12:47:56.722Z",
       "id": "confirmed:LDO_USDT:gate:2026-10-02T09:02:54.617Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-10-02T13:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.4658,
+      "closed_at": "2026-10-02T13:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.0332939,
@@ -12708,7 +12740,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-10-02T16:17:54.149Z",
       "id": "confirmed:AKE_USDT:gate:2026-10-02T10:17:55.885Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-10-02T16:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0336040964285714,
+      "closed_at": "2026-10-02T16:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "LDO",
