@@ -36282,8 +36282,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-09-23T12:23:22.029788+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-10-02T08:24:12.051789+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-10-03T04:24:09.504698+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -36818,8 +36818,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-09-29T04:23:54.204944+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-02T04:24:16.577639+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-03T04:24:16.078547+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -36985,7 +36985,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-10-01T08:23:50.928291+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-03T04:24:11.506324+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -37094,6 +37095,54 @@
       "price": 1.341693,
       "funding": 0.0028,
       "id": "BTW_USDT:support_break:2026-10-03T00:24:09.300452+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "PROMUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-03T04:24:16.078547+00:00",
+      "price": 6.327,
+      "funding": 0.0,
+      "id": "PROMUSDT:rejection:2026-10-03T04:24:16.078547+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BULLA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-03T04:24:16.783082+00:00",
+      "price": 0.08132,
+      "funding": 0.005,
+      "id": "BULLA_USDT:support_break:2026-10-03T04:24:16.783082+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-03T04:24:18.723303+00:00",
+      "price": 0.1607,
+      "funding": 0.0,
+      "id": "DIAUSDT:rejection:2026-10-03T04:24:18.723303+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-03T04:24:18.723303+00:00",
+      "price": 0.1607,
+      "funding": 0.0,
+      "id": "DIAUSDT:support_break:2026-10-03T04:24:18.723303+00:00",
       "status": "pending",
       "repeats": 1
     }
