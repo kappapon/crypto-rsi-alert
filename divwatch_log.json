@@ -12957,6 +12957,19 @@
       "ts": "2026-10-04T03:45:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-10-04T03:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 6.361,
+      "p1_rsi": 65.4598634671568,
+      "p2_high": 6.369,
+      "p2_rsi": 59.9500815963564,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-04T03:45:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-10-04T03:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
