@@ -13036,6 +13036,19 @@
       "ts": "2026-10-04T17:33:00.814Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-04T16:48:07.641Z",
       "status": "pending"
+    },
+    {
+      "label": "BULLA",
+      "p1_high": 0.086797,
+      "p1_rsi": 73.7003358831952,
+      "p2_high": 0.086974,
+      "p2_rsi": 71.290281817588,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-10-04T17:15:00.000Z",
+      "id": "armed:BULLA_USDT:gate:2026-10-04T17:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
