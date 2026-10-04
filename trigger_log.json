@@ -36892,8 +36892,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-09-29T16:23:49.653265+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-10-02T20:24:16.701079+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-10-04T04:24:08.040158+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -36990,7 +36990,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-10-01T04:23:51.809763+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-04T04:24:11.006244+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -37115,7 +37116,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-10-02T16:24:14.223890+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-04T04:24:13.248890+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -37211,6 +37213,30 @@
       "price": 0.0322791,
       "funding": 0.0058,
       "id": "AKE_USDT:support_break:2026-10-03T12:24:12.339494+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-04T04:24:09.314470+00:00",
+      "price": 0.919245,
+      "funding": -0.002,
+      "id": "BTW_USDT:rejection:2026-10-04T04:24:09.314470+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-04T04:24:11.006244+00:00",
+      "price": 650.4,
+      "funding": 0.0,
+      "id": "TMO_USDT:rejection:2026-10-04T04:24:11.006244+00:00",
       "status": "pending",
       "repeats": 1
     }
