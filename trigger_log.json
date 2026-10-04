@@ -37239,6 +37239,42 @@
       "id": "TMO_USDT:rejection:2026-10-04T04:24:11.006244+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-04T08:24:12.357609+00:00",
+      "price": 0.019663,
+      "funding": 0.005,
+      "id": "KOMA_USDT:support_break:2026-10-04T08:24:12.357609+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "AKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-04T08:24:15.516486+00:00",
+      "price": 0.0344774,
+      "funding": 0.0136,
+      "id": "AKE_USDT:rejection:2026-10-04T08:24:15.516486+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-04T08:24:17.763528+00:00",
+      "price": 0.1076,
+      "funding": 0.0,
+      "id": "1INCHUSDT:resistance_test:2026-10-04T08:24:17.763528+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
