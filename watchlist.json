@@ -10,9 +10,9 @@
       "levels": {
         "breakout_above": 11.1061,
         "resistance": 10.942,
-        "rejection_below": 8.5747,
-        "support_strong": 9.0576,
-        "support_extreme": 9.0468
+        "rejection_below": 8.625,
+        "support_strong": 9.0434,
+        "support_extreme": 9.0423
       },
       "alerts": {
         "price_breakout": true,
@@ -27,7 +27,7 @@
       "levels": {
         "breakout_above": 0.0259,
         "resistance": 0.0256,
-        "rejection_below": 0.019,
+        "rejection_below": 0.0201,
         "support_strong": 0.0199,
         "support_extreme": 0.0198
       },
@@ -44,9 +44,9 @@
       "levels": {
         "breakout_above": 1.7691,
         "resistance": 1.743,
-        "rejection_below": 0.9367,
-        "support_strong": 1.3439,
-        "support_extreme": 1.3835
+        "rejection_below": 1.1798,
+        "support_strong": 1.2115,
+        "support_extreme": 1.2478
       },
       "alerts": {
         "price_breakout": true,
@@ -62,8 +62,8 @@
         "breakout_above": 273.5831,
         "resistance": 269.54,
         "rejection_below": 249.0805,
-        "support_strong": 262.1739,
-        "support_extreme": 262.2751
+        "support_strong": 262.1885,
+        "support_extreme": 262.2226
       },
       "alerts": {
         "price_breakout": true,
@@ -78,9 +78,9 @@
       "levels": {
         "breakout_above": 0.0133,
         "resistance": 0.0131,
-        "rejection_below": 0.0098,
-        "support_strong": 0.0104,
-        "support_extreme": 0.0104
+        "rejection_below": 0.0106,
+        "support_strong": 0.0105,
+        "support_extreme": 0.0105
       },
       "alerts": {
         "price_breakout": true,
@@ -95,9 +95,9 @@
       "levels": {
         "breakout_above": 725.2175,
         "resistance": 714.5,
-        "rejection_below": 653.8,
-        "support_strong": 652.625,
-        "support_extreme": 653.9143
+        "rejection_below": 617.88,
+        "support_strong": 650.7283,
+        "support_extreme": 651.9407
       },
       "alerts": {
         "price_breakout": true,
@@ -112,9 +112,9 @@
       "levels": {
         "breakout_above": 0.2593,
         "resistance": 0.2555,
-        "rejection_below": 0.2008,
-        "support_strong": 0.2005,
-        "support_extreme": 0.2007
+        "rejection_below": 0.2029,
+        "support_strong": 0.2023,
+        "support_extreme": 0.2016
       },
       "alerts": {
         "price_breakout": true,
@@ -129,9 +129,9 @@
       "levels": {
         "breakout_above": 0.0656,
         "resistance": 0.0646,
-        "rejection_below": 0.0543,
-        "support_strong": 0.0543,
-        "support_extreme": 0.0545
+        "rejection_below": 0.0555,
+        "support_strong": 0.0552,
+        "support_extreme": 0.055
       },
       "alerts": {
         "price_breakout": true,
@@ -146,9 +146,9 @@
       "levels": {
         "breakout_above": 0.1884,
         "resistance": 0.1856,
-        "rejection_below": 0.0345,
-        "support_strong": 0.0334,
-        "support_extreme": 0.0329
+        "rejection_below": 0.032,
+        "support_strong": 0.0342,
+        "support_extreme": 0.0338
       },
       "alerts": {
         "price_breakout": true,
@@ -163,9 +163,9 @@
       "levels": {
         "breakout_above": 530.8145,
         "resistance": 522.97,
-        "rejection_below": 492.138,
-        "support_strong": 517.726,
-        "support_extreme": 516.9385
+        "rejection_below": 491.9575,
+        "support_strong": 518.0145,
+        "support_extreme": 517.5912
       },
       "alerts": {
         "price_breakout": true,
@@ -197,9 +197,9 @@
       "levels": {
         "breakout_above": 6.8005,
         "resistance": 6.7,
-        "rejection_below": 6.0078,
-        "support_strong": 6.2541,
-        "support_extreme": 6.2968
+        "rejection_below": 5.815,
+        "support_strong": 6.1728,
+        "support_extreme": 6.2319
       },
       "alerts": {
         "price_breakout": true,
@@ -214,9 +214,9 @@
       "levels": {
         "breakout_above": 0.1411,
         "resistance": 0.139,
-        "rejection_below": 0.0771,
-        "support_strong": 0.0814,
-        "support_extreme": 0.0818
+        "rejection_below": 0.0819,
+        "support_strong": 0.0842,
+        "support_extreme": 0.083
       },
       "alerts": {
         "price_breakout": true,
@@ -229,11 +229,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.1082,
-        "resistance": 0.1066,
-        "rejection_below": 0.0996,
-        "support_strong": 0.1039,
-        "support_extreme": 0.1032
+        "breakout_above": 0.1101,
+        "resistance": 0.1085,
+        "rejection_below": 0.0998,
+        "support_strong": 0.1053,
+        "support_extreme": 0.1046
       },
       "alerts": {
         "price_breakout": true,
@@ -248,9 +248,9 @@
       "levels": {
         "breakout_above": 0.1095,
         "resistance": 0.1079,
-        "rejection_below": 0.0887,
-        "support_strong": 0.0846,
-        "support_extreme": 0.0813
+        "rejection_below": 0.0871,
+        "support_strong": 0.0862,
+        "support_extreme": 0.0846
       },
       "alerts": {
         "price_breakout": true,
@@ -263,11 +263,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.179,
-        "resistance": 0.1764,
-        "rejection_below": 0.1527,
-        "support_strong": 0.1609,
-        "support_extreme": 0.1621
+        "breakout_above": 0.1809,
+        "resistance": 0.1782,
+        "rejection_below": 0.1535,
+        "support_strong": 0.1612,
+        "support_extreme": 0.1619
       },
       "alerts": {
         "price_breakout": true,
@@ -282,9 +282,9 @@
       "levels": {
         "breakout_above": 0.2168,
         "resistance": 0.2136,
-        "rejection_below": 0.0613,
-        "support_strong": 0.0635,
-        "support_extreme": 0.0621
+        "rejection_below": 0.0624,
+        "support_strong": 0.0651,
+        "support_extreme": 0.064
       },
       "alerts": {
         "price_breakout": true,
