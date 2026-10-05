@@ -13252,6 +13252,19 @@
       "ts": "2026-10-05T08:30:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-10-05T08:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_low": 0.083974,
+      "p1_rsi": 34.1208730398184,
+      "p2_low": 0.083806,
+      "p2_rsi": 34.6295710268328,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-10-05T09:45:00.000Z",
+      "id": "flip:BULLA_USDT:gate:2026-10-05T09:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
