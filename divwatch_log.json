@@ -13133,6 +13133,19 @@
       "ts": "2026-10-05T00:30:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-10-05T00:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 6.089,
+      "p1_rsi": 30.2288235675343,
+      "p2_low": 6.077,
+      "p2_rsi": 39.1158815983969,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-05T01:45:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-10-05T01:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
