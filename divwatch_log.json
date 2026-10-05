@@ -13186,6 +13186,19 @@
       "ts": "2026-10-05T03:30:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-10-05T03:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.14059,
+      "p1_rsi": 68.7719439231941,
+      "p2_high": 0.14066,
+      "p2_rsi": 58.744911195736,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-10-05T04:00:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-10-05T04:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
