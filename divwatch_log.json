@@ -13265,6 +13265,20 @@
       "ts": "2026-10-05T09:45:00.000Z",
       "id": "flip:BULLA_USDT:gate:2026-10-05T09:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.14066,
+      "armed_ts": "2026-10-05T04:48:03.018Z",
+      "entry": 0.13917,
+      "label": "JST",
+      "peak_high": 0.1413,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.141489285714286,
+      "symbol": "JST_USDT",
+      "ts": "2026-10-05T11:48:00.650Z",
+      "id": "confirmed:JST_USDT:gate:2026-10-05T04:48:03.018Z",
+      "status": "pending"
     }
   ]
 }
