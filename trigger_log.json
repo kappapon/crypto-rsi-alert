@@ -37415,6 +37415,18 @@
       "id": "ABBV_USDT:support_break:2026-10-05T16:24:16.525950+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-05T20:24:22.717912+00:00",
+      "price": 0.1807,
+      "funding": 0.0,
+      "id": "DIAUSDT:resistance_test:2026-10-05T20:24:22.717912+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
