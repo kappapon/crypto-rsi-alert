@@ -13146,6 +13146,19 @@
       "ts": "2026-10-05T01:45:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-10-05T01:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.02927,
+      "p1_rsi": 74.495164006058,
+      "p2_high": 0.0293,
+      "p2_rsi": 72.987666056021,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-10-05T02:15:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-10-05T02:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
