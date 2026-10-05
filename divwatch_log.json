@@ -13293,6 +13293,19 @@
       "ts": "2026-10-05T15:48:05.375Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-05T04:17:57.870Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_low": 0.13601,
+      "p1_rsi": 18.4190801860529,
+      "p2_low": 0.136,
+      "p2_rsi": 22.7172041160613,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "JST_USDT",
+      "ts": "2026-10-05T15:00:00.000Z",
+      "id": "flip:JST_USDT:gate:2026-10-05T15:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
