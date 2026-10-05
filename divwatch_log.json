@@ -13035,7 +13035,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-04T17:33:00.814Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-04T16:48:07.641Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.342,
+      "stopped": true,
+      "stop_ts": "2026-10-04T18:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0873538571428571,
+      "closed_at": "2026-10-04T18:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -13062,7 +13070,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-04T18:17:58.588Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-04T18:03:03.950Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-10-04T18:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.08751025,
+      "closed_at": "2026-10-04T18:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
