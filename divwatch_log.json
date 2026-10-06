@@ -13359,6 +13359,19 @@
       "ts": "2026-10-05T23:45:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-10-05T23:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TAC",
+      "p1_low": 0.001524,
+      "p1_rsi": 31.0851871609807,
+      "p2_low": 0.001519,
+      "p2_rsi": 37.7749414038399,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TAC_USDT",
+      "ts": "2026-10-06T02:30:00.000Z",
+      "id": "flip:TAC_USDT:gate:2026-10-06T02:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
