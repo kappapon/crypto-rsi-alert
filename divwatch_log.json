@@ -12908,7 +12908,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-10-03T18:17:54.387Z",
       "id": "confirmed:LDO_USDT:gate:2026-10-03T15:03:05.545Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.197,
+      "stopped": true,
+      "stop_ts": "2026-10-05T03:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.472296428571429,
+      "closed_at": "2026-10-05T03:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.05092,
@@ -13105,7 +13113,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-10-04T19:17:57.406Z",
       "id": "confirmed:JST_USDT:gate:2026-10-04T16:48:04.258Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.773,
+      "stopped": true,
+      "stop_ts": "2026-10-05T03:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.1404975,
+      "closed_at": "2026-10-05T03:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.087546,
@@ -13119,7 +13135,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-05T00:47:58.915Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-04T19:03:04.018Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.822,
+      "stopped": true,
+      "stop_ts": "2026-10-05T03:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0878520357142857,
+      "closed_at": "2026-10-05T03:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -13172,7 +13196,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-05T03:48:02.304Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-05T01:17:59.311Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.692,
+      "stopped": true,
+      "stop_ts": "2026-10-05T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0883788928571429,
+      "closed_at": "2026-10-05T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -13225,7 +13257,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-10-05T06:33:01.440Z",
       "id": "confirmed:TAC_USDT:gate:2026-10-05T06:03:00.653Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-10-05T06:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.00156939285714286,
+      "closed_at": "2026-10-05T06:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "LDO",
