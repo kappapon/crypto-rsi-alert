@@ -37389,7 +37389,8 @@
       "funding": 0.0393,
       "id": "BTW_USDT:rejection:2026-10-05T04:24:17.306801+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-06T04:24:05.647072+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -37401,8 +37402,8 @@
       "funding": 0.0393,
       "id": "BTW_USDT:support_break:2026-10-05T04:24:17.306801+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-05T16:24:16.094020+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-06T04:24:05.647072+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
