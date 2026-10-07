@@ -13607,6 +13607,20 @@
       "ts": "2026-10-07T13:18:24.188Z",
       "id": "confirmed:PROM_USDT:gate:2026-10-07T07:47:57.970Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.14148,
+      "armed_ts": "2026-10-07T04:32:58.275Z",
+      "entry": 0.1404,
+      "label": "JST",
+      "peak_high": 0.14251,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.142839642857143,
+      "symbol": "JST_USDT",
+      "ts": "2026-10-07T15:17:58.778Z",
+      "id": "confirmed:JST_USDT:gate:2026-10-07T04:32:58.275Z",
+      "status": "pending"
     }
   ]
 }
