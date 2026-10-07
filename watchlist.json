@@ -191,23 +191,6 @@
         "funding_high": 0.1
       }
     },
-    "PROMUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 6.8005,
-        "resistance": 6.7,
-        "rejection_below": 4.8478,
-        "support_strong": 5.5143,
-        "support_extreme": 5.8311
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "BULLA_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
