@@ -37597,6 +37597,30 @@
       "id": "TAKE_USDT:support_break:2026-10-07T04:24:19.364640+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-07T08:24:11.122118+00:00",
+      "price": 266.86,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-10-07T08:24:11.122118+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-07T08:24:17.409542+00:00",
+      "price": 0.1622,
+      "funding": 0.0,
+      "id": "DIAUSDT:rejection:2026-10-07T08:24:17.409542+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
