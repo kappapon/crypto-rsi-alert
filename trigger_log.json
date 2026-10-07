@@ -36886,8 +36886,8 @@
       "funding": 0.0,
       "id": "PROMUSDT:support_break:2026-09-29T04:23:54.204944+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-04T16:24:19.397606+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-07T00:24:11.284342+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -36936,8 +36936,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-09-29T16:23:49.653265+00:00",
       "status": "pending",
-      "repeats": 9,
-      "last_repeat": "2026-10-05T12:24:07.802705+00:00"
+      "repeats": 10,
+      "last_repeat": "2026-10-07T00:24:04.517655+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -37376,8 +37376,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-10-04T12:24:18.492821+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-05T16:24:17.842009+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-07T00:24:08.179506+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -37415,7 +37415,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-05T04:24:25.309329+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-07T00:24:12.973281+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -37468,6 +37469,30 @@
       "price": 659.2,
       "funding": 0.0,
       "id": "TMO_USDT:rejection:2026-10-06T16:24:10.356727+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-07T00:24:12.400297+00:00",
+      "price": 0.1033,
+      "funding": 0.0,
+      "id": "1INCHUSDT:support_break:2026-10-07T00:24:12.400297+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "DIAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-07T00:24:13.558999+00:00",
+      "price": 0.1726,
+      "funding": 0.0,
+      "id": "DIAUSDT:support_break:2026-10-07T00:24:13.558999+00:00",
       "status": "pending",
       "repeats": 1
     }
