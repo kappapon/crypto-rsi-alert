@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-07T00:30:20+00:00",
+  "updated": "2026-10-08T00:31:48+00:00",
   "overall": {
-    "n": 2004,
+    "n": 2006,
     "hit_rate": 0.364,
     "avg_r": -0.081,
-    "pending": 20
+    "pending": 27
   },
   "per_type": {
     "breakout": {
@@ -35,21 +35,21 @@
       "expiry": 161
     },
     "resistance_test": {
-      "n": 278,
-      "hit_rate": 0.338,
-      "avg_r": -0.044,
-      "sum_r": -12.34,
-      "tp": 79,
+      "n": 279,
+      "hit_rate": 0.341,
+      "avg_r": -0.037,
+      "sum_r": -10.34,
+      "tp": 80,
       "sl": 178,
       "expiry": 21
     },
     "support_break": {
-      "n": 803,
-      "hit_rate": 0.379,
-      "avg_r": -0.075,
-      "sum_r": -60.43,
+      "n": 804,
+      "hit_rate": 0.378,
+      "avg_r": -0.076,
+      "sum_r": -61.43,
       "tp": 148,
-      "sl": 455,
+      "sl": 456,
       "expiry": 200
     }
   }
