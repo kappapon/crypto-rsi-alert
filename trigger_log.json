@@ -36885,8 +36885,8 @@
       "funding": 0.005,
       "id": "ELSA_USDT:support_break:2026-09-29T04:23:52.461360+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-10-07T04:24:13.839632+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-10-08T04:24:09.108538+00:00"
     },
     {
       "symbol": "PROMUSDT",
@@ -37090,8 +37090,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:support_break:2026-10-01T08:23:50.928291+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-03T16:24:16.312532+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-08T04:24:06.934046+00:00"
     },
     {
       "symbol": "MSFTBUSDT",
@@ -37424,8 +37424,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-10-04T12:24:18.492821+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-07T00:24:08.179506+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-08T04:24:08.510339+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -37554,7 +37554,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-10-07T00:24:13.558999+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-08T04:24:12.494450+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -37592,7 +37593,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-10-07T04:24:10.162599+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-08T04:24:05.226603+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -37670,6 +37672,18 @@
       "price": 271.94,
       "funding": 0.0,
       "id": "ABBV_USDT:resistance_test:2026-10-07T16:24:07.078323+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-08T04:24:06.342399+00:00",
+      "price": 270.47,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-10-08T04:24:06.342399+00:00",
       "status": "pending",
       "repeats": 1
     }
