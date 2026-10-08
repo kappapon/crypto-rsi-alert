@@ -13745,6 +13745,19 @@
       "ts": "2026-10-08T17:15:00.000Z",
       "id": "flip:KAITO_USDT:gate:2026-10-08T17:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_low": 0.3992,
+      "p1_rsi": 17.7968298905472,
+      "p2_low": 0.3906,
+      "p2_rsi": 21.0173556348389,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "LDO_USDT",
+      "ts": "2026-10-08T18:00:00.000Z",
+      "id": "flip:LDO_USDT:gate:2026-10-08T18:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
