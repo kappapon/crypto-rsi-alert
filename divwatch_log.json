@@ -13921,6 +13921,19 @@
       "ts": "2026-10-09T18:15:00.000Z",
       "id": "armed:TA_USDT:gate:2026-10-09T18:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 5.19,
+      "p1_rsi": 34.2037313313297,
+      "p2_low": 5.16,
+      "p2_rsi": 36.2527157923782,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-09T18:45:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-10-09T18:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
