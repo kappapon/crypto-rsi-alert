@@ -1,13 +1,18 @@
 {
   "date": "2026-10-09",
   "levels": {
+    "BATUSDT": 70,
     "BEAMXUSDT": 70,
+    "CTSIUSDT": 70,
+    "CYPHBUSDT": 70,
     "EDUUSDT": 70,
     "EMBER_USDT.GATEIO": 70,
     "EWZ_USDT.GATEIO": 70,
     "GNRC_USDT.GATEIO": 80,
+    "GTLB_USDT.GATEIO": 70,
     "HPE_USDT.GATEIO": 70,
     "HPSP_USDT.GATEIO": 70,
+    "JSTUSDT": 70,
     "METUSDT": 70,
     "OGNUSDT": 80,
     "OKTA_USDT.GATEIO": 70,
@@ -15,8 +20,10 @@
     "PARTIUSDT": 70,
     "PENG_USDT.GATEIO": 70,
     "PLTRBUSDT": 70,
+    "RAYUSDT": 70,
     "RLCUSDT": 80,
     "SHOP_USDT.GATEIO": 70,
+    "STRKUSDT": 70,
     "WINUSDT": 70
   }
 }
