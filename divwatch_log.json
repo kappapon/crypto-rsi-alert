@@ -13867,6 +13867,19 @@
       "ts": "2026-10-09T09:15:00.000Z",
       "id": "armed:JST_USDT:gate:2026-10-09T09:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 5.401,
+      "p1_rsi": 68.3793873299666,
+      "p2_high": 5.466,
+      "p2_rsi": 66.0612157160882,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-09T10:00:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-10-09T10:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
