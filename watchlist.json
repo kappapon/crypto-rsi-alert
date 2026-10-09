@@ -123,23 +123,6 @@
         "funding_high": 0.1
       }
     },
-    "ELSA_USDT": {
-      "exchange": "gateio_futures",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0656,
-        "resistance": 0.0646,
-        "rejection_below": 0.0483,
-        "support_strong": 0.051,
-        "support_extreme": 0.052
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "AKE_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
@@ -183,23 +166,6 @@
         "rejection_below": 0.0031,
         "support_strong": 0.0034,
         "support_extreme": 0.0036
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
-    "1INCHUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.1101,
-        "resistance": 0.1085,
-        "rejection_below": 0.0899,
-        "support_strong": 0.0958,
-        "support_extreme": 0.098
       },
       "alerts": {
         "price_breakout": true,
