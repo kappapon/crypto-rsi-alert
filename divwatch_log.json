@@ -14034,6 +14034,19 @@
       "ts": "2026-10-10T04:03:06.431Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-10T03:18:03.527Z",
       "status": "pending"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 0.3175,
+      "p1_rsi": 73.9137528143167,
+      "p2_high": 0.3182,
+      "p2_rsi": 61.5249174603721,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-10-10T08:45:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-10-10T08:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
