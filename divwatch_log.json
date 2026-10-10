@@ -14020,6 +14020,20 @@
       "ts": "2026-10-10T02:30:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-10-10T02:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.086128,
+      "armed_ts": "2026-10-10T03:18:03.527Z",
+      "entry": 0.085808,
+      "label": "BULLA",
+      "peak_high": 0.086216,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0867432142857143,
+      "symbol": "BULLA_USDT",
+      "ts": "2026-10-10T04:03:06.431Z",
+      "id": "confirmed:BULLA_USDT:gate:2026-10-10T03:18:03.527Z",
+      "status": "pending"
     }
   ]
 }
