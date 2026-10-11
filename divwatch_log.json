@@ -14101,6 +14101,19 @@
       "exit": 0.318889285714286,
       "closed_at": "2026-10-10T17:30:00+00:00",
       "horizon_h": 72
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.02897,
+      "p1_rsi": 79.0626022898774,
+      "p2_high": 0.0291,
+      "p2_rsi": 74.8475092631887,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-10-11T00:00:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-10-11T00:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
