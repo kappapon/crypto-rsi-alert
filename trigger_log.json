@@ -37786,6 +37786,18 @@
       "id": "UNIUSDT:support_break:2026-10-11T04:24:04.853050+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-11T08:24:06.947620+00:00",
+      "price": 1.530146,
+      "funding": 0.005,
+      "id": "BTW_USDT:support_break:2026-10-11T08:24:06.947620+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
