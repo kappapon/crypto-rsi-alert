@@ -14127,6 +14127,20 @@
       "ts": "2026-10-11T04:00:00.000Z",
       "id": "flip:KAITO_USDT:gate:2026-10-11T04:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.0291,
+      "armed_ts": "2026-10-11T00:47:58.726Z",
+      "entry": 0.029,
+      "label": "BANK",
+      "peak_high": 0.02956,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0296635714285714,
+      "symbol": "BANK_USDT",
+      "ts": "2026-10-11T04:48:01.569Z",
+      "id": "confirmed:BANK_USDT:gate:2026-10-11T00:47:58.726Z",
+      "status": "pending"
     }
   ]
 }
