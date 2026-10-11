@@ -14114,6 +14114,19 @@
       "ts": "2026-10-11T00:00:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-10-11T00:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_low": 0.3173,
+      "p1_rsi": 34.3732686687868,
+      "p2_low": 0.3157,
+      "p2_rsi": 42.4349311229678,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-10-11T04:00:00.000Z",
+      "id": "flip:KAITO_USDT:gate:2026-10-11T04:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
