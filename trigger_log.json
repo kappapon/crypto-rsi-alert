@@ -37429,8 +37429,8 @@
       "funding": 0.0136,
       "id": "AKE_USDT:rejection:2026-10-04T08:24:15.516486+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-11T20:24:13.719127+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-12T08:24:16.978282+00:00"
     },
     {
       "symbol": "1INCHUSDT",
@@ -37627,8 +37627,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:rejection:2026-10-07T04:24:09.494385+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-08T16:24:07.271815+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-12T08:24:13.509998+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -37798,7 +37798,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-10-11T04:24:04.853050+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-12T08:24:13.509998+00:00"
     },
     {
       "symbol": "BTW_USDT",
