@@ -37799,6 +37799,18 @@
       "id": "BTW_USDT:support_break:2026-10-11T08:24:06.947620+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-12T00:24:11.818769+00:00",
+      "price": 537.49,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:resistance_test:2026-10-12T00:24:11.818769+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
