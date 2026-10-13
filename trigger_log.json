@@ -37931,6 +37931,30 @@
       "id": "MSFTBUSDT:support_break:2026-10-13T04:24:16.859217+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "short",
+      "ts": "2026-10-13T20:24:09.883183+00:00",
+      "price": 0.020536,
+      "funding": 0.134,
+      "id": "KOMA_USDT:funding:2026-10-13T20:24:09.883183+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-13T20:24:11.194804+00:00",
+      "price": 273.76,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-10-13T20:24:11.194804+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
