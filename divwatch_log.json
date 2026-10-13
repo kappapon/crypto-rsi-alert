@@ -13885,7 +13885,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-10-09T10:03:31.077Z",
       "id": "confirmed:TAC_USDT:gate:2026-10-09T02:48:08.621Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.099,
+      "mfe_r": 5.046,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 5.046,
+      "exit": 0.001378,
+      "closed_at": "2026-10-12T10:03:31+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
