@@ -37785,8 +37785,8 @@
       "funding": 0.0,
       "id": "GPSUSDT:rejection:2026-10-09T20:24:13.737079+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-12T04:24:13.163934+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-13T04:24:15.119987+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -37902,6 +37902,30 @@
       "price": 0.05951,
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-10-12T16:24:16.088543+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-13T04:24:14.681165+00:00",
+      "price": 281.98,
+      "funding": 0.0,
+      "id": "ABBV_USDT:resistance_test:2026-10-13T04:24:14.681165+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-13T04:24:16.859217+00:00",
+      "price": 539.65,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:support_break:2026-10-13T04:24:16.859217+00:00",
       "status": "pending",
       "repeats": 1
     }
