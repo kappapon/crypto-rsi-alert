@@ -72,23 +72,6 @@
         "funding_high": 0.1
       }
     },
-    "GPSUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 0.0133,
-        "resistance": 0.0131,
-        "rejection_below": 0.0075,
-        "support_strong": 0.0081,
-        "support_extreme": 0.0088
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "TMO_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
