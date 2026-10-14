@@ -37633,8 +37633,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:rejection:2026-10-07T04:24:09.494385+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-12T08:24:13.509998+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-14T04:24:00.164252+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -37684,8 +37684,8 @@
       "funding": 0.0068,
       "id": "TAKE_USDT:support_break:2026-10-07T04:24:19.364640+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-10-11T04:24:12.042922+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-10-14T04:24:06.479522+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -37822,8 +37822,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-10-10T20:24:18.652725+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-12T20:24:21.247402+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-14T04:24:05.921688+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -37835,8 +37835,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-10-11T04:24:04.853050+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-13T12:24:10.233636+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-14T04:24:00.164252+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -37935,8 +37935,8 @@
       "funding": -0.0168,
       "id": "BTW_USDT:breakout:2026-10-12T16:24:10.109779+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-13T16:24:12.004687+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-14T04:24:01.426505+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -38007,6 +38007,30 @@
       "price": 273.76,
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-10-13T20:24:11.194804+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "KOMA_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-14T04:24:00.867946+00:00",
+      "price": 0.020076,
+      "funding": 0.005,
+      "id": "KOMA_USDT:support_break:2026-10-14T04:24:00.867946+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-14T04:24:03.093479+00:00",
+      "price": 0.1915,
+      "funding": 0.0,
+      "id": "ARBUSDT:rejection:2026-10-14T04:24:03.093479+00:00",
       "status": "pending",
       "repeats": 1
     }
