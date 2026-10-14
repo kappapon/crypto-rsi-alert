@@ -1,6 +1,7 @@
 {
   "date": "2026-10-14",
   "levels": {
+    "AVAUSDT": 70,
     "BATUSDT": 80,
     "BEAMXUSDT": 80,
     "BRKB_USDT.GATEIO": 70,
@@ -29,6 +30,7 @@
     "OURA_USDT.GATEIO": 80,
     "PARTIUSDT": 70,
     "PENG_USDT.GATEIO": 80,
+    "PFE_USDT.GATEIO": 70,
     "PG_USDT.GATEIO": 70,
     "PLTRBUSDT": 70,
     "Q_USDT.GATEIO": 70,
@@ -43,8 +45,10 @@
     "V_USDT.GATEIO": 70,
     "WALUSDT": 70,
     "WINUSDT": 70,
+    "WMT_USDT.GATEIO": 70,
     "XLE_USDT.GATEIO": 70,
     "XOM_USDT.GATEIO": 70,
+    "ZEREBRO_USDT.GATEIO": 70,
     "ZMBUSDT": 80
   }
 }
