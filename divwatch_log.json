@@ -14549,6 +14549,19 @@
       "ts": "2026-10-15T19:00:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-10-15T19:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.4104,
+      "p1_rsi": 75.6835728481139,
+      "p2_high": 0.412,
+      "p2_rsi": 67.2880912556957,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-10-15T19:45:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-10-15T19:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
