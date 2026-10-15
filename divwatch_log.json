@@ -14495,6 +14495,20 @@
       "ts": "2026-10-15T15:30:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-10-15T15:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.0345514,
+      "armed_ts": "2026-10-15T14:47:24.209Z",
+      "entry": 0.0318072,
+      "label": "AKE",
+      "peak_high": 0.0375346,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0383883964285714,
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-15T19:32:38.159Z",
+      "id": "confirmed:AKE_USDT:gate:2026-10-15T14:47:24.209Z",
+      "status": "pending"
     }
   ]
 }
