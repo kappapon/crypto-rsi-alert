@@ -14685,6 +14685,19 @@
       "ts": "2026-10-16T11:47:29.530Z",
       "id": "confirmed:LDO_USDT:gate:2026-10-16T11:17:32.134Z",
       "status": "pending"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.4181,
+      "p1_rsi": 67.8366650931928,
+      "p2_high": 0.4188,
+      "p2_rsi": 63.5155254981134,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-10-16T11:30:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-10-16T11:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
