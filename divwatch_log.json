@@ -14630,7 +14630,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-10-16T09:47:44.065Z",
       "id": "confirmed:JST_USDT:gate:2026-10-16T08:02:45.254Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.175,
+      "stopped": true,
+      "stop_ts": "2026-10-16T12:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.138370714285714,
+      "closed_at": "2026-10-16T12:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -14670,7 +14678,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-10-16T11:32:45.330Z",
       "id": "confirmed:JST_USDT:gate:2026-10-16T10:17:38.455Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.418,
+      "stopped": true,
+      "stop_ts": "2026-10-16T12:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.138463928571429,
+      "closed_at": "2026-10-16T12:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.4181,
