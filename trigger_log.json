@@ -38088,8 +38088,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-10-14T12:23:58.871709+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-16T00:23:53.336485+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-17T04:23:42.129783+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38212,6 +38212,18 @@
       "price": 690.4,
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-10-16T16:23:44.013517+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-17T04:23:46.805042+00:00",
+      "price": 0.07459,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:support_break:2026-10-17T04:23:46.805042+00:00",
       "status": "pending",
       "repeats": 1
     }
