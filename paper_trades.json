@@ -10443,6 +10443,40 @@
       "symbol": "WALUSDT",
       "tau": 0.35,
       "tp": 0.03805798519714827
+    },
+    {
+      "atr": 0.00593838487085564,
+      "breadth": 6,
+      "entry": 0.0772,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-17T00:27:29+00:00",
+      "prob": 0.603,
+      "pump_pct": 1.2396,
+      "sl": 0.08313838487085565,
+      "stage": "pre",
+      "stage_frac": 0.0719,
+      "status": "open",
+      "symbol": "EDUUSDT",
+      "tau": 0.35,
+      "tp": 0.06532323025828872
+    },
+    {
+      "atr": 0.01042746551154707,
+      "breadth": 6,
+      "entry": 0.1225,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-17T00:27:29+00:00",
+      "prob": 0.383,
+      "pump_pct": 1.0451,
+      "sl": 0.13292746551154708,
+      "stage": "pre",
+      "stage_frac": 0.0693,
+      "status": "open",
+      "symbol": "DUSKUSDT",
+      "tau": 0.35,
+      "tp": 0.10164506897690585
     }
   ]
 }
