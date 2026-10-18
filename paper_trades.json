@@ -10477,6 +10477,23 @@
       "symbol": "DUSKUSDT",
       "tau": 0.35,
       "tp": 0.10164506897690585
+    },
+    {
+      "atr": 0.041342049350596995,
+      "breadth": 5,
+      "entry": 0.4055,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-18T00:26:10+00:00",
+      "prob": 0.391,
+      "pump_pct": 1.8794,
+      "sl": 0.446842049350597,
+      "stage": "pre",
+      "stage_frac": 0.0623,
+      "status": "open",
+      "symbol": "AVAUSDT",
+      "tau": 0.35,
+      "tp": 0.32281590129880605
     }
   ]
 }
