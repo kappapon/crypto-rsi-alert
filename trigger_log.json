@@ -38218,8 +38218,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:rejection:2026-10-16T04:23:57.074399+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-16T16:23:47.289920+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-18T20:24:19.649422+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38290,6 +38290,18 @@
       "price": 0.05432,
       "funding": 0.005,
       "id": "TAKE_USDT:support_break:2026-10-18T16:24:19.232213+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-18T20:24:19.204419+00:00",
+      "price": 0.06704,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:rejection:2026-10-18T20:24:19.204419+00:00",
       "status": "pending",
       "repeats": 1
     }
