@@ -14540,7 +14540,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-10-15T19:32:38.159Z",
       "id": "confirmed:AKE_USDT:gate:2026-10-15T14:47:24.209Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.279,
+      "mfe_r": 0.578,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 0.356,
+      "exit": 0.0294652,
+      "closed_at": "2026-10-18T19:32:38+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -14567,7 +14575,15 @@
       "symbol": "BANK_USDT",
       "ts": "2026-10-15T20:02:44.888Z",
       "id": "confirmed:BANK_USDT:gate:2026-10-15T16:17:27.361Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.999,
+      "mfe_r": 7.765,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 7.572,
+      "exit": 0.02513,
+      "closed_at": "2026-10-18T20:02:44+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BANK",
@@ -14848,7 +14864,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-10-18T09:18:01.691Z",
       "id": "confirmed:AKE_USDT:gate:2026-10-18T07:48:00.893Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 6.028,
+      "stopped": true,
+      "stop_ts": "2026-10-18T23:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0309379214285714,
+      "closed_at": "2026-10-18T23:30:00+00:00",
+      "horizon_h": 72
     }
   ]
 }
