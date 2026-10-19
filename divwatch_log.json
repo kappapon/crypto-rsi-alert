@@ -14980,6 +14980,19 @@
       "ts": "2026-10-19T09:18:00.220Z",
       "id": "confirmed:KAITO_USDT:gate:2026-10-19T02:47:59.825Z",
       "status": "pending"
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.00123,
+      "p1_rsi": 74.4048557911783,
+      "p2_high": 0.001242,
+      "p2_rsi": 61.9642145501803,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-10-19T18:45:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-10-19T18:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
