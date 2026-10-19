@@ -38249,7 +38249,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-10-16T16:23:44.013517+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-19T16:24:03.673327+00:00"
     },
     {
       "symbol": "ZAMAUSDT",
@@ -38322,6 +38323,18 @@
       "price": 1.975245,
       "funding": -0.10339999999999999,
       "id": "BTW_USDT:funding:2026-10-19T12:24:07.975664+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-19T16:24:03.673327+00:00",
+      "price": 675.0,
+      "funding": 0.0,
+      "id": "TMO_USDT:rejection:2026-10-19T16:24:03.673327+00:00",
       "status": "pending",
       "repeats": 1
     }
