@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-18T00:26:59+00:00",
+  "updated": "2026-10-19T00:28:09+00:00",
   "overall": {
-    "n": 2044,
+    "n": 2045,
     "hit_rate": 0.366,
-    "avg_r": -0.077,
-    "pending": 17
+    "avg_r": -0.076,
+    "pending": 20
   },
   "per_type": {
     "breakout": {
@@ -17,11 +17,11 @@
       "expiry": 11
     },
     "funding": {
-      "n": 98,
-      "hit_rate": 0.367,
-      "avg_r": -0.005,
-      "sum_r": -0.48,
-      "tp": 25,
+      "n": 99,
+      "hit_rate": 0.374,
+      "avg_r": 0.015,
+      "sum_r": 1.52,
+      "tp": 26,
       "sl": 59,
       "expiry": 14
     },
