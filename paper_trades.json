@@ -10358,16 +10358,20 @@
     {
       "atr": 0.045118014360780424,
       "breadth": 9,
+      "closed_at": "2026-10-19T16:00:00+00:00",
       "entry": 0.27742,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.32253801436078045,
       "opened_at": "2026-10-13T00:28:10+00:00",
       "prob": 0.36,
       "pump_pct": 5.0471,
+      "r": -1.0,
+      "r_net": -1.018,
       "sl": 0.32253801436078045,
       "stage": "early",
       "stage_frac": 0.3524,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "GTCUSDT",
       "tau": 0.35,
       "tp": 0.18718397127843917
@@ -10430,16 +10434,20 @@
     {
       "atr": 0.006251007401425862,
       "breadth": 10,
+      "closed_at": "2026-10-19T20:00:00+00:00",
       "entry": 0.05056,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.03805798519714827,
       "opened_at": "2026-10-16T00:28:06+00:00",
       "prob": 0.369,
       "pump_pct": 2.3594,
+      "r": 2.0,
+      "r_net": 1.976,
       "sl": 0.05681100740142586,
       "stage": "early",
       "stage_frac": 0.363,
-      "status": "open",
+      "status": "closed_tp",
       "symbol": "WALUSDT",
       "tau": 0.35,
       "tp": 0.03805798519714827
@@ -10502,6 +10510,23 @@
       "symbol": "AVAUSDT",
       "tau": 0.35,
       "tp": 0.32281590129880605
+    },
+    {
+      "atr": 0.05320156296046374,
+      "breadth": 3,
+      "entry": 0.4217,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-20T00:27:01+00:00",
+      "prob": 0.36,
+      "pump_pct": 2.0565,
+      "sl": 0.47490156296046376,
+      "stage": "pre",
+      "stage_frac": 0.0894,
+      "status": "open",
+      "symbol": "AVAUSDT",
+      "tau": 0.35,
+      "tp": 0.31529687407907253
     }
   ]
 }
