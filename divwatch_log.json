@@ -15020,6 +15020,20 @@
       "ts": "2026-10-20T00:02:54.252Z",
       "id": "confirmed:JST_USDT:gate:2026-10-19T22:47:53.294Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.001242,
+      "armed_ts": "2026-10-19T19:32:49.019Z",
+      "entry": 0.001238,
+      "label": "TAC",
+      "peak_high": 0.001245,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00124710714285714,
+      "symbol": "TAC_USDT",
+      "ts": "2026-10-20T00:17:48.236Z",
+      "id": "confirmed:TAC_USDT:gate:2026-10-19T19:32:49.019Z",
+      "status": "pending"
     }
   ]
 }
