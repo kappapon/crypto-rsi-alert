@@ -37877,8 +37877,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-10-11T04:24:04.853050+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-10-18T16:24:14.683135+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-10-20T08:24:00.952787+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38002,8 +38002,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-10-12T16:24:16.088543+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-10-18T16:24:19.232213+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-10-20T08:24:07.616738+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38100,7 +38100,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-10-14T04:24:03.093479+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-20T08:24:04.294322+00:00"
     },
     {
       "symbol": "KOMA_USDT",
@@ -38112,8 +38113,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-10-14T12:23:58.871709+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-10-18T12:24:18.110691+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-10-20T08:24:01.628663+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38262,7 +38263,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-17T04:23:46.805042+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-20T08:24:06.336236+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38274,8 +38276,8 @@
       "funding": -0.0508,
       "id": "BTW_USDT:rejection:2026-10-18T16:24:15.738853+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-19T08:24:16.085126+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-20T08:24:02.336195+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38318,7 +38320,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:rejection:2026-10-18T20:24:19.204419+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-20T08:24:06.336236+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38330,8 +38333,8 @@
       "funding": -0.10339999999999999,
       "id": "BTW_USDT:funding:2026-10-19T12:24:07.975664+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-20T04:24:01.437531+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-20T08:24:02.336195+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -38342,6 +38345,30 @@
       "price": 675.0,
       "funding": 0.0,
       "id": "TMO_USDT:rejection:2026-10-19T16:24:03.673327+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-20T08:24:00.952787+00:00",
+      "price": 7.163,
+      "funding": 0.0,
+      "id": "UNIUSDT:rejection:2026-10-20T08:24:00.952787+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ARBUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-20T08:24:04.294322+00:00",
+      "price": 0.1905,
+      "funding": 0.0,
+      "id": "ARBUSDT:support_break:2026-10-20T08:24:04.294322+00:00",
       "status": "pending",
       "repeats": 1
     }
