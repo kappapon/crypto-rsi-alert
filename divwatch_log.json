@@ -15178,6 +15178,19 @@
       "ts": "2026-10-20T15:32:46.040Z",
       "id": "confirmed:KAITO_USDT:gate:2026-10-20T05:17:45.524Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.04478,
+      "p1_rsi": 82.0516117011255,
+      "p2_high": 0.04519,
+      "p2_rsi": 71.9913772986994,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-10-20T15:45:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-10-20T15:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
