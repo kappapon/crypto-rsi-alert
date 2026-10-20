@@ -38144,8 +38144,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-10-14T16:24:09.882997+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-16T16:23:45.343776+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-20T16:24:11.911828+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38157,7 +38157,8 @@
       "funding": 0.0,
       "id": "ABBV_USDT:resistance_test:2026-10-15T04:23:38.964477+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-20T16:24:06.515070+00:00"
     },
     {
       "symbol": "DIAUSDT",
@@ -38334,8 +38335,8 @@
       "funding": -0.10339999999999999,
       "id": "BTW_USDT:funding:2026-10-19T12:24:07.975664+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-10-20T12:24:03.698762+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-10-20T16:24:05.967594+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -38382,6 +38383,18 @@
       "price": 0.0585,
       "funding": 0.005,
       "id": "TAKE_USDT:support_break:2026-10-20T12:24:09.031090+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-20T16:24:11.911828+00:00",
+      "price": 531.94,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:rejection:2026-10-20T16:24:11.911828+00:00",
       "status": "pending",
       "repeats": 1
     }
