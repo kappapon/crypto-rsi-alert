@@ -10527,6 +10527,23 @@
       "symbol": "AVAUSDT",
       "tau": 0.35,
       "tp": 0.31529687407907253
+    },
+    {
+      "atr": 0.0008064099203319522,
+      "breadth": 6,
+      "entry": 0.01004,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-21T00:27:29+00:00",
+      "prob": 0.453,
+      "pump_pct": 0.8605,
+      "sl": 0.010846409920331953,
+      "stage": "pre",
+      "stage_frac": 0.2012,
+      "status": "open",
+      "symbol": "ALTUSDT",
+      "tau": 0.35,
+      "tp": 0.008427180159336096
     }
   ]
 }
