@@ -15364,6 +15364,19 @@
       "ts": "2026-10-21T12:45:00.000Z",
       "id": "flip:AKE_USDT:gate:2026-10-21T12:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 0.2836,
+      "p1_rsi": 71.0404481847081,
+      "p2_high": 0.285,
+      "p2_rsi": 61.8990694646747,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-10-21T13:15:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-10-21T13:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
