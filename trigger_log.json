@@ -38421,6 +38421,18 @@
       "id": "MSFTBUSDT:rejection:2026-10-20T16:24:11.911828+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-21T04:24:05.593942+00:00",
+      "price": 0.07429,
+      "funding": 0.0,
+      "id": "ZAMAUSDT:rejection:2026-10-21T04:24:05.593942+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
