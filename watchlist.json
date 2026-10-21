@@ -10,9 +10,9 @@
       "levels": {
         "breakout_above": 9.4639,
         "resistance": 9.324,
-        "rejection_below": 7.279,
-        "support_strong": 7.2786,
-        "support_extreme": 7.2546
+        "rejection_below": 7.0832,
+        "support_strong": 7.3595,
+        "support_extreme": 7.302
       },
       "alerts": {
         "price_breakout": true,
@@ -27,9 +27,9 @@
       "levels": {
         "breakout_above": 0.0237,
         "resistance": 0.0234,
-        "rejection_below": 0.0168,
-        "support_strong": 0.0176,
-        "support_extreme": 0.0178
+        "rejection_below": 0.0167,
+        "support_strong": 0.0175,
+        "support_extreme": 0.0176
       },
       "alerts": {
         "price_breakout": true,
@@ -44,9 +44,9 @@
       "levels": {
         "breakout_above": 2.7912,
         "resistance": 2.75,
-        "rejection_below": 1.8914,
-        "support_strong": 2.0392,
-        "support_extreme": 2.1358
+        "rejection_below": 1.91,
+        "support_strong": 1.8313,
+        "support_extreme": 1.9237
       },
       "alerts": {
         "price_breakout": true,
@@ -59,11 +59,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 292.7971,
-        "resistance": 288.47,
-        "rejection_below": 271.3675,
-        "support_strong": 285.4429,
-        "support_extreme": 285.4141
+        "breakout_above": 293.4669,
+        "resistance": 289.13,
+        "rejection_below": 287.63,
+        "support_strong": 287.2381,
+        "support_extreme": 286.3935
       },
       "alerts": {
         "price_breakout": true,
@@ -76,11 +76,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 725.2175,
-        "resistance": 714.5,
-        "rejection_below": 644.67,
-        "support_strong": 683.6024,
-        "support_extreme": 686.9978
+        "breakout_above": 716.184,
+        "resistance": 705.6,
+        "rejection_below": 687.4,
+        "support_strong": 686.6093,
+        "support_extreme": 685.9605
       },
       "alerts": {
         "price_breakout": true,
@@ -93,11 +93,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 0.2195,
-        "resistance": 0.2163,
-        "rejection_below": 0.1965,
-        "support_strong": 0.1943,
-        "support_extreme": 0.1909
+        "breakout_above": 0.2156,
+        "resistance": 0.2124,
+        "rejection_below": 0.178,
+        "support_strong": 0.1907,
+        "support_extreme": 0.1913
       },
       "alerts": {
         "price_breakout": true,
@@ -112,9 +112,9 @@
       "levels": {
         "breakout_above": 559.9146,
         "resistance": 551.64,
-        "rejection_below": 533.95,
-        "support_strong": 533.0863,
-        "support_extreme": 531.7317
+        "rejection_below": 502.664,
+        "support_strong": 532.1309,
+        "support_extreme": 532.4118
       },
       "alerts": {
         "price_breakout": true,
@@ -146,9 +146,9 @@
       "levels": {
         "breakout_above": 0.0939,
         "resistance": 0.0925,
-        "rejection_below": 0.073,
-        "support_strong": 0.072,
-        "support_extreme": 0.0719
+        "rejection_below": 0.0751,
+        "support_strong": 0.074,
+        "support_extreme": 0.0731
       },
       "alerts": {
         "price_breakout": true,
@@ -163,9 +163,9 @@
       "levels": {
         "breakout_above": 0.2004,
         "resistance": 0.1974,
-        "rejection_below": 0.1594,
-        "support_strong": 0.1593,
-        "support_extreme": 0.1592
+        "rejection_below": 0.156,
+        "support_strong": 0.1644,
+        "support_extreme": 0.1624
       },
       "alerts": {
         "price_breakout": true,
@@ -181,8 +181,8 @@
         "breakout_above": 0.071,
         "resistance": 0.0699,
         "rejection_below": 0.0597,
-        "support_strong": 0.0587,
-        "support_extreme": 0.0569
+        "support_strong": 0.0596,
+        "support_extreme": 0.0585
       },
       "alerts": {
         "price_breakout": true,
