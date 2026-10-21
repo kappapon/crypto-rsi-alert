@@ -15351,6 +15351,19 @@
       "ts": "2026-10-21T10:45:00.000Z",
       "id": "flip:BANK_USDT:gate:2026-10-21T10:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_low": 0.0281293,
+      "p1_rsi": 24.178991620155,
+      "p2_low": 0.0260701,
+      "p2_rsi": 25.7381273484329,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-21T12:45:00.000Z",
+      "id": "flip:AKE_USDT:gate:2026-10-21T12:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
