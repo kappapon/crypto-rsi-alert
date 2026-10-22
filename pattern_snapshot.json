@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-21T20:32:32Z",
+  "date": "2026-10-22T00:32:46Z",
   "parabolic_seen": {
     "AKE": "2026-09-21",
     "ARB": "2026-09-28",
@@ -12,17 +12,16 @@
     "PROM": "2026-09-28",
     "TAKE": "2026-09-24",
     "UNI": "2026-09-24",
-    "WIN": "2026-08-22",
     "ZAMA": "2026-09-24"
   },
   "patterns": {
-    "ABBV_USDT": "Range",
+    "ABBV_USDT": "Pullback",
     "ARBUSDT": "Range",
     "BTW_USDT": "Pullback",
     "DIAUSDT": "Range",
     "KOMA_USDT": "Range",
     "MSFTBUSDT": "Pullback",
-    "TAKE_USDT": "Pullback",
+    "TAKE_USDT": "Breakout",
     "TMO_USDT": "Range",
     "UNIUSDT": "Range",
     "ZAMAUSDT": "Range"
