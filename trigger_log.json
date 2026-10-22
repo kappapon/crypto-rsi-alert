@@ -38493,8 +38493,8 @@
       "funding": -0.6142,
       "id": "BTW_USDT:funding:2026-10-21T12:23:38.655284+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-22T00:23:46.855925+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-22T04:23:46.043377+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38547,6 +38547,30 @@
       "price": 0.1661,
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-10-22T00:23:50.208647+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-22T04:23:49.744783+00:00",
+      "price": 0.06412,
+      "funding": 0.005,
+      "id": "TAKE_USDT:rejection:2026-10-22T04:23:49.744783+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-22T04:23:49.744783+00:00",
+      "price": 0.06412,
+      "funding": 0.005,
+      "id": "TAKE_USDT:support_break:2026-10-22T04:23:49.744783+00:00",
       "status": "pending",
       "repeats": 1
     }
