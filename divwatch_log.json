@@ -15520,6 +15520,19 @@
       "ts": "2026-10-22T05:45:00.000Z",
       "id": "flip:KAITO_USDT:gate:2026-10-22T05:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 5.994,
+      "p1_rsi": 69.9474111925573,
+      "p2_high": 6.024,
+      "p2_rsi": 58.1694146402961,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-22T07:30:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-10-22T07:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
