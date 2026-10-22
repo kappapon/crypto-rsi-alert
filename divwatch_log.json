@@ -14928,7 +14928,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-19T06:03:07.943Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-19T05:33:06.913Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 2.532,
+      "stopped": true,
+      "stop_ts": "2026-10-21T02:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0784734642857143,
+      "closed_at": "2026-10-21T02:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -15296,7 +15304,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-10-21T06:32:46.896Z",
       "id": "confirmed:AKE_USDT:gate:2026-10-21T02:47:46.685Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.413,
+      "stopped": true,
+      "stop_ts": "2026-10-21T08:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0351401428571429,
+      "closed_at": "2026-10-21T08:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -15337,7 +15353,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-21T10:47:20.024Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-21T04:47:53.720Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.224,
+      "stopped": true,
+      "stop_ts": "2026-10-21T18:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0836288571428571,
+      "closed_at": "2026-10-21T18:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BANK",
