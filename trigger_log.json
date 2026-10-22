@@ -38131,8 +38131,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:rejection:2026-10-14T12:23:58.871709+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-10-20T08:24:01.628663+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-10-22T16:23:43.407240+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38162,8 +38162,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-10-14T16:24:09.882997+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-10-22T00:23:48.920781+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-10-22T16:23:46.716216+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38257,8 +38257,8 @@
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-10-16T16:23:43.376621+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-10-21T12:23:39.306118+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-10-22T16:23:44.759923+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -38494,8 +38494,8 @@
       "funding": -0.6142,
       "id": "BTW_USDT:funding:2026-10-21T12:23:38.655284+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-10-22T08:23:43.641405+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-10-22T16:23:44.052299+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38608,6 +38608,18 @@
       "price": 0.07634,
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-22T08:23:47.651208+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-22T16:23:45.399942+00:00",
+      "price": 685.0,
+      "funding": 0.0,
+      "id": "TMO_USDT:support_break:2026-10-22T16:23:45.399942+00:00",
       "status": "pending",
       "repeats": 1
     }
