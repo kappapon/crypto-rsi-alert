@@ -10421,16 +10421,20 @@
     {
       "atr": 0.0013828339941469772,
       "breadth": 10,
+      "closed_at": "2026-10-22T08:00:00+00:00",
       "entry": 0.02126,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.022642833994146978,
       "opened_at": "2026-10-16T00:28:06+00:00",
       "prob": 0.574,
       "pump_pct": 0.3924,
+      "r": -1.0,
+      "r_net": -1.046,
       "sl": 0.022642833994146978,
       "stage": "pre",
       "stage_frac": 0.1194,
-      "status": "open",
+      "status": "closed_sl",
       "symbol": "DODOUSDT",
       "tau": 0.35,
       "tp": 0.018494332011706048
@@ -10569,6 +10573,23 @@
       "symbol": "PARTIUSDT",
       "tau": 0.35,
       "tp": 0.02585390645425513
+    },
+    {
+      "atr": 0.002509762558384589,
+      "breadth": 3,
+      "entry": 0.02668,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-23T00:30:50+00:00",
+      "prob": 0.364,
+      "pump_pct": 1.0205,
+      "sl": 0.02918976255838459,
+      "stage": "pre",
+      "stage_frac": 0.1929,
+      "status": "open",
+      "symbol": "BMTUSDT",
+      "tau": 0.35,
+      "tp": 0.02166047488323082
     }
   ]
 }
