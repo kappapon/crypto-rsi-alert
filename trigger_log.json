@@ -38105,8 +38105,8 @@
       "funding": 0.005,
       "id": "KOMA_USDT:support_break:2026-10-14T04:24:00.867946+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-10-23T12:23:33.357288+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-10-23T20:23:28.660781+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -38162,8 +38162,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-10-14T16:24:09.882997+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-10-22T16:23:46.716216+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-10-23T20:23:30.954498+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38500,8 +38500,8 @@
       "funding": -0.6142,
       "id": "BTW_USDT:funding:2026-10-21T12:23:38.655284+00:00",
       "status": "pending",
-      "repeats": 12,
-      "last_repeat": "2026-10-23T16:23:29.650702+00:00"
+      "repeats": 13,
+      "last_repeat": "2026-10-23T20:23:29.120757+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38617,7 +38617,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-22T08:23:47.651208+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-23T20:23:31.883785+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -38648,6 +38649,18 @@
       "exit": 1.8700137203917593,
       "r": -1.0,
       "closed_at": "2026-10-23T00:00:00+00:00"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-23T20:23:28.148732+00:00",
+      "price": 7.056,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-10-23T20:23:28.148732+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
