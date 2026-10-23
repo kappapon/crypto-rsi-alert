@@ -15506,7 +15506,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-10-22T06:03:28.691Z",
       "id": "confirmed:JST_USDT:gate:2026-10-22T04:02:33.459Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.035,
+      "stopped": true,
+      "stop_ts": "2026-10-22T11:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.140468928571429,
+      "closed_at": "2026-10-22T11:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
