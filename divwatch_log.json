@@ -15714,6 +15714,20 @@
       "ts": "2026-10-23T10:47:20.000Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-23T06:32:18.242Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.2704,
+      "armed_ts": "2026-10-23T07:32:12.936Z",
+      "entry": 0.2697,
+      "label": "KAITO",
+      "peak_high": 0.2705,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.27105,
+      "symbol": "KAITO_USDT",
+      "ts": "2026-10-23T12:02:14.856Z",
+      "id": "confirmed:KAITO_USDT:gate:2026-10-23T07:32:12.936Z",
+      "status": "pending"
     }
   ]
 }
