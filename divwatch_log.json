@@ -15607,6 +15607,20 @@
       "ts": "2026-10-22T21:15:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-10-22T21:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.03216,
+      "armed_ts": "2026-10-22T16:47:30.956Z",
+      "entry": 0.0319041,
+      "label": "AKE",
+      "peak_high": 0.0324332,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0326764285714286,
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-23T01:32:15.051Z",
+      "id": "confirmed:AKE_USDT:gate:2026-10-22T16:47:30.956Z",
+      "status": "pending"
     }
   ]
 }
