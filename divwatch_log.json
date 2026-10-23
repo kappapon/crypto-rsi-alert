@@ -15661,6 +15661,19 @@
       "ts": "2026-10-23T05:45:00.000Z",
       "id": "armed:BULLA_USDT:gate:2026-10-23T05:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_high": 0.0348581,
+      "p1_rsi": 76.9692984173214,
+      "p2_high": 0.0371144,
+      "p2_rsi": 44.7301624861302,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-23T06:30:00.000Z",
+      "id": "armed:AKE_USDT:gate:2026-10-23T06:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
