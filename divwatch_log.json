@@ -15857,6 +15857,19 @@
       "ts": "2026-10-24T05:15:00.000Z",
       "id": "flip:AKE_USDT:gate:2026-10-24T05:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_low": 0.13996,
+      "p1_rsi": 32.1718364649476,
+      "p2_low": 0.13982,
+      "p2_rsi": 43.8396946690924,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "JST_USDT",
+      "ts": "2026-10-24T15:30:00.000Z",
+      "id": "flip:JST_USDT:gate:2026-10-24T15:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
