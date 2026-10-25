@@ -15905,6 +15905,19 @@
       "ts": "2026-10-25T00:47:17.720Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-24T19:02:17.867Z",
       "status": "pending"
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.001159,
+      "p1_rsi": 67.8793561239222,
+      "p2_high": 0.001172,
+      "p2_rsi": 59.1240351708821,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-10-25T07:30:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-10-25T07:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
