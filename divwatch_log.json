@@ -15931,6 +15931,19 @@
       "ts": "2026-10-25T12:15:00.000Z",
       "id": "flip:TAC_USDT:gate:2026-10-25T12:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_high": 0.030892,
+      "p1_rsi": 71.1327673310436,
+      "p2_high": 0.0322284,
+      "p2_rsi": 67.8602056100238,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-25T18:00:00.000Z",
+      "id": "armed:AKE_USDT:gate:2026-10-25T18:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
