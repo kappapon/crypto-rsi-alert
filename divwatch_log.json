@@ -15761,7 +15761,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-23T10:47:20.000Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-23T06:32:18.242Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 4.436,
+      "stopped": true,
+      "stop_ts": "2026-10-25T07:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0873941428571429,
+      "closed_at": "2026-10-25T07:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.2704,
@@ -15904,7 +15912,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-10-25T00:47:17.720Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-24T19:02:17.867Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.97,
+      "stopped": true,
+      "stop_ts": "2026-10-25T07:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0871523928571429,
+      "closed_at": "2026-10-25T07:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TAC",
