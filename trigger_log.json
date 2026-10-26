@@ -38450,8 +38450,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:rejection:2026-10-20T08:24:00.952787+00:00",
       "status": "pending",
-      "repeats": 4,
-      "last_repeat": "2026-10-25T04:23:27.204948+00:00"
+      "repeats": 5,
+      "last_repeat": "2026-10-26T04:23:27.659841+00:00"
     },
     {
       "symbol": "ARBUSDT",
@@ -38463,8 +38463,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-10-20T08:24:04.294322+00:00",
       "status": "pending",
-      "repeats": 5,
-      "last_repeat": "2026-10-25T04:23:29.871089+00:00"
+      "repeats": 6,
+      "last_repeat": "2026-10-26T04:23:30.416619+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -38525,8 +38525,8 @@
       "funding": -0.6142,
       "id": "BTW_USDT:funding:2026-10-21T12:23:38.655284+00:00",
       "status": "pending",
-      "repeats": 26,
-      "last_repeat": "2026-10-26T00:23:26.857908+00:00"
+      "repeats": 27,
+      "last_repeat": "2026-10-26T04:23:28.388311+00:00"
     },
     {
       "symbol": "ABBV_USDT",
@@ -38587,7 +38587,8 @@
       "funding": 0.0,
       "id": "DIAUSDT:support_break:2026-10-22T00:23:50.208647+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-26T04:23:32.995002+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -38662,8 +38663,8 @@
       "funding": 0.0,
       "id": "ZAMAUSDT:support_break:2026-10-22T08:23:47.651208+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-23T20:23:31.883785+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-26T04:23:32.358315+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -38705,8 +38706,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-10-23T20:23:28.148732+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-25T04:23:27.204948+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-26T04:23:27.659841+00:00"
     },
     {
       "symbol": "TAKE_USDT",
