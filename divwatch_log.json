@@ -15973,6 +15973,19 @@
       "ts": "2026-10-25T20:15:00.000Z",
       "id": "armed:TA_USDT:gate:2026-10-25T20:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.14129,
+      "p1_rsi": 66.474762789286,
+      "p2_high": 0.14271,
+      "p2_rsi": 61.9464821894297,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-10-26T08:00:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-10-26T08:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
