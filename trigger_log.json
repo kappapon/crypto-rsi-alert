@@ -38802,6 +38802,30 @@
       "id": "ABBV_USDT:support_break:2026-10-27T08:23:33.351347+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "breakout",
+      "direction": "long",
+      "ts": "2026-10-27T16:23:36.301550+00:00",
+      "price": 0.07473,
+      "funding": 0.005,
+      "id": "TAKE_USDT:breakout:2026-10-27T16:23:36.301550+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-27T16:23:36.301550+00:00",
+      "price": 0.07473,
+      "funding": 0.005,
+      "id": "TAKE_USDT:resistance_test:2026-10-27T16:23:36.301550+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
