@@ -38700,7 +38700,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-10-22T16:23:45.399942+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-10-27T08:23:34.029115+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -38787,6 +38788,18 @@
       "price": 682.1,
       "funding": 0.0,
       "id": "TMO_USDT:rejection:2026-10-27T00:23:31.647275+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-27T08:23:33.351347+00:00",
+      "price": 286.4,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-10-27T08:23:33.351347+00:00",
       "status": "pending",
       "repeats": 1
     }
