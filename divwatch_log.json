@@ -16261,6 +16261,20 @@
       "ts": "2026-10-27T14:02:19.229Z",
       "id": "confirmed:BANK_USDT:gate:2026-10-27T08:02:17.663Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.001139,
+      "armed_ts": "2026-10-27T03:17:15.213Z",
+      "entry": 0.001137,
+      "label": "TAC",
+      "peak_high": 0.001143,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00114578571428571,
+      "symbol": "TAC_USDT",
+      "ts": "2026-10-27T14:32:16.297Z",
+      "id": "confirmed:TAC_USDT:gate:2026-10-27T03:17:15.213Z",
+      "status": "pending"
     }
   ]
 }
