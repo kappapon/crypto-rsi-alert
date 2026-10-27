@@ -16288,6 +16288,19 @@
       "ts": "2026-10-27T14:00:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-10-27T14:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.3744,
+      "p1_rsi": 65.0981421778494,
+      "p2_high": 0.3792,
+      "p2_rsi": 64.2159176143591,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-10-27T16:30:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-10-27T16:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
