@@ -16413,6 +16413,19 @@
       "ts": "2026-10-27T22:15:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-10-27T22:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_low": 0.02899,
+      "p1_rsi": 30.6405474662653,
+      "p2_low": 0.02877,
+      "p2_rsi": 31.7148557209529,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BANK_USDT",
+      "ts": "2026-10-28T06:45:00.000Z",
+      "id": "flip:BANK_USDT:gate:2026-10-28T06:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
