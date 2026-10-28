@@ -38899,6 +38899,18 @@
       "id": "TMO_USDT:resistance_test:2026-10-28T16:23:51.202000+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "MSFTBUSDT",
+      "exchange": "binance_spot",
+      "type": "resistance_test",
+      "direction": "short",
+      "ts": "2026-10-28T20:23:49.206838+00:00",
+      "price": 553.59,
+      "funding": 0.0,
+      "id": "MSFTBUSDT:resistance_test:2026-10-28T20:23:49.206838+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
