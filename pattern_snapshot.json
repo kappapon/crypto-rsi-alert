@@ -1,11 +1,10 @@
 {
-  "date": "2026-10-27T20:33:02Z",
+  "date": "2026-10-28T00:33:00Z",
   "parabolic_seen": {
     "AKE": "2026-09-21",
     "ARB": "2026-09-28",
     "BTW": "2026-10-18",
     "BULLA": "2026-09-19",
-    "DGB": "2026-08-28",
     "DIA": "2026-10-06",
     "KOMA": "2026-09-15",
     "LIT": "2026-09-18",
@@ -17,11 +16,11 @@
   "patterns": {
     "ABBV_USDT": "Pullback",
     "ARBUSDT": "Downtrend",
-    "BTW_USDT": "Range",
+    "BTW_USDT": "Pullback",
     "MSFTBUSDT": "Pullback",
-    "TAKE_USDT": "Range",
+    "TAKE_USDT": "Breakout",
     "TMO_USDT": "Range",
     "UNIUSDT": "Downtrend",
-    "ZAMAUSDT": "Pullback"
+    "ZAMAUSDT": "Range"
   }
 }
