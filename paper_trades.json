@@ -10648,6 +10648,23 @@
       "symbol": "INITUSDT",
       "tau": 0.35,
       "tp": 0.11928349937019221
+    },
+    {
+      "atr": 0.002222658334707713,
+      "breadth": 3,
+      "entry": 0.02824,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-10-28T00:25:06+00:00",
+      "prob": 0.357,
+      "pump_pct": 1.0931,
+      "sl": 0.030462658334707713,
+      "stage": "early",
+      "stage_frac": 0.3221,
+      "status": "open",
+      "symbol": "HAEDALUSDT",
+      "tau": 0.35,
+      "tp": 0.023794683330584574
     }
   ]
 }
