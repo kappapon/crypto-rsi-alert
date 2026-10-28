@@ -16426,6 +16426,19 @@
       "ts": "2026-10-28T06:45:00.000Z",
       "id": "flip:BANK_USDT:gate:2026-10-28T06:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_low": 0.3695,
+      "p1_rsi": 30.7552399034597,
+      "p2_low": 0.3682,
+      "p2_rsi": 32.1342115366228,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "LDO_USDT",
+      "ts": "2026-10-28T14:15:00.000Z",
+      "id": "flip:LDO_USDT:gate:2026-10-28T14:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
