@@ -16554,6 +16554,19 @@
       "ts": "2026-10-29T03:02:38.178Z",
       "id": "confirmed:BULLA_USDT:gate:2026-10-29T00:47:51.500Z",
       "status": "pending"
+    },
+    {
+      "label": "LDO",
+      "p1_low": 0.3615,
+      "p1_rsi": 22.7378584140461,
+      "p2_low": 0.3594,
+      "p2_rsi": 32.4307659769118,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "LDO_USDT",
+      "ts": "2026-10-29T07:15:00.000Z",
+      "id": "flip:LDO_USDT:gate:2026-10-29T07:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
