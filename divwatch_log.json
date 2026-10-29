@@ -16567,6 +16567,19 @@
       "ts": "2026-10-29T07:15:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-10-29T07:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_low": 0.0202884,
+      "p1_rsi": 26.6911779017889,
+      "p2_low": 0.0201941,
+      "p2_rsi": 35.8380932528838,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "AKE_USDT",
+      "ts": "2026-10-29T10:30:00.000Z",
+      "id": "flip:AKE_USDT:gate:2026-10-29T10:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
