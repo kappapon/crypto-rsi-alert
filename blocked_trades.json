@@ -24695,16 +24695,20 @@
       "blocked_at": "2026-10-21T00:27:28+00:00",
       "blocked_by": "2026-10-13T04:00:00+00:00",
       "breadth": 6,
+      "closed_at": "2026-10-29T04:00:00+00:00",
       "entry": 0.3567,
       "entry_is_live": true,
       "exchange": "binance_spot",
+      "exit": 0.2818007272405023,
       "prob": 0.431,
       "pump_pct": 2.9507,
+      "r": 2.0,
+      "r_net": 1.971,
       "rule": "cooldown",
       "sl": 0.39414963637974887,
       "stage": "early",
       "stage_frac": 0.3118,
-      "status": "blocked",
+      "status": "cf_tp",
       "symbol": "STXUSDT",
       "tau": 0.35,
       "tp": 0.2818007272405023
@@ -25144,6 +25148,25 @@
       "symbol": "INITUSDT",
       "tau": 0.35,
       "tp": 0.17002896168943143
+    },
+    {
+      "atr": 4.343084643402733e-06,
+      "blocked_at": "2026-10-30T00:27:32+00:00",
+      "blocked_by": "2026-10-21T04:00:00+00:00",
+      "breadth": 1,
+      "entry": 6.471e-05,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.352,
+      "pump_pct": 1.3707,
+      "rule": "cooldown",
+      "sl": 6.905308464340272e-05,
+      "stage": "pre",
+      "stage_frac": 0.1122,
+      "status": "blocked",
+      "symbol": "WINUSDT",
+      "tau": 0.35,
+      "tp": 5.602383071319453e-05
     }
   ]
 }
