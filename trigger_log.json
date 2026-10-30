@@ -39048,6 +39048,18 @@
       "status": "pending",
       "repeats": 2,
       "last_repeat": "2026-10-30T04:23:28.261645+00:00"
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-10-30T12:23:27.245146+00:00",
+      "price": 289.79,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-10-30T12:23:27.245146+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
