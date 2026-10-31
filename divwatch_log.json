@@ -16696,6 +16696,19 @@
       "ts": "2026-10-31T06:00:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-10-31T06:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 5.613,
+      "p1_rsi": 67.3435088500501,
+      "p2_high": 5.658,
+      "p2_rsi": 65.2918487884705,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-31T17:15:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-10-31T17:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
