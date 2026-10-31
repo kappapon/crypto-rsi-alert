@@ -1,14 +1,14 @@
 {
-  "updated": "2026-10-30T00:21:03+00:00",
+  "updated": "2026-10-31T00:20:36+00:00",
   "confirmed": {
-    "n": 346,
-    "pending": 2,
+    "n": 347,
+    "pending": 1,
     "unscored": 0,
-    "stop_rate": 0.838,
-    "median_mfe_r": 0.865,
+    "stop_rate": 0.836,
+    "median_mfe_r": 0.868,
     "median_mae_r": 1.0,
-    "avg_terminal_r": -0.001,
-    "hit_rate_2r": 0.321
+    "avg_terminal_r": 0.021,
+    "hit_rate_2r": 0.323
   },
   "funnel": {
     "armed": 567,

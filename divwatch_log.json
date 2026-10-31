@@ -16407,7 +16407,15 @@
       "symbol": "BANK_USDT",
       "ts": "2026-10-27T22:02:18.213Z",
       "id": "confirmed:BANK_USDT:gate:2026-10-27T21:47:18.390Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.721,
+      "mfe_r": 8.401,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 7.44,
+      "exit": 0.02607,
+      "closed_at": "2026-10-30T22:02:18+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BANK",
