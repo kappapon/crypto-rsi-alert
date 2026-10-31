@@ -16722,6 +16722,20 @@
       "ts": "2026-10-31T20:30:00.000Z",
       "id": "flip:TAC_USDT:gate:2026-10-31T20:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 5.658,
+      "armed_ts": "2026-10-31T18:02:16.180Z",
+      "entry": 5.623,
+      "label": "PROM",
+      "peak_high": 5.663,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 5.67753571428571,
+      "symbol": "PROM_USDT",
+      "ts": "2026-10-31T22:47:17.174Z",
+      "id": "confirmed:PROM_USDT:gate:2026-10-31T18:02:16.180Z",
+      "status": "pending"
     }
   ]
 }
