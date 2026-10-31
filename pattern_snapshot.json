@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-30T20:37:00Z",
+  "date": "2026-10-31T00:35:10Z",
   "parabolic_seen": {
     "AKE": "2026-09-21",
     "ARB": "2026-09-28",
@@ -14,12 +14,12 @@
     "ZAMA": "2026-09-24"
   },
   "patterns": {
-    "ABBV_USDT": "Breakout",
+    "ABBV_USDT": "Range",
     "ARBUSDT": "Downtrend",
-    "BTW_USDT": "Pullback",
+    "BTW_USDT": "Range",
     "MSFTBUSDT": "Pullback",
     "TAKE_USDT": "Pullback",
-    "TMO_USDT": "Breakout",
+    "TMO_USDT": "Range",
     "UNIUSDT": "Downtrend",
     "ZAMAUSDT": "Range"
   }
