@@ -38773,8 +38773,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-10-23T20:23:28.148732+00:00",
       "status": "pending",
-      "repeats": 8,
-      "last_repeat": "2026-10-30T00:23:53.148124+00:00"
+      "repeats": 9,
+      "last_repeat": "2026-10-31T04:23:21.975988+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -38996,8 +38996,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-10-29T04:23:45.122143+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-10-29T20:24:00.579293+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-10-31T04:23:24.383422+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -39112,6 +39112,19 @@
       "price": 0.163,
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-10-30T16:23:33.352128+00:00",
+      "status": "pending",
+      "repeats": 2,
+      "last_repeat": "2026-10-31T04:23:24.383422+00:00"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-10-31T04:23:21.975988+00:00",
+      "price": 6.948,
+      "funding": 0.0,
+      "id": "UNIUSDT:rejection:2026-10-31T04:23:21.975988+00:00",
       "status": "pending",
       "repeats": 1
     }
