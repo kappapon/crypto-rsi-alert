@@ -10673,6 +10673,23 @@
       "symbol": "HAEDALUSDT",
       "tau": 0.35,
       "tp": 0.023794683330584574
+    },
+    {
+      "atr": 4.352047473138071e-06,
+      "breadth": 2,
+      "entry": 6.753e-05,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-01T00:25:05+00:00",
+      "prob": 0.454,
+      "pump_pct": 1.3707,
+      "sl": 7.188204747313806e-05,
+      "stage": "pre",
+      "stage_frac": 0.0417,
+      "status": "open",
+      "symbol": "WINUSDT",
+      "tau": 0.35,
+      "tp": 5.882590505372385e-05
     }
   ]
 }
