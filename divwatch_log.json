@@ -16853,6 +16853,20 @@
       "ts": "2026-11-01T20:00:00.000Z",
       "id": "armed:JST_USDT:gate:2026-11-01T20:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.13783,
+      "armed_ts": "2026-11-01T20:47:20.185Z",
+      "entry": 0.13768,
+      "label": "JST",
+      "peak_high": 0.13806,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.138104642857143,
+      "symbol": "JST_USDT",
+      "ts": "2026-11-01T22:02:17.772Z",
+      "id": "confirmed:JST_USDT:gate:2026-11-01T20:47:20.185Z",
+      "status": "pending"
     }
   ]
 }
