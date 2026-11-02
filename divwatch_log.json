@@ -16969,6 +16969,19 @@
       "ts": "2026-11-02T16:33:03.590Z",
       "id": "confirmed:TA_USDT:gate:2026-11-02T14:33:03.084Z",
       "status": "pending"
+    },
+    {
+      "label": "BANK",
+      "p1_low": 0.02552,
+      "p1_rsi": 28.7134442776744,
+      "p2_low": 0.02523,
+      "p2_rsi": 34.8749671128596,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BANK_USDT",
+      "ts": "2026-11-02T19:30:00.000Z",
+      "id": "flip:BANK_USDT:gate:2026-11-02T19:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
