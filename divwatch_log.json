@@ -17153,6 +17153,19 @@
       "ts": "2026-11-03T16:00:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-11-03T16:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.06792,
+      "p1_rsi": 81.6099922366917,
+      "p2_high": 0.06835,
+      "p2_rsi": 81.358407648229,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-11-03T16:00:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-11-03T16:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
