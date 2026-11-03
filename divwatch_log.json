@@ -17127,6 +17127,19 @@
       "ts": "2026-11-03T13:30:00.000Z",
       "id": "armed:KAITO_USDT:gate:2026-11-03T13:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.3374,
+      "p1_rsi": 73.2971638340581,
+      "p2_high": 0.338,
+      "p2_rsi": 69.2658944199888,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-11-03T13:30:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-11-03T13:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
