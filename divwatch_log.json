@@ -17346,6 +17346,19 @@
       "ts": "2026-11-04T11:33:01.595Z",
       "id": "confirmed:LDO_USDT:gate:2026-11-04T11:18:00.475Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 5.406,
+      "p1_rsi": 71.2034625743658,
+      "p2_high": 5.456,
+      "p2_rsi": 67.1467644799984,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-11-04T15:00:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-11-04T15:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
