@@ -10694,6 +10694,23 @@
       "symbol": "WINUSDT",
       "tau": 0.35,
       "tp": 5.882590505372385e-05
+    },
+    {
+      "atr": 4.9724276262992544e-05,
+      "breadth": 2,
+      "entry": 0.000542,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-04T00:25:51+00:00",
+      "prob": 0.359,
+      "pump_pct": 0.9477,
+      "sl": 0.0005917242762629925,
+      "stage": "pre",
+      "stage_frac": 0.1862,
+      "status": "open",
+      "symbol": "HOTUSDT",
+      "tau": 0.35,
+      "tp": 0.0004425514474740149
     }
   ]
 }
