@@ -17032,7 +17032,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-03T02:48:07.409Z",
       "id": "confirmed:JST_USDT:gate:2026-11-03T01:18:05.904Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.413,
+      "stopped": true,
+      "stop_ts": "2026-11-03T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.141831071428571,
+      "closed_at": "2026-11-03T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -17072,7 +17080,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-03T06:33:06.404Z",
       "id": "confirmed:JST_USDT:gate:2026-11-03T03:03:06.186Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.841,
+      "stopped": true,
+      "stop_ts": "2026-11-03T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.14187,
+      "closed_at": "2026-11-03T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -17099,7 +17115,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-03T08:03:06.842Z",
       "id": "confirmed:JST_USDT:gate:2026-11-03T07:03:06.995Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.805,
+      "stopped": true,
+      "stop_ts": "2026-11-03T15:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.141945714285714,
+      "closed_at": "2026-11-03T15:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.06423,
@@ -17113,7 +17137,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-03T12:48:04.200Z",
       "id": "confirmed:TA_USDT:gate:2026-11-03T06:03:03.241Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.046,
+      "stopped": true,
+      "stop_ts": "2026-11-03T14:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0643578571428571,
+      "closed_at": "2026-11-03T14:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
