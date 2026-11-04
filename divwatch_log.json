@@ -17386,6 +17386,19 @@
       "ts": "2026-11-04T17:00:00.000Z",
       "id": "armed:PROM_USDT:gate:2026-11-04T17:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BULLA",
+      "p1_low": 0.07091,
+      "p1_rsi": 31.1833639479712,
+      "p2_low": 0.069445,
+      "p2_rsi": 37.9424283880531,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BULLA_USDT",
+      "ts": "2026-11-04T17:15:00.000Z",
+      "id": "flip:BULLA_USDT:gate:2026-11-04T17:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
