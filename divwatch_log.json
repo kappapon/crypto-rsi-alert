@@ -17264,6 +17264,19 @@
       "ts": "2026-11-04T03:00:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-11-04T03:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.07044,
+      "p1_rsi": 76.3256479242814,
+      "p2_high": 0.07083,
+      "p2_rsi": 64.2007405124273,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-11-04T05:15:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-11-04T05:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
