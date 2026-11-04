@@ -17305,6 +17305,20 @@
       "ts": "2026-11-04T06:33:09.495Z",
       "id": "confirmed:BULLA_USDT:gate:2026-11-04T03:18:07.589Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.07083,
+      "armed_ts": "2026-11-04T06:03:02.509Z",
+      "entry": 0.07021,
+      "label": "TA",
+      "peak_high": 0.07084,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0712310714285714,
+      "symbol": "TA_USDT",
+      "ts": "2026-11-04T09:18:03.673Z",
+      "id": "confirmed:TA_USDT:gate:2026-11-04T06:03:02.509Z",
+      "status": "pending"
     }
   ]
 }
