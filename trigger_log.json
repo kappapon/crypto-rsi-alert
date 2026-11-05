@@ -39157,8 +39157,8 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-10-30T16:23:33.352128+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-11-05T00:23:46.913809+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-11-05T16:23:48.327196+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -39294,6 +39294,30 @@
       "price": 7.359,
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-11-05T12:23:49.949265+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-05T16:23:45.540951+00:00",
+      "price": 6.95,
+      "funding": 0.0,
+      "id": "UNIUSDT:rejection:2026-11-05T16:23:45.540951+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-05T16:23:47.682866+00:00",
+      "price": 697.1,
+      "funding": 0.0,
+      "id": "TMO_USDT:support_break:2026-11-05T16:23:47.682866+00:00",
       "status": "pending",
       "repeats": 1
     }
