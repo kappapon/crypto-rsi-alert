@@ -39284,6 +39284,18 @@
       "id": "TMO_USDT:rejection:2026-11-04T16:23:57.217630+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-05T12:23:49.949265+00:00",
+      "price": 7.359,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-11-05T12:23:49.949265+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
