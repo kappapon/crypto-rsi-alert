@@ -17487,6 +17487,19 @@
       "ts": "2026-11-05T09:00:00.000Z",
       "id": "armed:JST_USDT:gate:2026-11-05T09:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.3506,
+      "p1_rsi": 66.6064033578916,
+      "p2_high": 0.3524,
+      "p2_rsi": 64.2274339915748,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-11-05T09:45:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-11-05T09:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
