@@ -17500,6 +17500,20 @@
       "ts": "2026-11-05T09:45:00.000Z",
       "id": "armed:LDO_USDT:gate:2026-11-05T09:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.14243,
+      "armed_ts": "2026-11-05T09:47:38.851Z",
+      "entry": 0.14235,
+      "label": "JST",
+      "peak_high": 0.143,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.143070714285714,
+      "symbol": "JST_USDT",
+      "ts": "2026-11-05T13:47:38.961Z",
+      "id": "confirmed:JST_USDT:gate:2026-11-05T09:47:38.851Z",
+      "status": "pending"
     }
   ]
 }
