@@ -17412,7 +17412,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-11-04T17:17:49.781Z",
       "id": "confirmed:PROM_USDT:gate:2026-11-04T15:48:26.209Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.441,
+      "stopped": true,
+      "stop_ts": "2026-11-05T01:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 5.50639285714286,
+      "closed_at": "2026-11-05T01:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
