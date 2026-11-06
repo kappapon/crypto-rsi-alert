@@ -17588,6 +17588,19 @@
       "ts": "2026-11-06T07:30:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-11-06T07:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_high": 0.02471,
+      "p1_rsi": 65.4692728383173,
+      "p2_high": 0.02474,
+      "p2_rsi": 65.4233985195458,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "BANK_USDT",
+      "ts": "2026-11-06T07:45:00.000Z",
+      "id": "armed:BANK_USDT:gate:2026-11-06T07:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
