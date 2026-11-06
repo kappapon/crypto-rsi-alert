@@ -17668,6 +17668,20 @@
       "ts": "2026-11-06T12:15:00.000Z",
       "id": "armed:AKE_USDT:gate:2026-11-06T12:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.08416,
+      "armed_ts": "2026-11-06T09:47:34.917Z",
+      "entry": 0.08412,
+      "label": "TA",
+      "peak_high": 0.0842,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.08449,
+      "symbol": "TA_USDT",
+      "ts": "2026-11-06T13:32:36.485Z",
+      "id": "confirmed:TA_USDT:gate:2026-11-06T09:47:34.917Z",
+      "status": "pending"
     }
   ]
 }
