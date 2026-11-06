@@ -39338,6 +39338,18 @@
       "id": "MSFTBUSDT:support_break:2026-11-05T20:23:49.556364+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-06T04:23:52.180720+00:00",
+      "price": 1.097733,
+      "funding": 0.0308,
+      "id": "BTW_USDT:rejection:2026-11-06T04:23:52.180720+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
