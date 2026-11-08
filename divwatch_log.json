@@ -18031,6 +18031,19 @@
       "ts": "2026-11-08T14:32:08.492Z",
       "id": "confirmed:TA_USDT:gate:2026-11-08T10:32:06.395Z",
       "status": "pending"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.11981,
+      "p1_rsi": 88.713780514825,
+      "p2_high": 0.12016,
+      "p2_rsi": 54.7821711868868,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-11-08T14:15:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-11-08T14:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
