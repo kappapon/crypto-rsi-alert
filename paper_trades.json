@@ -10715,6 +10715,23 @@
       "symbol": "HOTUSDT",
       "tau": 0.35,
       "tp": 0.0004425514474740149
+    },
+    {
+      "atr": 0.0002481026850758306,
+      "breadth": 1,
+      "entry": 0.002087,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-08T00:24:49+00:00",
+      "prob": 0.46,
+      "pump_pct": 4.4571,
+      "sl": 0.0023351026850758306,
+      "stage": "mid",
+      "stage_frac": 0.3882,
+      "status": "open",
+      "symbol": "ONEUSDT",
+      "tau": 0.35,
+      "tp": 0.0015907946298483388
     }
   ]
 }
