@@ -17314,7 +17314,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-04T06:33:06.998Z",
       "id": "confirmed:JST_USDT:gate:2026-11-03T22:33:07.983Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.949,
+      "mfe_r": 3.714,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": -0.417,
+      "exit": 0.14265,
+      "closed_at": "2026-11-07T06:33:06+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.075529,
@@ -17328,7 +17336,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-11-04T06:33:09.495Z",
       "id": "confirmed:BULLA_USDT:gate:2026-11-04T03:18:07.589Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.708,
+      "mfe_r": 4.988,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 4.338,
+      "exit": 0.058563,
+      "closed_at": "2026-11-07T06:33:09+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.07083,
