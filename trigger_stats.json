@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-08T00:25:22+00:00",
+  "updated": "2026-11-09T00:27:19+00:00",
   "overall": {
-    "n": 2107,
+    "n": 2108,
     "hit_rate": 0.365,
     "avg_r": -0.077,
-    "pending": 14
+    "pending": 13
   },
   "per_type": {
     "breakout": {
@@ -26,13 +26,13 @@
       "expiry": 14
     },
     "rejection": {
-      "n": 670,
+      "n": 671,
       "hit_rate": 0.376,
-      "avg_r": -0.094,
-      "sum_r": -63.16,
+      "avg_r": -0.095,
+      "sum_r": -63.47,
       "tp": 116,
       "sl": 384,
-      "expiry": 170
+      "expiry": 171
     },
     "resistance_test": {
       "n": 289,

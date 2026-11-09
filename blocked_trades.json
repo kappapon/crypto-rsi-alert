@@ -25344,6 +25344,25 @@
       "symbol": "WINUSDT",
       "tau": 0.35,
       "tp": 6.031720335900164e-05
+    },
+    {
+      "atr": 4.291816103492739e-06,
+      "blocked_at": "2026-11-09T00:26:37+00:00",
+      "blocked_by": "2026-11-01T16:00:00+00:00",
+      "breadth": 1,
+      "entry": 6.7e-05,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.443,
+      "pump_pct": 1.4837,
+      "rule": "cooldown",
+      "sl": 7.129181610349275e-05,
+      "stage": "pre",
+      "stage_frac": 0.127,
+      "status": "blocked",
+      "symbol": "WINUSDT",
+      "tau": 0.35,
+      "tp": 5.841636779301453e-05
     }
   ]
 }
