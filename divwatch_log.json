@@ -18078,6 +18078,19 @@
       "ts": "2026-11-09T10:45:00.000Z",
       "id": "armed:JST_USDT:gate:2026-11-09T10:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 0.2083,
+      "p1_rsi": 73.1554955798297,
+      "p2_high": 0.2089,
+      "p2_rsi": 67.2425160852214,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-11-09T14:45:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-11-09T14:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
