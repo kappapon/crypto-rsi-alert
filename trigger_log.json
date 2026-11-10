@@ -39375,7 +39375,8 @@
       "funding": 0.0,
       "id": "MSFTBUSDT:support_break:2026-11-05T20:23:49.556364+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-11-10T20:23:32.973804+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -39413,8 +39414,8 @@
       "funding": 0.043800000000000006,
       "id": "TAKE_USDT:support_break:2026-11-08T00:23:19.761929+00:00",
       "status": "pending",
-      "repeats": 3,
-      "last_repeat": "2026-11-09T20:23:21.970404+00:00"
+      "repeats": 4,
+      "last_repeat": "2026-11-10T20:23:34.270337+00:00"
     },
     {
       "symbol": "TMO_USDT",
@@ -39468,6 +39469,18 @@
       "price": 0.1628,
       "funding": 0.0,
       "id": "ARBUSDT:rejection:2026-11-10T12:23:30.949565+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-10T20:23:34.270337+00:00",
+      "price": 0.06619,
+      "funding": 0.005,
+      "id": "TAKE_USDT:rejection:2026-11-10T20:23:34.270337+00:00",
       "status": "pending",
       "repeats": 1
     }
