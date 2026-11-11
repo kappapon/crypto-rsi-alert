@@ -10736,6 +10736,23 @@
       "symbol": "ONEUSDT",
       "tau": 0.35,
       "tp": 0.0015907946298483388
+    },
+    {
+      "atr": 0.0395230931286815,
+      "breadth": 1,
+      "entry": 0.26093,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-11T00:25:36+00:00",
+      "prob": 0.389,
+      "pump_pct": 4.2687,
+      "sl": 0.3004530931286815,
+      "stage": "early",
+      "stage_frac": 0.264,
+      "status": "open",
+      "symbol": "INITUSDT",
+      "tau": 0.35,
+      "tp": 0.181883813742637
     }
   ]
 }
