@@ -18305,6 +18305,19 @@
       "ts": "2026-11-11T03:45:00.000Z",
       "id": "armed:TA_USDT:gate:2026-11-11T03:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "AKE",
+      "p1_low": 0.0025848,
+      "p1_rsi": 32.2553233204848,
+      "p2_low": 0.0025001,
+      "p2_rsi": 34.671385780192,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "AKE_USDT",
+      "ts": "2026-11-11T08:15:00.000Z",
+      "id": "flip:AKE_USDT:gate:2026-11-11T08:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
