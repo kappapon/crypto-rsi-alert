@@ -1,19 +1,19 @@
 {
-  "updated": "2026-11-11T00:20:37+00:00",
+  "updated": "2026-11-12T00:20:59+00:00",
   "confirmed": {
-    "n": 381,
-    "pending": 4,
+    "n": 385,
+    "pending": 2,
     "unscored": 0,
     "stop_rate": 0.829,
-    "median_mfe_r": 0.868,
+    "median_mfe_r": 0.882,
     "median_mae_r": 1.0,
-    "avg_terminal_r": 0.034,
-    "hit_rate_2r": 0.328
+    "avg_terminal_r": 0.026,
+    "hit_rate_2r": 0.325
   },
   "funnel": {
-    "armed": 622,
-    "confirmed": 385,
-    "conversion": 0.619,
-    "flip": 135
+    "armed": 624,
+    "confirmed": 387,
+    "conversion": 0.62,
+    "flip": 137
   }
 }

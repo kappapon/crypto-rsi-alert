@@ -18070,7 +18070,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-08T14:32:08.492Z",
       "id": "confirmed:TA_USDT:gate:2026-11-08T10:32:06.395Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.347,
+      "mfe_r": 1.667,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 0.324,
+      "exit": 0.10798,
+      "closed_at": "2026-11-11T14:32:08+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -18264,7 +18272,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-10T22:17:16.773Z",
       "id": "confirmed:TA_USDT:gate:2026-11-10T19:17:16.897Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.384,
+      "stopped": true,
+      "stop_ts": "2026-11-11T04:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.108507857142857,
+      "closed_at": "2026-11-11T04:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -18291,7 +18307,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-11T04:02:17.431Z",
       "id": "confirmed:TA_USDT:gate:2026-11-10T22:32:17.467Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.8,
+      "stopped": true,
+      "stop_ts": "2026-11-11T11:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.1089175,
+      "closed_at": "2026-11-11T11:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -18331,7 +18355,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-11T11:32:16.933Z",
       "id": "confirmed:TA_USDT:gate:2026-11-11T04:32:17.059Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.166,
+      "stopped": true,
+      "stop_ts": "2026-11-11T18:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.109454642857143,
+      "closed_at": "2026-11-11T18:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
