@@ -18390,6 +18390,19 @@
       "ts": "2026-11-11T21:30:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-11-11T21:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.10947,
+      "p1_rsi": 68.5319098993079,
+      "p2_high": 0.1098,
+      "p2_rsi": 64.1852724057319,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-11-12T14:45:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-11-12T14:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
