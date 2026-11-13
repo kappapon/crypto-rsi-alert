@@ -10757,6 +10757,23 @@
       "symbol": "INITUSDT",
       "tau": 0.35,
       "tp": 0.181883813742637
+    },
+    {
+      "atr": 0.0019434065181610145,
+      "breadth": 1,
+      "entry": 0.02815,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-13T00:25:59+00:00",
+      "prob": 0.421,
+      "pump_pct": 0.8911,
+      "sl": 0.030093406518161017,
+      "stage": "pre",
+      "stage_frac": 0.1229,
+      "status": "open",
+      "symbol": "DODOUSDT",
+      "tau": 0.35,
+      "tp": 0.024263186963677973
     }
   ]
 }
