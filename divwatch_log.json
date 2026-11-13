@@ -18504,6 +18504,19 @@
       "ts": "2026-11-13T13:30:00.000Z",
       "id": "armed:TAC_USDT:gate:2026-11-13T13:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "KAITO",
+      "p1_high": 0.2094,
+      "p1_rsi": 71.1154693831758,
+      "p2_high": 0.2096,
+      "p2_rsi": 68.3835116271836,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "KAITO_USDT",
+      "ts": "2026-11-13T14:15:00.000Z",
+      "id": "armed:KAITO_USDT:gate:2026-11-13T14:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
