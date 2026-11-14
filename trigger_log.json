@@ -39413,8 +39413,8 @@
       "funding": -0.1168,
       "id": "BTW_USDT:funding:2026-11-07T08:23:19.618522+00:00",
       "status": "pending",
-      "repeats": 15,
-      "last_repeat": "2026-11-13T20:23:33.915726+00:00"
+      "repeats": 16,
+      "last_repeat": "2026-11-14T00:23:30.775996+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -39532,8 +39532,20 @@
       "funding": 0.0,
       "id": "ARBUSDT:support_break:2026-11-12T00:23:53.562948+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-11-13T04:23:36.778893+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-11-14T00:23:32.684924+00:00"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-14T00:23:29.996915+00:00",
+      "price": 5.774,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-11-14T00:23:29.996915+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
