@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-13T00:26:50+00:00",
+  "updated": "2026-11-14T00:26:39+00:00",
   "overall": {
-    "n": 2113,
+    "n": 2115,
     "hit_rate": 0.365,
     "avg_r": -0.077,
-    "pending": 16
+    "pending": 15
   },
   "per_type": {
     "breakout": {
@@ -17,20 +17,20 @@
       "expiry": 11
     },
     "funding": {
-      "n": 101,
-      "hit_rate": 0.366,
-      "avg_r": -0.005,
-      "sum_r": -0.48,
+      "n": 102,
+      "hit_rate": 0.363,
+      "avg_r": -0.014,
+      "sum_r": -1.48,
       "tp": 26,
-      "sl": 61,
+      "sl": 62,
       "expiry": 14
     },
     "rejection": {
-      "n": 672,
-      "hit_rate": 0.375,
-      "avg_r": -0.096,
-      "sum_r": -64.47,
-      "tp": 116,
+      "n": 673,
+      "hit_rate": 0.376,
+      "avg_r": -0.093,
+      "sum_r": -62.47,
+      "tp": 117,
       "sl": 385,
       "expiry": 171
     },
