@@ -39406,8 +39406,8 @@
       "funding": 0.0308,
       "id": "BTW_USDT:rejection:2026-11-06T04:23:52.180720+00:00",
       "status": "pending",
-      "repeats": 7,
-      "last_repeat": "2026-11-14T04:23:34.647126+00:00"
+      "repeats": 8,
+      "last_repeat": "2026-11-14T12:23:26.831667+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -39571,6 +39571,18 @@
       "status": "pending",
       "repeats": 2,
       "last_repeat": "2026-11-14T08:23:30.702235+00:00"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-14T12:23:26.360680+00:00",
+      "price": 5.471,
+      "funding": 0.0,
+      "id": "UNIUSDT:rejection:2026-11-14T12:23:26.360680+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
