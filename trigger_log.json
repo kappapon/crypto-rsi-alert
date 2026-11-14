@@ -39406,8 +39406,8 @@
       "funding": 0.0308,
       "id": "BTW_USDT:rejection:2026-11-06T04:23:52.180720+00:00",
       "status": "pending",
-      "repeats": 6,
-      "last_repeat": "2026-11-13T04:23:35.525329+00:00"
+      "repeats": 7,
+      "last_repeat": "2026-11-14T04:23:34.647126+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -39556,6 +39556,18 @@
       "price": 5.774,
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-11-14T00:23:29.996915+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "funding",
+      "direction": "long",
+      "ts": "2026-11-14T04:23:34.647126+00:00",
+      "price": 0.728011,
+      "funding": -0.4177,
+      "id": "BTW_USDT:funding:2026-11-14T04:23:34.647126+00:00",
       "status": "pending",
       "repeats": 1
     }
