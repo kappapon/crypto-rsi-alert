@@ -18760,6 +18760,19 @@
       "ts": "2026-11-16T13:15:00.000Z",
       "id": "flip:PROM_USDT:gate:2026-11-16T13:15:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TAC",
+      "p1_low": 0.001188,
+      "p1_rsi": 22.7672717017828,
+      "p2_low": 0.001179,
+      "p2_rsi": 31.8921415989833,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TAC_USDT",
+      "ts": "2026-11-16T22:30:00.000Z",
+      "id": "flip:TAC_USDT:gate:2026-11-16T22:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
