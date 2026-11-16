@@ -72,23 +72,6 @@
         "funding_high": 0.1
       }
     },
-    "MSFTBUSDT": {
-      "exchange": "binance_spot",
-      "enabled": true,
-      "levels": {
-        "breakout_above": 576.1546,
-        "resistance": 567.64,
-        "rejection_below": 523.82,
-        "support_strong": 521.5217,
-        "support_extreme": 521.2664
-      },
-      "alerts": {
-        "price_breakout": true,
-        "price_rejection": true,
-        "support_break": true,
-        "funding_high": 0.1
-      }
-    },
     "MEMES_USDT": {
       "exchange": "gateio_futures",
       "enabled": true,
