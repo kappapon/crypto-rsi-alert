@@ -39639,6 +39639,18 @@
       "status": "pending",
       "repeats": 2,
       "last_repeat": "2026-11-15T16:24:17.086480+00:00"
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-16T12:24:28.816169+00:00",
+      "price": 5.082,
+      "funding": 0.0,
+      "id": "UNIUSDT:support_break:2026-11-16T12:24:28.816169+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
