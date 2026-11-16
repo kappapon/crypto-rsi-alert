@@ -18707,6 +18707,20 @@
       "ts": "2026-11-16T03:03:03.325Z",
       "id": "confirmed:LDO_USDT:gate:2026-11-16T00:48:01.033Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 5.381,
+      "armed_ts": "2026-11-16T00:48:07.338Z",
+      "entry": 5.357,
+      "label": "PROM",
+      "peak_high": 5.394,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 5.41453571428571,
+      "symbol": "PROM_USDT",
+      "ts": "2026-11-16T03:48:05.221Z",
+      "id": "confirmed:PROM_USDT:gate:2026-11-16T00:48:07.338Z",
+      "status": "pending"
     }
   ]
 }
