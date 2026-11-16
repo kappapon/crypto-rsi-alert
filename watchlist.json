@@ -10,9 +10,9 @@
       "levels": {
         "breakout_above": 7.9373,
         "resistance": 7.82,
-        "rejection_below": 4.6199,
-        "support_strong": 5.1254,
-        "support_extreme": 5.4856
+        "rejection_below": 4.9115,
+        "support_strong": 5.1381,
+        "support_extreme": 5.2571
       },
       "alerts": {
         "price_breakout": true,
@@ -25,11 +25,11 @@
       "exchange": "gateio_futures",
       "enabled": true,
       "levels": {
-        "breakout_above": 1.9472,
-        "resistance": 1.9184,
-        "rejection_below": 0.6908,
-        "support_strong": 0.7262,
-        "support_extreme": 0.787
+        "breakout_above": 1.9058,
+        "resistance": 1.8776,
+        "rejection_below": 0.5007,
+        "support_strong": 0.5856,
+        "support_extreme": 0.6672
       },
       "alerts": {
         "price_breakout": true,
@@ -44,9 +44,9 @@
       "levels": {
         "breakout_above": 308.8137,
         "resistance": 304.25,
-        "rejection_below": 280.972,
-        "support_strong": 295.9112,
-        "support_extreme": 295.9324
+        "rejection_below": 280.4305,
+        "support_strong": 295.5201,
+        "support_extreme": 295.7078
       },
       "alerts": {
         "price_breakout": true,
@@ -61,9 +61,9 @@
       "levels": {
         "breakout_above": 741.153,
         "resistance": 730.2,
-        "rejection_below": 667.945,
-        "support_strong": 703.1923,
-        "support_extreme": 705.0769
+        "rejection_below": 667.85,
+        "support_strong": 703.0451,
+        "support_extreme": 703.8239
       },
       "alerts": {
         "price_breakout": true,
@@ -78,9 +78,9 @@
       "levels": {
         "breakout_above": 576.1546,
         "resistance": 567.64,
-        "rejection_below": 492.917,
-        "support_strong": 520.3241,
-        "support_extreme": 521.5637
+        "rejection_below": 523.82,
+        "support_strong": 521.5217,
+        "support_extreme": 521.2664
       },
       "alerts": {
         "price_breakout": true,
@@ -112,9 +112,9 @@
       "levels": {
         "breakout_above": 0.0771,
         "resistance": 0.076,
-        "rejection_below": 0.0567,
-        "support_strong": 0.061,
-        "support_extreme": 0.0621
+        "rejection_below": 0.0574,
+        "support_strong": 0.0607,
+        "support_extreme": 0.0612
       },
       "alerts": {
         "price_breakout": true,
