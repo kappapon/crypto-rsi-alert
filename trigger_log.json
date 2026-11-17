@@ -39694,6 +39694,30 @@
       "id": "BTW_USDT:rejection:2026-11-17T04:24:01.836480+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-17T08:23:58.300047+00:00",
+      "price": 295.59,
+      "funding": 0.0,
+      "id": "ABBV_USDT:rejection:2026-11-17T08:23:58.300047+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "ABBV_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-17T08:23:58.300047+00:00",
+      "price": 295.59,
+      "funding": 0.0,
+      "id": "ABBV_USDT:support_break:2026-11-17T08:23:58.300047+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
