@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-16T00:27:11+00:00",
+  "updated": "2026-11-17T00:27:36+00:00",
   "overall": {
-    "n": 2120,
+    "n": 2125,
     "hit_rate": 0.367,
-    "avg_r": -0.073,
-    "pending": 14
+    "avg_r": -0.072,
+    "pending": 10
   },
   "per_type": {
     "breakout": {
@@ -17,22 +17,22 @@
       "expiry": 11
     },
     "funding": {
-      "n": 102,
-      "hit_rate": 0.363,
-      "avg_r": -0.014,
-      "sum_r": -1.48,
+      "n": 103,
+      "hit_rate": 0.359,
+      "avg_r": -0.024,
+      "sum_r": -2.48,
       "tp": 26,
-      "sl": 62,
+      "sl": 63,
       "expiry": 14
     },
     "rejection": {
-      "n": 674,
+      "n": 676,
       "hit_rate": 0.377,
-      "avg_r": -0.09,
-      "sum_r": -60.47,
+      "avg_r": -0.088,
+      "sum_r": -59.77,
       "tp": 118,
-      "sl": 385,
-      "expiry": 171
+      "sl": 386,
+      "expiry": 172
     },
     "resistance_test": {
       "n": 289,
@@ -44,12 +44,12 @@
       "expiry": 22
     },
     "support_break": {
-      "n": 862,
+      "n": 864,
       "hit_rate": 0.382,
-      "avg_r": -0.063,
-      "sum_r": -53.93,
-      "tp": 163,
-      "sl": 486,
+      "avg_r": -0.061,
+      "sum_r": -52.93,
+      "tp": 164,
+      "sl": 487,
       "expiry": 213
     }
   }
