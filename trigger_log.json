@@ -39682,6 +39682,18 @@
       "status": "pending",
       "repeats": 2,
       "last_repeat": "2026-11-16T20:24:17.894665+00:00"
+    },
+    {
+      "symbol": "BTW_USDT",
+      "exchange": "gateio_futures",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-17T04:24:01.836480+00:00",
+      "price": 0.343973,
+      "funding": -0.0362,
+      "id": "BTW_USDT:rejection:2026-11-17T04:24:01.836480+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
