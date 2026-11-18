@@ -18997,6 +18997,20 @@
       "ts": "2026-11-18T15:02:44.267Z",
       "id": "confirmed:JST_USDT:gate:2026-11-18T12:47:42.023Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.016544,
+      "armed_ts": "2026-11-18T06:17:45.629Z",
+      "entry": 0.016249,
+      "label": "BULLA",
+      "peak_high": 0.016641,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0169245714285714,
+      "symbol": "BULLA_USDT",
+      "ts": "2026-11-18T16:47:45.733Z",
+      "id": "confirmed:BULLA_USDT:gate:2026-11-18T06:17:45.629Z",
+      "status": "pending"
     }
   ]
 }
