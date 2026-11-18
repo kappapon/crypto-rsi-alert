@@ -10799,6 +10799,23 @@
       "symbol": "SHELLUSDT",
       "tau": 0.35,
       "tp": 0.02781981640749245
+    },
+    {
+      "atr": 0.011436941110212557,
+      "breadth": 2,
+      "entry": 0.1139,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-18T00:26:54+00:00",
+      "prob": 0.431,
+      "pump_pct": 1.4412,
+      "sl": 0.12533694111021257,
+      "stage": "early",
+      "stage_frac": 0.2647,
+      "status": "open",
+      "symbol": "BREVUSDT",
+      "tau": 0.35,
+      "tp": 0.0910261177795749
     }
   ]
 }
