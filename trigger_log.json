@@ -39655,8 +39655,8 @@
       "funding": 0.005,
       "id": "BTW_USDT:support_break:2026-11-15T00:23:24.015430+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-11-17T12:23:55.530732+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-11-18T00:23:56.516499+00:00"
     },
     {
       "symbol": "TAKE_USDT",
@@ -39717,6 +39717,18 @@
       "price": 295.59,
       "funding": 0.0,
       "id": "ABBV_USDT:support_break:2026-11-17T08:23:58.300047+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TMO_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-18T00:23:57.318576+00:00",
+      "price": 690.9,
+      "funding": 0.0,
+      "id": "TMO_USDT:support_break:2026-11-18T00:23:57.318576+00:00",
       "status": "pending",
       "repeats": 1
     }
