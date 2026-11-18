@@ -18944,6 +18944,19 @@
       "ts": "2026-11-17T13:02:40.773Z",
       "id": "confirmed:TA_USDT:gate:2026-11-17T11:47:41.919Z",
       "status": "pending"
+    },
+    {
+      "label": "AKE",
+      "p1_low": 0.0097594,
+      "p1_rsi": 30.6893100679103,
+      "p2_low": 0.0096962,
+      "p2_rsi": 37.0763768443038,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "AKE_USDT",
+      "ts": "2026-11-18T04:45:00.000Z",
+      "id": "flip:AKE_USDT:gate:2026-11-18T04:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
