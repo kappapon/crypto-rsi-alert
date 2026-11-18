@@ -18580,7 +18580,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-14T00:47:24.047Z",
       "id": "confirmed:TA_USDT:gate:2026-11-13T15:32:24.779Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.7,
+      "mfe_r": 4.123,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 3.704,
+      "exit": 0.10336,
+      "closed_at": "2026-11-17T00:47:24+00:00",
+      "horizon_h": 72
     },
     {
       "label": "AKE",
@@ -18620,7 +18628,15 @@
       "symbol": "AKE_USDT",
       "ts": "2026-11-14T09:32:11.518Z",
       "id": "confirmed:AKE_USDT:gate:2026-11-14T02:17:19.256Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.458,
+      "mfe_r": 0.612,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 0.266,
+      "exit": 0.010551,
+      "closed_at": "2026-11-17T09:32:11+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.14557,
@@ -18634,7 +18650,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-14T14:02:17.842Z",
       "id": "confirmed:JST_USDT:gate:2026-11-14T08:47:17.269Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.079,
+      "mfe_r": 7.066,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 2.805,
+      "exit": 0.14265,
+      "closed_at": "2026-11-17T14:02:17+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -18744,7 +18768,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-11-16T03:48:05.221Z",
       "id": "confirmed:PROM_USDT:gate:2026-11-16T00:48:07.338Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 4.067,
+      "stopped": true,
+      "stop_ts": "2026-11-17T03:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 5.41453571428571,
+      "closed_at": "2026-11-17T03:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TAC",
@@ -18889,7 +18921,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-17T12:47:44.656Z",
       "id": "confirmed:JST_USDT:gate:2026-11-17T09:02:44.339Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.306,
+      "stopped": true,
+      "stop_ts": "2026-11-17T23:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.143409285714286,
+      "closed_at": "2026-11-17T23:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.11367,
