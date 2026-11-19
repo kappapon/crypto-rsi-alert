@@ -25444,6 +25444,25 @@
       "symbol": "DODOUSDT",
       "tau": 0.35,
       "tp": 0.02962895982199546
+    },
+    {
+      "atr": 0.0023479829397878233,
+      "blocked_at": "2026-11-19T00:25:15+00:00",
+      "blocked_by": "2026-11-13T12:00:00+00:00",
+      "breadth": 2,
+      "entry": 0.03493,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.381,
+      "pump_pct": 1.1423,
+      "rule": "cooldown",
+      "sl": 0.037277982939787825,
+      "stage": "pre",
+      "stage_frac": 0.0466,
+      "status": "blocked",
+      "symbol": "DODOUSDT",
+      "tau": 0.35,
+      "tp": 0.030234034120424358
     }
   ]
 }
