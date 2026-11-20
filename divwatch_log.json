@@ -19278,6 +19278,19 @@
       "ts": "2026-11-20T10:47:21.075Z",
       "id": "confirmed:JST_USDT:gate:2026-11-20T10:02:21.452Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_low": 5.419,
+      "p1_rsi": 27.6191178842598,
+      "p2_low": 5.4,
+      "p2_rsi": 55.0710446349151,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "PROM_USDT",
+      "ts": "2026-11-20T12:00:00.000Z",
+      "id": "flip:PROM_USDT:gate:2026-11-20T12:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
