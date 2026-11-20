@@ -39649,7 +39649,8 @@
       "funding": 0.0,
       "id": "UNIUSDT:rejection:2026-11-14T12:23:26.360680+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-11-20T16:23:26.956424+00:00"
     },
     {
       "symbol": "BTW_USDT",
@@ -39760,8 +39761,8 @@
       "funding": 0.0,
       "id": "TMO_USDT:support_break:2026-11-18T00:23:57.318576+00:00",
       "status": "pending",
-      "repeats": 2,
-      "last_repeat": "2026-11-19T20:23:34.375926+00:00"
+      "repeats": 3,
+      "last_repeat": "2026-11-20T16:23:28.288965+00:00"
     },
     {
       "symbol": "TAKE_USDT",
