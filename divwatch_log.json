@@ -19305,6 +19305,20 @@
       "ts": "2026-11-20T14:32:19.873Z",
       "id": "confirmed:PROM_USDT:gate:2026-11-20T07:47:18.996Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.00133,
+      "armed_ts": "2026-11-20T06:32:17.540Z",
+      "entry": 0.001302,
+      "label": "TAC",
+      "peak_high": 0.001355,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.00136392857142857,
+      "symbol": "TAC_USDT",
+      "ts": "2026-11-20T15:32:18.230Z",
+      "id": "confirmed:TAC_USDT:gate:2026-11-20T06:32:17.540Z",
+      "status": "pending"
     }
   ]
 }
