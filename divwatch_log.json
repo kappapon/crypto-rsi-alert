@@ -19319,6 +19319,19 @@
       "ts": "2026-11-20T15:32:18.230Z",
       "id": "confirmed:TAC_USDT:gate:2026-11-20T06:32:17.540Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_low": 0.14401,
+      "p1_rsi": 24.3877113780188,
+      "p2_low": 0.14247,
+      "p2_rsi": 24.4220646893929,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "JST_USDT",
+      "ts": "2026-11-20T17:15:00.000Z",
+      "id": "flip:JST_USDT:gate:2026-11-20T17:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
