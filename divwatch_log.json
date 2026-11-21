@@ -19445,6 +19445,19 @@
       "ts": "2026-11-21T15:02:41.833Z",
       "id": "confirmed:PROM_USDT:gate:2026-11-21T14:17:42.768Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 5.112,
+      "p1_rsi": 66.1979484063205,
+      "p2_high": 5.115,
+      "p2_rsi": 64.7487664878463,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-11-21T14:30:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-11-21T14:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
