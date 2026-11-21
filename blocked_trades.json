@@ -25486,6 +25486,25 @@
       "symbol": "MMTUSDT",
       "tau": 0.35,
       "tp": 0.20552325454536324
+    },
+    {
+      "atr": 0.03080348896108136,
+      "blocked_at": "2026-11-21T00:27:07+00:00",
+      "blocked_by": "2026-11-19T04:00:00+00:00",
+      "breadth": 1,
+      "entry": 0.27,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.411,
+      "pump_pct": 2.3619,
+      "rule": "cooldown",
+      "sl": 0.3008034889610814,
+      "stage": "pre",
+      "stage_frac": 0.2137,
+      "status": "blocked",
+      "symbol": "MMTUSDT",
+      "tau": 0.35,
+      "tp": 0.2083930220778373
     }
   ]
 }
