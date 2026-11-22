@@ -19514,6 +19514,19 @@
       "ts": "2026-11-22T05:32:43.714Z",
       "id": "confirmed:JST_USDT:gate:2026-11-21T18:47:45.843Z",
       "status": "pending"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.14681,
+      "p1_rsi": 74.9232766763738,
+      "p2_high": 0.14734,
+      "p2_rsi": 63.5381622628443,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-11-22T09:00:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-11-22T09:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
