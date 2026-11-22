@@ -19620,6 +19620,20 @@
       "ts": "2026-11-22T14:30:00.000Z",
       "id": "armed:TA_USDT:gate:2026-11-22T14:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.019147,
+      "armed_ts": "2026-11-22T13:18:04.748Z",
+      "entry": 0.018895,
+      "label": "BULLA",
+      "peak_high": 0.0196,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.020149,
+      "symbol": "BULLA_USDT",
+      "ts": "2026-11-22T15:18:05.703Z",
+      "id": "confirmed:BULLA_USDT:gate:2026-11-22T13:18:04.748Z",
+      "status": "pending"
     }
   ]
 }
