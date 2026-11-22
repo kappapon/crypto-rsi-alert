@@ -19554,6 +19554,19 @@
       "ts": "2026-11-22T12:48:04.480Z",
       "id": "confirmed:BULLA_USDT:gate:2026-11-22T11:48:03.938Z",
       "status": "pending"
+    },
+    {
+      "label": "LDO",
+      "p1_high": 0.2388,
+      "p1_rsi": 75.0224554062862,
+      "p2_high": 0.2406,
+      "p2_rsi": 56.2658503188716,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "LDO_USDT",
+      "ts": "2026-11-22T12:15:00.000Z",
+      "id": "armed:LDO_USDT:gate:2026-11-22T12:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
