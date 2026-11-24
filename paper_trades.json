@@ -10862,6 +10862,23 @@
       "symbol": "MEGAUSDT",
       "tau": 0.35,
       "tp": 0.049325315950896204
+    },
+    {
+      "atr": 0.006152172666429423,
+      "breadth": 1,
+      "entry": 0.0992,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "opened_at": "2026-11-24T00:26:57+00:00",
+      "prob": 0.403,
+      "pump_pct": 0.5574,
+      "sl": 0.10535217266642942,
+      "stage": "pre",
+      "stage_frac": -0.1235,
+      "status": "open",
+      "symbol": "LISTAUSDT",
+      "tau": 0.35,
+      "tp": 0.08689565466714115
     }
   ]
 }
