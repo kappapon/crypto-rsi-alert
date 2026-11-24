@@ -20068,6 +20068,19 @@
       "ts": "2026-11-24T03:00:00.000Z",
       "id": "flip:LDO_USDT:gate:2026-11-24T03:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "JST",
+      "p1_high": 0.14686,
+      "p1_rsi": 71.6699191718267,
+      "p2_high": 0.14689,
+      "p2_rsi": 63.9437573625408,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "JST_USDT",
+      "ts": "2026-11-24T18:15:00.000Z",
+      "id": "armed:JST_USDT:gate:2026-11-24T18:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
