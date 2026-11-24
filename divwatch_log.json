@@ -19309,7 +19309,15 @@
       "symbol": "JST_USDT",
       "ts": "2026-11-20T10:47:21.075Z",
       "id": "confirmed:JST_USDT:gate:2026-11-20T10:02:21.452Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.689,
+      "mfe_r": 30.889,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 3.512,
+      "exit": 0.14704,
+      "closed_at": "2026-11-23T10:47:21+00:00",
+      "horizon_h": 72
     },
     {
       "label": "PROM",
@@ -19336,7 +19344,15 @@
       "symbol": "PROM_USDT",
       "ts": "2026-11-20T14:32:19.873Z",
       "id": "confirmed:PROM_USDT:gate:2026-11-20T07:47:18.996Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 4.764,
+      "stopped": true,
+      "stop_ts": "2026-11-23T11:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 5.96632142857143,
+      "closed_at": "2026-11-23T11:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.00133,
@@ -19350,7 +19366,15 @@
       "symbol": "TAC_USDT",
       "ts": "2026-11-20T15:32:18.230Z",
       "id": "confirmed:TAC_USDT:gate:2026-11-20T06:32:17.540Z",
-      "status": "pending"
+      "status": "closed_expiry",
+      "mae_r": 0.161,
+      "mfe_r": 2.697,
+      "stopped": false,
+      "stop_ts": null,
+      "terminal_r": 1.889,
+      "exit": 0.001185,
+      "closed_at": "2026-11-23T15:32:18+00:00",
+      "horizon_h": 72
     },
     {
       "label": "JST",
@@ -19630,7 +19654,15 @@
       "symbol": "LDO_USDT",
       "ts": "2026-11-22T14:17:59.490Z",
       "id": "confirmed:LDO_USDT:gate:2026-11-22T13:02:58.911Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 7.887,
+      "stopped": true,
+      "stop_ts": "2026-11-23T06:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.241314285714286,
+      "closed_at": "2026-11-23T06:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -19766,7 +19798,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-11-23T03:32:58.524Z",
       "id": "confirmed:KAITO_USDT:gate:2026-11-22T17:02:58.486Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.645,
+      "stopped": true,
+      "stop_ts": "2026-11-23T04:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.162296428571429,
+      "closed_at": "2026-11-23T04:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "KAITO",
@@ -19793,7 +19833,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-11-23T08:18:04.764Z",
       "id": "confirmed:BULLA_USDT:gate:2026-11-23T00:48:04.280Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.71,
+      "stopped": true,
+      "stop_ts": "2026-11-23T09:30:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0254573928571429,
+      "closed_at": "2026-11-23T09:30:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -19820,7 +19868,15 @@
       "symbol": "BULLA_USDT",
       "ts": "2026-11-23T09:18:04.896Z",
       "id": "confirmed:BULLA_USDT:gate:2026-11-23T08:48:03.953Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.758,
+      "stopped": true,
+      "stop_ts": "2026-11-23T10:15:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.0260033928571429,
+      "closed_at": "2026-11-23T10:15:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "TA",
@@ -19847,7 +19903,15 @@
       "symbol": "TA_USDT",
       "ts": "2026-11-23T10:33:01.353Z",
       "id": "confirmed:TA_USDT:gate:2026-11-23T10:03:01.526Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 0.0,
+      "stopped": true,
+      "stop_ts": "2026-11-23T10:45:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.113396428571429,
+      "closed_at": "2026-11-23T10:45:00+00:00",
+      "horizon_h": 72
     },
     {
       "label": "BULLA",
@@ -19874,7 +19938,15 @@
       "symbol": "KAITO_USDT",
       "ts": "2026-11-23T11:02:57.822Z",
       "id": "confirmed:KAITO_USDT:gate:2026-11-23T07:32:58.346Z",
-      "status": "pending"
+      "status": "closed_sl",
+      "mae_r": 1.0,
+      "mfe_r": 1.418,
+      "stopped": true,
+      "stop_ts": "2026-11-23T14:00:00+00:00",
+      "terminal_r": -1.0,
+      "exit": 0.166210714285714,
+      "closed_at": "2026-11-23T14:00:00+00:00",
+      "horizon_h": 72
     },
     {
       "armed_high": 0.02709,
