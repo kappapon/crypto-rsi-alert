@@ -20238,6 +20238,19 @@
       "ts": "2026-11-25T22:17:27.171Z",
       "id": "confirmed:KAITO_USDT:gate:2026-11-25T19:02:27.153Z",
       "status": "pending"
+    },
+    {
+      "label": "PROM",
+      "p1_high": 5.273,
+      "p1_rsi": 76.0381767154053,
+      "p2_high": 5.3,
+      "p2_rsi": 60.9633412440121,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "PROM_USDT",
+      "ts": "2026-11-25T22:15:00.000Z",
+      "id": "armed:PROM_USDT:gate:2026-11-25T22:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
