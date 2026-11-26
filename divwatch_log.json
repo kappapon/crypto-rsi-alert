@@ -20358,6 +20358,20 @@
       "ts": "2026-11-26T02:17:37.026Z",
       "id": "confirmed:BULLA_USDT:gate:2026-11-26T01:02:38.135Z",
       "status": "pending"
+    },
+    {
+      "armed_high": 0.2377,
+      "armed_ts": "2026-11-26T01:02:30.888Z",
+      "entry": 0.2374,
+      "label": "LDO",
+      "peak_high": 0.2378,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.238367857142857,
+      "symbol": "LDO_USDT",
+      "ts": "2026-11-26T02:32:29.966Z",
+      "id": "confirmed:LDO_USDT:gate:2026-11-26T01:02:30.888Z",
+      "status": "pending"
     }
   ]
 }
