@@ -20519,6 +20519,20 @@
       "ts": "2026-11-26T17:00:00.000Z",
       "id": "armed:BANK_USDT:gate:2026-11-26T17:00:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.040702,
+      "armed_ts": "2026-11-26T07:17:37.230Z",
+      "entry": 0.03648,
+      "label": "BULLA",
+      "peak_high": 0.064782,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0682446785714286,
+      "symbol": "BULLA_USDT",
+      "ts": "2026-11-26T18:17:59.062Z",
+      "id": "confirmed:BULLA_USDT:gate:2026-11-26T07:17:37.230Z",
+      "status": "pending"
     }
   ]
 }
