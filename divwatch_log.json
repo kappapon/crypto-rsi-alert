@@ -20467,6 +20467,19 @@
       "ts": "2026-11-26T07:02:30.563Z",
       "id": "confirmed:TAC_USDT:gate:2026-11-26T05:17:30.526Z",
       "status": "pending"
+    },
+    {
+      "label": "TAC",
+      "p1_high": 0.001119,
+      "p1_rsi": 75.3442502443986,
+      "p2_high": 0.001136,
+      "p2_rsi": 72.9035107974438,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TAC_USDT",
+      "ts": "2026-11-26T06:30:00.000Z",
+      "id": "armed:TAC_USDT:gate:2026-11-26T06:30:00.000Z",
+      "status": "logged"
     }
   ]
 }
