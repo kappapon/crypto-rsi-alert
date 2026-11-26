@@ -20546,6 +20546,20 @@
       "ts": "2026-11-26T18:30:00.000Z",
       "id": "flip:TAC_USDT:gate:2026-11-26T18:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "armed_high": 0.01581,
+      "armed_ts": "2026-11-26T17:47:57.325Z",
+      "entry": 0.01577,
+      "label": "BANK",
+      "peak_high": 0.01601,
+      "source": "gate",
+      "stage": "confirmed",
+      "stop": 0.0160446428571429,
+      "symbol": "BANK_USDT",
+      "ts": "2026-11-26T21:17:57.201Z",
+      "id": "confirmed:BANK_USDT:gate:2026-11-26T17:47:57.325Z",
+      "status": "pending"
     }
   ]
 }
