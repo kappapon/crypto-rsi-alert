@@ -39873,6 +39873,18 @@
       "id": "TAKE_USDT:rejection:2026-11-25T04:23:53.148147+00:00",
       "status": "pending",
       "repeats": 1
+    },
+    {
+      "symbol": "UNIUSDT",
+      "exchange": "binance_spot",
+      "type": "rejection",
+      "direction": "short",
+      "ts": "2026-11-26T08:23:39.194908+00:00",
+      "price": 4.731,
+      "funding": 0.0,
+      "id": "UNIUSDT:rejection:2026-11-26T08:23:39.194908+00:00",
+      "status": "pending",
+      "repeats": 1
     }
   ]
 }
