@@ -8,11 +8,11 @@
       "exchange": "binance_spot",
       "enabled": true,
       "levels": {
-        "breakout_above": 7.8084,
-        "resistance": 7.693,
-        "rejection_below": 4.74,
-        "support_strong": 4.6559,
-        "support_extreme": 4.6757
+        "breakout_above": 7.3537,
+        "resistance": 7.245,
+        "rejection_below": 4.4251,
+        "support_strong": 4.6787,
+        "support_extreme": 4.6854
       },
       "alerts": {
         "price_breakout": true,
@@ -27,9 +27,9 @@
       "levels": {
         "breakout_above": 741.153,
         "resistance": 730.2,
-        "rejection_below": 680.9,
-        "support_strong": 680.4463,
-        "support_extreme": 682.7903
+        "rejection_below": 645.62,
+        "support_strong": 680.805,
+        "support_extreme": 681.6284
       },
       "alerts": {
         "price_breakout": true,
@@ -61,9 +61,9 @@
       "levels": {
         "breakout_above": 0.0757,
         "resistance": 0.0746,
-        "rejection_below": 0.0593,
-        "support_strong": 0.0624,
-        "support_extreme": 0.0625
+        "rejection_below": 0.059,
+        "support_strong": 0.062,
+        "support_extreme": 0.0623
       },
       "alerts": {
         "price_breakout": true,
