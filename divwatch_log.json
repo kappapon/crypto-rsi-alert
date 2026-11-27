@@ -20763,6 +20763,19 @@
       "ts": "2026-11-27T18:45:00.000Z",
       "id": "armed:JST_USDT:gate:2026-11-27T18:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_high": 0.1206,
+      "p1_rsi": 65.3579679752599,
+      "p2_high": 0.12066,
+      "p2_rsi": 59.9598826727945,
+      "source": "gate",
+      "stage": "armed",
+      "symbol": "TA_USDT",
+      "ts": "2026-11-27T20:45:00.000Z",
+      "id": "armed:TA_USDT:gate:2026-11-27T20:45:00.000Z",
+      "status": "logged"
     }
   ]
 }
