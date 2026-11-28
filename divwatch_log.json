@@ -20886,6 +20886,19 @@
       "ts": "2026-11-28T02:30:00.000Z",
       "id": "armed:JST_USDT:gate:2026-11-28T02:30:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "BANK",
+      "p1_low": 0.01529,
+      "p1_rsi": 24.3080528615005,
+      "p2_low": 0.01513,
+      "p2_rsi": 27.1190043864438,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "BANK_USDT",
+      "ts": "2026-11-28T07:00:00.000Z",
+      "id": "flip:BANK_USDT:gate:2026-11-28T07:00:00.000Z",
+      "status": "logged"
     }
   ]
 }
