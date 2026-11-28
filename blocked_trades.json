@@ -25563,6 +25563,25 @@
       "symbol": "LISTAUSDT",
       "tau": 0.35,
       "tp": 0.09294596504805963
+    },
+    {
+      "atr": 0.0036649216986713085,
+      "blocked_at": "2026-11-28T00:27:21+00:00",
+      "blocked_by": "2026-11-25T00:26:00+00:00",
+      "breadth": 1,
+      "entry": 0.04041,
+      "entry_is_live": true,
+      "exchange": "binance_spot",
+      "prob": 0.361,
+      "pump_pct": 1.6338,
+      "rule": "concurrent",
+      "sl": 0.04407492169867131,
+      "stage": "pre",
+      "stage_frac": 0.1922,
+      "status": "blocked",
+      "symbol": "DODOUSDT",
+      "tau": 0.35,
+      "tp": 0.03308015660265738
     }
   ]
 }
