@@ -39890,7 +39890,8 @@
       "funding": 0.005,
       "id": "TAKE_USDT:rejection:2026-11-25T04:23:53.148147+00:00",
       "status": "pending",
-      "repeats": 1
+      "repeats": 2,
+      "last_repeat": "2026-11-28T08:24:00.035177+00:00"
     },
     {
       "symbol": "UNIUSDT",
@@ -39913,6 +39914,18 @@
       "price": 4.752,
       "funding": 0.0,
       "id": "UNIUSDT:support_break:2026-11-28T04:24:11.028169+00:00",
+      "status": "pending",
+      "repeats": 1
+    },
+    {
+      "symbol": "TAKE_USDT",
+      "exchange": "gateio_futures",
+      "type": "support_break",
+      "direction": "short",
+      "ts": "2026-11-28T08:24:00.035177+00:00",
+      "price": 0.06257,
+      "funding": 0.005,
+      "id": "TAKE_USDT:support_break:2026-11-28T08:24:00.035177+00:00",
       "status": "pending",
       "repeats": 1
     }
