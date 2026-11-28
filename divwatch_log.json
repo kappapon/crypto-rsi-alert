@@ -20938,6 +20938,19 @@
       "ts": "2026-11-28T10:45:00.000Z",
       "id": "flip:TAC_USDT:gate:2026-11-28T10:45:00.000Z",
       "status": "logged"
+    },
+    {
+      "label": "TA",
+      "p1_low": 0.11858,
+      "p1_rsi": 33.4987781690229,
+      "p2_low": 0.1179,
+      "p2_rsi": 33.9054269257242,
+      "source": "gate",
+      "stage": "flip",
+      "symbol": "TA_USDT",
+      "ts": "2026-11-28T12:15:00.000Z",
+      "id": "flip:TA_USDT:gate:2026-11-28T12:15:00.000Z",
+      "status": "logged"
     }
   ]
 }
